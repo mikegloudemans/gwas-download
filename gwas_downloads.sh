@@ -61,24 +61,6 @@ wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/HDL_ONE_Eur.tbl.sorte
 wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/LDL_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
 wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/TG_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
 
-# https://www.ncbi.nlm.nih.gov/pubmed/19853236
-# Sequence variants in three loci influence monocyte counts and erythrocyte volume.
-# Ferreira et al. 2009
-mkdir Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/RBC.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HB.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HT.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCV.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCH.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCHC.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/PLT.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/WBC.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/NEUT.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/LYMPH.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MONO.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/EOS.assoc.gz --directory Blood-Cells_Ferreira_2009
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/BASO.assoc.gz --directory Blood-Cells_Ferreira_2009
-
 # https://www.ncbi.nlm.nih.gov/pubmed/20045101
 # Quantitative trait loci for CD4:CD8 lymphocyte ratio are associated with risk of type 1 diabetes and HIV-1 immune control.
 # Ferreira et al. 2010
@@ -230,17 +212,6 @@ wget http://ssgac.org/documents/MTAG_NEUR_CLUMPED.1e-5.txt --directory Multi-Tra
 wget http://ssgac.org/documents/MTAG_SWB_CLUMPED.1e-5.txt --directory Multi-Trait-Brain_Turley_2018
 wget http://ssgac.org/documents/MTAG_DEP_CLUMPED.to10K.txt --directory Multi-Trait-Brain_Turley_2018
 wget http://ssgac.org/documents/MTAG_README.txt --directory Multi-Trait-Brain_Turley_2018
-
-# https://www.ncbi.nlm.nih.gov/pubmed/29086770
-# An epigenome-wide association study meta-analysis of educational attainment	
-# Linner et al. 2017
-mkdir Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/EWAS_EA_MA_MODEL1_BASIC.tbl.gz --directory Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/EWAS_EA_MA_MODEL2_ADJUSTED.tbl.gz --directory Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/EWAS_EA_MA_NEVERSMOKERS_MODEL1_BASIC.tbl.gz --directory Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/EWAS_EA_MA_NEVERSMOKERS_MODEL2_ADJUSTED.tbl.gz --directory Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/readme_EWAS_EA_MA_summary_statistics.txt --directory Educational-Attainment_Linner_2017
-wget http://ssgac.org/documents/mp2017210x1.pdf --directory Educational-Attainment_Linner_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27798627
 # Genome-wide analysis identifies 12 loci influencing human reproductive behavior
@@ -1709,3 +1680,22 @@ mkdir ExfoliationSyndrome_Aung_2017
 # Middeldorp et al. 2016
 mkdir Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016
 # Requires manual download from http://www.tweelingenregister.org/EAGLE/
+
+# https://www.ncbi.nlm.nih.gov/pubmed/19853236
+# Sequence variants in three loci influence monocyte counts and erythrocyte volume.
+# Ferreira et al. 2009
+#mkdir Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/RBC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HB.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCV.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCH.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCHC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/PLT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/WBC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/NEUT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/LYMPH.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MONO.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/EOS.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/BASO.assoc.gz --directory Blood-Cells_Ferreira_2009
+# Requires manual download from web browser
