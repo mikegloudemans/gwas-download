@@ -26,4 +26,4 @@ In the future, I may add:
 
 * Mike Gloudemans
 * Boxiang Liu
-* Bruna Balliu
+* Brunilda Balliu
