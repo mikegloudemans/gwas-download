@@ -661,7 +661,7 @@ wget https://portals.broadinstitute.org/collaboration/giant/images/1/1c/WHRadjBM
 mkdir BMI-Physical-Activity-Interaction_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/2/27/BMI.ACTIVE.ALL.AllAncestry.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/e/e9/BMI.ACTIVE.ALL.European.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
-wget https://portals.broadinstitute.org/collaboration/giant/images/e/e9/BMI.ACTIVE.ALL.European.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
+wget https://portals.broadinstitute.org/collaboration/giant/images/9/90/BMI.ACTIVE.MEN.AllAncestry.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/a/a2/BMI.ACTIVE.MEN.European.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/0/01/BMI.ACTIVE.WOMEN.AllAncestry.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/e/e0/BMI.ACTIVE.WOMEN.European.txt.gz --directory BMI-Physical-Activity-Interaction_GIANT_2017
