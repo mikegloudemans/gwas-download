@@ -61,17 +61,6 @@ wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/HDL_ONE_Eur.tbl.sorte
 wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/LDL_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
 wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/TG_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
 
-# https://www.ncbi.nlm.nih.gov/pubmed/20045101
-# Quantitative trait loci for CD4:CD8 lymphocyte ratio are associated with risk of type 1 diabetes and HIV-1 immune control.
-# Ferreira et al. 2010
-mkdir Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD3.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4_8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-
 # https://www.ncbi.nlm.nih.gov/pubmed/26833246
 # New loci for body fat percentage reveal link between adiposity and cardiometabolic disease risk.
 # Lu et al. 2016
@@ -296,6 +285,9 @@ wget https://egg-consortium.org/downloads/Pubertal_growth_10F_12M_combined.txt.g
 wget https://egg-consortium.org/downloads/Pubertal_growth_PGF.txt.gz --directory Pubertal-Growth_Cousminer_2013
 wget https://egg-consortium.org/downloads/Pubertal_growth_PGM.txt.gz  --directory Pubertal-Growth_Cousminer_2013
 wget https://egg-consortium.org/downloads/Pubertal_growth_PGF_PGM_combined.txt.gz --directory Pubertal-Growth_Cousminer_2013
+wget https://egg-consortium.org/downloads/Pubertal_growth_PTF.txt.gz --directory Pubertal-Growth_Cousminer_2013
+wget https://egg-consortium.org/downloads/Pubertal_growth_PTM.txt.gz  --directory Pubertal-Growth_Cousminer_2013
+wget https://egg-consortium.org/downloads/Pubertal_growth_PTF_PTM_combined.txt.gz --directory Pubertal-Growth_Cousminer_2013
 
 # https://www.ncbi.nlm.nih.gov/pubmed/24770850
 # Genome-wide association study of sexual maturation in males and females highlights a role for body mass and menarche loci in male puberty.
@@ -425,8 +417,8 @@ wget http://www.t2diabetesgenes.org/datasets/Wood_et_al_2017_ISR_adj_BMI.txt.gz 
 # https://www.ncbi.nlm.nih.gov/pubmed/28957414
 # Red blood cell distribution width: Genetic evidence for aging pathways in 116,666 volunteers.
 # Pilling et al. 2017
-mkdir Red-Blood-Cell-Width_Pilling_2017
-wget http://www.t2diabetesgenes.org/datasets/UKB_150K.Pilling_2017.RDW_GWAS.txt.gz --directory Red-Blood-Cell-Width_Pilling_2017
+mkdir Red-Blood-Cell-Distribution-Width_Pilling_2017
+wget http://www.t2diabetesgenes.org/datasets/UKB_150K.Pilling_2017.RDW_GWAS.txt.gz --directory Red-Blood-Cell-Distribution-Width_Pilling_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27494321 
 # Genome-Wide Association Analyses in 128,266 Individuals Identifies New Morningness and Sleep Duration Loci.
@@ -486,6 +478,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/stroke/README_Woo_2014.pdf 
 # Pulit et al. 2016
 mkdir Ischaemic-Stroke_Pulit_2016
 wget https://personal.broadinstitute.org/mvon/4912948.SiGN.allstroke.2015.zip --directory Ischaemic-Stroke_Pulit_2016
+# The following 5 lines are redundant; all of them are contained in the "allstroke" file
 wget https://personal.broadinstitute.org/mvon/4912948.SiGN.CCS.all.2015.zip --directory Ischaemic-Stroke_Pulit_2016
 wget https://personal.broadinstitute.org/mvon/4912948.SiGN.CCS.AFR.2015.zip --directory Ischaemic-Stroke_Pulit_2016
 wget https://personal.broadinstitute.org/mvon/4912948.SiGN.CCS.EUR.2015.zip --directory Ischaemic-Stroke_Pulit_2016
@@ -739,6 +732,12 @@ wget https://portals.broadinstitute.org/collaboration/giant/images/2/2b/GIANT_20
 wget https://portals.broadinstitute.org/collaboration/giant/images/2/28/GIANT_2015_WC_FEMALES_AllAncestries.txt.gz --directory Waist_Shungin_2015
 wget https://portals.broadinstitute.org/collaboration/giant/images/7/73/GIANT_2015_WCadjBMI_COMBINED_EUR.txt.gz --directory Waist_Shungin_2015
 wget https://portals.broadinstitute.org/collaboration/giant/images/3/3f/GIANT_2015_WCadjBMI_COMBINED_AllAncestries.txt.gz --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/5/57/GIANT_2015_WC_COMBINED_EUR.txt.gz  --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/e/ea/GIANT_2015_WC_COMBINED_AllAncestries.txt.gz --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/9/93/GIANT_2015_WCadjBMI_MALES_EUR.txt.gz --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/e/e0/GIANT_2015_WCadjBMI_MALES_AllAncestries.txt.gz --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/9/92/GIANT_2015_WCadjBMI_FEMALES_EUR.txt.gz --directory Waist_Shungin_2015
+wget https://portals.broadinstitute.org/collaboration/giant/images/f/ff/GIANT_2015_WCadjBMI_FEMALES_AllAncestries.txt.gz --directory Waist_Shungin_2015
 wget https://portals.broadinstitute.org/collaboration/giant/images/f/fd/GIANT_2015_WHR_MALES_EUR.txt.gz --directory Waist_Shungin_2015
 wget https://portals.broadinstitute.org/collaboration/giant/images/b/ba/GIANT_2015_WHR_MALES_AllAncestries.txt.gz --directory Waist_Shungin_2015
 wget https://portals.broadinstitute.org/collaboration/giant/images/d/de/GIANT_2015_WHR_FEMALES_EUR.txt.gz --directory Waist_Shungin_2015
@@ -823,7 +822,8 @@ wget https://portals.broadinstitute.org/collaboration/giant/images/0/0d/GIANT_WH
 # 1000 Genomes-based meta-analysis identifies 10 novel loci for kidney function.
 # Gorski et al. 2017
 mkdir Kidney-Function_Gorski_2017
-wget http://ckdgen.imbi.uni-freiburg.de/files/Li2017/LiEtAl2017.tar.gz --directory Kidney-Function_Gorski_2017
+wget http://ckdgen.imbi.uni-freiburg.de/files/Gorski2017/CKDGen_1000Genomes_DiscoveryMeta_eGFRcrea_overall.csv.gz --directory Kidney-Function_Gorski_2017
+wget http://ckdgen.imbi.uni-freiburg.de/files/Gorski2017/CKDGen_1000Genomes_DiscoveryMeta_eGFRcys_overall.csv.gz --directory Kidney-Function_Gorski_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/26831199
 # Genetic associations at 53 loci highlight cell types and biological pathways relevant for kidney function
@@ -928,15 +928,7 @@ wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Chu/ChuVATgenRE
 # SOS2 and ACP1 Loci Identified through Large-Scale Exome Chip Analysis Regulate Kidney Development and Function.
 # Li et al. 2017
 mkdir Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcrea_DM_AA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcrea_DM_EA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcrea_nonDM_AA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcrea_nonDM_EA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcrea_overall_EA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcys_overall_AA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_eGFRcys_overall_EA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/Published_UACR_AA.csv --directory Kidney-Function_Li_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Li/LiExomeChipCKDgenREADME.txt --directory Kidney-Function_Li_2017
+wget http://ckdgen.imbi.uni-freiburg.de/files/Li2017/LiEtAl2017.tar.gz --directory Kidney-Function_Li_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/28757204
 # Low-Frequency Synonymous Coding Variation in CYP2R1 Has Large Effects on Vitamin D Levels and Risk of Multiple Sclerosis.
@@ -1699,3 +1691,16 @@ mkdir Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/EOS.assoc.gz --directory Blood-Cells_Ferreira_2009
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/BASO.assoc.gz --directory Blood-Cells_Ferreira_2009
 # Requires manual download from web browser
+
+# https://www.ncbi.nlm.nih.gov/pubmed/20045101
+# Quantitative trait loci for CD4:CD8 lymphocyte ratio are associated with risk of type 1 diabetes and HIV-1 immune control.
+# Ferreira et al. 2010
+mkdir Lymphocyte-Subsets_Ferreira_2010
+# Requires manual download from the links below
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD3.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4_8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+
