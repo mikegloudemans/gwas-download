@@ -245,11 +245,11 @@ def main():
             first_trait = False
 
         # Sort the new table and write it to its final destination file
-        if "output_file_name" in study:
+        if "output_file" in study:
             # This is only used in cases where we want to output multiple files under a single
             # study's directory. This would usually happen if the study contains
             # input files with different formats.
-            out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["output_file_name"])
+            out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["output_file"])
         else:
             out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["study_info"])
         # TODO: This is unsafe. Fix it using Popen
