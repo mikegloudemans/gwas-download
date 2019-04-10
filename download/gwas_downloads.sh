@@ -1494,6 +1494,13 @@ mkdir Blood-Metabolites_Shin_2014
 wget http://metabolomics.helmholtz-muenchen.de/gwas/gwas_server/shin_et_al.metal.out.tar.gz --directory Blood-Metabolites_Shin_2014
 wget http://metabolomics.helmholtz-muenchen.de/gwas/gwas_server/shin_et_al.xeno.metal.out.tar.gz --directory Blood-Metabolites_Shin_2014
 
+# 
+# Genome-wide meta-analysis identifies new loci and functional pathways influencing Alzheimer’s disease risk
+# Jansen et al. 2018
+mkdir Alzheimers_Jansen_2018
+wget https://ctg.cncr.nl/documents/p1651/AD_sumstats_Jansenetal.txt.gz --directory Alzheimers_Jansen_2018
+wget https://ctg.cncr.nl/documents/p1651/AD_sumstats.readme --directory Alzheimers_Jansen_2018
+
 ##################################################################################################
 
 # GWAS requiring manual download
