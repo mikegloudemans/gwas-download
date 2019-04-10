@@ -29,14 +29,14 @@ python list_snps_to_test.py config/simple-example.config
 The config file requires a very specific format; luckily, it is
 simple to create by following the instructions here. 
 
-An example config file is located in the subdiretory `config/simple-example.config`.
+An example config file is located in the subdirectory `config/simple-example.config`.
 You can follow along with this example or with the more complicated sample
 file `config/complex-example.config`, which demonstrates all possible configuration
 features. Note that these config files are merely an example, 
 and will NOT actually work with the script unless you have generated eQTL
 and GWAS files with the same names.
 
-The top level of the config file requires 4 entries, which are descibed below.
+The top level of the config file requires 4 entries, which are described below.
 
 ### `"output_directory"`
 
