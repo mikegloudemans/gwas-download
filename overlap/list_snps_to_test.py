@@ -45,7 +45,7 @@ def main():
                 for eqtl_group in config["gwas_groups"][gwas_group]["eqtl_targets"]:
                     for eqtl_cutoff_pval in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["cutoff_pvals"]:
                         for eqtl_window in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["windows"]:
-                            with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_all_coloc_tests.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
+                            with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
                                 w.write("chr\tsnp_pos\tgwas_file\teqtl_file\ttrait\tgwas_pvalue\teqtl_pvalue\tfeature\n")
                                 w.flush()
                             with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
