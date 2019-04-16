@@ -90,7 +90,7 @@ should be formatted.
 
 The top level of a config file is a JSON object containing three keys:
 
-####`input_base_dir`
+#### `input_base_dir`
 
 The directory containing all the GWAS data. This directory should contain
 one subdirectory for each GWAS.
