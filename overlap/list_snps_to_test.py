@@ -129,6 +129,8 @@ def snps_by_threshold(gwas_file, gwas_threshold, default_trait, window=1000000):
         header = f.readline().strip().split()
 
         trait_index = -1
+        if "trait" in header:
+            trait_index = header.index("trait")
         pval_index = header.index("pvalue")
         chr_index = header.index("chr")
         snp_pos_index = header.index("snp_pos")
