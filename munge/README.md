@@ -90,16 +90,16 @@ should be formatted.
 
 The top level of a config file is a JSON object containing three keys:
 
-####`input_base_dir`
+#### `input_base_dir`
 
 The directory containing all the GWAS data. This directory should contain
 one subdirectory for each GWAS.
 
-####`output_base_dir`
+#### `output_base_dir`
 
 The directory where output formatted GWAS files will be placed.
 
-####`studies`
+#### `studies`
 
 This is a list containing an individual object for each GWAS. The object will specify
 the attributes of the input GWAS; each possible parameter for this object is described
@@ -116,11 +116,11 @@ under its original column header. However, all remaining columns that were not p
 by this script will be concatenated horizontally onto the end of the table so that 
 no metadata about the SNPs is lost.
 
-#####`study_info` (required)
+##### `study_info` (required)
 
 The name of the directory containing the GWAS files for this study.
 
-#####`delimiter` (required)
+##### `delimiter` (required)
 
 The delimiter separating columns in the file. If the delimiter is
 simply whitespace, you can specify
@@ -128,15 +128,15 @@ simply whitespace, you can specify
 "delimiter": "\\s*"
 ```
 
-#####`chr_index` (required)
+##### `chr_index` (required)
 
 The index of the column containing the chromosome number, if present, or "-1" if not present.
 
-#####`snp_pos_index` (required)
+##### `snp_pos_index` (required)
 
 The index of the column containing the chromosome number, if present, or "-1" if not present.
 
-#####`traits` (required)
+##### `traits` (required)
 
 A object of all traits included in the file. Within this file, the key should be the name of the trait and the
 value should be a list of all the files containing the GWAS statistics. (Usually this list contains only one string).
@@ -150,54 +150,54 @@ If more than one trait is given, then they will be grouped into a single output 
 name of the key given in this object. Only specify multiple traits in the same study object if you want them to be grouped together
 in the same output file.
 
-#####`rsid_index`
+##### `rsid_index`
 
 The index of the column containing the rsid, if present.
 
-#####`pvalue_index`
+##### `pvalue_index`
 
 The index of the column containing the pvalue, if present.
 
-#####`effect_allele_index`
+##### `effect_allele_index`
 
 The index of the column containing the effect allele, if present.
 
-#####`non_effect_allele_index`
+##### `non_effect_allele_index`
 
 The index of the column containing the non-effect allele, if present.
 
-#####`direction_index`
+##### `direction_index`
 
 The index of the column containing the non-effect allele, if present.
 (Unlike most specified columns, this one may be the same as another
 specified column, and will not be renamed in the output file.)
 
-#####`maf_index`
+##### `maf_index`
 
 The index of the column containing the minor allele frequency, if present.
 
-#####`effect_index`
+##### `effect_index`
 
 The index of the column containing the effect size, if present.
 
-#####`se_index`
+##### `se_index`
 
 The index of the column containing the standard error of the effect size or odds ratio, if present.
 
-#####`or_index`
+##### `or_index`
 
 The index of the column containing the standard error of the odds ratio, if present.
 
-#####`n_total_index`
+##### `n_total_index`
 
 The index of the column containing the total number of alleles tested in the population, if present.
 
-#####`zscore_index`
+##### `zscore_index`
 
 The index of the column containing the Z-score for the GWAS test, if present.
 In most cases, this will not be present and is not necessary.
 
-#####`tstat_index`
+##### `tstat_index`
 
 The index of the column containing the T-statistic for the GWAS test, if present.
 In most cases, this will not be present and is not necessary.
@@ -208,13 +208,13 @@ The available options include all the options described in the "standard options
 However, in some cases there will be a strangely-formatted GWAS that requires additional
 modifications. In that case, you can add in the following parameters to the study objects.
 
-#####`output_file`
+##### `output_file`
 
 By default, the output file is the same as the `study_info` field. If you wish to have 
 an output file whose name does not match the input directory name, you can specify the
 `output_file` field field to override the default output name.
 
-#####`snp_split_char`
+##### `snp_split_char`
 
 In some files, the SNP and the chromosome are given in the same field, separated by
 a delimiter such as an underscore or a colon. When this happens, you can specify the
@@ -223,18 +223,18 @@ delimeter using the `snp_split_char` parameter.
 
 An example of this is in the study "Sleep-Duration_Marinelli_2016".
 
-#####`no_header`
+##### `no_header`
 
 By default, it is assumed that the input file has a header line. If not,
 you can specify `no_header` to be `"True"`.
 
-#####`skip_rows`
+##### `skip_rows`
 
 If the file begins with irrelevant lines, specify the number of lines that
 should be skipped over. (This should not include the header; if there is also
 no header, then also specify `no_header`.
 
-#####`multi_column`
+##### `multi_column`
 
 In some cases, a single output file contains multiple p-values of interest, for different
 traits. When this happens, set `multi-column` to a list containing the file of interest.
@@ -256,7 +256,7 @@ position, zipped, and indexed with tabix.
 
 ### Troubleshooting
 
-I apologize that this script is still pretty hackish. Please contact me or post a bug report if
+I realize that this script is still pretty hackish! Please contact me or post a bug report if
 you encounter any issues that I may be able to help you resolve. I'll be happy
 to assist you and to update the script to make it as useful as possible.
 
