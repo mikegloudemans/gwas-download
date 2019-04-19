@@ -49,7 +49,7 @@ def main():
                                 w.write("chr\tsnp_pos\tgwas_file\teqtl_file\ttrait\tgwas_pvalue\teqtl_pvalue\tfeature\n")
                                 w.flush()
                             with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
-                                w.write("chr\tsnp_pos\tpvalue\tgene\ttrait\n")
+                                w.write("chr\tsnp_pos\tgwas_pvalue\teqtl_pvalue\tgene\ttrait\n")
 
     # Now start searching for colocalization candidates
     for gwas_group in config["gwas_groups"]:
@@ -87,16 +87,18 @@ def add_snps_to_test(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gw
 
                 # Get header to locate columns of interest
                 header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
+                header = [h.lower() for h in header]
                 pval_index = header.index("pvalue")
                 if "gene" in header:
                     gene_index = header.index("gene")
                 else:
                     gene_index = header.index("feature")
-
               
                 wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, snp[0], snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
                 if wide_matches == "":
-                    continue
+                    wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
+                    if wide_matches == "":
+                        continue
                 wide_matches = wide_matches.strip().split("\n")
 
                 genes_considered = set([])
@@ -108,7 +110,7 @@ def add_snps_to_test(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gw
                     # Keep track of all SNP-gene pairs considered, for the manuscript
                     if data[gene_index] not in genes_considered:
                         with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "a") as a:
-                            a.write("\t".join([str(s) for s in snp]) + "\t" + gwas_file + "\t" + data[gene_index] + "\t" + pheno + "\n")
+                            a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) "\t" + gwas_file + "\t" + data[gene_index] + "\t" + pheno + "\n")
                             genes_considered.add(data[gene_index])
 
                     if float(data[pval_index]) <= eqtl_cutoff_pval and data[0] not in matched:
