@@ -84,9 +84,7 @@ def add_snps_to_test(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gw
             print snp
 
             for pheno in eqtl_files:
-
-                print "\t", pheno
-
+                
                 # Get header to locate columns of interest
                 header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
                 header = [h.lower() for h in header]
