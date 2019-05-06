@@ -261,6 +261,24 @@ corresponding to three different parts of the heart. Thus, every GWAS file speci
 here as part of our GWAS group will be tested for overlap with eQTLs in one lung tissue
 and in three heart tissues.
 
+-------
+
+Within the top level of the config file, there is one more optional argument.
+
+### `"swap"`
+
+Normally the overlap script starts with a GWAS file and matches the top hits
+in that file with the desired eQTLs in the specified target files. However,
+in some cases you may want to select eQTL hits and perform a traditional PheWAS-style
+overlap, matching these top eQTL hits with any associated GWAS hits. In this
+case, you should specify `"swap": "True"`. This option indicates that the "gwas_groups"
+you have specified actually are eQTL files, and the "eqtl_groups" you have specified
+are actually GWAS files. (These files must still be in the required format, as explained
+above, but the headers will be swapped so that now the files you have listed in the "gwas_groups"
+will have eQTL headers like `gene` and vice-versa.)
+
+I apologize that this swap function is somewhat confusing; I'm still thinking about
+a more intuitive but simple way to specify this type of overlap test.
 
 ## Output
 
