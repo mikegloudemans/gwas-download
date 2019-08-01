@@ -8,11 +8,15 @@ import glob
 import gzip
 import sys
 import subprocess
+import os
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 debug = None
 #debug = 1000000    
+
+
+os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
 # Custom script for munging all GWAS files, according to specifications
 # given in a separate JSON file.
@@ -169,11 +173,17 @@ def main():
                             del cols[index]
                     data = data[cols]
 
-                data['chr'] = data['chr'].astype(str)
+                
+                data = data[~(pd.isnull(data['chr']))]
+                data = data[~(pd.isnull(data['snp_pos']))]
+                data['chr'] = data['chr'].astype(int).astype(str)
                 data['chr'] = data['chr'].str.replace('chr', '')
                 data['snp_pos'] = data['snp_pos'].astype(int)
                 
                 new_data = rsids.merge(data, suffixes=('', '_old'), on=["chr", "snp_pos"])
+
+                print data.head()
+                print new_data.head()
 
             else:
                 print study["path_glob"], "not properly specified in JSON config file."
