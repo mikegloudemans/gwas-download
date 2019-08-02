@@ -13,7 +13,17 @@ import os
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 debug = None
-#debug = 1000000    
+#debug = 1000000
+
+# Where to store tmp files
+tmp_file = "/users/mgloud/projects/gwas/scripts/tmp/unsorted_GWAS.tmp"
+
+def is_int(s):
+    try:
+        int(float(s))
+        return True
+    except:
+        return False
 
 
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
@@ -61,10 +71,14 @@ def main():
             else:
                 file_chunks = study["traits"][trait]
 
-            # Some files come in chunks separated by chromosome; loop through and combine all chunks.
+            # Some files come in multiple chunks; if not, we can still handle them this way
+            # TODO: If file is extremely large, chunk it down further into blocks of 1M lines or whatever's
+            # manageable in terms of memory
             all_data = []
             for file_chunk in file_chunks:
                 filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
+
+
 
                 # Determine format and load the file
                 if "format" in study:
@@ -94,12 +108,40 @@ def main():
             data = pd.concat(all_data)
 
             # Note key SNP attributes
+            if "effect_index" in study:
+                data.rename(columns={data.keys()[int(study["effect_index"]) - 1]:'beta'}, inplace = True)
+            if "or_index" in study:
+                data.rename(columns={data.keys()[int(study["or_index"]) - 1]:'or'}, inplace = True)
+            if "se_index" in study:
+                data.rename(columns={data.keys()[int(study["se_index"]) - 1]:'se'}, inplace = True)
+            if "n_cases_index" in study:
+                data.rename(columns={data.keys()[int(study["n_cases_index"]) - 1]:'n_cases'}, inplace = True)
+            if "n_controls_index" in study:
+                data.rename(columns={data.keys()[int(study["n_controls_index"]) - 1]:'n_controls'}, inplace = True)
+            if "n_total_index" in study:
+                data.rename(columns={data.keys()[int(study["n_total_index"]) - 1]:'n_total'}, inplace = True)
+            if "effect_allele_freq_index" in study:
+                data.rename(columns={data.keys()[int(study["effect_allele_freq_index"]) - 1]:'effect_allele_freq'}, inplace = True)
+            if "effect_index" in study:
+                data.rename(columns={data.keys()[int(study["effect_index"]) - 1]:'beta'}, inplace = True)
+            if "or_index" in study:
+                data.rename(columns={data.keys()[int(study["or_index"]) - 1]:'or'}, inplace = True)
+            if "se_index" in study:
+                data.rename(columns={data.keys()[int(study["se_index"]) - 1]:'se'}, inplace = True)
+            if "n_cases_index" in study:
+                data.rename(columns={data.keys()[int(study["n_cases_index"]) - 1]:'n_cases'}, inplace = True)
+            if "n_controls_index" in study:
+                data.rename(columns={data.keys()[int(study["n_controls_index"]) - 1]:'n_controls'}, inplace = True)
+            if "n_total_index" in study:
+                data.rename(columns={data.keys()[int(study["n_total_index"]) - 1]:'n_total'}, inplace = True)
+            if "effect_allele_freq_index" in study:
+                data.rename(columns={data.keys()[int(study["effect_allele_freq_index"]) - 1]:'effect_allele_freq'}, inplace = True)
             if "effect_allele_index" in study:
                 data.rename(columns={data.keys()[int(study["effect_allele_index"]) - 1]:'effect_allele'}, inplace = True)
             if "non_effect_allele_index" in study:
                 data.rename(columns={data.keys()[int(study["non_effect_allele_index"]) - 1]:'non_effect_allele'}, inplace = True)
             if "direction_index" in study:
-                data.rename(columns={data.keys()[int(study["direction_index"]) - 1]:'effect_direction'}, inplace = True)
+                data['effect_direction'] = data.iloc[:,int(study["direction_index"]) - 1]
 
                 # Test if we're looking at "+/-"
                 if sum(data['effect_direction'].isin(["+", "-"])) * 1.0 / len(data['effect_direction']) > 0.9:
@@ -182,9 +224,6 @@ def main():
                 
                 new_data = rsids.merge(data, suffixes=('', '_old'), on=["chr", "snp_pos"])
 
-                print data.head()
-                print new_data.head()
-
             else:
                 print study["path_glob"], "not properly specified in JSON config file."
                 # TODO: print to a log file that the JSON was not properly
@@ -229,6 +268,20 @@ def main():
                 cols.remove("non_effect_allele")
             if "effect_direction" in cols:
                 cols.remove("effect_direction")
+            if "or" in cols:
+                cols.remove("or")
+            if "beta" in cols:
+                cols.remove("beta")
+            if "se" in cols:
+                cols.remove("se")
+            if "n_cases" in cols:
+                cols.remove("n_cases")
+            if "n_controls" in cols:
+                cols.remove("n_controls")
+            if "n_total" in cols:
+                cols.remove("n_total")
+            if "effect_allele_freq" in cols:
+                cols.remove("effect_allele_freq")
 
             prefix = []
             if "effect_allele_index" in study:
@@ -237,6 +290,21 @@ def main():
                 prefix.append("non_effect_allele")
             if "direction_index" in study:
                 prefix.append("effect_direction")
+            if "or_index" in study:
+                prefix.append("or")
+            if "effect_index" in study:
+                prefix.append("beta")
+            if "se_index" in study:
+                prefix.append("se")
+            if "n_cases_index" in study:
+                prefix.append("n_cases")
+            if "n_controls_index" in study:
+                prefix.append("n_controls")
+            if "n_total_index" in study:
+                prefix.append("n_total")
+            if "effect_allele_freq_index" in study:
+                prefix.append("effect_allele_freq")
+
             cols = ["rsid", "chr", "snp_pos", "pvalue"] + prefix + cols
             if len(study["traits"].keys()) > 1:
                 cols = ["trait"] + cols
@@ -246,10 +314,10 @@ def main():
 
             # Write header only if it's the first trait from this study
             if first_trait:
-                with open("tmp/unsorted_GWAS.tmp", "w") as w:
+                with open(tmp_file, "w") as w:
                     new_data.to_csv(w, sep="\t", index=False, float_format='%.3E')
             else:
-                with open("tmp/unsorted_GWAS.tmp", "a") as a:
+                with open(tmp_file, "a") as a:
                     new_data.to_csv(a, sep="\t", index=False, header=False, float_format='%.3E')
 
             first_trait = False
@@ -263,11 +331,12 @@ def main():
         else:
             out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["study_info"])
         # TODO: This is unsafe. Fix it using Popen
-        subprocess.check_call("head -n 1 tmp/unsorted_GWAS.tmp > {0}".format(out_file), shell=True)
+        # TODO: This also probably isn't very efficient right now, so fix that if possible
+        subprocess.check_call("head -n 1 {1} > {0}".format(out_file, tmp_file), shell=True)
         if len(study["traits"]) > 1:
-           subprocess.check_call("tail -n +2 tmp/unsorted_GWAS.tmp | sort -k3,3 -k4,4n >> {0}".format(out_file), shell=True) 
+           subprocess.check_call("tail -n +2 {1} | sort -k3,3 -k4,4n >> {0}".format(out_file, tmp_file), shell=True) 
         else:
-           subprocess.check_call("tail -n +2 tmp/unsorted_GWAS.tmp | sort -k2,2 -k3,3n >> {0}".format(out_file), shell=True) 
+           subprocess.check_call("tail -n +2 {1} | sort -k2,2 -k3,3n >> {0}".format(out_file, tmp_file), shell=True) 
 
         # Bgzip the output file
         subprocess.check_call(["bgzip", "-f", out_file])
