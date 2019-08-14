@@ -13,7 +13,10 @@ import os
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 debug = None
-#debug = 1000000
+debug = 1000000
+
+# TODO: Integrate this more cleanly
+genome_build = "hg38"
 
 # Where to store tmp files
 tmp_file = "/users/mgloud/projects/gwas/scripts/tmp/unsorted_GWAS.tmp"
@@ -30,6 +33,7 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
 # Custom script for munging all GWAS files, according to specifications
 # given in a separate JSON file.
+
 def main():
 
     # Find location of config file and open it
@@ -40,12 +44,23 @@ def main():
     with open(munge_menu) as f:
         config = json.load(f)
 
-    rsids = load_rsid_keys()
+    if genome_build == "hg38":
+        rsids = load_hg38_rsid_keys()
+    elif genome_build == "hg19":
+        rsids = load_hg19_rsid_keys()
+    else:
+        raise Exception("Invalid genome build: %s" % genome_build)
 
+    active = False
     # Munge every study from the config list, one at a time
     for study in config["studies"]:
+
+        if "Autism_Psychiatric-Genomics-Consortium_2017" in study["study_info"]:
+            active = True
+        if not active:
+            continue
         
-        print "Munging", study 
+        print "Munging", study["study_info"]
 
         # Check if the config file specifies a custom delimiter
         delimiter = "\t"
@@ -92,14 +107,14 @@ def main():
                 if format == "gzip":
                     with gzip.open(filename) as f:
                         if "no_header" in study and study["no_header"] == "True":
-                            data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None)
+                            data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
                         else:
-                            data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows)
+                            data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
                 else:
                     if "no_header" in study and study["no_header"] == "True":
-                        data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None)
+                        data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
                     else:
-                        data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows)
+                        data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
 
                 all_data.append(data)
            
@@ -108,20 +123,6 @@ def main():
             data = pd.concat(all_data)
 
             # Note key SNP attributes
-            if "effect_index" in study:
-                data.rename(columns={data.keys()[int(study["effect_index"]) - 1]:'beta'}, inplace = True)
-            if "or_index" in study:
-                data.rename(columns={data.keys()[int(study["or_index"]) - 1]:'or'}, inplace = True)
-            if "se_index" in study:
-                data.rename(columns={data.keys()[int(study["se_index"]) - 1]:'se'}, inplace = True)
-            if "n_cases_index" in study:
-                data.rename(columns={data.keys()[int(study["n_cases_index"]) - 1]:'n_cases'}, inplace = True)
-            if "n_controls_index" in study:
-                data.rename(columns={data.keys()[int(study["n_controls_index"]) - 1]:'n_controls'}, inplace = True)
-            if "n_total_index" in study:
-                data.rename(columns={data.keys()[int(study["n_total_index"]) - 1]:'n_total'}, inplace = True)
-            if "effect_allele_freq_index" in study:
-                data.rename(columns={data.keys()[int(study["effect_allele_freq_index"]) - 1]:'effect_allele_freq'}, inplace = True)
             if "effect_index" in study:
                 data.rename(columns={data.keys()[int(study["effect_index"]) - 1]:'beta'}, inplace = True)
             if "or_index" in study:
@@ -218,9 +219,8 @@ def main():
                 
                 data = data[~(pd.isnull(data['chr']))]
                 data = data[~(pd.isnull(data['snp_pos']))]
-                data['chr'] = data['chr'].astype(int).astype(str)
                 data['chr'] = data['chr'].str.replace('chr', '')
-                data['snp_pos'] = data['snp_pos'].astype(int)
+                data['snp_pos'] = data['snp_pos'].astype(float).astype(int)
                 
                 new_data = rsids.merge(data, suffixes=('', '_old'), on=["chr", "snp_pos"])
 
@@ -249,7 +249,6 @@ def main():
                 except:
                     return False
             new_data = new_data[new_data['pvalue'].apply(valid_pval)]
-
             # Then reorder the new table appropriately
 
             cols = new_data.columns.tolist()
@@ -308,6 +307,8 @@ def main():
             cols = ["rsid", "chr", "snp_pos", "pvalue"] + prefix + cols
             if len(study["traits"].keys()) > 1:
                 cols = ["trait"] + cols
+            
+            print new_data.head()
             new_data = new_data[cols]
 
             print new_data.head(3)
@@ -348,15 +349,21 @@ def main():
             subprocess.check_call(["tabix", "-f", "-s", "2", "-b", "3", "-e", "3", "-S", "1", out_file+".gz"])
 
 
-def load_rsid_keys():
-    with gzip.open("/users/mgloud/projects/gwas/data/sorted_hg19_snp150.txt.gz") as f:
+def load_hg19_rsid_keys():
+    return load_rsid_keys("/users/mgloud/projects/gwas/data/sorted_hg19_snp150.txt.gz")
+
+def load_hg38_rsid_keys():
+    return load_rsid_keys("/users/mgloud/projects/gwas/data/sorted_hg38_snp150.txt.gz")
+
+def load_rsid_keys(rsid_file):
+    with gzip.open(rsid_file) as f:
         data = pd.read_csv(f, sep="\t", index_col = 2, nrows=debug, header=None, names=["chr", "snp_pos"])
 
     data['chr'] = data['chr'].astype(str)
     data['snp_pos'] = data['snp_pos'].astype(int)
     data['chr'] = data['chr'].str.replace('chr', '')
     data['rsid'] = data.index.values
-
+    
     return data
 
 if __name__ == "__main__":
