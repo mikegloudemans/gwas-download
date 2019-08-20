@@ -10,12 +10,13 @@ import sys
 import subprocess
 import os
 import time
+import traceback
 
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 debug = None
-#debug = 1000000
+#debug = 10000000
 
 # TODO: Integrate this more cleanly
 genome_build = "hg38"
@@ -38,6 +39,8 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
 def main():
 
+    subprocess.check_call("rm -f output/error-log.txt", shell=True)
+
     lasttime = 0
 
     # Find location of config file and open it
@@ -49,9 +52,9 @@ def main():
         config = json.load(f)
 
     if genome_build == "hg38":
-        rsids = load_hg38_rsid_keys()
+        rsid_to_pos, pos_to_rsid = load_hg38_rsid_keys()
     elif genome_build == "hg19":
-        rsids = load_hg19_rsid_keys()
+        rsid_to_pos, pos_to_rsid = load_hg19_rsid_keys()
     else:
         raise Exception("Invalid genome build: %s" % genome_build)
 
@@ -191,10 +194,42 @@ def main():
                     print "before merge"
                     print time.time() - lasttime
                     lasttime = time.time()
-                    new_data = rsids.merge(data, suffixes=('', '_old'), left_index=True, right_on="rsid")
+
+                    # Rename columns with "snp_pos" or "chr" names with "old" suffix
+                    if "snp_pos" in data.columns.values:
+                        data = data.rename(columns = {"snp_pos": "snp_pos_old"})
+                    if "chr" in data.columns.values:
+                        data = data.rename(columns = {"chr": "chr_old"})
+
+                    # Apply  function that gets chr and snp_pos for all rsids, from the dict
+                    def get_chr(x):
+                        try:
+                            rs_no = int(x.replace("rs", ""))
+                        except:
+                            return -1
+                        if rs_no in rsid_to_pos:
+                            return rsid_to_pos[rs_no][0]
+                        return -1
+                    def get_pos(x):
+                        try:
+                            rs_no = int(x.replace("rs", ""))
+                        except:
+                            return -1
+                        if rs_no in rsid_to_pos:
+                            return rsid_to_pos[rs_no][1]
+                        return -1
+                    data["chr"] = data["rsid"].apply(get_chr)
+                    data["snp_pos"] = data["rsid"].apply(get_pos)
+                
+                    # Throw away the ones with rsids not found
+                    data = data[~(data['chr'] == -1)]
+                    data = data[~(data['snp_pos'] == -1)]
+                    
                     print "after merge"
                     print time.time() - lasttime
                     lasttime = time.time()
+
+                    new_data = data
 
                 elif "chr_index" in study and study["chr_index"] != "-1" \
                         and "snp_pos_index" in study and study["snp_pos_index"] != "-1":
@@ -227,7 +262,53 @@ def main():
                     data['chr'] = data['chr'].str.replace('chr', '')
                     data['snp_pos'] = data['snp_pos'].astype(float).astype(int)
     
-                    new_data = rsids.merge(data, suffixes=('', '_old'), on=["chr", "snp_pos"])
+                    # Throw away the ones with rsids not found
+                    if "rsid" in data.columns.values:
+                        data = data.rename(columns = {"rsid": "rsid_old"})
+
+                    # First, map chr and pos (hg19) to their rsids
+                    rsid_column = []
+                    for i in range(new_data.shape[0]):
+                        try:
+                            if (int(data['chr'][i]), int(data['snp_pos'][i])) in pos_to_rsid:
+                                rsid_column.append("rs" + str(pos_to_rsid[(data['chr'][i], data['snp_pos'][i])]))
+                        except:
+                            pass
+                        rsid_column.append("NA")
+                    data['rsid'] = rsid_column
+
+                    # Rename columns with "snp_pos" or "chr" names with "old" suffix
+                    if "snp_pos" in data.columns.values:
+                        data = data.rename(columns = {"snp_pos": "snp_pos_old"})
+                    if "chr" in data.columns.values:
+                        data = data.rename(columns = {"chr": "chr_old"})
+
+                    # Then apply function that gets chr and snp_pos for all rsids, from the dict
+                    def get_chr(x):
+                        try:
+                            rs_no = int(x.replace("rs", ""))
+                        except:
+                            return -1
+                        if rs_no in rsid_to_pos:
+                            return rsid_to_pos[rs_no][0]
+                        return -1
+                    def get_pos(x):
+                        try:
+                            rs_no = int(x.replace("rs", ""))
+                        except:
+                            return -1
+                        if rs_no in rsid_to_pos:
+                            return rsid_to_pos[rs_no][1]
+                        return -1
+
+                    data["chr"] = data["rsid"].apply(get_chr)
+                    data["snp_pos"] = data["rsid"].apply(get_pos)
+                
+                    # Throw away the ones with rsids not found
+                    data = data[~(data['chr'] == -1)]
+                    data = data[~(data['snp_pos'] == -1)]
+
+                    new_data = data
 
                 else:
                     print study["path_glob"], "not properly specified in JSON config file."
@@ -235,9 +316,6 @@ def main():
                     # specified for this file.
                     continue
                 
-                new_data = new_data[~(new_data['chr'].str.contains("_"))]
-                new_data = new_data[~(new_data['chr'].str.contains("NA"))]
-
                 # Add trait column if there are multiple traits in this study.
                 if len(study["traits"].keys()) > 1:
                     new_data['trait'] = trait
@@ -352,30 +430,79 @@ def main():
                 subprocess.check_call(["tabix", "-f", "-s", "3", "-b", "4", "-e", "4", "-S", "1", out_file+".gz"])
             else:
                 subprocess.check_call(["tabix", "-f", "-s", "2", "-b", "3", "-e", "3", "-S", "1", out_file+".gz"])
-        except:
+        except Exception as e:
             # Log problems to an error file, then move on
             subprocess.check_call("mkdir -p output", shell=True)
             with open("output/error-log.txt", "a") as a:
                 a.write(study["study_info"] + "\n")
 
+            traceback.print_exc(file=sys.stdout)
+            #error = str(e)
+            #error = error + "\t" + traceback.format_exc().replace("\n", "NEWLINE").replace("\t", "TAB")
 
 
 def load_hg19_rsid_keys():
-    return load_rsid_keys("/users/mgloud/projects/gwas/data/sorted_hg19_snp150.txt.gz")
+    return load_rsid_keys(rsid_to_pos_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz", \
+            pos_to_rsid_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz")
 
 def load_hg38_rsid_keys():
-    return load_rsid_keys("/users/mgloud/projects/gwas/data/sorted_hg38_snp150.txt.gz")
+    return load_rsid_keys(rsid_to_pos_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg38_snp150.txt.gz", \
+            pos_to_rsid_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz")
 
-def load_rsid_keys(rsid_file):
-    with gzip.open(rsid_file) as f:
-        data = pd.read_csv(f, sep="\t", index_col = 2, nrows=debug, header=None, names=["chr", "snp_pos"])
+def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
 
-    data['chr'] = data['chr'].astype(str)
-    data['snp_pos'] = data['snp_pos'].astype(int)
-    data['chr'] = data['chr'].str.replace('chr', '')
-    data['rsid'] = data.index.values
-    
-    return data
+    rsid_to_pos = {}
+    pos_to_rsid = {}
+
+    with gzip.open(rsid_to_pos_file) as f:
+        line_no = 0
+        for line in f:
+            data = line.strip().split()
+            try:
+                chrom = int(data[0].replace("chr", ""))
+            except:
+                # Weird chromsome
+                continue
+
+            rs_no = int(data[2].replace("rs", ""))
+
+            rsid_to_pos[rs_no] = (chrom, data[1])
+
+            # Read fewer lines if we're in debug mode
+            line_no += 1
+            if line_no % 10000000 == 0:
+                print line_no
+            if (not debug is None) and line_no > debug:
+                break
+
+    with gzip.open(pos_to_rsid_file) as f:
+        # NOTE: If a given position has more than one legal rsID,
+        # then we'll arbitrarily choose whichever one appears last in
+        # the file for now.
+        line_no = 0
+        for line in f:
+            data = line.strip().split()
+
+            try:
+                chrom = int(data[0].replace("chr", ""))
+            except:
+                # Weird chromsome, or X/Y
+                continue
+
+            rs_no = int(data[2].replace("rs", ""))
+
+            pos_to_rsid[(chrom, int(data[1]))] = rs_no
+            
+            line_no += 1
+            if line_no % 10000000 == 0:
+                print line_no
+
+            # Read fewer lines if we're in debug mode
+            line_no += 1
+            if (not debug is None) and line_no > debug:
+                break
+
+    return (rsid_to_pos, pos_to_rsid)
 
 if __name__ == "__main__":
     main()
