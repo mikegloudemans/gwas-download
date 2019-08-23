@@ -16,7 +16,7 @@ import traceback
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 debug = None
-#debug = 10000000
+#debug = 3000000
 
 # TODO: Integrate this more cleanly
 genome_build = "hg38"
@@ -58,6 +58,8 @@ def main():
     else:
         raise Exception("Invalid genome build: %s" % genome_build)
 
+    active = True
+
     # Munge every study from the config list, one at a time
     for study in config["studies"]:
         # Yes, the clean way to do this would be to make it a separate function, which is what I should do eventually.
@@ -65,6 +67,12 @@ def main():
         # TODO: Make it print the whole exception like the coloc dispatcher script does
         try:
             print "Munging", study["study_info"]
+
+            if "Astle" in study["study_info"]:
+                active = True
+
+            if not active:
+                continue
 
             # Check if the config file specifies a custom delimiter
             delimiter = "\t"
@@ -78,7 +86,6 @@ def main():
 
             # Parse each input trait separately, but output them
             # all to the same final file.
-            first_trait = True
             for trait in study["traits"]:
                 print "Current trait:", trait
 
@@ -91,8 +98,6 @@ def main():
                     file_chunks = study["traits"][trait]
 
                 # Some files come in multiple chunks; if not, we can still handle them this way
-                # TODO: If file is extremely large, chunk it down further into blocks of 1M lines or whatever's
-                # manageable in terms of memory
                 all_data = []
                 for file_chunk in file_chunks:
                     filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
@@ -256,7 +261,6 @@ def main():
                                 del cols[index]
                         data = data[cols]
 
-                    
                     data = data[~(pd.isnull(data['chr']))]
                     data = data[~(pd.isnull(data['snp_pos']))]
                     data['chr'] = data['chr'].str.replace('chr', '')
@@ -265,16 +269,14 @@ def main():
                     # Throw away the ones with rsids not found
                     if "rsid" in data.columns.values:
                         data = data.rename(columns = {"rsid": "rsid_old"})
-
+                    
                     # First, map chr and pos (hg19) to their rsids
                     rsid_column = []
-                    for i in range(new_data.shape[0]):
-                        try:
-                            if (int(data['chr'][i]), int(data['snp_pos'][i])) in pos_to_rsid:
-                                rsid_column.append("rs" + str(pos_to_rsid[(data['chr'][i], data['snp_pos'][i])]))
-                        except:
-                            pass
-                        rsid_column.append("NA")
+                    for i in range(data.shape[0]):
+                        if (int(data['chr'][i]), int(data['snp_pos'][i])) in pos_to_rsid:
+                            rsid_column.append("rs" + str(pos_to_rsid[(int(data['chr'][i]), int(data['snp_pos'][i]))]))
+                        else:
+                            rsid_column.append("NA")
                     data['rsid'] = rsid_column
 
                     # Rename columns with "snp_pos" or "chr" names with "old" suffix
@@ -307,19 +309,15 @@ def main():
                     # Throw away the ones with rsids not found
                     data = data[~(data['chr'] == -1)]
                     data = data[~(data['snp_pos'] == -1)]
-
+                
                     new_data = data
-
+                
                 else:
                     print study["path_glob"], "not properly specified in JSON config file."
                     # TODO: print to a log file that the JSON was not properly
                     # specified for this file.
                     continue
                 
-                # Add trait column if there are multiple traits in this study.
-                if len(study["traits"].keys()) > 1:
-                    new_data['trait'] = trait
-
                 # Filter out rows that don't have valid pvals
                 def valid_pval(x):
                     try:
@@ -340,8 +338,6 @@ def main():
                 cols.remove("chr")
                 cols.remove("snp_pos")
                 cols.remove("pvalue")
-                if "trait" in cols:
-                    cols.remove("trait")
                 if "rsid_old" in cols:
                     cols.remove("rsid_old")
                 if "effect_allele" in cols:
@@ -388,48 +384,40 @@ def main():
                     prefix.append("effect_allele_freq")
 
                 cols = ["rsid", "chr", "snp_pos", "pvalue"] + prefix + cols
-                if len(study["traits"].keys()) > 1:
-                    cols = ["trait"] + cols
                 
-                print new_data.head()
                 new_data = new_data[cols]
 
                 print new_data.head(3)
 
-                # Write header only if it's the first trait from this study
-                if first_trait:
-                    with open(tmp_file, "w") as w:
-                        new_data.to_csv(w, sep="\t", index=False, float_format='%.3E')
+                # Write header
+                with open(tmp_file, "w") as w:
+                    new_data.to_csv(w, sep="\t", index=False, float_format='%.3E')
+
+
+                # Sort the new table and write it to its final destination file
+                if "output_file" in study:
+                    # This is only used in cases where we want to output multiple files under a single
+                    # study's directory. This would usually happen if the study contains
+                    # input files with different formats.
+                    subprocess.call("mkdir -p {0}/{1}".format(config["output_base_dir"], study["output_file"]), shell=True)
+                    out_file = "{0}/{1}/{2}.txt".format(config["output_base_dir"], study["output_file"], trait)
                 else:
-                    with open(tmp_file, "a") as a:
-                        new_data.to_csv(a, sep="\t", index=False, header=False, float_format='%.3E')
+                    subprocess.call("mkdir -p {0}/{1}".format(config["output_base_dir"], study["study_info"]), shell=True)
+                    out_file = "{0}/{1}/{2}.txt".format(config["output_base_dir"], study["study_info"], trait)
+                # TODO: This is unsafe. Fix it using Popen
+                # TODO: This also probably isn't very efficient right now, so fix that if possible
+                subprocess.check_call("head -n 1 {1} > {0}".format(out_file, tmp_file), shell=True)
+                
+                subprocess.check_call("tail -n +2 {1} | sort -k2,2 -k3,3n >> {0}".format(out_file, tmp_file), shell=True) 
 
-                first_trait = False
+                # Bgzip the output file
+                subprocess.check_call(["bgzip", "-f", out_file])
 
-            # Sort the new table and write it to its final destination file
-            if "output_file" in study:
-                # This is only used in cases where we want to output multiple files under a single
-                # study's directory. This would usually happen if the study contains
-                # input files with different formats.
-                out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["output_file"])
-            else:
-                out_file = "{0}/GWAS_{1}.txt".format(config["output_base_dir"], study["study_info"])
-            # TODO: This is unsafe. Fix it using Popen
-            # TODO: This also probably isn't very efficient right now, so fix that if possible
-            subprocess.check_call("head -n 1 {1} > {0}".format(out_file, tmp_file), shell=True)
-            if len(study["traits"]) > 1:
-               subprocess.check_call("tail -n +2 {1} | sort -k3,3 -k4,4n >> {0}".format(out_file, tmp_file), shell=True) 
-            else:
-               subprocess.check_call("tail -n +2 {1} | sort -k2,2 -k3,3n >> {0}".format(out_file, tmp_file), shell=True) 
-
-            # Bgzip the output file
-            subprocess.check_call(["bgzip", "-f", out_file])
-
-            # Tabix the output file
-            if len(study["traits"]) > 1:
-                subprocess.check_call(["tabix", "-f", "-s", "3", "-b", "4", "-e", "4", "-S", "1", out_file+".gz"])
-            else:
+                # Tabix the output file
                 subprocess.check_call(["tabix", "-f", "-s", "2", "-b", "3", "-e", "3", "-S", "1", out_file+".gz"])
+
+                del new_data
+
         except Exception as e:
             # Log problems to an error file, then move on
             subprocess.check_call("mkdir -p output", shell=True)
@@ -498,7 +486,6 @@ def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
                 print line_no
 
             # Read fewer lines if we're in debug mode
-            line_no += 1
             if (not debug is None) and line_no > debug:
                 break
 
