@@ -1,8 +1,32 @@
 # gwas-download
 
+### One-click download of formatted GWAS summary stats from 200+ publications (new on 10/21/2019)
+
+#### A note on security and privacy
+
+All summary statistics in this compilation are already freely available for public download and can be accessed through the other websites linked via the script `gwas_downloads.sh`. This link is merely a standardized aggregation of GWAS from disparate sources. I take the rights of research participants very seriously, so please don’t hesitate to contact me if you have any concerns about the security and/or privacy of these data.
+
+By using these data, you are implicitly agreeing to follow a responsible code of conduct, as outlined, for example, at https://www.med.unc.edu/pgc/results-and-downloads/.
+
+We feel that the potential benefits these data offer to the participants themselves, the broader scientific community, and the public far outweigh the risks for individual participants, so we encourage all investigators and research participants to be as open as possible in sharing these data. That said, we respect explicit requests of individual consortia not to distribute their data publicly; for example, we have withheld GWAS data from the PGC according to their pre-download agreement. In accordance with point (3) on the PGC website, if you contact me directly, I will privately share these restricted data. We hope that as the benefits of this research are realized, such restrictions will be lifted in the future.
+
+For a more detailed assessment of the risks of sharing GWAS summary statistics, we recommend reading the following (short) white paper from the creators of the GWAS portal T2DKP: https://broad-portal-resources.s3.amazonaws.com/Risk_Assessment_KP_platform.pdf.
+
+#### Download link
+
+https://stanfordmedicine.box.com/s/wifpn8z0buoqozoboqhmyl1lvcdx6pfc
+
+The files included here have been sorted, bgzipped, and tabixed, and converted to a standardized format,
+as described in the `munge` module of this repository for compatibility with downstream analyses. You can
+perform these analyses yourself by following the directions below, but this can be time-consuming.
+
+This version is missing GWAS published after mid-2018, and you may notice errors in a few of the
+GWAS. I'm currently working on an updated version that will include the latest GWAS, as well as both
+hg19- and hg38- formatted versions of each GWAS. I'll replace this link as soon as they're ready!
+
 ### Fast GWAS download script 
 
-This script downloads publicly available GWAS summary statistics from over 150 different publications.
+This script downloads publicly available GWAS summary statistics from over 200 different publications.
 
 No software installation is necessary; the script runs directly in a Linux terminal:
 
@@ -18,7 +42,7 @@ When using these data, please remember to acknowledge the authors of the origina
 
 Help keep this list up to date by submitting pull requests with your own favorite studies. I’ll try to merge them in a timely manner.
 
-### GWAS munging scripts (updated 5/24)
+### GWAS munging scripts (updated 5/24/2019)
 
 I've uploaded the `custom_munge.py` script that I used to convert these GWAS summary 
 statistics files into a standardized format. An output (formatted) GWAS summary 
@@ -83,8 +107,9 @@ here if it may be useful for you.
 ### Future Developments
 
 In the future, I may add:
-* A script to re-format and index downloaded GWAS
 * A script to download and index the UK Biobank rapid GWAS results from Ben Neale’s lab
+* Updated results (last updated mid-2018)
+* Cleaner and more functional code (it doesn't hurt to dream...)
 
 ### Contributors
 
