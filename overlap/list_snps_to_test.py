@@ -26,17 +26,18 @@ else:
 
 from scipy import stats
 
-config_file = sys.argv[1]
-if config_file == "":
-    print "Please specify a config file."
-    sys.exit()
-
-max_threads = 1
-if len(sys.argv) > 2:
-    max_threads = int(sys.argv[2])
-print max_threads
-
 def main():
+
+    config_file = sys.argv[1]
+    if config_file == "":
+        print "Please specify a config file."
+        sys.exit()
+
+    max_threads = 1
+    if len(sys.argv) > 2:
+        max_threads = int(sys.argv[2])
+    print max_threads
+
 
     # Do stuff that needs to be done exactly once for the whole run
     
@@ -118,9 +119,9 @@ def test_snp(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file,
     else:
         gene_index = header.index("feature")
   
-    wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, snp[0], snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
+    wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, str(snp[0]).replace("chr", ""), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
     if wide_matches == "":
-        wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
+        wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]).replace("chr", ""), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
         if wide_matches == "":
             return
     

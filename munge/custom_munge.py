@@ -15,11 +15,10 @@ import traceback
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
-debug = None
-#debug = 3000000
+#debug = None
+debug = 3000000
 
 # TODO: Integrate this more cleanly
-genome_build = "hg38"
 
 # Where to store tmp files
 tmp_file = "/users/mgloud/projects/gwas/scripts/tmp/unsorted_GWAS.tmp"
@@ -30,7 +29,6 @@ def is_int(s):
         return True
     except:
         return False
-
 
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
@@ -50,6 +48,8 @@ def main():
         munge_menu = "munge_menu.config"
     with open(munge_menu) as f:
         config = json.load(f)
+
+    genome_build = config["genome_build"]
 
     if genome_build == "hg38":
         rsid_to_pos, pos_to_rsid = load_hg38_rsid_keys()
@@ -123,11 +123,15 @@ def main():
                         else:
                             data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
 
+                    print data.head(5)
+
                     all_data.append(data)
                
                 # Concatenate all the separate files for this trait
                 # into a single data frame.
                 data = pd.concat(all_data)
+
+                print data.head(5)
 
                 # Note key SNP attributes
                 if "effect_index" in study:
