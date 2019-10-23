@@ -43,6 +43,12 @@ wget http://www.reprogen.org/Menopause_HapMap2_DayNG2015_18112015.txt.gz --direc
 # Pappa et al. 2015
 mkdir Aggression_Pappa_2015
 wget http://www.tweelingenregister.org/fileadmin/user_upload/EAGLE/aggression_METAL_RESULTS.zip -P Aggression_Pappa_2015
+unzip Aggression_Pappa_2015/aggression_METAL_RESULTS.zip -d Aggression_Pappa_2015
+unrar x Aggression_Pappa_2015/aggression_METAL\ RESULTS.rar Aggression_Pappa_2015
+rm Aggression_Pappa_2015/aggression_METAL\ RESULTS.rar
+rm Aggression_Pappa_2015/aggression_METAL_RESULTS.zip
+mv "Aggression_Pappa_2015/pappa 150810 EAGLE MA aggression_METAL RESULTS.txt" Aggression_Pappa_2015/pappa_150810_EAGLE_MA_aggression_METAL_RESULTS.txt
+
 
 # http://www.nejm.org/doi/full/10.1056/NEJMoa0906312
 # A Large-Scale, Consortium-Based Genomewide Association Study of Asthma
@@ -51,15 +57,6 @@ wget http://www.tweelingenregister.org/fileadmin/user_upload/EAGLE/aggression_ME
 mkdir Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results.zip -P Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results_description.xls -P Asthma_Moffatt_2010
-
-# https://www.ncbi.nlm.nih.gov/pubmed/20686565
-# Biological, clinical and population relevance of 95 loci for blood lipids.
-# Teslovich et al. 2010
-mkdir Blood-Lipids_Teslovich_2010
-wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/TC_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
-wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/HDL_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
-wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/LDL_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
-wget http://archive.broadinstitute.org/mpg/pubs/lipids2010/TG_ONE_Eur.tbl.sorted.gz --directory Blood-Lipids_Teslovich_2010
 
 # https://www.ncbi.nlm.nih.gov/pubmed/26833246
 # New loci for body fat percentage reveal link between adiposity and cardiometabolic disease risk.
@@ -205,15 +202,16 @@ wget http://ssgac.org/documents/MTAG_README.txt --directory Multi-Trait-Brain_Tu
 # https://www.ncbi.nlm.nih.gov/pubmed/27798627
 # Genome-wide analysis identifies 12 loci influencing human reproductive behavior
 # Barban et al. 2016
-mkdir Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
-wget http://ssgac.org/documents/readme_reproductivebehavior.txt --directory Reproductive-Behavior_2016_Barban
-wget http://ssgac.org/documents/Barban_et_al_NG2016_SupplementaryNote.pdf --directory Reproductive-Behavior_2016_Barban
+# NOTE: These used to be available from the linked sites, but the link is now broken
+#mkdir Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
+#wget http://ssgac.org/documents/readme_reproductivebehavior.txt --directory Reproductive-Behavior_2016_Barban
+#wget http://ssgac.org/documents/Barban_et_al_NG2016_SupplementaryNote.pdf --directory Reproductive-Behavior_2016_Barban
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27225129
 # Genome-wide association study identifies 74 loci associated with educational attainment
@@ -360,6 +358,7 @@ mkdir Neuroticism_De-Moor_2012
 mkdir Extraversion_De-Moor_2012
 wget https://www.dropbox.com/s/ql1en6s0kramxne/GPC-2.NEUROTICISM.zip --directory Neuroticism_De-Moor_2012
 wget https://www.dropbox.com/s/bk2jn41vrfl3zna/GPC-2.EXTRAVERSION.zip --directory Extraversion_De-Moor_2012
+
 
 # https://www.ncbi.nlm.nih.gov/pubmed/23583979
 # Identification of heart rate-associated loci and their effects on cardiac conduction and rhythm disorders.
@@ -619,6 +618,7 @@ wget https://portals.broadinstitute.org/collaboration/giant/images/e/ed/WHRadjBM
 wget https://portals.broadinstitute.org/collaboration/giant/images/c/c7/BMI.Stratified.zip  --directory BMI-Smoking-Adjusted_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/3/35/WCadjBMI.Stratified.zip --directory BMI-Smoking-Adjusted_GIANT_2017
 wget https://portals.broadinstitute.org/collaboration/giant/images/1/1c/WHRadjBMI.Stratified.zip --directory BMI-Smoking-Adjusted_GIANT_2017
+
 
 # Unclear whether these ones have been published.
 # Downloaded from GIANT at https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files
@@ -907,7 +907,7 @@ wget http://www.psy.ed.ac.uk/ccace/downloads/Hagenaars2017_UKB_MPB_summary_resul
 # Ben-Avraham et al. 2017
 mkdir Gait-Speed_Ben-Avraham_2017
 wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Ben_Avrahim/Gait-Aging-All.txt --directory Gait-Speed_Ben-Avraham_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Ben_Avrahim/CHARGE_Gait_speed_README.docx  --directory Gait-Speed_Ben-Avraham_2017
+wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Ben_Avrahim/CHARGE_Gait_speed_README.docx --directory Gait-Speed_Ben-Avraham_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27918534
 # Multiethnic genome-wide meta-analysis of ectopic fat depots identifies loci associated with adipocyte development and differentiation.
@@ -949,9 +949,9 @@ wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Salem/Salem_Sot
 # Kim et al. 2017
 mkdir Achilles-Injury_Kim_2017
 mkdir ACL-Injury_Kim_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/ACLSummary3.txt.zip --directory ACL-Injury_Kim_201
+wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/ACLSummary3.txt.zip --directory ACL-Injury_Kim_2017
 wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/AchillesSummary.txt.zip --directory Achilles-Injury_Kim_2017
-wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/KimAchillesReadme.txt --directory ACL-Injury_Kim_201
+wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/KimAchillesReadme.txt --directory ACL-Injury_Kim_2017
 wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Kim_ACL_Achilles/KimAchillesReadme.txt --directory Achilles-Injury_Kim_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/28957384
@@ -1711,3 +1711,30 @@ mkdir Lymphocyte-Subsets_Ferreira_2010
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
 
+######################################################
+# New additions
+######################################################
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/20686565/
+# Biological, Clinical, and Population Relevance of 95 Loci for Blood Lipids
+mkdir Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/TC2010.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/HDL2010.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/LDL2010.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/TG2010.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/TC_with_Effect.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/HDL_with_Effect.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/LDL_with_Effect.zip --directory Blood-Lipids_Teslovich_2010
+wget http://csg.sph.umich.edu/willer/public/lipids2010/TG_with_Effect.zip --directory Blood-Lipids_Teslovich_2010
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/18193043/ 
+# Newly identified loci that influence lipid concentrations and risk of coronary artery disease
+mkdir Blood-Lipids_Willer_2008
+wget http://csg.sph.umich.edu/willer/public/lipids/METAHDL.zip --directory Blood-Lipids_Willer_2008 
+wget http://csg.sph.umich.edu/willer/public/lipids/METALDL.zip --directory Blood-Lipids_Willer_2008 
+wget http://csg.sph.umich.edu/willer/public/lipids/METATG.zip --directory Blood-Lipids_Willer_2008 
+
+######################################################
+# Unzip all zipped GWAS files
+######################################################
+python utils/unzip.py
