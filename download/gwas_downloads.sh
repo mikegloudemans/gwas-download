@@ -11,6 +11,7 @@
 # Dastani et al. 2012
 # ADIPOgen
 # Comes in 6 parts, which will need to be joined
+# PMID: 22479202 PMCID: PMC3315470
 mkdir Adiponectin_Dastani_2012
 wget http://www.mcgill.ca/genepi/files/genepi/adipogen.discovery.eur_.meta_.public.release.part1_.txt -P Adiponectin_Dastani_2012
 wget http://www.mcgill.ca/genepi/files/genepi/adipogen.discovery.eur_.meta_.public.release.part2_.txt -P Adiponectin_Dastani_2012
@@ -1738,3 +1739,934 @@ wget http://csg.sph.umich.edu/willer/public/lipids/METATG.zip --directory Blood-
 # Unzip all zipped GWAS files
 ######################################################
 python utils/unzip.py
+# Fasting glucose sex-specific (MAGIC)
+mkdir -p Fasting-Glucose_Lagou_2018
+#https://www.magicinvestigators.org/downloads/
+wget ftp://ftp.sanger.ac.uk/pub/magic/FG_STAGE1_2_3_SEX_GWAS_2018.txt.gz -P Fasting-Glucose_Lagou_2018
+wget ftp://ftp.sanger.ac.uk/pub/magic/FI_STAGE1_2_3_SEX_GWAS_2018.txt.gz -P Fasting-Glucose_Lagou_2018
+wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC-sex_dimorphic_fasting_glucose_insulin_README.pdf -P Fasting-Glucose_Lagou_2018
+
+# Morris, Kemp, et al. An atlas of genetic influences on osteoporosis in humans and mice. Nature Genetics 2018.
+# http://www.gefos.org/?q=content/data-release-2018
+mkdir -p Osteoporosis_Morris_2018
+wget http://www.gefos.org/sites/default/files/Morrisetal2018.NatGen.SumStats.tar_0.gz -P Osteoporosis_Morris_2018
+
+# http://www.gefos.org/?q=content/fracture-gwas-2018-release
+# Trajanoska et al. Assessment of the genetic and clinical determinants of fracture risk: genome wide association and mendelian randomisation study. BMJ 2018. 
+mkdir -p Bone-Fracture_Trajanoska_2018
+wget http://www.gefos.org/sites/default/files/ALLFX_GWAS_build37.txt.gz -P Bone-Fracture_Trajanoska_2018
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5562285/
+# Type 2 diabetes variants disrupt function of SLC16A11 through two distinct mechanisms
+# SIGMA consortium
+mkdir -p Type-2-Diabetes_Rusu_2018
+wget https://personal.broadinstitute.org/mvon/GWAS_SIGMA_dv1.T2D.txt.zip -P Type-2-Diabetes_Rusu_2018
+wget https://personal.broadinstitute.org/mvon/ExChip_SIGMA_dv1.txt.zip -P Type-2-Diabetes_Rusu_2018
+wget https://personal.broadinstitute.org/mvon/ExSeq_26k_hs_sigma_dv2.T2D.txt.zip -P Type-2-Diabetes_Rusu_2018
+
+# https://www.pgrn.org/riken-gwas-statistics.html
+# Variants in WFS1 and other Mendelian deafness genes are associated with cisplatin-associated ototoxicity.
+# Wheeler HE et al. Clin Cancer Res. 2016 Dec 30
+# Pubmed: 28039263; DOI: 10.1158/1078-0432.CCR-16-2809
+mkdir -p Cisplatin-Associated-Ototoxicity_Wheeler_2016
+wget https://www.pgrn.org/uploads/1/0/7/8/107807723/wheeler_et_al_ccr_2017_sum_stats.txt_5.zip -P Cisplatin-Associated-Ototoxicity_Wheeler_2016
+wget https://www.pgrn.org/uploads/1/0/7/8/107807723/wheeler_et_al_ccr_2017_readme_2.txt -P Cisplatin-Associated-Ototoxicity_Wheeler_2016
+
+# https://www.pgrn.org/riken-gwas-statistics.html
+# Germline variants and advanced colorectal adenomas: adenoma prevention with celecoxib trial genome-wide association study.
+# Wang J et al. Clin Cancer Res. 2013 Dec 1;19(23):6430-7. 
+# Pubmed: 24084763; PubMed Central: PMC4037290; DOI: 10.1158/1078-0432.CCR-13-0550
+mkdir -p Colorectal-Adenoma_Wang_2013
+wget https://www.pgrn.org/uploads/1/0/7/8/107807723/adv_adno_assoc.assoc.txt.zip -P Colorectal-Adenoma_Wang_2013
+wget https://www.pgrn.org/uploads/1/0/7/8/107807723/readme-colorectaladenomaprev-celecoxib.txt -P Colorectal-Adenoma_Wang_2013
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30220432
+# Genetic Association of Albuminuria with Cardiometabolic Disease and Blood Pressure.
+# Haas ME, et al.
+# Am J Hum Genet. 2018 Oct 4;103(4):461-473. doi: 10.1016/j.ajhg.2018.08.004
+mkdir -p Albuminuria_Haas_2018
+wget https://personal.broadinstitute.org/mvon/UKB.v2.albuminuria.n382500.zip -P Albuminuria_Haas_2018
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/UKB.v2.albuminuria.n382500.README.txt -P Albuminuria_Haas_2018
+unzip Albuminuria_Haas_2018
+
+# http://www.broadcvdi.org/informational/data
+# Heart failure
+# Phenotypic Refinement of Heart Failure in a National Biobank Facilitates Genetic Discovery.
+# Aragam KG, et al.
+# Circulation. 2018 Nov 11. doi: 10.1161/CIRCULATIONAHA.118.035774
+mkdir -p Heart-Failure_Aragam_2018
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/Heart_failure_GWAS_README.txt -P Heart-Failure_Aragam_2018
+wget https://personal.broadinstitute.org/mvon/2018.HRC.GWAS.UKBB.zip -P Heart-Failure_Aragam_2018
+unzip Heart-Failure_Aragam_2018/2018.HRC.GWAS.UKBB.zip -d Heart-Failure_Aragam_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30535219
+# Association between titin loss-of-function variants and early-onset atrial fibrillation.
+mkdir -p Atrial-Fibrillation-Early-Onset_Choi_2018
+wget https://personal.broadinstitute.org/mvon/2018.AF.WGS.TOPMed.zip -P Atrial-Fibrillation-Early-Onset_Choi_2018 
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/AF_WGS_TOPMed_Freeze4_GWAS.README.txt -P Atrial-Fibrillation-Early-Onset_Choi_2018
+unzip Atrial-Fibrillation-Early-Onset_Choi_2018/2018.AF.WGS.TOPMed.zip -d Atrial-Fibrillation-Early-Onset_Choi_2018
+
+# Multi-ethnic genome-wide association study for atrial fibrillation.
+# Roselli C, et al.
+# Nat Genet. 2018 Sep;50(9):1225-1233. doi: 10.1038/s41588-018-0133-9
+mkdir -p Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
+wget https://personal.broadinstitute.org/mvon/AF_HRC_GWAS_ALLv11.zip -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018 
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/AF_HRC_GWAS_ALLv11_README.txt -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
+unzip Atrial-Fibrillation-Multi-Ethnic_Roselli_2018/AF_HRC_GWAS_ALLv11.zip -d Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29748316
+# Common and Rare Coding Genetic Variation Underlying the Electrocardiographic PR Interval.
+# Lin H, et al.
+# Circ Genom Precis Med. 2018;11:e002037. doi: 10.1161/CIRCGEN.117.002037
+mkdir -p Electrocardiograph-PR-Interval_Lin_2018
+wget https://personal.broadinstitute.org/mvon/29748316.PR.interval.ExomeChip.zip -P Electrocardiograph-PR-Interval_Lin_2018
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/PR_interval.exome_chip.CVDKP_Readme.txt -P Electrocardiograph-PR-Interval_Lin_2018
+unzip Electrocardiograph-PR-Interval_Lin_2018/29748316.PR.interval.ExomeChip.zip -d Electrocardiograph-PR-Interval_Lin_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/28794112
+# Fifteen Genetic Loci Associated With the Electrocardiographic P Wave.
+mkdir -p Electrocardiograph-P-Wave_Christophersen_2017
+wget https://personal.broadinstitute.org/mvon/28794112.PWI.GWAS.zip -P Electrocardiograph-P-Wave_Christophersen_2017
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/Pwave_duration_Ptforce_GWAS.README.txt -P Electrocardiograph-P-Wave_Christophersen_2017
+unzip Electrocardiograph-P-Wave_Christophersen_2017/28794112.PWI.GWAS.zip -d Electrocardiograph-P-Wave_Christophersen_2017
+
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30012220
+# Exome-chip meta-analysis identifies novel loci associated with cardiac conduction, including ADAMTS6.
+mkdir -p Cardiac-Conduction_Prins_2018
+wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/CHARGE_QRS.Exome_Chip_Study.20180416+.README.txt -P Cardiac-Conduction_Prins_2018
+wget https://data.mendeley.com/datasets/7jgbckpdr4/1 -P Cardiac-Conduction_Prins_2018
+
+# A Fib
+# Nielsen
+# http://csg.sph.umich.edu/willer/public/afib2018/
+# Biobank-driven genomic discovery yields new insight into atrial fibrillation biology (Nielsen et al., Nature Genetics, 2018)
+mkdir -p Atrial-Fibrillation_Nielsen_2018
+wget http://csg.sph.umich.edu/willer/public/afib2018/nielsen-thorolfsdottir-willer-NG2018-AFib-gwas-summary-statistics.tbl.gz -P Atrial-Fibrillation_Nielsen_2018
+
+# https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0196951
+# Genome-wide association meta-analysis of circulating odd-numbered chain saturated fatty acids: Results from the CHARGE Consortium
+mkdir -p Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+wget http://faculty.washington.edu/rozenl/files/150.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+wget http://faculty.washington.edu/rozenl/files/170.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+wget http://faculty.washington.edu/rozenl/files/Sum150170.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+wget http://faculty.washington.edu/rozenl/files/190.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+wget http://faculty.washington.edu/rozenl/files/230.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
+
+# Genome-wide association study identifies novel loci associated with concentrations of four plasma phospholipid fatty acids in the de novo lipogenesis pathway: results from the Cohorts for Heart and Aging Research in Genomic Epidemiology (CHARGE) consortium.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/23362303/
+mkdir -p Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_160.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_180.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_161n7.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_181n9.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
+
+# https://www.ncbi.nlm.nih.gov/pubmed/24823311
+# Genome-wide association study of plasma N6 polyunsaturated fatty acids within the cohorts for heart and aging research in genomic epidemiology consortium.
+mkdir -p N6-Fatty-Acids_Guan_2014
+wget -r http://www.msi.umn.edu/~wguan/CHARGE_N6GWAS --directory N6-Fatty-Acids_Guan_2014
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307209/
+# Genetic loci associated with circulating  phospholipid trans fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
+mkdir -p Trans-Fatty-Acids_Mozaffarian_2015
+wget http://faculty.washington.edu/rozenl/files/T16_1n7_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
+wget http://faculty.washington.edu/rozenl/files/T18_1_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
+wget http://faculty.washington.edu/rozenl/files/T18_2_ct_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
+wget http://faculty.washington.edu/rozenl/files/T18_2_tc_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
+wget http://faculty.washington.edu/rozenl/files/T18_2_tt_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4274065/
+# Genetic loci associated with circulating levels of very long-chain saturated fatty acids
+mkdir -p Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+wget http://faculty.washington.edu/rozenl/files/CHARGE_20_0.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+wget http://faculty.washington.edu/rozenl/files/CHARGE_22_0.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+wget http://faculty.washington.edu/rozenl/files/CHARGE_22_0_adjfor200.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+wget http://faculty.washington.edu/rozenl/files/CHARGE_24_0.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+wget http://faculty.washington.edu/rozenl/files/CHARGE_24_0_adjfor200.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3145614/
+# Genetic loci associated with plasma phospholipid n-3 fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
+mkdir -p N3-Fatty-Acids_Lemaitre_2011
+wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_ALA.txt --directory N3-Fatty-Acids_Lemaitre_2011
+wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_EPA.txt --directory N3-Fatty-Acids_Lemaitre_2011
+wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_DPA.txt --directory N3-Fatty-Acids_Lemaitre_2011
+wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_DHA.txt --directory N3-Fatty-Acids_Lemaitre_2011
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5280020/
+# The Genetic Landscape of Renal Complications in Type 1 Diabetes
+mkdir -p Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Combined_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_no_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_non_ESRD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Late_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Early_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D_eGFR.euro.txt --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6014557/
+# A Genome-Wide Association Study of Diabetic Kidney Disease in Subjects With Type 2 Diabetes.
+mkdir -p Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_dkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_ckd.euro.n.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_ckddkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_esrdvscontrols.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_esrdvsnonesrd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_latedkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_microalbuminuria.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_eGFR.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_dkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_ckd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_ckddkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_esrdvsnonesrd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_latedkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_microalbuminuria.multiethnic.n.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_egfr.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_dkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_ckd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_ckddkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_esrdvscontrols.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_esrdvsnonesrd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_latedkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_microalbuminuria.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_eGFR.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_dkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_ckd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_ckddkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_esrdvsnonesrd.mutliethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_latedkd.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_microalbuminuria.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_egfr.multiethnic.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
+
+# Siewert
+# Bivariate CAD
+# Bivariate Genome-Wide Association Scan Identifies 6 Novel Loci Associated With Lipid Levels and Coronary Artery Disease
+# https://www.ahajournals.org/doi/full/10.1161/CIRCGEN.118.002239
+mkdir Coronary-Artery-Disease-and-Lipid-Levels_Siewert_2018
+wget http://coruscant.itmat.upenn.edu/data/SiewertEA_bivarStats.tar.gz --directory Coronary-Artery-Disease-and-Lipid-Levels_Siewert_2018
+
+# Depression
+# https://datashare.is.ed.ac.uk/handle/10283/3203
+# https://www.nature.com/articles/s41467-018-03819-3
+# Genome-wide meta-analysis of depression identifies 102 independent variants and highlights
+mkdir -p Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/PGC_UKB_depression_genome-wide.txt?sequence=3&isAllowed=y --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/ReadMe.txt?sequence=4&isAllowed=y --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_broad_12Jan18.txt?sequence=1&isAllowed=y --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_icdMDD_12Jan18.txt?sequence=3&isAllowed=y --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/readme.txt?sequence=4&isAllowed=y --directory Depression_Howard_2019
+
+# wget https://myfiles.uu.se/ssf/s/readFile/share/3993/1270878243748486898/publicLink/GWAS_summary_stats_ratios.zip
+# https://www.ncbi.nlm.nih.gov/pubmed/30664634
+# Genome-wide association study of body fat distribution identifies adiposity loci and sex-specific genetic effects
+mkdir -p BMI_Rask-Andersen_2019
+wget https://myfiles.uu.se/ssf/s/readFile/share/3993/1270878243748486898/publicLink/GWAS_summary_stats_ratios.zip --directory BMI_Rask-Andersen_2019
+
+
+# https://bmcpulmmed.biomedcentral.com/articles/10.1186/s12890-019-0811-0#MOESM2
+# Limited overlap in significant hits between genome-wide association studies on two airflow obstruction definitions in the same population
+mkdir Airflow-Obstruction_van-der-Plaat_2019
+wget https://static-content.springer.com/esm/art%3A10.1186%2Fs12890-019-0811-0/MediaObjects/12890_2019_811_MOESM2_ESM.xlsx -d Airflow-Obstruction_van-der-Plaat_2019
+
+# http://www.mrc-epid.cam.ac.uk/research/resources/gwas-summary-statistics-dataset/
+# Genome–wide association study for risk taking propensity indicates shared pathways with body mass index
+# https://www.nature.com/articles/s42003-018-0042-6
+mkdir Risk-Taking_Clifton_2018
+wget https://epiweb.mrc-epid.cam.ac.uk/files/Risk_SumStats_Clifton_2018.csv.gz -d  Risk-Taking_Clifton_2018
+
+# http://www.epigad.org/gwas_ilae2018_16loci.html
+# Genome-wide mega-analysis identifies 16 loci and highlights diverse biological mechanisms in the common epilepsies
+# https://www.ncbi.nlm.nih.gov/pubmed/30531953
+mkdir Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/all_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/CAE_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_HS_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_lesion_negative_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_other_lesion_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/generalised_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/GTCS_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/JAE_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/JME_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/README.txt -d Epilepsy_ILAE-Consortium_2018
+
+# Genome-wide association study in Japanese females identifies fifteen novel skin-related trait associations
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/
+# Summary stats available for download as Supp Data 1-7
+mkdir Skin-Traits_Endo_2018
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM1_ESM.pdf -d Skin-Traits_Endo_2018
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM4_ESM.txt -d Skin-Traits_Endo_2018 # Age-spots
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM5_ESM.txt -d Skin-Traits_Endo_2018 # Freckles
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM6_ESM.txt -d Skin-Traits_Endo_2018 # Double eyelid
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM7_ESM.txt -d Skin-Traits_Endo_2018 # Eyebrows
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM8_ESM.txt -d Skin-Traits_Endo_2018 # Hair type
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM9_ESM.txt -d Skin-Traits_Endo_2018 # Excessive hairiness
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM10_ESM.txt -d Skin-Traits_Endo_2018 # Excessive sweatiness
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30842574
+# The influence of X chromosome variants on trait neuroticism.
+# 
+mkdir Neuroticism_Luciano_2019
+wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_X.gz --directory Neuroticism_Luciano_2019
+wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_XY.gz --directory Neuroticism_Luciano_2019
+wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_README.txt --directory Neuroticism_Luciano_2019
+
+# GWAS on family history of Alzheimer's disease
+# https://datashare.is.ed.ac.uk/handle/10283/3364 
+# https://www.ncbi.nlm.nih.gov/pubmed/29777097
+mkdir Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/license_text?sequence=6&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/1_UKB_AD_maternal_summary_output_June2019.txt?sequence=1&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/2_UKB_AD_paternal_summary_output_June2019.txt?sequence=2&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/3_UKB_AD_parental_meta_summary_output_June2019.txt?sequence=3&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/README?sequence=4&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/4_UKB_IGAP_AD_meta_summary_output_June2019.txt?sequence=5&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+
+# Study of 300,486 individuals identifies 148 independent genetic loci influencing general cognitive function.
+# https://www.nature.com/articles/s41467-018-04362-x
+# http://www.ccace.ed.ac.uk/node/335
+mkdir Cognitive-Function_Davies_2018
+wget http://www.psy.ed.ac.uk/ccace/downloads/Davies_NC_2018.zip --directory Cognitive-Function_Davies_2018
+wget http://www.psy.ed.ac.uk/ccace/downloads/Davies_NC_2018_OPEN_DATASET.zip --directory Cognitive-Function_Davies_2018
+ 
+# https://www.nature.com/articles/s41588-018-0121-0.pdf?origin=ppub
+# http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/
+# A genome-wide cross trait analysis from UK Biobank highlights the shared genetic architecture of asthma and allergic diseases
+mkdir Allergic-Diseases_Zhu_2018
+wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.asthma.assoc.gz --directory Allergic-Diseases_Zhu_2018
+wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.allergy.assoc.gz --directory Allergic-Diseases_Zhu_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/24183453
+# Inference of the genetic architecture underlying BMI and height with the use of 20,240 sibling pairs.
+# http://cnsgenomics.com/data.html
+mkdir BMI+Height_Hemani_2013
+wget http://cnsgenomics.com/data/hemani_et_al_2013_ajhg/hemani_pihat.txt --directory BMI+Height_Hemani_2013
+
+# Estimation of genetic variance from imputed sequence variants reveals negligible missing heritability for human height and body mass index
+# https://www.ncbi.nlm.nih.gov/pubmed/26323059
+mkdir Yang_BMI+Height_2015
+wget http://cnsgenomics.com/data/yang_et_al_2015_ng/LDSCORE_release_July2015.tar.gz --directory Yang_BMI+Height_2015
+wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July2015.tar.gz  --directory Yang_BMI+Height_2015
+
+# Population genetic differentiation of height and body mass index across Europe
+# https://www.nature.com/articles/ng.3401
+mkdir BMI+Height_Robinson_2015
+wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_height_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
+wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_bmi_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
+
+# Causal associations between risk factors and common diseases inferred from GWAS summary data
+# https://www.nature.com/articles/s41467-017-02317-2
+mkdir Multi-Trait_Zhu_2018
+wget http://cnsgenomics.com/data/GSMR/Zhu_et_al_GSMR_2017_GERA.tar.gz --directory Multi-Trait_Zhu_2018
+wget http://cnsgenomics.com/data/GSMR/Zhu_et_al_GSMR_2017_UKB.tar.gz --directory Multi-Trait_Zhu_2018
+
+# https://www.nature.com/articles/s41467-018-04951-w
+# Genome-wide association analyses identify 143 risk variants and putative regulatory mechanisms for type 2 diabetes
+mkdir Type-2-Diabetes_Xue_2018
+wget http://cnsgenomics.com/data/t2d/Xue_et_al_T2D_META_Nat_Commun_2018.gz --directory Type-2-Diabetes_Xue_2018
+wget http://cnsgenomics.com/data/t2d/Xue_et_al_T2D_META_Nat_Commun_2018.pdf --directory Type-2-Diabetes_Xue_2018
+
+# Dissection of genetic variation and evidence for pleiotropy in male pattern baldness
+# https://www.nature.com/articles/s41467-018-07862-y
+mkdir Male-Pattern-Baldness_Yap_2018
+wget http://cnsgenomics.com/data/mpb/mpb_bolt_lmm_aut_x.tab.zip --directory Male-Pattern-Baldness_Yap_2018
+wget http://cnsgenomics.com/data/mpb/MPB_GWAS_summary_statistics_README.pdf --directory Male-Pattern-Baldness_Yap_2018
+
+# Genome-wide association study of medication-use and associated disease in the UK Biobank
+# https://www.nature.com/articles/s41467-019-09572-5
+mkdir Medication-Use_Wu_2019
+wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics.tar.gz --directory Medication-Use_Wu_2019
+wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics_README.pdf  --directory Medication-Use_Wu_2019
+
+# The effect of X-linked dosage compensation on complex trait variation
+# https://www.nature.com/articles/s41467-019-10598-y
+mkdir X-Linked-Dosage-Compensation_Sidorenko_2019
+wget http://cnsgenomics.com/data/XWAS/UKBv3_Xchr_20traits.tar.gz --directory X-Linked-Dosage-Compensation_Sidorenko_2019
+wget http://cnsgenomics.com/data/XWAS/chrX_eqtl_besd.tar.gz  --directory X-Linked-Dosage-Compensation_Sidorenko_2019
+
+# A genome-wide association analysis identifies 16 novel susceptibility loci for carpal tunnel syndrome
+# https://www.nature.com/articles/s41467-019-08993-6#MOESM6 
+mkdir Carpal-Tunnel-Syndrome_Wiberg_2019
+wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08993-6/MediaObjects/41467_2019_8993_MOESM6_ESM.txt --directory Carpal-Tunnel-Syndrome_Wiberg_2019
+
+# Smoking stuff
+# Data Related to Association studies of up to 1.2 million individuals yield new insights into the genetic etiology of tobacco and alcohol use
+# https://conservancy.umn.edu/handle/11299/201564
+mkdir Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/README.txt?sequence=29&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/AgeofInitiation.txt.gz?sequence=30&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/CigarettesPerDay.txt.gz?sequence=31&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/DrinksPerWeek.txt.gz?sequence=32&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingCessation.txt.gz?sequence=33&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingInitiation.txt.gz?sequence=34&isAllowed=y --directory Smoking_Mengzhen_2019
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29348432
+# Genome-wide association study of self-reported food reactions in Japanese identifies shrimp and peach specific loci in the HLA-DR/DQ gene region.
+mkdir Food-Allergies_Khor_2018
+wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-017-18241-w/MediaObjects/41598_2017_18241_MOESM3_ESM.txt --directory Food-Allergies_Khor_2018
+wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-017-18241-w/MediaObjects/41598_2017_18241_MOESM4_ESM.txt --directory Food-Allergies_Khor_2018
+
+# https://www.nature.com/articles/s41467-018-04332-3
+# https://github.com/Biogen-Inc/statgen
+mkdir Neuromyelitis-Optica_Estrada_2018
+wget https://github.com/Biogen-Inc/statgen/archive/master.zip --directory Neuromyelitis-Optica_Estrada_2018
+
+# If we don't have it already
+# http://egg-consortium.org/offspring-birth-weight.html
+mkdir Birth-Weight_Beaumont_2018
+wget http://mccarthy.well.ox.ac.uk/publications/2018/EggOffspringBirthWeight_HumMolGen/MBW_Summary_Stats.txt.gz --directory Birth-Weight_Beaumont_2018
+
+# http://www.lolipopstudy.org/data-download
+# wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing
+# Chambers JC, Zhang W, Sehmi J, Li X, Wass MN, Van der Harst P, et al. Genome-wide association study identifies loci influencing concentrations of liver enzymes in plasma. Nature genetics. 2011;43(11):1131-8.
+mkdir -p Liver-Enzymes_Chambers_2011
+wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing -P Liver-Enzymes_Chambers_2011
+
+# Next block of downloads are from https://ctg.cncr.nl/software/summary_statistics
+
+# Genome-Wide Association Studies of a Broad Spectrum of Antisocial Behavior
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6309228/
+# http://broadabc.ctglab.nl/summary_statistics
+mkdir -p Antisocial-Behavior_Tielbeek_2017
+wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Combined.tbl -P Antisocial-Behavior_Tielbeek_2017
+wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Females.tbl -P Antisocial-Behavior_Tielbeek_2017
+wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput__Males.tbl -P Antisocial-Behavior_Tielbeek_2017
+wget http://broadabc.ctglab.nl/documents/p12/readme_tielbeek_jamapsychiatry2017_antisocial_behavior_sumstats.txt -P Antisocial-Behavior_Tielbeek_2017
+
+# Item-level analyses reveal genetic heterogeneity in neuroticism.
+# https://www.ncbi.nlm.nih.gov/pubmed/29500382
+mkdir -p Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/readme_neuro_items_ctg -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1920_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1930_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1940_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1950_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1960_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1970_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1980_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f1990_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f2000_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f2010_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f2020_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_f2030_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_sum_ctg_format.txt.gz -P Neuroticism-Items_Nagel_2018
+
+# Genome-wide association meta-analysis (N=269,867) identifies new genetic and functional links to intelligence.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6411041/
+mkdir -p Intelligence_Savage_2018
+wget https://ctg.cncr.nl/documents/p1651/SavageJansen_IntMeta_sumstats.zip -P Intelligence_Savage_2018
+
+# Meta-Analysis of Genome-wide Association Studies for Neuroticism in 449,484 Individuals Identifies Novel Genetic Loci and Pathways.
+# https://www.ncbi.nlm.nih.gov/pubmed/29942085
+mkdir -p Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/readme_ctg -P Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/checksums.txt -P Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_depressed_affect_ctg_format.txt.gz -P Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_depression_ctg_format.txt.gz -P Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_neuroticism_ctg_format.txt.gz -P Neuroticism-Subclusters_Nagel_2018
+wget https://ctg.cncr.nl/documents/p1651/sumstats_worry_ctg_format.txt.gz -P Neuroticism-Subclusters_Nagel_2018
+
+# Genome-wide analysis of insomnia in 1,331,010 individuals identifies new risk loci and functional pathways
+# https://www.ncbi.nlm.nih.gov/pubmed/30804565
+mkdir -p Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Insomnia_sumstats_Jansenetal.readme.txt -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Insomnia_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Sleepdur_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Snoring_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Dozing_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Morningness_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Gettingup_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+wget https://ctg.cncr.nl/documents/p1651/Napping_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
+
+# https://www.thessgac.org/data
+
+# The Molecular Genetic Architecture of Self-Employment
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/23593239/
+mkdir Self-Employment_van-der-Loos_2013
+wget https://www.dropbox.com/s/u1q6dwngxx94p7o/GWAS.SELF-EMPLOYMENT.vanderLoos2013.txt?dl=0 -P Self-Employment_van-der-Loos_2013
+wget https://www.dropbox.com/s/5mml5r18ig32m47/README.GWAS.SELF-EMPLOYMENT.vanderLoos2013.txt?dl=0 -P Self-Employment_van-der-Loos_2013
+
+# Multi-trait analysis of genome-wide association summary statistics using MTAG.
+# https://www.ncbi.nlm.nih.gov/pubmed/29292387
+mkdir Neuroticism_Turley_2018
+wget https://www.dropbox.com/s/v79rfw9x14cj0fg/GWAS_NEUR_full.txt?dl=0 -P Neuroticism_Turley_2018
+wget http://ssgac.org/documents/MTAG_README.txt -P Neuroticism_Turley_2018
+
+# Genome-wide association study results for educational attainment aid in identifying genetic heterogeneity of schizophrenia.
+# https://www.ncbi.nlm.nih.gov/pubmed/30082721
+mkdir Educational-Attainment-Plus-Schizophrenia_Bansal_2018
+wget https://www.dropbox.com/s/q6eci72lzf013ls/EA2_SZ_data_incl_23andMe.csv?dl=0 -P Educational-Attainment-Plus-Schizophrenia_Bansal_2018
+wget http://ssgac.org/documents/README_BANSAL.txt -P Educational-Attainment-Plus-Schizophrenia_Bansal_2018
+
+# Gene discovery and polygenic prediction from a 1.1-million-person GWAS of educational attainment.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6393768/
+mkdir Educational-Attainment_Lee_2018 
+wget https://www.dropbox.com/s/ho58e9jmytmpaf8/GWAS_EA_excl23andMe.txt?dl=0 -P Educational-Attainment_Lee_2018
+wget https://www.dropbox.com/s/ibjoh0g5e3sdd8t/GWAS_CP_all.txt?dl=0 -P Educational-Attainment_Lee_2018
+wget http://ssgac.org/documents/README_EA3.txt -P Educational-Attainment_Lee_2018
+
+# Genome-wide association analyses of risk tolerance and risky behaviors in over one million individuals identify hundreds of loci and shared genetic influences.
+# https://www.ncbi.nlm.nih.gov/pubmed/30643258
+mkdir Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/il1d7vabk5283dm/RISK_GWAS_MA_UKB%2Breplication.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/dxfr1uq20wbdj1d/AUTOMOBILE_SPEEDING_PROPENSITY_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/7hjxdhlxlwa482n/DRINKS_PER_WEEK_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/o7wgwhnhjgt3eyn/EVER_SMOKER_GWAS_MA_UKB%2BTAG.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/erl8tn4sy81kseu/NUMBER_SEXUAL_PARTNERS_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget https://www.dropbox.com/s/9qw6vlt2l2hmewe/RISK_PC1_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
+wget http://ssgac.org/documents/RISK_GWAS_MA_UKB+23andMe.txt -P Risky-Behavior_Karlson-Linner_2019
+wget http://ssgac.org/documents/RISK_GWAS_MA_UKB+23andMe+replication.txt -P Risky-Behavior_Karlson-Linner_2019
+wget http://ssgac.org/documents/ADVENTUROUSNESS_GWAS.txt -P Risky-Behavior_Karlson-Linner_2019
+wget http://ssgac.org/documents/RISK_MTAG.txt -P Risky-Behavior_Karlson-Linner_2019
+wget http://ssgac.org/documents/README_RISK.txt -P Risky-Behavior_Karlson-Linner_2019
+
+# http://sleepdisordergenetics.org/informational/data
+# Genetic studies of accelerometer-based sleep measures yield new insights into human sleep behaviour.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/30952852/ 
+mkdir Sleep-Characteristics_Jones_2019
+wget https://personal.broadinstitute.org/mvon/accel_GWAS_all_BOLT.output_HRC.only_plus.metrics_maf0.001_hwep1em12_info0.3.txt.zip -P Sleep-Characteristics_Jones_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/Accelerometer_GWAS_README.txt -P Sleep-Characteristics_Jones_2019
+
+# Genome-wide association study identifies genetic loci for self-reported habitual sleep duration supported by accelerometer-derived estimates.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6405943/
+mkdir Sleep-Duration_Dashti_2019
+wget https://personal.broadinstitute.org/mvon/sleepdurationsumstats.txt.zip -P Sleep-Duration_Dashti_2019
+wget https://personal.broadinstitute.org/mvon/longsumstats.txt.zip  -P Sleep-Duration_Dashti_2019
+wget https://personal.broadinstitute.org/mvon/shortsumstats.txt.zip -P Sleep-Duration_Dashti_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Sleepduration_summary_stats_README -P Sleep-Duration_Dashti_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Longsleep_summary_stats_README -P Sleep-Duration_Dashti_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Shortsleep_summary_stats_README -P Sleep-Duration_Dashti_2019
+
+# Genome-wide association analyses of chronotype in 697,828 individuals provides insights into circadian rhythms
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6351539/
+mkdir Sleep-Chronotype_Jones_2019
+wget https://personal.broadinstitute.org/mvon/chronotype_raw_BOLT.output_HRC.only_plus.metrics_maf0.001_hwep1em12_info0.3.txt.gz -P Sleep-Chronotype_Jones_2019
+wget https://personal.broadinstitute.org/mvon/morning_person_BOLT.output_HRC.only_plus.metrics_maf0.001_hwep1em12_info0.3_logORs.txt.gz -P Sleep-Chronotype_Jones_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/chronotype_raw_README.txt -P Sleep-Chronotype_Jones_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/morning_person_README.txt -P Sleep-Chronotype_Jones_2019
+
+# Associations of Variants In the Hexokinase 1 and Interleukin 18 Receptor Regions with Oxyhemoglobin Saturation During Sleep.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6467367/
+mkdir Sleep-Oxyhemoglobin-Saturation_Cade_2019
+wget https://personal.broadinstitute.org/mvon/cade_et_al_2018_average_spo2_multiethnic_discovery_replication.txt.zip -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
+wget https://personal.broadinstitute.org/mvon/cade_et_al_2018_minimum_spo2_multiethnic_discovery_replication.txt.zip -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
+wget https://personal.broadinstitute.org/mvon/cade_et_al_2018_percent_sleep_under_90_percent_spo2_multiethnic_discovery_replication.txt.zip -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/README_Cade_et_al.txt -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
+
+# Biological and clinical insights from genetics of insomnia symptoms.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6415688/
+mkdir Insomnia_Lane_2019
+wget https://personal.broadinstitute.org/mvon/Saxena_fullUKBB_Insomnia_summary_stats.zip -P Insomnia_Lane_2019
+wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Insomnia_summary_stats_README -P Insomnia_Lane_2019
+
+# Genome-wide association study provides new insights into the genetic architecture and pathogenesis of heart failure
+# https://www.biorxiv.org/content/10.1101/682013v1
+mkdir Heart-Failure_Shah_2019
+wget https://personal.broadinstitute.org/mvon/HERMES_Jan2019_HeartFailure_summary_data.txt.zip -P Heart-Failure_Shah_2019
+wget https://broad-portal-resources.s3.amazonaws.com/CVDKP/HERMES_Jan2019_HeartFailure_summary_data.README.txt -P Heart-Failure_Shah_2019
+
+
+# Genome-Wide Association Study of Diabetic Kidney Disease Highlights Biology Involved in Glomerular Basement Membrane Collagen.
+# https://www.ncbi.nlm.nih.gov/pubmed/31537649
+mkdir Diabetic-Kidney-Disease_Salem_2019 
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_micro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://s3.amazonaws.com/broad-portal-resources/README_JDRF_DNCRI_June2019_rsID.txt -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_micro_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_macro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_macro_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrd_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrd_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrdvall_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrdvall_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrdvmacro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrdvmacro_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckd_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckd_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckdextreme_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckddn_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_DN_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_DN_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_allvcntrl_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_allvcntrl_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://s3.amazonaws.com/broad-portal-resources/JDRF_DNCRI_phenotype_definitions.pdf -P Diabetic-Kidney-Disease_Salem_2019
+
+# Trans-ethnic kidney function association study reveals putative causal genes and effects on kidney-specific disease aetiologies.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6318312/
+mkdir Chronic-Kidney-Disease_Morris_2019
+wget https://pcwww.liv.ac.uk/~woodwajo/biostats/COGENT_Kidney_eGFR_trans_ethnic.txt.gz -P Chronic-Kidney-Disease_Morris_2019
+wget https://pcwww.liv.ac.uk/~woodwajo/biostats/COGENT_Kidney_eGFR_README.docx -P Chronic-Kidney-Disease_Morris_2019
+
+# A catalog of genetic loci associated with kidney function from analyses of a million individuals
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6698888/
+mkdir Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/20171016_MW_eGFR_overall_ALL_nstud61.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/20171017_MW_eGFR_overall_EA_nstud42.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/BUN_overall_ALL_YL_20171017_METAL1_nstud_33.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/BUN_overall_EA_YL_20171108_METAL1_nstud24.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/CKD_overall_ALL_JW_20180223_nstud30.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/CKD_overall_EA_JW_20180223_nstud23.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
+
+# Genome-wide association meta-analyses and fine-mapping elucidate pathways influencing albuminuria
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739370/ 
+mkdir Albuminuria_Teumer_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20170711-UACR_overall-ALL-nstud_27-sumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20170711-UACR_overall-ALL-nstud_27-sumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20180517-UACR_overall-EA-nstud_18-SumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20180202-UACR_overall-AA-nstud_1-SumMac_400.rsid.tbl.gz -P Albuminuria_Teumer_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20180205-MA_overall-ALL-nstud_18-SumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
+
+# Target genes, variants, tissues and transcriptional pathways influencing human serum urate levels
+# https://www.ncbi.nlm.nih.gov/pubmed/31578528
+mkdir Serum-Urate_Tin_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Tin2019/gout_chr1_22_LQ_IQ06_mac10_all_201_rsid.txt.gz -P Serum-Urate_Tin_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Tin2019/urate_chr1_22_LQ_IQ06_mac10_all_741_rsid.txt.gz -P Serum-Urate_Tin_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Tin2019/urate_chr1_22_LQ_IQ06_mac10_EA_60_rsid.txt.gz -P Serum-Urate_Tin_2019
+wget http://ckdgen.imbi.uni-freiburg.de/files/Tin2019/code_zero_pvals_mpfr.txt -P Serum-Urate_Tin_2019
+
+# Genetic variation in PLEKHG1 is associated with white matter hyperintensities (n = 11,226)
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6396967/
+mkdir White-Matter-Hyperintensity_Traylor_2018
+wget https://personal.broadinstitute.org/mvon/Traylor.et.al.2018.WMH.txt.zip -P  White-Matter-Hyperintensity_Traylor_2018
+wget https://s3.amazonaws.com/broad-portal-resources/stroke/README_Traylor_2019.pdf -P  White-Matter-Hyperintensity_Traylor_2018
+
+# https://zenodo.org/communities/gwasarchive/search?page=1&size=20
+# https://gwasarchive.org/
+
+# Genome-wide association summary statistics for back pain
+# https://zenodo.org/record/1319332#.Xgj-dEdKhnI
+mkdir Back-Pain_Freidin_2018
+wget https://zenodo.org/record/1319332/files/20170907_discovery_HRC_maf_0002_no_dupl.txt?download=1 -P Back-Pain_Freidin_2018
+wget https://zenodo.org/record/1319332/files/20170921_crude_pain_450K_cleaned.txt?download=1 -P Back-Pain_Freidin_2018
+
+# Genome-wide association summary statistics for human blood plasma glycome
+# 
+mkdir Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP1.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP2.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP3.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP4.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP5.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP6.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP7.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP8.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP9.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP10.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP11.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP12.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP13.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP14.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP15.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP16.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP17.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP18.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP19.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP20.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP21.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP22.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP23.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP24.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP25.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP26.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP27.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP28.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP29.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP30.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP31.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP32.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP33.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP34.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP35.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP36.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP37.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP38.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP39.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP40.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP41.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP42.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP43.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP44.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP45.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP46.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP47.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP48.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP49.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP50.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP51.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP52.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP53.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP54.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP55.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP56.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP57.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP58.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP59.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP60.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP61.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP62.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP63.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP64.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP65.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP66.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP67.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP68.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP69.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP70.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP71.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP72.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP73.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP74.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP75.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP76.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP77.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP78.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP79.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP80.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP81.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP82.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP83.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP84.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP85.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP86.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP87.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP88.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP89.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP90.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP91.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP92.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP93.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP94.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP95.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP96.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP97.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP98.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP99.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP100.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP101.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP102.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP103.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP104.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP105.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP106.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP107.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP108.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP109.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP110.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP111.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP112.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+wget https://zenodo.org/record/1298406/files/PGP113.tsv.gz?download=1 -P Blood-Plasma-Glycome_Sharapov_2018
+
+# Genome-wide association summary statistics for human healthspan
+# https://zenodo.org/record/1302861#.Xgj-eUdKhnI
+mkdir Healthspan_Zenin_2018
+wget -P https://zenodo.org/record/1302861/files/healthspan_summary.csv.gz?download=1 Healthspan_Zenin_2018 
+
+# Maternal and fetal genetic effects on birth weight and their relevance to cardio-metabolic risk factors.
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6522365/
+mkdir Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Fetal_BW_European_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Fetal_BW_transethnic_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Maternal_BW_European_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Maternal_BW_transethnic_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Fetal_Effect_European_meta_NG2019.txt.gz -P Birth-Weight_Warrington_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Maternal_Effect_European_meta_NG2019.txt.gz -P Birth-Weight_Warrington_2019
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/31477735/
+# Variants in the fetal genome near pro-inflammatory cytokine genes on 2q13 associate with gestational duration.
+mkdir Gestational-Duration_Liu_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_gest_duration_NComms2019.txt.gz -P Gestational-Duration_Liu_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_early_preterm_birth_NComms2019.txt.gz -P Gestational-Duration_Liu_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_preterm_birth_NComms2019.txt.gz -P Gestational-Duration_Liu_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_postterm_birth_NComms2019.txt.gz  -P Gestational-Duration_Liu_2019
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31504550
+# A Trans-ancestral Meta-Analysis of Genome-Wide Association Studies Reveals Loci Associated with Childhood Obesity.
+mkdir Childhood-Obesity_Bradfield_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggChildhoodObesity_HumanMolecularGenetics/Childhood_Obesity-File_Header_Explanation.txt -P Childhood-Obesity_Bradfield_2019
+wget http://mccarthy.well.ox.ac.uk/publications/2019/EggChildhoodObesity_HumanMolecularGenetics/CHILDHOOD_OBESITY.TRANS_ANCESTRAL.RESULTS.txt.gz -P Childhood-Obesity_Bradfield_2019
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3510312/
+# Identification of fifteen new psoriasis susceptibility loci highlights the role of innate immunity
+mkdir Psoriasis_Tsoi_2012
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TsoiLC_23143594_GCST005527/harmonised/23143594-GCST005527-EFO_0000676-Build37.f.tsv.gz -P Psoriasis_Tsoi_2012
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TsoiLC_23143594_GCST005527/harmonised/23143594-GCST005527-EFO_0000676.h.tsv.gz -P Psoriasis_Tsoi_2012
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3366044/
+# Genome-wide association analyses identify 13 new susceptibility loci for generalized vitiligo
+mkdir Vitilogo_Jin_2012
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_22561518_GCST001509 -P Vitilogo_Jin_2012
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3242065/
+# Dense genotyping identifies and localizes multiple common and rare variant association signals in celiac disease
+mkdir Celiac-Disease_Trynka_2011
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TrynkaG_22057235_GCST005523/harmonised/22057235-GCST005523-EFO_0001060-Build37.f.tsv.gz -P Celiac-Disease_Trynka_2011
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TrynkaG_22057235_GCST005523/harmonised/22057235-GCST005523-EFO_0001060.h.tsv.gz -P Celiac-Disease_Trynka_2011
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3183083/
+# A Genome-Wide Meta-Analysis of Six Type 1 Diabetes Cohorts Identifies Multiple Associated Loci
+mkdir Type-1-Diabetes_Bradfield_2011
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BradfieldJP_21980299_GCST001255/harmonised/21980299-GCST001255-EFO_0001359-Build37.f.tsv.gz -P Type-1-Diabetes_Bradfield_2011
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BradfieldJP_21980299_GCST001255/harmonised/21980299-GCST001255-EFO_0001359.h.tsv.gz -P Type-1-Diabetes_Bradfield_2011
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3832895/
+# Analysis of immune-related loci identifies 48 new susceptibility variants for multiple sclerosis
+mkdir Multiple-Sclerosis_Beechman_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BeechamAH_24076602_GCST005531/harmonised/24076602-GCST005531-EFO_0003885-Build37.f.tsv.gz -P Multiple-Sclerosis_Beechman_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BeechamAH_24076602_GCST005531/harmonised/24076602-GCST005531-EFO_0003885.h.tsv.gz -P Multiple-Sclerosis_Beechman_2013
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4668589/
+# Genetic association analyses implicate aberrant regulation of innate and adaptive immunity genes in the pathogenesis of systemic lupus erythematosus.
+mkdir Lupus_Bentham_2015
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BenthamJ_26502338_GCST003156/harmonised/26502338-GCST003156-EFO_0002690-build37.f.tsv.gz -P Lupus_Bentham_2015
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BenthamJ_26502338_GCST003156/harmonised/26502338-GCST003156-EFO_0002690.h.tsv.gz -P Lupus_Bentham_2015
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5798660/
+# Genetic variation in CFH predicts phenytoin-induced maculopapular exanthema in European-descent patients
+mkdir Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/ALL_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/CBZ_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/EU_ALL_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/EU_CBZ_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/EU_LTG_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/EU_PHT_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/HK_ALL_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/HK_CBZ_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/HK_LTG_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/HK_PHT_MPE.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/LTG_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
+wget http://www.epigad.org/gwas_ilae2018_rash/LTG_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6288131/
+# Genome-wide mega-analysis identifies 16 loci and highlights diverse biological mechanisms in the common epilepsies
+mkdir Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/all_epilepsy_METAL.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/CAE_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_epilepsy_METAL.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_HS_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_lesion_negative_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/focal_other_lesion_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/generalised_epilepsy_METAL.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/GTCS_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/JAE_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/JME_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
+wget http://www.epigad.org/gwas_ilae2018_16loci/README.txt -P Epilepsy_ILAE_2018
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5153392/
+# A genome-wide analysis in cluster headache points to neprilysin and PACAP receptor gene variants
+mkdir Cluster-Headache_Bacchelli_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5153392/bin/10194_2016_705_MOESM1_ESM.zip -P Cluster-Headache_Bacchelli_2016
+
+# http://ncbi.nlm.nih.gov/pmc/articles/PMC6078592/
+# Genome-wide association study identifies WNT7B as a novel locus for central corneal thickness in Latinos
+mkdir Central-Corneal-Thickness_Gao_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6078592/bin/ddw319_supp.zip -P Central-Corneal-Thickness_Gao_2016
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5493516/
+# Variants in WFS1 and other Mendelian deafness genes are associated with cisplatin-associated ototoxicity
+mkdir Cisplatin-Associated-Ototoxicity_Wheeler_2017
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5493516/bin/NIHMS839776-supplement-6.xlsx -P Cisplatin-Associated-Ototoxicity_Wheeler_2017
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5086090/
+# Common variants at PVT1, ATG13–AMBRA1, AHI1 and CLEC16A are associated with selective IgA deficiency
+mkdir Selective-IgA-Deficiency_Bronson_2016
+wget http://research-pub.gene.com/bronson_et_al_2016/BronsonEtAl_NatGenet_2016.zip -P Selective-IgA-Deficiency_Bronson_2016
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/
+# A Genome-Wide Association Study of Attention Function in a Population-Based Sample of Children
+mkdir Attention-Function_Alemany_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s002.gz -P Attention-Function_Alemany_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s003.gz -P Attention-Function_Alemany_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s004.gz -P Attention-Function_Alemany_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s005.gz -P Attention-Function_Alemany_2016
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s006.gz -P Attention-Function_Alemany_2016
+
+
+#############################################
+# Requiring manual download
+#############################################
+
+# Type 2 Diabetes
+# Bonàs-Guarch S, et al.
+# http://cg.bsc.es/70kfort2d/
+
+# Type 2 Diabetes
+# Mahajan et al.
+# http://diagram-consortium.org/downloads.html
+
+# All PGC phenotypes
+# https://www.med.unc.edu/pgc/results-and-downloads
+
+# All iPSYCH phenotypes
+# https://ipsych.au.dk/downloads/
+
+# https://www.nature.com/articles/s41467-017-02662-2
+# https://drive.google.com/drive/folders/0BzYDtCo_doHJRFRKR0ltZHZWZjQ
+# Genome-wide association study in 79,366 European-ancestry individuals informs the genetic architecture of 25-hydroxyvitamin D levels
+
+# Parkinsons disease and other cognitive phenotypes 
+# https://pdgenetics.shinyapps.io/pdprogmetagwasbrowser/
+
+# Well-being
+# https://www.nature.com/articles/s41588-018-0320-8
+# https://surfdrive.surf.nl/files/index.php/s/Ow1qCDpFT421ZOO
+# mkdir -p Well-Being_Baselmans_2019
+
+# The Genetic Architecture of Gene Expression in Peripheral Blood
+# http://cnsgenomics.com/data.html
+# http://cnsgenomics.com/shiny/CAGE/
+
+# Common genetic variants influence human subcortical brain structures.
+# http://enigma.ini.usc.edu/research/download-enigma-gwas-results/
+# https://www.ncbi.nlm.nih.gov/pubmed/?term=25607358
+
+# What about other public eQTLs...
+
+# And all new UKBB stats...
+
+#############################################
+# Looked promising, but couldn't obtain...
+#############################################
+
+# NOTE: In general, if it looks like it could be obtainable but takes more
+# than 5 minutes of searching for the right file, then I'll probably skip it.
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5787851/
+# Rapid evaluation of phenotype, SNP and summary results through the dbGaP Charge Summary site
+#
+# Nah forget it, even through dbGAP we can only get top hits, not full association statistics
+
+# Blood pressure
+# Same, can't seem to find full stats
+# https://www.nature.com/articles/s41588-018-0303-9#data-availability
+
+# Ulcers 
+# Requires appplication and permission
+# https://data.bris.ac.uk/data/dataset/459eyiulzf9y25yh6nsf550y4
+# http://www.bristol.ac.uk/alspac/researchers/our-data/
+
+#############################################
+# Possible future downloads -- currently 
+# too big to tackle
+#############################################
+
+# Newer version of UKBB GWAS
+# Possible higher quality than UKBB traits? Can download all...
+# They supply a download.sh script on here somewhere so you can download in bulk
+# Maybe better, because they're corrected for family relations
+#
+# http://geneatlas.roslin.ed.ac.uk/traits-table/
+# http://geneatlas.roslin.ed.ac.uk/frequently-asked-questions/
+# https://www.nature.com/articles/s41588-018-0248-z
+
+# More UKBB traits
+# Includes sumstats from Watanabe et al. mega-analysis
+# https://ctg.cncr.nl/documents/p1651/ukb2_sumstats.tar.gz
+# https://ctg.cncr.nl/software/summary_statistics
+
+# Check out the use of an API to download latest results from
+# http://www.kp4cd.org/apis/t2d
+
+
+#############################################
+# Unzip all files
+#############################################
+#python unzip.py
