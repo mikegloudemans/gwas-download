@@ -36,6 +36,7 @@ wget http://www.reprogen.org/Menarche_1KG_NatGen2017_WebsiteUpload.zip --directo
 # https://www.nature.com/articles/ng.3412
 # Large-scale genomic analyses link reproductive aging to hypothalamic signaling, breast cancer susceptibility and BRCA1-mediated DNA repair
 # Day et al. 2015
+# PMID: 26414677 PMCID: PMC4661791 DOI: 10.1038/ng.3412
 mkdir Age-At-Menopause_Day_2015
 wget http://www.reprogen.org/Menopause_HapMap2_DayNG2015_18112015.txt.gz --directory Age-At-Menopause_Day_2015
 
@@ -55,6 +56,7 @@ mv "Aggression_Pappa_2015/pappa 150810 EAGLE MA aggression_METAL RESULTS.txt" Ag
 # A Large-Scale, Consortium-Based Genomewide Association Study of Asthma
 # Moffatt et al. 2010
 # GABRIEL asthma study
+# PMID: 20860503 PMCID: PMC4260321 DOI: 10.1056/NEJMoa0906312
 mkdir Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results.zip -P Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results_description.xls -P Asthma_Moffatt_2010
@@ -69,6 +71,7 @@ wget http://walker05.u.hpc.mssm.edu/Read_me_GWAS_BFpercent.txt -P Body-Fat-Perce
 # https://www.nature.com/articles/s41467-017-00108-3
 # Bivariate genome-wide association meta-analysis of pediatric musculoskeletal traits reveals pleiotropic effects at the SREBF1/TOM1L2 locus
 # Medina-Gomez et al. 2017
+# PMID: 28743860 PMCID: PMC5527106 DOI: 10.1038/s41467-017-00108-3
 mkdir Musculoskeletal-Traits_Medina-Gomez_2017
 wget http://www.gefos.org/sites/default/files/bivariate_final.txt.gz --directory Musculoskeletal-Traits_Medina-Gomez_2017
 wget http://www.gefos.org/sites/default/files/ReadMe_GEFOS-1.txt --directory Musculoskeletal-Traits_Medina-Gomez_2017
@@ -76,6 +79,7 @@ wget http://www.gefos.org/sites/default/files/ReadMe_GEFOS-1.txt --directory Mus
 # http://www.gefos.org/?q=content/data-release-2012
 # Genome-wide meta-analysis identifies 56 bone mineral density loci and reveals 14 loci associated with risk of fracture.
 # Estrada et al. 2012
+# PMID: 22504420 PMCID: PMC3338864 DOI: 10.1038/ng.2249
 mkdir Bone-Mineral-Density_Estrada_2012
 wget http://www.gefos.org/sites/default/files/GEFOS2_FNBMD_MEN_GC.txt.gz --directory Bone-Mineral-Density_Estrada_2012
 wget http://www.gefos.org/sites/default/files/GEFOS2_FNBMD_WOMEN_GC.txt.gz --directory Bone-Mineral-Density_Estrada_2012
@@ -101,6 +105,7 @@ wget http://www.gefos.org/sites/default/files/README.txt --directory Bone-Minera
 # https://www.nature.com/articles/s41467-017-00031-7
 # Large meta-analysis of genome-wide association studies identifies five loci for lean body mass
 # Zillikens et al. 2017
+# PMID: 28724990 PMCID: PMC5517526 DOI: 10.1038/s41467-017-00031-7
 mkdir Lean-Body-Mass_Zillikens_2017
 wget http://www.gefos.org/sites/default/files/appendicularleanmass.results.metal_.txt.gz --directory  Lean-Body-Mass_Zillikens_2017
 wget http://www.gefos.org/sites/default/files/wholebodyleanmass.results.metal_.txt.gz --directory  Lean-Body-Mass_Zillikens_2017
@@ -115,6 +120,7 @@ wget http://www.gefos.org/sites/default/files/NG-A45024R-Suppl-Figure6_0.pdf Bon
 # http://www.cell.com/ajhg/fulltext/S0002-9297(17)30494-9
 # Life-Course Genome-wide Association Study Meta-analysis of Total Body BMD and Assessment of Age-Specific Effects
 # Medina-Gomez et al. 2018
+# PMID: 29304378 PMCID: PMC5777980 DOI: 10.1016/j.ajhg.2017.12.005
 mkdir Bone-Mineral-Density-Total-Body-Lifecourse_Medina-Gomez_2018
 wget http://www.gefos.org/sites/default/files/METAANALYSIS2016_60_or_more_GEFOS.txt.gz --directory Bone-Mineral-Density-Total-Body-Lifecourse_Medina-Gomez_2018
 wget http://www.gefos.org/sites/default/files/METAANALYSIS2016_4560GEFOS.txt.gz --directory Bone-Mineral-Density-Total-Body-Lifecourse_Medina-Gomez_2018
@@ -165,12 +171,14 @@ wget http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-do
 # https://www.nature.com/articles/ng.3913
 # Association analyses based on false discovery rate implicate new loci for coronary artery disease
 # Nelson et al. 2017
+# PMID: 28714975 DOI: 10.1038/ng.3913
 mkdir Coronary-Artery-Disease_Nelson_2017
 wget http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/UKBB.GWAS1KG.EXOME.CAD.SOFT.META.PublicRelease.300517.txt.gz --directory Coronary-Artery-Disease_Nelson_2017
 
 # https://www.nature.com/articles/ng.3552
 # Genetic variants associated with subjective well-being, depressive symptoms and neuroticism identified through genome-wide analyses.
 # Okbay et al. 2016
+# PMID: 27898078 PMCID: PMC5509058 DOI: 10.1038/ng1216-1587b
 mkdir Depressive-Symptoms_Okbay_2016
 mkdir Subjective-Well-Being_Okbay_2016
 mkdir Neuroticism-Symptoms_Okbay_2016
@@ -184,6 +192,7 @@ wget http://ssgac.org/documents/ReadMe_genetic_variants_associated_with_swb.txt 
 # https://www.nature.com/articles/ng.3424
 # Multi-ancestry genome-wide association study of 21,000 cases and 95,000 controls identifies new risk loci for atopic dermatitis
 # EAGLE Consortium 2015
+# PMID: 26482879 PMCID: PMC4753676 DOI: 10.1038/ng.3424
 mkdir Atopic-Dermatitis_EAGLE_2015
 wget https://data.bris.ac.uk/datasets/28uchsdpmub118uex26ylacqm/AD_GWAS_README.txt --directory Atopic-Dermatitis_EAGLE_2015
 wget https://data.bris.ac.uk/datasets/28uchsdpmub118uex26ylacqm/EAGLE_AD_GWAS_results_2015.txt.gz --directory Atopic-Dermatitis_EAGLE_2015
@@ -323,6 +332,7 @@ wget http://mccarthy.well.ox.ac.uk/publications/2018/EggOffspringBirthWeight_Hum
 # Discovery and refinement of loci associated with lipid levels
 # Willer et al. 2013
 # GLGC
+# PMID: 24097068 PMCID: PMC3838666 DOI: 10.1038/ng.2797
 mkdir Blood-Lipids_Willer_2013
 wget http://csg.sph.umich.edu/abecasis/public/lipids2013/jointGwasMc_LDL.txt.gz --directory Blood-Lipids_Willer_2013
 wget http://csg.sph.umich.edu/abecasis/public/lipids2013/jointGwasMc_HDL.txt.gz --directory Blood-Lipids_Willer_2013
@@ -507,6 +517,7 @@ wget ftp://ftp.sanger.ac.uk/pub/project/humgen/summary_statistics/human/2016-10-
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5540332/
 # Genome-wide association study of primary sclerosing cholangitis identifies new risk loci and quantifies the genetic relationship with inflammatory bowel disease
 # Ji et al. 2016
+# PMID: 27992413 PMCID: PMC5540332 DOI: 10.1038/ng.3745
 mkdir Primary-Sclerosing-Cholangitis_Ji_2017
 wget http://ous-research.no/ipscsg/docs/ipscsg2016.result.combined.full.with_header.txt --directory Primary-Sclerosing-Cholangitis_Ji_2017
 
@@ -534,12 +545,14 @@ wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_ISI_README.docx --directory Insulin-
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3974640/
 # A Central Role for GRB10 in Regulation of Islet Function in Man
 # Prokopenko et al. 2014
+# PMID: 24699409
 mkdir Glucose-Stimulated-Insulin-Secretion_Prokopenko_2014
 wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_InsulinSecretion_data_release_May2014.zip --directory Glucose-Stimulated-Insulin-Secretion_Prokopenko_2014
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433394/
 # Large-scale association analyses identify new loci influencing glycemic traits and provide insight into the underlying biological pathways
 # Scott et al. 2013
+# PMID: 22885924
 mkdir Glycemic-Traits_Scott_2013
 wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_Metabochip_Public_data_release_25Jan.zip --directory Glycemic-Traits_Scott_2013
 
@@ -574,6 +587,7 @@ wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_2hrGlucose_AdjustedForBMI.txt --dire
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3018764/
 # New genetic loci implicated in fasting glucose homeostasis and their impact on type 2 diabetes risk.
 # Dupuis et al. 2010
+# PMID: 20081858 PMCID: PMC3018764 DOI: 10.1038/ng.520
 mkdir Glycemic-Traits_Dupuis_2010
 wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_ln_FastingInsulin.txt --directory Glycemic-Traits_Dupuis_2010
 wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_FastingGlucose.txt --directory Glycemic-Traits_Dupuis_2010
@@ -583,6 +597,7 @@ wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC_ln_HOMA-IR.txt --directory Glycemic-
 # https://www.ncbi.nlm.nih.gov/pubmed/27568811
 # Heritability and Genome-Wide Association Analyses of Sleep Duration in Children: The EAGLE Consortium.
 # Marinelli et al. 2016
+# PMID: 27568811 PMCID: PMC5020368 DOI: 10.5665/sleep.6170
 mkdir Sleep-Duration_Marinelli_2016
 wget https://www.dropbox.com/s/u1mgr7opvqsblmw/Marinelli_Sleep2016_EAGLE%20MA%20summary%20statistics_BMI%20adjusted%20model.txt?dl=0 --directory Sleep-Duration_Marinelli_2016
 wget https://www.dropbox.com/s/lmmz9l17tqzg2bh/Marinelli_Sleep2016_EAGLE%20MA%20summary%20statistics_basic%20model.txt?dl=0 --directory Sleep-Duration_Marinelli_2016
@@ -605,7 +620,8 @@ wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2016/2016_Bustamante/READ
 
 # https://www.biorxiv.org/content/early/2018/03/02/274654
 # Meta-analysis of genome-wide association studies for height and body mass index in ~700,000 individuals of European ancestry
-# Yengo et al. 2018 
+# Yengo et al. 2018
+# PMID: 30124842 PMCID: PMC6488973 DOI: 10.1093/hmg/ddy271
 mkdir Yengo_BMI+Height_2018
 wget https://portals.broadinstitute.org/collaboration/giant/images/0/0f/Meta-analysis_Locke_et_al%2BUKBiobank_2018.txt.gz --directory Yengo_BMI+Height_2018
 wget https://portals.broadinstitute.org/collaboration/giant/images/6/63/Meta-analysis_Wood_et_al%2BUKBiobank_2018.txt.gz --directory Yengo_BMI+Height_2018
@@ -900,6 +916,7 @@ wget http://www.psy.ed.ac.uk/ccace/downloads/Deary2017_Mol_Psych_tiredness.zip -
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5308812/
 # Genetic prediction of male pattern baldness
 # Hagenaars et al. 2017
+# PMID: 28196072 PMCID: PMC5308812 DOI: 10.1371/journal.pgen.1006594
 mkdir Male-Pattern-Baldness_Hagenaars_2017
 wget http://www.psy.ed.ac.uk/ccace/downloads/Hagenaars2017_UKB_MPB_summary_results.zip --directory  Male-Pattern-Baldness_Hagenaars_2017
 
@@ -990,6 +1007,7 @@ wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Roos_MCL/RoosMC
 # http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0189317
 # Genome-wide association study identifies a locus associated with rotator cuff injury
 # Roos et al. 2017
+# PMID: 29228018 PMCID: PMC5724859 DOI: 10.1371/journal.pone.0189317
 mkdir Rotator-Cuff-Injury_Roos_2017
 wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Roos_Rotator_Cuff/RotatorCuffSummary.txt.zip --directory Rotator-Cuff-Injury_Roos_2017
 wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2017/2017_Roos_Rotator_Cuff/RoosRotatorReadme.txt --directory Rotator-Cuff-Injury_Roos_2017
@@ -1003,6 +1021,7 @@ wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v6.158k.v1.zip --di
 # https://www.nature.com/articles/s41588-018-0057-4
 # Genome-wide mapping of global-to-local genetic effects on human facial shape
 # Claes et al. 2018
+# PMID: 29459680 PMCID: PMC5937280 DOI: 10.1038/s41588-018-0057-4
 mkdir Facial-Shape_Claes_2018
 wget https://mirc.uzleuven.be/MedicalImagingCenter/ImagingGenetics/FacialGWAS/DATA/GWASEXPORT/CHR1.txt.zip --directory Facial-Shape_Claes_2018
 wget https://mirc.uzleuven.be/MedicalImagingCenter/ImagingGenetics/FacialGWAS/DATA/GWASEXPORT/CHR2.txt.zip --directory Facial-Shape_Claes_2018
@@ -1031,6 +1050,7 @@ wget https://mirc.uzleuven.be/MedicalImagingCenter/ImagingGenetics/FacialGWAS/DA
 # https://www.nature.com/articles/s41588-017-0011-x
 # Protein-altering variants associated with body mass index implicate pathways that control energy intake and expenditure in obesity
 # Turcot et al. 2017
+# PMID: 29273807 PMCID: PMC5945951 DOI: 10.1038/s41588-017-0011-x
 mkdir BMI-Exome_Turcot_2017
 wget http://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip --directory BMI-Exome_Turcot_2017
 wget http://portals.broadinstitute.org/collaboration/giant/images/3/33/BMI_African_American.fmt.gzip  --directory BMI-Exome_Turcot_2017
@@ -1042,18 +1062,21 @@ wget http://portals.broadinstitute.org/collaboration/giant/images/0/02/BMI_South
 # https://www.nature.com/articles/s41588-017-0014-7
 # Multiancestry association study identifies new asthma risk loci that colocalize with immune-cell enhancer marks.
 # Demenais et al. 2017
+# PMID: 29273806 PMCID: PMC5901974 DOI: 10.1038/s41588-017-0014-7
 mkdir Asthma_Demenais_2017
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DemenaisF_29273806_GCST005212/TAGC_meta-analyses_results_for_asthma_risk.zip --directory Asthma_Demenais_2017
 
 # https://www.nature.com/articles/s41588-017-0013-8
 # Association analysis in over 329,000 individuals identifies 116 independent variants influencing neuroticism 
 # Luciano et al. 2017
+# PMID: 29255261 PMCID: PMC5985926 DOI: 10.1038/s41588-017-0013-8
 mkdir Neuroticism_Luciano_2017
 wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano_2017.zip --directory Neuroticism_Luciano_2017
 
 # https://www.nature.com/articles/ng.3973
 # Genome-wide association analysis identifies 30 new susceptibility loci for schizophrenia
 # Li et al. 2017
+# PMID: 28991256 DOI: 10.1038/ng.3973
 mkdir Schizophrenia_Li_2017
 wget https://ndownloader.figshare.com/files/9500335 --directory Schizophrenia_Li_2017
 mv Schizophrenia_Li_2017/9500335 Schizophrenia_Li_2017/Schizophrenia_Li_2017.txt.gz
@@ -1061,18 +1084,21 @@ mv Schizophrenia_Li_2017/9500335 Schizophrenia_Li_2017/Schizophrenia_Li_2017.txt
 # https://www.nature.com/articles/ng.3888#supplementary-information
 # Genome-wide association analysis of insomnia complaints identifies risk genes and genetic overlap with psychiatric and metabolic traits
 # Hammerschlag et al. 2017
+# PMID: 28604731 PMCID: PMC5600256 DOI: 10.1038/ng.3888
 mkdir Insomnia_Hammerschlag_2017
 wget http://ctg.cncr.nl/documents/p1651/Hammerschlag_NatGenet2017_insomnia_sumstats-full_090617.txt.gz --directory Insomnia_Hammerschlag_2017
 
 # https://www.nature.com/articles/ng.3869
 # Genome-wide association meta-analysis of 78,308 individuals identifies new loci and genes influencing human intelligence.
 # Sniekers et al. 2017
+# PMID: 28530673 PMCID: PMC5665562 DOI: 10.1038/ng.3869
 mkdir Intelligence_Sniekers_2017
 wget http://ctg.cncr.nl/documents/p1651/sumstats.txt.gz --directory Intelligence_Sniekers_2017
 
 # https://www.nature.com/articles/ng.3977
 # Exome-wide association study of plasma lipids in >300,000 individuals
 # Liu et al. 2017
+# PMID: 29083408 PMCID: PMC5709146 DOI: 10.1038/ng.3977
 mkdir Plasma-Lipids_Liu_2017
 wget http://csg.sph.umich.edu/abecasis/public/lipids2017/GLGC_exome_LDL_release.txt --directory Plasma-Lipids_Liu_2017
 wget http://csg.sph.umich.edu/abecasis/public/lipids2017/GLGC_exome_HDL_release.txt  --directory Plasma-Lipids_Liu_2017
@@ -1082,6 +1108,7 @@ wget http://csg.sph.umich.edu/abecasis/public/lipids2017/GLGC_exome_TC_release.t
 # https://www.nature.com/articles/ng.3978
 # Exome chip meta-analysis identifies novel loci and East Asian–specific coding variants that contribute to lipid levels and coronary artery disease
 # Lu et al. 2017
+# PMID: 29083407 PMCID: PMC5899829 DOI: 10.1038/ng.3978
 mkdir Plasma-Lipids_Lu_2017
 wget http://csg.sph.umich.edu/abecasis/public/lipids2017EastAsian/EastAsian_exome_LDL.txt --directory Plasma-Lipids_Lu_2017
 wget http://csg.sph.umich.edu/abecasis/public/lipids2017EastAsian/EastAsian_exome_HDL.txt --directory Plasma-Lipids_Lu_2017
@@ -1095,18 +1122,21 @@ wget http://csg.sph.umich.edu/abecasis/public/lipids2017/European_EastAsian_exom
 # https://www.nature.com/articles/ng.3943
 # Identification of new susceptibility loci for type 2 diabetes and shared etiological pathways with coronary heart disease
 # Zhao et al. 2017
+# PMID: 28869590 PMCID: PMC5844224 DOI: 10.1038/ng.3943
 mkdir Type-2-Diabetes_Zhao_2017
 wget http://www.med.upenn.edu/ccebfiles//t2d_meta_cleaned.zip --directory Type-2-Diabetes_Zhao_2017
 
 # https://www.nature.com/articles/ejhg2014110
 # A genome-wide association study identifies PLCL2 and AP3D1-DOT1L-SF3A2 as new susceptibility loci for myocardial infarction in Japanese
 # Hirokawa et al 2015
+# PMID: 24916648 PMCID: PMC4326706 DOI: 10.1038/ejhg.2014.110
 mkdir Myocardial-Infarction_Hirokawa_2015
 wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_freq.xlsx --directory Myocardial-Infarction_Hirokawa_2015
 
 # https://www.nature.com/articles/ncomms10531
 # Genome-wide association studies in the Japanese population identify seven novel loci for type 2 diabetes
 # Imamura et al 2015
+# PMID: 26818947 PMCID: PMC4738362 DOI: 10.1038/ncomms10531
 mkdir Type-2-Diabetes_Imamura_2015
 wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v3.T2DM-1.v1.xlsx --directory Type-2-Diabetes_Imamura_2015
 wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v3.T2DM-2.v1.xlsx --directory Type-2-Diabetes_Imamura_2015
@@ -1114,12 +1144,14 @@ wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v3.T2DM-2.v1.xlsx -
 # https://www.nature.com/articles/ng.2438
 # Genome-wide association study identifies eight new susceptibility loci for atopic dermatitis in the Japanese population
 # Hirota et al. 2012
+# PMID: 23042114 DOI: 10.1038/ng.2438
 mkdir Atopic-Dermatitis_Hirota_2012
 wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v4.AD.v1.zip --directory Atopic-Dermatitis_Hirota_2012
 
 # https://www.nature.com/articles/ng.3842
 # Identification of six new genetic loci associated with atrial fibrillation in the Japanese population
 # Low et al. 2017
+# PMID: 28416822 DOI: 10.1038/ng.3842
 mkdir Atrial-Fibrillation_Low_2017
 wget https://humandbs.biosciencedbc.jp/files/hum0014/hum0014.v5.AF.v1.txt.zip --directory Atrial-Fibrillation_Low_2017
 
@@ -1495,224 +1527,13 @@ mkdir Blood-Metabolites_Shin_2014
 wget http://metabolomics.helmholtz-muenchen.de/gwas/gwas_server/shin_et_al.metal.out.tar.gz --directory Blood-Metabolites_Shin_2014
 wget http://metabolomics.helmholtz-muenchen.de/gwas/gwas_server/shin_et_al.xeno.metal.out.tar.gz --directory Blood-Metabolites_Shin_2014
 
-# 
+# https://www.ncbi.nlm.nih.gov/pubmed/30617256
 # Genome-wide meta-analysis identifies new loci and functional pathways influencing Alzheimer’s disease risk
 # Jansen et al. 2018
 mkdir Alzheimers_Jansen_2018
 wget https://ctg.cncr.nl/documents/p1651/AD_sumstats_Jansenetal.txt.gz --directory Alzheimers_Jansen_2018
 wget https://ctg.cncr.nl/documents/p1651/AD_sumstats.readme --directory Alzheimers_Jansen_2018
 
-##################################################################################################
-
-# GWAS requiring manual download
-
-# https://www.ncbi.nlm.nih.gov/pubmed/29403010
-# Genetic analysis of quantitative traits in the Japanese population links cell types to complex human diseases
-# Kanai et al. 2018
-mkdir QTLs-Japanese_Kanai_2018
-# http://jenger.riken.jp/result
-
-# https://www.nature.com/articles/ng.3874
-# Fifteen new risk loci for coronary artery disease highlight arterial-wall-specific mechanisms
-# Howson et al. 2017
-mkdir Coronary-Artery-Disease_Howson_2017
-# http://www.phenoscanner.medschl.cam.ac.uk/docs/Howson-JMM_CHD_Mixed_2017.txt
-
-# https://www.biorxiv.org/content/early/2017/06/03/145581
-# Discovery Of The First Genome-Wide Significant Risk Loci For ADHD
-# Demontis et al. 2017
-mkdir Attention-Deficit-Hyperactivity-Disorder_Demontis_2017
-# https://www.med.unc.edu/pgc/results-and-downloads/
-# We used the June 2017 release
-
-# https://www.ncbi.nlm.nih.gov/pubmed/24162737
-# Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer's disease.
-# Lambert et al. 2013
-mkdir Alzheimers_Lambert_2013
-# Must be downloaded manually from http://web.pasteur-lille.fr/en/recherche/u744/igap/igap_download.php
-
-# https://www.ncbi.nlm.nih.gov/pubmed/26754954
-# Meta-analysis of genome-wide association studies of anxiety disorders.
-# Otowa et al. 2016
-mkdir Anxiety_Otowa_2016
-# Must be downloaded from PGC site at http://www.med.unc.edu/pgc/results-and-downloads
-
-# https://www.ncbi.nlm.nih.gov/pubmed/21926972
-# Large-scale genome-wide association analysis of bipolar disorder identifies a new susceptibility locus near ODZ4.
-# PGC 2012
-mkdir Bipolar-Disorder_Psychiatric-Genomics-Consortium_2012
-# Must download directly from PGC website at http://www.med.unc.edu/pgc/results-and-downloads
-
-# https://molecularautism.biomedcentral.com/articles/10.1186/s13229-017-0137-9
-# Meta-analysis of GWAS of over 16,000 individuals with autism spectrum disorder highlights a novel locus at 10q24.32 and a significant overlap with schizophrenia
-# PGC 2017
-mkdir Autism_Psychiatric-Genomics-Consortium_2017
-# Must download directly from PGC website at http://www.med.unc.edu/pgc/results-and-downloads
-
-# https://www.ncbi.nlm.nih.gov/pubmed/28761083
-# Revealing the complex genetic architecture of obsessive compulsive disorder using meta-analysis.
-# Arnold et al. 2017
-mkdir Obsessive-Compulsive-Disorder_Arnold_2017
-# Must be downloaded directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/28439101
-# Largest GWAS of PTSD (N =20 070) yields genetic overlap with schizophrenia and sex differences in heritability
-# Duncan et al. 2017
-mkdir Post-Traumatic-Stress-Disorder_Duncan_2017
-# Must be downloaded directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/26176920
-# Sparse whole-genome sequencing identifies two loci for major depressive disorder.
-# Cai et al. 2015
-# CONVERGE
-mkdir Major-Depressive-Disorder_Cai_2015
-# Must be downloaded directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/?term=27629369
-# Genome-Wide Association Study of Loneliness Demonstrates a Role for Common Variation.
-# Gao et al. 2017
-mkdir Loneliness_Gao_2017
-wget http://www.med.unc.edu/pgc/files/resultfiles/loneliness.readme.pdf --directory Loneliness_Gao_2017
-# Must be downloaded directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/20418890
-# Genome-wide meta-analyses identify multiple loci associated with smoking behavior.
-# Furberg et al. 2010
-mkdir Smoking_Furberg_2010
-wget http://www.med.unc.edu/pgc/files/resultfiles/readme.tag.txt --directory Smoking_Furberg_2010 
-# Must be downloaded directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/25187353
-# Clozapine-induced agranulocytosis is associated with rare HLA-DQB1 and HLA-B alleles.
-# Goldstein et al. 2014
-mkdir Clozapine-Induced-Agranulocytosis_Goldstein_2014
-# Need to download this one directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/23453885
-# Identification of risk loci with shared effects on five major psychiatric disorders: a genome-wide analysis.
-# PGC 2013
-mkdir Cross-Disorder-Brain_PGC_2013
-# Need to download this one directly from PGC website
-
-# https://www.ncbi.nlm.nih.gov/pubmed/22472876
-# A mega-analysis of genome-wide association studies for major depressive disorder.
-# PGC 2013
-mkdir Major-Depressive-Disorder_PGC_2013
-# Need to download this one directly from PGC website
-
-# https://www.biorxiv.org/content/early/2017/07/24/167577
-# Genome-wide association analyses identify 44 risk variants and refine the genetic architecture of major depression
-# PGC 2018
-mkdir Major-Depressive-Disorder_PGC_2018
-# Need to download this one directly from PGC website
-wget http://www.med.unc.edu/pgc/files/resultfiles/pgc-mdd-2018-readme-v.3 --directory Major-Depressive-Disorder_PGC_2018
-
-# https://www.ncbi.nlm.nih.gov/pubmed/28494655
-# Significant Locus and Metabolic Genetic Correlations Revealed in Genome-Wide Association Study of Anorexia Nervosa.
-# Duncan et al. 2017
-mkdir Anorexia-Nervosa_Duncan_2017
-# Must be downloaded from PGC website
-
-# http://diabetes.diabetesjournals.org/content/early/2017/05/25/db16-1253 
-# An Expanded Genome-Wide Association Study of Type 2 Diabetes in Europeans
-# Scott et al. 2017
-mkdir Type-2-Diabetes_Scott_2017
-# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
-
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5034897/
-# The genetic architecture of type 2 diabetes
-# Fuchsberger et al. 2016
-mkdir Type-2-Diabetes_Fuchsberger_2016
-# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
-
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4666734/
-# Genetic fine-mapping and genomic annotation defines causal mechanisms at type 2 diabetes susceptibility loci
-# Gaulton et al. 2015
-mkdir Type-2-Diabetes_Gaulton_2015
-# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
-
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3969612/
-# Genome-wide trans-ancestry meta-analysis provides insight into the genetic architecture of type 2 diabetes susceptibility
-# Mahajan et al. 2014
-mkdir Type-2-Diabetes_Mahajan_2014
-# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
-
-# https://www.ncbi.nlm.nih.gov/pubmed/22885922
-# Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes.
-# Morris et al. 2012
-mkdir Type-2-Diabetes_Morris_2012
-# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
-
-# https://www.ncbi.nlm.nih.gov/pubmed/27005778
-# Genome-wide study for circulating metabolites identifies 62 loci and reveals novel systemic effects of LPA
-# Kettunen et al. 2016
-# MAGNETIC
-mkdir Circulating-Metabolites_Kettunen_2016
-# Must be downloaded manually from http://computationalmedicine.fi/data
-
-# https://www.ncbi.nlm.nih.gov/pubmed?cmd=Retrieve&dopt=AbstractPlus&list_uids=27989323
-# Genome-wide Association Study Identifies 27 Loci Influencing Concentrations of Circulating Cytokines and Growth Factors.
-# Ahola-Olli et al. 2017 
-mkdir Cytokines-And-Growth-Factors_Ahola-Olli_2017
-# Must be downloaded manually from http://computationalmedicine.fi/data#Cytokine_GWAS
-
-# https://www.nature.com/articles/ng.3985
-# Shared genetic origin of asthma, hay fever and eczema elucidates allergic disease biology
-# Ferreira et al. 2017
-mkdir Allergies_Ferreira_2017
-# wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/SHARE-without23andMe.LDSCORE-GC.SE-META.v0.gz --directory Allergies_Ferreira_2017
-# NOTE: Required a manual download and transfer
-
-# https://www.ncbi.nlm.nih.gov/pubmed/29058716
-# Identification of ten variants associated with risk of estrogen-receptor-negative breast cancer.
-# Milne et al. 2017
-mkdir BreastCancer_Milne_2017
-# NOTE: Required a manual download and transfer
-
-# https://www.nature.com/articles/ng.3875
-# Genetic association study of exfoliation syndrome identifies a protective rare variant at LOXL1 and five new susceptibility loci
-# Aung et al. 2017 
-mkdir ExfoliationSyndrome_Aung_2017
-# https://media.nature.com/original/nature-assets/ng/journal/v49/n7/extref/ng.3875-S6.zip
-
-# https://www.ncbi.nlm.nih.gov/pubmed/27663945
-# A Genome-Wide Association Meta-Analysis of Attention-Deficit/Hyperactivity Disorder Symptoms in Population-Based Paediatric Cohorts
-# Middeldorp et al. 2016
-mkdir Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016
-# Requires manual download from http://www.tweelingenregister.org/EAGLE/
-
-# https://www.ncbi.nlm.nih.gov/pubmed/19853236
-# Sequence variants in three loci influence monocyte counts and erythrocyte volume.
-# Ferreira et al. 2009
-#mkdir Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/RBC.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HB.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HT.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCV.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCH.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCHC.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/PLT.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/WBC.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/NEUT.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/LYMPH.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MONO.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/EOS.assoc.gz --directory Blood-Cells_Ferreira_2009
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/BASO.assoc.gz --directory Blood-Cells_Ferreira_2009
-# Requires manual download from web browser
-
-# https://www.ncbi.nlm.nih.gov/pubmed/20045101
-# Quantitative trait loci for CD4:CD8 lymphocyte ratio are associated with risk of type 1 diabetes and HIV-1 immune control.
-# Ferreira et al. 2010
-mkdir Lymphocyte-Subsets_Ferreira_2010
-# Requires manual download from the links below
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD3.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4_8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
-
-######################################################
 # New additions
 ######################################################
 
@@ -1735,11 +1556,7 @@ wget http://csg.sph.umich.edu/willer/public/lipids/METAHDL.zip --directory Blood
 wget http://csg.sph.umich.edu/willer/public/lipids/METALDL.zip --directory Blood-Lipids_Willer_2008 
 wget http://csg.sph.umich.edu/willer/public/lipids/METATG.zip --directory Blood-Lipids_Willer_2008 
 
-######################################################
-# Unzip all zipped GWAS files
-######################################################
-python utils/unzip.py
-# Fasting glucose sex-specific (MAGIC)
+
 mkdir -p Fasting-Glucose_Lagou_2018
 #https://www.magicinvestigators.org/downloads/
 wget ftp://ftp.sanger.ac.uk/pub/magic/FG_STAGE1_2_3_SEX_GWAS_2018.txt.gz -P Fasting-Glucose_Lagou_2018
@@ -1747,18 +1564,21 @@ wget ftp://ftp.sanger.ac.uk/pub/magic/FI_STAGE1_2_3_SEX_GWAS_2018.txt.gz -P Fast
 wget ftp://ftp.sanger.ac.uk/pub/magic/MAGIC-sex_dimorphic_fasting_glucose_insulin_README.pdf -P Fasting-Glucose_Lagou_2018
 
 # Morris, Kemp, et al. An atlas of genetic influences on osteoporosis in humans and mice. Nature Genetics 2018.
+# PMID: 30598549 PMCID: PMC6358485 DOI: 10.1038/s41588-018-0302-x
 # http://www.gefos.org/?q=content/data-release-2018
 mkdir -p Osteoporosis_Morris_2018
 wget http://www.gefos.org/sites/default/files/Morrisetal2018.NatGen.SumStats.tar_0.gz -P Osteoporosis_Morris_2018
 
 # http://www.gefos.org/?q=content/fracture-gwas-2018-release
 # Trajanoska et al. Assessment of the genetic and clinical determinants of fracture risk: genome wide association and mendelian randomisation study. BMJ 2018. 
+# PMID: 30158200 PMCID: PMC6113773 DOI: 10.1136/bmj.k3225
 mkdir -p Bone-Fracture_Trajanoska_2018
 wget http://www.gefos.org/sites/default/files/ALLFX_GWAS_build37.txt.gz -P Bone-Fracture_Trajanoska_2018
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5562285/
 # Type 2 diabetes variants disrupt function of SLC16A11 through two distinct mechanisms
 # SIGMA consortium
+# PMID: 28666119 PMCID: PMC5562285 DOI: 10.1016/j.cell.2017.06.011
 mkdir -p Type-2-Diabetes_Rusu_2018
 wget https://personal.broadinstitute.org/mvon/GWAS_SIGMA_dv1.T2D.txt.zip -P Type-2-Diabetes_Rusu_2018
 wget https://personal.broadinstitute.org/mvon/ExChip_SIGMA_dv1.txt.zip -P Type-2-Diabetes_Rusu_2018
@@ -1768,6 +1588,7 @@ wget https://personal.broadinstitute.org/mvon/ExSeq_26k_hs_sigma_dv2.T2D.txt.zip
 # Variants in WFS1 and other Mendelian deafness genes are associated with cisplatin-associated ototoxicity.
 # Wheeler HE et al. Clin Cancer Res. 2016 Dec 30
 # Pubmed: 28039263; DOI: 10.1158/1078-0432.CCR-16-2809
+# PMID: 28039263 PMCID: PMC5493516 DOI: 10.1158/1078-0432.CCR-16-2809
 mkdir -p Cisplatin-Associated-Ototoxicity_Wheeler_2016
 wget https://www.pgrn.org/uploads/1/0/7/8/107807723/wheeler_et_al_ccr_2017_sum_stats.txt_5.zip -P Cisplatin-Associated-Ototoxicity_Wheeler_2016
 wget https://www.pgrn.org/uploads/1/0/7/8/107807723/wheeler_et_al_ccr_2017_readme_2.txt -P Cisplatin-Associated-Ototoxicity_Wheeler_2016
@@ -1776,6 +1597,7 @@ wget https://www.pgrn.org/uploads/1/0/7/8/107807723/wheeler_et_al_ccr_2017_readm
 # Germline variants and advanced colorectal adenomas: adenoma prevention with celecoxib trial genome-wide association study.
 # Wang J et al. Clin Cancer Res. 2013 Dec 1;19(23):6430-7. 
 # Pubmed: 24084763; PubMed Central: PMC4037290; DOI: 10.1158/1078-0432.CCR-13-0550
+# PMID: 24084763 PMCID: PMC4037290 DOI: 10.1158/1078-0432.CCR-13-0550
 mkdir -p Colorectal-Adenoma_Wang_2013
 wget https://www.pgrn.org/uploads/1/0/7/8/107807723/adv_adno_assoc.assoc.txt.zip -P Colorectal-Adenoma_Wang_2013
 wget https://www.pgrn.org/uploads/1/0/7/8/107807723/readme-colorectaladenomaprev-celecoxib.txt -P Colorectal-Adenoma_Wang_2013
@@ -1784,6 +1606,7 @@ wget https://www.pgrn.org/uploads/1/0/7/8/107807723/readme-colorectaladenomaprev
 # Genetic Association of Albuminuria with Cardiometabolic Disease and Blood Pressure.
 # Haas ME, et al.
 # Am J Hum Genet. 2018 Oct 4;103(4):461-473. doi: 10.1016/j.ajhg.2018.08.004
+# PMID: 30220432 PMCID: PMC6174360 DOI: 10.1016/j.ajhg.2018.08.004
 mkdir -p Albuminuria_Haas_2018
 wget https://personal.broadinstitute.org/mvon/UKB.v2.albuminuria.n382500.zip -P Albuminuria_Haas_2018
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/UKB.v2.albuminuria.n382500.README.txt -P Albuminuria_Haas_2018
@@ -1794,6 +1617,7 @@ unzip Albuminuria_Haas_2018
 # Phenotypic Refinement of Heart Failure in a National Biobank Facilitates Genetic Discovery.
 # Aragam KG, et al.
 # Circulation. 2018 Nov 11. doi: 10.1161/CIRCULATIONAHA.118.035774
+# PMID: 30586722 PMCID: PMC6511334 [Available on 2020-05-11] DOI: 10.1161/CIRCULATIONAHA.118.035774
 mkdir -p Heart-Failure_Aragam_2018
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/Heart_failure_GWAS_README.txt -P Heart-Failure_Aragam_2018
 wget https://personal.broadinstitute.org/mvon/2018.HRC.GWAS.UKBB.zip -P Heart-Failure_Aragam_2018
@@ -1809,6 +1633,7 @@ unzip Atrial-Fibrillation-Early-Onset_Choi_2018/2018.AF.WGS.TOPMed.zip -d Atrial
 # Multi-ethnic genome-wide association study for atrial fibrillation.
 # Roselli C, et al.
 # Nat Genet. 2018 Sep;50(9):1225-1233. doi: 10.1038/s41588-018-0133-9
+# PMID: 29892015 PMCID: PMC6136836 DOI: 10.1038/s41588-018-0133-9
 mkdir -p Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
 wget https://personal.broadinstitute.org/mvon/AF_HRC_GWAS_ALLv11.zip -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018 
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/AF_HRC_GWAS_ALLv11_README.txt -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
@@ -1818,6 +1643,7 @@ unzip Atrial-Fibrillation-Multi-Ethnic_Roselli_2018/AF_HRC_GWAS_ALLv11.zip -d At
 # Common and Rare Coding Genetic Variation Underlying the Electrocardiographic PR Interval.
 # Lin H, et al.
 # Circ Genom Precis Med. 2018;11:e002037. doi: 10.1161/CIRCGEN.117.002037
+# PMID: 29748316 PMCID: PMC5951629 DOI: 10.1161/CIRCGEN.117.002037
 mkdir -p Electrocardiograph-PR-Interval_Lin_2018
 wget https://personal.broadinstitute.org/mvon/29748316.PR.interval.ExomeChip.zip -P Electrocardiograph-PR-Interval_Lin_2018
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/PR_interval.exome_chip.CVDKP_Readme.txt -P Electrocardiograph-PR-Interval_Lin_2018
@@ -1841,11 +1667,13 @@ wget https://data.mendeley.com/datasets/7jgbckpdr4/1 -P Cardiac-Conduction_Prins
 # Nielsen
 # http://csg.sph.umich.edu/willer/public/afib2018/
 # Biobank-driven genomic discovery yields new insight into atrial fibrillation biology (Nielsen et al., Nature Genetics, 2018)
+# PMID: 30061737 PMCID: PMC6530775 DOI: 10.1038/s41588-018-0171-3
 mkdir -p Atrial-Fibrillation_Nielsen_2018
 wget http://csg.sph.umich.edu/willer/public/afib2018/nielsen-thorolfsdottir-willer-NG2018-AFib-gwas-summary-statistics.tbl.gz -P Atrial-Fibrillation_Nielsen_2018
 
 # https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0196951
 # Genome-wide association meta-analysis of circulating odd-numbered chain saturated fatty acids: Results from the CHARGE Consortium
+# PMID: 29738550 PMCID: PMC5940220 DOI: 10.1371/journal.pone.0196951
 mkdir -p Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
 wget http://faculty.washington.edu/rozenl/files/150.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
 wget http://faculty.washington.edu/rozenl/files/170.txt --directory Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018
@@ -1855,6 +1683,7 @@ wget http://faculty.washington.edu/rozenl/files/230.txt --directory Odd-Chain-Sa
 
 # Genome-wide association study identifies novel loci associated with concentrations of four plasma phospholipid fatty acids in the de novo lipogenesis pathway: results from the Cohorts for Heart and Aging Research in Genomic Epidemiology (CHARGE) consortium.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/23362303/
+# PMID: 23362303 PMCID: PMC3891054 DOI: 10.1161/CIRCGENETICS.112.964619
 mkdir -p Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
 wget http://faculty.washington.edu/rozenl/files/CHARGE_160.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
 wget http://faculty.washington.edu/rozenl/files/CHARGE_180.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
@@ -1868,6 +1697,7 @@ wget -r http://www.msi.umn.edu/~wguan/CHARGE_N6GWAS --directory N6-Fatty-Acids_G
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307209/
 # Genetic loci associated with circulating  phospholipid trans fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
+# PMID: 25646338 PMCID: PMC4307209 DOI: 10.3945/ajcn.114.094557
 mkdir -p Trans-Fatty-Acids_Mozaffarian_2015
 wget http://faculty.washington.edu/rozenl/files/T16_1n7_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
 wget http://faculty.washington.edu/rozenl/files/T18_1_July5_1.txt --directory Trans-Fatty-Acids_Mozaffarian_2015
@@ -1877,6 +1707,7 @@ wget http://faculty.washington.edu/rozenl/files/T18_2_tt_July5_1.txt --directory
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4274065/
 # Genetic loci associated with circulating levels of very long-chain saturated fatty acids
+# PMID: 25378659 PMCID: PMC4274065 DOI: 10.1194/jlr.M052456
 mkdir -p Very-Long-Chain-Fatty-Acids_Lemaitre_2015
 wget http://faculty.washington.edu/rozenl/files/CHARGE_20_0.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
 wget http://faculty.washington.edu/rozenl/files/CHARGE_22_0.txt --directory Very-Long-Chain-Fatty-Acids_Lemaitre_2015
@@ -1886,6 +1717,7 @@ wget http://faculty.washington.edu/rozenl/files/CHARGE_24_0_adjfor200.txt --dire
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3145614/
 # Genetic loci associated with plasma phospholipid n-3 fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
+# PMID: 21829377 PMCID: PMC3145614 DOI: 10.1371/journal.pgen.1002193
 mkdir -p N3-Fatty-Acids_Lemaitre_2011
 wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_ALA.txt --directory N3-Fatty-Acids_Lemaitre_2011
 wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_EPA.txt --directory N3-Fatty-Acids_Lemaitre_2011
@@ -1894,6 +1726,7 @@ wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_DHA.txt --directory N3
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5280020/
 # The Genetic Landscape of Renal Complications in Type 1 Diabetes
+# PMID: 27647854 PMCID: PMC5280020 DOI: 10.1681/ASN.2016020231
 mkdir -p Diabetic-Kidney-Disease-Type-2_Sandholm_2016
 wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Combined_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
 wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
@@ -1906,6 +1739,7 @@ wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D_eGFR.euro.tx
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6014557/
 # A Genome-Wide Association Study of Diabetic Kidney Disease in Subjects With Type 2 Diabetes.
+# PMID: 29703844 PMCID: PMC6014557 DOI: 10.2337/db17-0914
 mkdir -p Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
 wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_dkd.euro.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
 wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T2D_ckd.euro.n.txt.gz --directory Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018
@@ -1942,6 +1776,7 @@ wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D-T2D_egfr.mul
 # Bivariate CAD
 # Bivariate Genome-Wide Association Scan Identifies 6 Novel Loci Associated With Lipid Levels and Coronary Artery Disease
 # https://www.ahajournals.org/doi/full/10.1161/CIRCGEN.118.002239
+# PMID: 30525989 PMCID: PMC6291836 DOI: 10.1161/CIRCGEN.118.002239
 mkdir Coronary-Artery-Disease-and-Lipid-Levels_Siewert_2018
 wget http://coruscant.itmat.upenn.edu/data/SiewertEA_bivarStats.tar.gz --directory Coronary-Artery-Disease-and-Lipid-Levels_Siewert_2018
 
@@ -1949,6 +1784,7 @@ wget http://coruscant.itmat.upenn.edu/data/SiewertEA_bivarStats.tar.gz --directo
 # https://datashare.is.ed.ac.uk/handle/10283/3203
 # https://www.nature.com/articles/s41467-018-03819-3
 # Genome-wide meta-analysis of depression identifies 102 independent variants and highlights
+# PMID: 30718901 PMCID: PMC6522363 DOI: 10.1038/s41593-018-0326-7
 mkdir -p Depression_Howard_2019
 wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/PGC_UKB_depression_genome-wide.txt?sequence=3&isAllowed=y --directory Depression_Howard_2019
 wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/ReadMe.txt?sequence=4&isAllowed=y --directory Depression_Howard_2019
@@ -1971,6 +1807,7 @@ wget https://static-content.springer.com/esm/art%3A10.1186%2Fs12890-019-0811-0/M
 # http://www.mrc-epid.cam.ac.uk/research/resources/gwas-summary-statistics-dataset/
 # Genome–wide association study for risk taking propensity indicates shared pathways with body mass index
 # https://www.nature.com/articles/s42003-018-0042-6
+# PMID: 30271922 PMCID: PMC6123697 DOI: 10.1038/s42003-018-0042-6
 mkdir Risk-Taking_Clifton_2018
 wget https://epiweb.mrc-epid.cam.ac.uk/files/Risk_SumStats_Clifton_2018.csv.gz -d  Risk-Taking_Clifton_2018
 
@@ -1993,6 +1830,7 @@ wget http://www.epigad.org/gwas_ilae2018_16loci/README.txt -d Epilepsy_ILAE-Cons
 # Genome-wide association study in Japanese females identifies fifteen novel skin-related trait associations
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/
 # Summary stats available for download as Supp Data 1-7
+# PMID: 29895819 PMCID: PMC5997657 DOI: 10.1038/s41598-018-27145-2
 mkdir Skin-Traits_Endo_2018
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM1_ESM.pdf -d Skin-Traits_Endo_2018
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM4_ESM.txt -d Skin-Traits_Endo_2018 # Age-spots
@@ -2005,7 +1843,6 @@ wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_M
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30842574
 # The influence of X chromosome variants on trait neuroticism.
-# 
 mkdir Neuroticism_Luciano_2019
 wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_X.gz --directory Neuroticism_Luciano_2019
 wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_XY.gz --directory Neuroticism_Luciano_2019
@@ -2025,6 +1862,7 @@ wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/4_UKB_IGAP_AD_met
 # Study of 300,486 individuals identifies 148 independent genetic loci influencing general cognitive function.
 # https://www.nature.com/articles/s41467-018-04362-x
 # http://www.ccace.ed.ac.uk/node/335
+# PMID: 29844566 PMCID: PMC5974083 DOI: 10.1038/s41467-018-04362-x
 mkdir Cognitive-Function_Davies_2018
 wget http://www.psy.ed.ac.uk/ccace/downloads/Davies_NC_2018.zip --directory Cognitive-Function_Davies_2018
 wget http://www.psy.ed.ac.uk/ccace/downloads/Davies_NC_2018_OPEN_DATASET.zip --directory Cognitive-Function_Davies_2018
@@ -2032,6 +1870,7 @@ wget http://www.psy.ed.ac.uk/ccace/downloads/Davies_NC_2018_OPEN_DATASET.zip --d
 # https://www.nature.com/articles/s41588-018-0121-0.pdf?origin=ppub
 # http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/
 # A genome-wide cross trait analysis from UK Biobank highlights the shared genetic architecture of asthma and allergic diseases
+# PMID: 29785011 PMCID: PMC5980765 DOI: 10.1038/s41588-018-0121-0
 mkdir Allergic-Diseases_Zhu_2018
 wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.asthma.assoc.gz --directory Allergic-Diseases_Zhu_2018
 wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.allergy.assoc.gz --directory Allergic-Diseases_Zhu_2018
@@ -2050,42 +1889,49 @@ wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July201
 
 # Population genetic differentiation of height and body mass index across Europe
 # https://www.nature.com/articles/ng.3401
+# PMID: 26366552 PMCID: PMC4984852 DOI: 10.1038/ng.3401
 mkdir BMI+Height_Robinson_2015
 wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_height_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
 wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_bmi_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
 
 # Causal associations between risk factors and common diseases inferred from GWAS summary data
 # https://www.nature.com/articles/s41467-017-02317-2
+# PMID: 29335400 PMCID: PMC5768719 DOI: 10.1038/s41467-017-02317-2
 mkdir Multi-Trait_Zhu_2018
 wget http://cnsgenomics.com/data/GSMR/Zhu_et_al_GSMR_2017_GERA.tar.gz --directory Multi-Trait_Zhu_2018
 wget http://cnsgenomics.com/data/GSMR/Zhu_et_al_GSMR_2017_UKB.tar.gz --directory Multi-Trait_Zhu_2018
 
 # https://www.nature.com/articles/s41467-018-04951-w
 # Genome-wide association analyses identify 143 risk variants and putative regulatory mechanisms for type 2 diabetes
+# PMID: 30054458 PMCID: PMC6063971 DOI: 10.1038/s41467-018-04951-w
 mkdir Type-2-Diabetes_Xue_2018
 wget http://cnsgenomics.com/data/t2d/Xue_et_al_T2D_META_Nat_Commun_2018.gz --directory Type-2-Diabetes_Xue_2018
 wget http://cnsgenomics.com/data/t2d/Xue_et_al_T2D_META_Nat_Commun_2018.pdf --directory Type-2-Diabetes_Xue_2018
 
 # Dissection of genetic variation and evidence for pleiotropy in male pattern baldness
 # https://www.nature.com/articles/s41467-018-07862-y
+# PMID: 30573740 PMCID: PMC6302097 DOI: 10.1038/s41467-018-07862-y
 mkdir Male-Pattern-Baldness_Yap_2018
 wget http://cnsgenomics.com/data/mpb/mpb_bolt_lmm_aut_x.tab.zip --directory Male-Pattern-Baldness_Yap_2018
 wget http://cnsgenomics.com/data/mpb/MPB_GWAS_summary_statistics_README.pdf --directory Male-Pattern-Baldness_Yap_2018
 
 # Genome-wide association study of medication-use and associated disease in the UK Biobank
 # https://www.nature.com/articles/s41467-019-09572-5
+# PMID: 31015401 PMCID: PMC6478889 DOI: 10.1038/s41467-019-09572-5
 mkdir Medication-Use_Wu_2019
 wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics.tar.gz --directory Medication-Use_Wu_2019
 wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics_README.pdf  --directory Medication-Use_Wu_2019
 
 # The effect of X-linked dosage compensation on complex trait variation
 # https://www.nature.com/articles/s41467-019-10598-y
+# PMID: 31285442 PMCID: PMC6614401 DOI: 10.1038/s41467-019-10598-y
 mkdir X-Linked-Dosage-Compensation_Sidorenko_2019
 wget http://cnsgenomics.com/data/XWAS/UKBv3_Xchr_20traits.tar.gz --directory X-Linked-Dosage-Compensation_Sidorenko_2019
 wget http://cnsgenomics.com/data/XWAS/chrX_eqtl_besd.tar.gz  --directory X-Linked-Dosage-Compensation_Sidorenko_2019
 
 # A genome-wide association analysis identifies 16 novel susceptibility loci for carpal tunnel syndrome
 # https://www.nature.com/articles/s41467-019-08993-6#MOESM6 
+# PMID: 30833571 PMCID: PMC6399342 DOI: 10.1038/s41467-019-08993-6
 mkdir Carpal-Tunnel-Syndrome_Wiberg_2019
 wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08993-6/MediaObjects/41467_2019_8993_MOESM6_ESM.txt --directory Carpal-Tunnel-Syndrome_Wiberg_2019
 
@@ -2108,17 +1954,22 @@ wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-017-18241-w/
 
 # https://www.nature.com/articles/s41467-018-04332-3
 # https://github.com/Biogen-Inc/statgen
+# A whole-genome sequence study identifies genetic risk factors for neuromyelitis optica
+# PMID: 29769526 PMCID: PMC5955905 DOI: 10.1038/s41467-018-04332-3
 mkdir Neuromyelitis-Optica_Estrada_2018
 wget https://github.com/Biogen-Inc/statgen/archive/master.zip --directory Neuromyelitis-Optica_Estrada_2018
 
-# If we don't have it already
+# https://www.ncbi.nlm.nih.gov/pubmed/29309628
+# Genome-wide association study of offspring birth weight in 86 577 women identifies five novel loci and highlights maternal genetic effects that are independent of fetal genetics.
 # http://egg-consortium.org/offspring-birth-weight.html
+# PMID: 29309628 PMCID: PMC5886200 DOI: 10.1093/hmg/ddx429
 mkdir Birth-Weight_Beaumont_2018
 wget http://mccarthy.well.ox.ac.uk/publications/2018/EggOffspringBirthWeight_HumMolGen/MBW_Summary_Stats.txt.gz --directory Birth-Weight_Beaumont_2018
 
 # http://www.lolipopstudy.org/data-download
 # wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing
 # Chambers JC, Zhang W, Sehmi J, Li X, Wass MN, Van der Harst P, et al. Genome-wide association study identifies loci influencing concentrations of liver enzymes in plasma. Nature genetics. 2011;43(11):1131-8.
+# PMID: 22001757 PMCID: PMC3482372 DOI: 10.1038/ng.970
 mkdir -p Liver-Enzymes_Chambers_2011
 wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing -P Liver-Enzymes_Chambers_2011
 
@@ -2127,6 +1978,7 @@ wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?us
 # Genome-Wide Association Studies of a Broad Spectrum of Antisocial Behavior
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6309228/
 # http://broadabc.ctglab.nl/summary_statistics
+# PMID: 28979981 PMCID: PMC6309228 DOI: 10.1001/jamapsychiatry.2017.3069
 mkdir -p Antisocial-Behavior_Tielbeek_2017
 wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Combined.tbl -P Antisocial-Behavior_Tielbeek_2017
 wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Females.tbl -P Antisocial-Behavior_Tielbeek_2017
@@ -2153,6 +2005,7 @@ wget https://ctg.cncr.nl/documents/p1651/sumstats_neuro_sum_ctg_format.txt.gz -P
 
 # Genome-wide association meta-analysis (N=269,867) identifies new genetic and functional links to intelligence.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6411041/
+# PMID: 29942086 PMCID: PMC6411041 DOI: 10.1038/s41588-018-0152-6
 mkdir -p Intelligence_Savage_2018
 wget https://ctg.cncr.nl/documents/p1651/SavageJansen_IntMeta_sumstats.zip -P Intelligence_Savage_2018
 
@@ -2179,7 +2032,6 @@ wget https://ctg.cncr.nl/documents/p1651/Gettingup_sumstats_Jansenetal.txt.gz -P
 wget https://ctg.cncr.nl/documents/p1651/Napping_sumstats_Jansenetal.txt.gz -P Insomnia_Jansen_2019
 
 # https://www.thessgac.org/data
-
 # The Molecular Genetic Architecture of Self-Employment
 # https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/23593239/
 mkdir Self-Employment_van-der-Loos_2013
@@ -2200,6 +2052,7 @@ wget http://ssgac.org/documents/README_BANSAL.txt -P Educational-Attainment-Plus
 
 # Gene discovery and polygenic prediction from a 1.1-million-person GWAS of educational attainment.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6393768/
+# PMID: 30038396 PMCID: PMC6393768 DOI: 10.1038/s41588-018-0147-3
 mkdir Educational-Attainment_Lee_2018 
 wget https://www.dropbox.com/s/ho58e9jmytmpaf8/GWAS_EA_excl23andMe.txt?dl=0 -P Educational-Attainment_Lee_2018
 wget https://www.dropbox.com/s/ibjoh0g5e3sdd8t/GWAS_CP_all.txt?dl=0 -P Educational-Attainment_Lee_2018
@@ -2229,6 +2082,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/sleep/Accelerometer_GWAS_RE
 
 # Genome-wide association study identifies genetic loci for self-reported habitual sleep duration supported by accelerometer-derived estimates.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6405943/
+# PMID: 30846698 PMCID: PMC6405943 DOI: 10.1038/s41467-019-08917-4
 mkdir Sleep-Duration_Dashti_2019
 wget https://personal.broadinstitute.org/mvon/sleepdurationsumstats.txt.zip -P Sleep-Duration_Dashti_2019
 wget https://personal.broadinstitute.org/mvon/longsumstats.txt.zip  -P Sleep-Duration_Dashti_2019
@@ -2239,6 +2093,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Short
 
 # Genome-wide association analyses of chronotype in 697,828 individuals provides insights into circadian rhythms
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6351539/
+# PMID: 30696823 PMCID: PMC6351539 DOI: 10.1038/s41467-018-08259-7
 mkdir Sleep-Chronotype_Jones_2019
 wget https://personal.broadinstitute.org/mvon/chronotype_raw_BOLT.output_HRC.only_plus.metrics_maf0.001_hwep1em12_info0.3.txt.gz -P Sleep-Chronotype_Jones_2019
 wget https://personal.broadinstitute.org/mvon/morning_person_BOLT.output_HRC.only_plus.metrics_maf0.001_hwep1em12_info0.3_logORs.txt.gz -P Sleep-Chronotype_Jones_2019
@@ -2247,6 +2102,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/sleep/morning_person_README
 
 # Associations of Variants In the Hexokinase 1 and Interleukin 18 Receptor Regions with Oxyhemoglobin Saturation During Sleep.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6467367/
+# PMID: 30990817 PMCID: PMC6467367 DOI: 10.1371/journal.pgen.1007739
 mkdir Sleep-Oxyhemoglobin-Saturation_Cade_2019
 wget https://personal.broadinstitute.org/mvon/cade_et_al_2018_average_spo2_multiethnic_discovery_replication.txt.zip -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
 wget https://personal.broadinstitute.org/mvon/cade_et_al_2018_minimum_spo2_multiethnic_discovery_replication.txt.zip -P Sleep-Oxyhemoglobin-Saturation_Cade_2019
@@ -2255,6 +2111,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/sleep/README_Cade_et_al.txt
 
 # Biological and clinical insights from genetics of insomnia symptoms.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6415688/
+# PMID: 30804566 PMCID: PMC6415688 DOI: 10.1038/s41588-019-0361-7
 mkdir Insomnia_Lane_2019
 wget https://personal.broadinstitute.org/mvon/Saxena_fullUKBB_Insomnia_summary_stats.zip -P Insomnia_Lane_2019
 wget https://s3.amazonaws.com/broad-portal-resources/sleep/Saxena_fullUKBB_Insomnia_summary_stats_README -P Insomnia_Lane_2019
@@ -2292,12 +2149,14 @@ wget https://s3.amazonaws.com/broad-portal-resources/JDRF_DNCRI_phenotype_defini
 
 # Trans-ethnic kidney function association study reveals putative causal genes and effects on kidney-specific disease aetiologies.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6318312/
+# PMID: 30604766 PMCID: PMC6318312 DOI: 10.1038/s41467-018-07867-7
 mkdir Chronic-Kidney-Disease_Morris_2019
 wget https://pcwww.liv.ac.uk/~woodwajo/biostats/COGENT_Kidney_eGFR_trans_ethnic.txt.gz -P Chronic-Kidney-Disease_Morris_2019
 wget https://pcwww.liv.ac.uk/~woodwajo/biostats/COGENT_Kidney_eGFR_README.docx -P Chronic-Kidney-Disease_Morris_2019
 
 # A catalog of genetic loci associated with kidney function from analyses of a million individuals
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6698888/
+# PMID: 31152163 PMCID: PMC6698888 DOI: 10.1038/s41588-019-0407-x
 mkdir Estimated-Glomerular-Filtration-Rate_Wuttke_2019
 wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/20171016_MW_eGFR_overall_ALL_nstud61.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
 wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/20171017_MW_eGFR_overall_EA_nstud42.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
@@ -2307,7 +2166,8 @@ wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/CKD_overall_ALL_JW_2018
 wget http://ckdgen.imbi.uni-freiburg.de/files/Wuttke2019/CKD_overall_EA_JW_20180223_nstud23.dbgap.txt.gz -P Estimated-Glomerular-Filtration-Rate_Wuttke_2019
 
 # Genome-wide association meta-analyses and fine-mapping elucidate pathways influencing albuminuria
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739370/ 
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739370/
+# PMID: 31511532 PMCID: PMC6739370 DOI: 10.1038/s41467-019-11576-0
 mkdir Albuminuria_Teumer_2019
 wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20170711-UACR_overall-ALL-nstud_27-sumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
 wget http://ckdgen.imbi.uni-freiburg.de/files/Teumer2019/formatted_20170711-UACR_overall-ALL-nstud_27-sumMac_400.tbl.rsid.gz -P Albuminuria_Teumer_2019
@@ -2325,6 +2185,7 @@ wget http://ckdgen.imbi.uni-freiburg.de/files/Tin2019/code_zero_pvals_mpfr.txt -
 
 # Genetic variation in PLEKHG1 is associated with white matter hyperintensities (n = 11,226)
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6396967/
+# PMID: 30659137 PMCID: PMC6396967 DOI: 10.1212/WNL.0000000000006952
 mkdir White-Matter-Hyperintensity_Traylor_2018
 wget https://personal.broadinstitute.org/mvon/Traylor.et.al.2018.WMH.txt.zip -P  White-Matter-Hyperintensity_Traylor_2018
 wget https://s3.amazonaws.com/broad-portal-resources/stroke/README_Traylor_2019.pdf -P  White-Matter-Hyperintensity_Traylor_2018
@@ -2462,6 +2323,7 @@ wget -P https://zenodo.org/record/1302861/files/healthspan_summary.csv.gz?downlo
 
 # Maternal and fetal genetic effects on birth weight and their relevance to cardio-metabolic risk factors.
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6522365/
+# PMID: 31043758 PMCID: PMC6522365 DOI: 10.1038/s41588-019-0403-1
 mkdir Birth-Weight_Warrington_2019
 wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Fetal_BW_European_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
 wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGenetics/Fetal_BW_transethnic_meta.NG2019.txt.gz -P Birth-Weight_Warrington_2019
@@ -2472,6 +2334,7 @@ wget http://mccarthy.well.ox.ac.uk/publications/2019/EggBirthWeight_NatureGeneti
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/31477735/
 # Variants in the fetal genome near pro-inflammatory cytokine genes on 2q13 associate with gestational duration.
+# PMID: 31477735 PMCID: PMC6718389 DOI: 10.1038/s41467-019-11881-8
 mkdir Gestational-Duration_Liu_2019
 wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_gest_duration_NComms2019.txt.gz -P Gestational-Duration_Liu_2019
 wget http://mccarthy.well.ox.ac.uk/publications/2019/EggGestationalDuration_NatureCommunications/Fetal_early_preterm_birth_NComms2019.txt.gz -P Gestational-Duration_Liu_2019
@@ -2486,41 +2349,48 @@ wget http://mccarthy.well.ox.ac.uk/publications/2019/EggChildhoodObesity_HumanMo
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3510312/
 # Identification of fifteen new psoriasis susceptibility loci highlights the role of innate immunity
+# PMID: 23143594 PMCID: PMC3510312 DOI: 10.1038/ng.2467
 mkdir Psoriasis_Tsoi_2012
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TsoiLC_23143594_GCST005527/harmonised/23143594-GCST005527-EFO_0000676-Build37.f.tsv.gz -P Psoriasis_Tsoi_2012
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TsoiLC_23143594_GCST005527/harmonised/23143594-GCST005527-EFO_0000676.h.tsv.gz -P Psoriasis_Tsoi_2012
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3366044/
 # Genome-wide association analyses identify 13 new susceptibility loci for generalized vitiligo
+# PMID: 22561518 PMCID: PMC3366044 DOI: 10.1038/ng.2272
 mkdir Vitilogo_Jin_2012
 wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_22561518_GCST001509 -P Vitilogo_Jin_2012
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3242065/
 # Dense genotyping identifies and localizes multiple common and rare variant association signals in celiac disease
+# PMID: 22057235 PMCID: PMC3242065 DOI: 10.1038/ng.998
 mkdir Celiac-Disease_Trynka_2011
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TrynkaG_22057235_GCST005523/harmonised/22057235-GCST005523-EFO_0001060-Build37.f.tsv.gz -P Celiac-Disease_Trynka_2011
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TrynkaG_22057235_GCST005523/harmonised/22057235-GCST005523-EFO_0001060.h.tsv.gz -P Celiac-Disease_Trynka_2011
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3183083/
 # A Genome-Wide Meta-Analysis of Six Type 1 Diabetes Cohorts Identifies Multiple Associated Loci
+# PMID: 21980299 PMCID: PMC3183083 DOI: 10.1371/journal.pgen.1002293
 mkdir Type-1-Diabetes_Bradfield_2011
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BradfieldJP_21980299_GCST001255/harmonised/21980299-GCST001255-EFO_0001359-Build37.f.tsv.gz -P Type-1-Diabetes_Bradfield_2011
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BradfieldJP_21980299_GCST001255/harmonised/21980299-GCST001255-EFO_0001359.h.tsv.gz -P Type-1-Diabetes_Bradfield_2011
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3832895/
 # Analysis of immune-related loci identifies 48 new susceptibility variants for multiple sclerosis
+# PMID: 24076602 PMCID: PMC3832895 DOI: 10.1038/ng.2770
 mkdir Multiple-Sclerosis_Beechman_2013
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BeechamAH_24076602_GCST005531/harmonised/24076602-GCST005531-EFO_0003885-Build37.f.tsv.gz -P Multiple-Sclerosis_Beechman_2013
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BeechamAH_24076602_GCST005531/harmonised/24076602-GCST005531-EFO_0003885.h.tsv.gz -P Multiple-Sclerosis_Beechman_2013
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4668589/
 # Genetic association analyses implicate aberrant regulation of innate and adaptive immunity genes in the pathogenesis of systemic lupus erythematosus.
+# PMID: 26502338 PMCID: PMC4668589 DOI: 10.1038/ng.3434
 mkdir Lupus_Bentham_2015
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BenthamJ_26502338_GCST003156/harmonised/26502338-GCST003156-EFO_0002690-build37.f.tsv.gz -P Lupus_Bentham_2015
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BenthamJ_26502338_GCST003156/harmonised/26502338-GCST003156-EFO_0002690.h.tsv.gz -P Lupus_Bentham_2015
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5798660/
 # Genetic variation in CFH predicts phenytoin-induced maculopapular exanthema in European-descent patients
+# PMID: 29288229 PMCID: PMC5798660 DOI: 10.1212/WNL.0000000000004853
 mkdir Maculopapular-Exanthema_McCormack_2018
 wget http://www.epigad.org/gwas_ilae2018_rash/ALL_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
 wget http://www.epigad.org/gwas_ilae2018_rash/CBZ_MPE_EU_HK_meta.results.gz -P Maculopapular-Exanthema_McCormack_2018
@@ -2537,6 +2407,7 @@ wget http://www.epigad.org/gwas_ilae2018_rash/LTG_MPE_EU_HK_meta.results.gz -P M
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6288131/
 # Genome-wide mega-analysis identifies 16 loci and highlights diverse biological mechanisms in the common epilepsies
+# PMID: 30531953 PMCID: PMC6288131 DOI: 10.1038/s41467-018-07524-z
 mkdir Epilepsy_ILAE_2018
 wget http://www.epigad.org/gwas_ilae2018_16loci/all_epilepsy_METAL.gz -P Epilepsy_ILAE_2018
 wget http://www.epigad.org/gwas_ilae2018_16loci/CAE_BOLT-LMM_final.gz -P Epilepsy_ILAE_2018
@@ -2552,26 +2423,31 @@ wget http://www.epigad.org/gwas_ilae2018_16loci/README.txt -P Epilepsy_ILAE_2018
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5153392/
 # A genome-wide analysis in cluster headache points to neprilysin and PACAP receptor gene variants
+# PMID: 27957625 PMCID: PMC5153392 DOI: 10.1186/s10194-016-0705-y
 mkdir Cluster-Headache_Bacchelli_2016
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5153392/bin/10194_2016_705_MOESM1_ESM.zip -P Cluster-Headache_Bacchelli_2016
 
 # http://ncbi.nlm.nih.gov/pmc/articles/PMC6078592/
 # Genome-wide association study identifies WNT7B as a novel locus for central corneal thickness in Latinos
+# PMID: 28171582 PMCID: PMC6078592 DOI: 10.1093/hmg/ddw319
 mkdir Central-Corneal-Thickness_Gao_2016
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6078592/bin/ddw319_supp.zip -P Central-Corneal-Thickness_Gao_2016
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5493516/
 # Variants in WFS1 and other Mendelian deafness genes are associated with cisplatin-associated ototoxicity
+# PMID: 28039263 PMCID: PMC5493516 DOI: 10.1158/1078-0432.CCR-16-2809
 mkdir Cisplatin-Associated-Ototoxicity_Wheeler_2017
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5493516/bin/NIHMS839776-supplement-6.xlsx -P Cisplatin-Associated-Ototoxicity_Wheeler_2017
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5086090/
 # Common variants at PVT1, ATG13–AMBRA1, AHI1 and CLEC16A are associated with selective IgA deficiency
+# PMID: 27723758 PMCID: PMC5086090 DOI: 10.1038/ng.3675
 mkdir Selective-IgA-Deficiency_Bronson_2016
 wget http://research-pub.gene.com/bronson_et_al_2016/BronsonEtAl_NatGenet_2016.zip -P Selective-IgA-Deficiency_Bronson_2016
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/
 # A Genome-Wide Association Study of Attention Function in a Population-Based Sample of Children
+# PMID: 27656889 PMCID: PMC5033492 DOI: 10.1371/journal.pone.0163048
 mkdir Attention-Function_Alemany_2016
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s002.gz -P Attention-Function_Alemany_2016
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s003.gz -P Attention-Function_Alemany_2016
@@ -2665,8 +2541,226 @@ wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s006.
 # Check out the use of an API to download latest results from
 # http://www.kp4cd.org/apis/t2d
 
+##################################################################################################
 
-#############################################
-# Unzip all files
-#############################################
-#python unzip.py
+# GWAS requiring manual download
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29403010
+# Genetic analysis of quantitative traits in the Japanese population links cell types to complex human diseases
+# Kanai et al. 2018
+mkdir QTLs-Japanese_Kanai_2018
+# http://jenger.riken.jp/result
+
+# https://www.nature.com/articles/ng.3874
+# Fifteen new risk loci for coronary artery disease highlight arterial-wall-specific mechanisms
+# Howson et al. 2017
+# PMID: 28530674 PMCID: PMC5555387 DOI: 10.1038/ng.3874
+mkdir Coronary-Artery-Disease_Howson_2017
+# http://www.phenoscanner.medschl.cam.ac.uk/docs/Howson-JMM_CHD_Mixed_2017.txt
+
+# https://www.biorxiv.org/content/early/2017/06/03/145581
+# Discovery Of The First Genome-Wide Significant Risk Loci For ADHD
+# Demontis et al. 2017
+mkdir Attention-Deficit-Hyperactivity-Disorder_Demontis_2017
+# https://www.med.unc.edu/pgc/results-and-downloads/
+# We used the June 2017 release
+
+# https://www.ncbi.nlm.nih.gov/pubmed/24162737
+# Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer's disease.
+# Lambert et al. 2013
+mkdir Alzheimers_Lambert_2013
+# Must be downloaded manually from http://web.pasteur-lille.fr/en/recherche/u744/igap/igap_download.php
+
+# https://www.ncbi.nlm.nih.gov/pubmed/26754954
+# Meta-analysis of genome-wide association studies of anxiety disorders.
+# Otowa et al. 2016
+mkdir Anxiety_Otowa_2016
+# Must be downloaded from PGC site at http://www.med.unc.edu/pgc/results-and-downloads
+
+# https://www.ncbi.nlm.nih.gov/pubmed/21926972
+# Large-scale genome-wide association analysis of bipolar disorder identifies a new susceptibility locus near ODZ4.
+# PGC 2012
+mkdir Bipolar-Disorder_Psychiatric-Genomics-Consortium_2012
+# Must download directly from PGC website at http://www.med.unc.edu/pgc/results-and-downloads
+
+# https://molecularautism.biomedcentral.com/articles/10.1186/s13229-017-0137-9
+# Meta-analysis of GWAS of over 16,000 individuals with autism spectrum disorder highlights a novel locus at 10q24.32 and a significant overlap with schizophrenia
+# PGC 2017
+# PMID: 28540026 PMCID: PMC5441062 DOI: 10.1186/s13229-017-0137-9
+mkdir Autism_Psychiatric-Genomics-Consortium_2017
+# Must download directly from PGC website at http://www.med.unc.edu/pgc/results-and-downloads
+
+# https://www.ncbi.nlm.nih.gov/pubmed/28761083
+# Revealing the complex genetic architecture of obsessive compulsive disorder using meta-analysis.
+# Arnold et al. 2017
+mkdir Obsessive-Compulsive-Disorder_Arnold_2017
+# Must be downloaded directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/28439101
+# Largest GWAS of PTSD (N =20 070) yields genetic overlap with schizophrenia and sex differences in heritability
+# Duncan et al. 2017
+mkdir Post-Traumatic-Stress-Disorder_Duncan_2017
+# Must be downloaded directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/26176920
+# Sparse whole-genome sequencing identifies two loci for major depressive disorder.
+# Cai et al. 2015
+# CONVERGE
+mkdir Major-Depressive-Disorder_Cai_2015
+# Must be downloaded directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/?term=27629369
+# Genome-Wide Association Study of Loneliness Demonstrates a Role for Common Variation.
+# Gao et al. 2017
+mkdir Loneliness_Gao_2017
+wget http://www.med.unc.edu/pgc/files/resultfiles/loneliness.readme.pdf --directory Loneliness_Gao_2017
+# Must be downloaded directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/20418890
+# Genome-wide meta-analyses identify multiple loci associated with smoking behavior.
+# Furberg et al. 2010
+mkdir Smoking_Furberg_2010
+wget http://www.med.unc.edu/pgc/files/resultfiles/readme.tag.txt --directory Smoking_Furberg_2010 
+# Must be downloaded directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/25187353
+# Clozapine-induced agranulocytosis is associated with rare HLA-DQB1 and HLA-B alleles.
+# Goldstein et al. 2014
+mkdir Clozapine-Induced-Agranulocytosis_Goldstein_2014
+# Need to download this one directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/23453885
+# Identification of risk loci with shared effects on five major psychiatric disorders: a genome-wide analysis.
+# PGC 2013
+mkdir Cross-Disorder-Brain_PGC_2013
+# Need to download this one directly from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/22472876
+# A mega-analysis of genome-wide association studies for major depressive disorder.
+# PGC 2013
+mkdir Major-Depressive-Disorder_PGC_2013
+# Need to download this one directly from PGC website
+
+# https://www.biorxiv.org/content/early/2017/07/24/167577
+# Genome-wide association analyses identify 44 risk variants and refine the genetic architecture of major depression
+# PGC 2018
+mkdir Major-Depressive-Disorder_PGC_2018
+# Need to download this one directly from PGC website
+wget http://www.med.unc.edu/pgc/files/resultfiles/pgc-mdd-2018-readme-v.3 --directory Major-Depressive-Disorder_PGC_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/28494655
+# Significant Locus and Metabolic Genetic Correlations Revealed in Genome-Wide Association Study of Anorexia Nervosa.
+# Duncan et al. 2017
+mkdir Anorexia-Nervosa_Duncan_2017
+# Must be downloaded from PGC website
+
+# http://diabetes.diabetesjournals.org/content/early/2017/05/25/db16-1253 
+# An Expanded Genome-Wide Association Study of Type 2 Diabetes in Europeans
+# Scott et al. 2017
+# PMID: 28566273 PMCID: PMC5652602 DOI: 10.2337/db16-1253
+mkdir Type-2-Diabetes_Scott_2017
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5034897/
+# The genetic architecture of type 2 diabetes
+# Fuchsberger et al. 2016
+# PMID: 27398621 PMCID: PMC5034897 DOI: 10.1038/nature18642
+mkdir Type-2-Diabetes_Fuchsberger_2016
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4666734/
+# Genetic fine-mapping and genomic annotation defines causal mechanisms at type 2 diabetes susceptibility loci
+# Gaulton et al. 2015
+# PMID: 26551672 PMCID: PMC4666734 DOI: 10.1038/ng.3437
+mkdir Type-2-Diabetes_Gaulton_2015
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3969612/
+# Genome-wide trans-ancestry meta-analysis provides insight into the genetic architecture of type 2 diabetes susceptibility
+# Mahajan et al. 2014
+# PMID: 24509480 PMCID: PMC3969612 DOI: 10.1038/ng.2897
+mkdir Type-2-Diabetes_Mahajan_2014
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pubmed/22885922
+# Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes.
+# Morris et al. 2012
+mkdir Type-2-Diabetes_Morris_2012
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pubmed/27005778
+# Genome-wide study for circulating metabolites identifies 62 loci and reveals novel systemic effects of LPA
+# Kettunen et al. 2016
+# MAGNETIC
+mkdir Circulating-Metabolites_Kettunen_2016
+# Must be downloaded manually from http://computationalmedicine.fi/data
+
+# https://www.ncbi.nlm.nih.gov/pubmed?cmd=Retrieve&dopt=AbstractPlus&list_uids=27989323
+# Genome-wide Association Study Identifies 27 Loci Influencing Concentrations of Circulating Cytokines and Growth Factors.
+# Ahola-Olli et al. 2017
+# PMID: 27989323 PMCID: PMC5223028 DOI: 10.1016/j.ajhg.2016.11.007
+mkdir Cytokines-And-Growth-Factors_Ahola-Olli_2017
+# Must be downloaded manually from http://computationalmedicine.fi/data#Cytokine_GWAS
+
+# https://www.nature.com/articles/ng.3985
+# Shared genetic origin of asthma, hay fever and eczema elucidates allergic disease biology
+# Ferreira et al. 2017
+# PMID: 29083406 PMCID: PMC5989923 DOI: 10.1038/ng.3985
+mkdir Allergies_Ferreira_2017
+# wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/SHARE-without23andMe.LDSCORE-GC.SE-META.v0.gz --directory Allergies_Ferreira_2017
+# NOTE: Required a manual download and transfer
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29058716
+# Identification of ten variants associated with risk of estrogen-receptor-negative breast cancer.
+# Milne et al. 2017
+mkdir BreastCancer_Milne_2017
+# NOTE: Required a manual download and transfer
+
+# https://www.nature.com/articles/ng.3875
+# Genetic association study of exfoliation syndrome identifies a protective rare variant at LOXL1 and five new susceptibility loci
+# Aung et al. 2017
+# PMID: 28553957 PMCID: PMC6685441 DOI: 10.1038/ng.3875
+mkdir ExfoliationSyndrome_Aung_2017
+# https://media.nature.com/original/nature-assets/ng/journal/v49/n7/extref/ng.3875-S6.zip
+
+# https://www.ncbi.nlm.nih.gov/pubmed/27663945
+# A Genome-Wide Association Meta-Analysis of Attention-Deficit/Hyperactivity Disorder Symptoms in Population-Based Paediatric Cohorts
+# Middeldorp et al. 2016
+mkdir Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016
+# Requires manual download from http://www.tweelingenregister.org/EAGLE/
+
+# https://www.ncbi.nlm.nih.gov/pubmed/19853236
+# Sequence variants in three loci influence monocyte counts and erythrocyte volume.
+# Ferreira et al. 2009
+#mkdir Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/RBC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HB.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCV.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCH.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MCHC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/PLT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/WBC.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/NEUT.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/LYMPH.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/MONO.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/EOS.assoc.gz --directory Blood-Cells_Ferreira_2009
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/BASO.assoc.gz --directory Blood-Cells_Ferreira_2009
+# Requires manual download from web browser
+
+# https://www.ncbi.nlm.nih.gov/pubmed/20045101
+# Quantitative trait loci for CD4:CD8 lymphocyte ratio are associated with risk of type 1 diabetes and HIV-1 immune control.
+# Ferreira et al. 2010
+mkdir Lymphocyte-Subsets_Ferreira_2010
+# Requires manual download from the links below
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD3.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4_8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+#wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+
+######################################################
+# Unzip all zipped GWAS files
+######################################################
+python utils/unzip.py
