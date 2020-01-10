@@ -11,12 +11,13 @@ import subprocess
 import os
 import time
 import traceback
+import numpy
 
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
-#debug = None
-debug = 3000000
+debug = None
+#debug = 3000000
 
 # TODO: Integrate this more cleanly
 
@@ -150,28 +151,38 @@ def main():
                     data.rename(columns={data.keys()[int(study["effect_allele_freq_index"]) - 1]:'effect_allele_freq'}, inplace = True)
                 if "effect_allele_index" in study:
                     data.rename(columns={data.keys()[int(study["effect_allele_index"]) - 1]:'effect_allele'}, inplace = True)
+                    data['effect_allele'] = data['effect_allele'].str.upper()
                 if "non_effect_allele_index" in study:
                     data.rename(columns={data.keys()[int(study["non_effect_allele_index"]) - 1]:'non_effect_allele'}, inplace = True)
+                    data['non_effect_allele'] = data['non_effect_allele'].str.upper()
                 if "direction_index" in study:
-                    data['effect_direction'] = data.iloc[:,int(study["direction_index"]) - 1]
+                    data['effect_direction'] = data.iloc[:,int(study["direction_index"]) - 1].copy()
 
-                    # Test if we're looking at "+/-"
+                    # Test if we're looking at "+/-" that have already been marked
                     if sum(data['effect_direction'].isin(["+", "-"])) * 1.0 / len(data['effect_direction']) > 0.9:
                         # Leave things as they are
                         pass
 
-                    # Test if we're looking at odds ratios
-                    elif sum(data['effect_direction'].astype(float) < 0) * 1.0 / len(data['effect_direction']) < 0.1:
+                    # Is the direction encoded within an odds ratio?
+                    if "or_index" in study and study["direction_index"] == study["or_index"]:
                         def sign(x):
-                            if x >= 1:
+                            try:
+                                f = float(x)
+                            except:
+                                return numpy.nan
+                            if f >= 1:
                                 return("+")
                             else:
                                 return("-")
                         data['effect_direction'] = data['effect_direction'].apply(sign)
 
-                    # Otherwise, we're probably just looking at beta values
-                    else:
+                    # Is the direction encoded within an effect size?
+                    elif "effect_index" in study and study["direction_index"] == study["effect_index"]:
                         def sign(x):
+                            try:
+                                f = float(x)
+                            except:
+                                return numpy.nan
                             if x >= 0:
                                 return("+")
                             else:
@@ -182,6 +193,7 @@ def main():
                     # Join with rsid table to get indices for each column
                    
                     data.rename(columns={data.keys()[int(study["rsid_index"]) - 1]:'rsid'}, inplace = True)
+                    data["rsid"] = data["rsid"].str.lower()
                     data.rename(columns={data.keys()[int(study["pvalue_index"]) - 1]:'pvalue'}, inplace = True)
 
                     if "rsid_split" in study:
