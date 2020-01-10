@@ -10,7 +10,7 @@
 # 
 with open("gwas_pmids.txt", "w") as w:
     w.write("study\tpmid\n")
-    with open("gwas_downloads.sh") as f:
+    with open("../gwas_downloads.sh") as f:
         last_pmid = None
         for line in f:
             if "/pubmed/" in line:
