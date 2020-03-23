@@ -24,12 +24,15 @@ debug = None
 # Where to store tmp files
 tmp_file = "/users/mgloud/projects/gwas/scripts/tmp/unsorted_GWAS.tmp"
 
+
 def is_int(s):
     try:
         int(float(s))
         return True
     except:
         return False
+
+cwd = os.getcwd()
 
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
@@ -49,6 +52,14 @@ def main():
         munge_menu = "munge_menu.config"
     with open(munge_menu) as f:
         config = json.load(f)
+
+    # if input directory is a relative path
+    if not config["input_base_dir"].startswith("/"):
+        config["input_base_dir"] = cwd + "/" + config["input_base_dir"]
+
+    # if output directory is a relative path
+    if not config["output_base_dir"].startswith("/"):
+        config["output_base_dir"] = cwd + "/" + config["output_base_dir"]
 
     genome_build = config["genome_build"]
 
@@ -183,7 +194,7 @@ def main():
                                 f = float(x)
                             except:
                                 return numpy.nan
-                            if x >= 0:
+                            if f >= 0:
                                 return("+")
                             else:
                                 return("-")
