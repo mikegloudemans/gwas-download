@@ -1693,7 +1693,7 @@ wget http://faculty.washington.edu/rozenl/files/CHARGE_181n9.txt --directory Fat
 # https://www.ncbi.nlm.nih.gov/pubmed/24823311
 # Genome-wide association study of plasma N6 polyunsaturated fatty acids within the cohorts for heart and aging research in genomic epidemiology consortium.
 mkdir -p N6-Fatty-Acids_Guan_2014
-wget -r http://www.msi.umn.edu/~wguan/CHARGE_N6GWAS --directory N6-Fatty-Acids_Guan_2014
+wget --max-depth 1 http://www.msi.umn.edu/~wguan/CHARGE_N6GWAS --directory N6-Fatty-Acids_Guan_2014
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4307209/
 # Genetic loci associated with circulating  phospholipid trans fatty acids: a meta-analysis of genome-wide association studies from the CHARGE Consortium
@@ -2358,7 +2358,7 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TsoiLC_23143594_G
 # Genome-wide association analyses identify 13 new susceptibility loci for generalized vitiligo
 # PMID: 22561518 PMCID: PMC3366044 DOI: 10.1038/ng.2272
 mkdir Vitilogo_Jin_2012
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_22561518_GCST001509 -P Vitilogo_Jin_2012
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_22561518_GCST001509 -P Vitilogo_Jin_2012
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3242065/
 # Dense genotyping identifies and localizes multiple common and rare variant association signals in celiac disease
@@ -2455,6 +2455,991 @@ wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s004.
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s005.gz -P Attention-Function_Alemany_2016
 wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s006.gz -P Attention-Function_Alemany_2016
 
+# https://blog.nus.edu.sg/agen/summary-statistics/adiponectin/
+# https://www.ncbi.nlm.nih.gov/pubmed/24105470
+# A meta-analysis of genome-wide association studies for adiponectin levels in East Asians identifies a novel locus near WDR11-FGFR2.
+# PMID: 24105470 PMCID: PMC3900106 DOI: 10.1093/hmg/ddt488 
+mkdir Adiponectin_Wu_2014
+wget https://sphfiles.nus.edu.sg/PHG/other/human/AGEN/adiponectin_2014/AGEN_adiponectin_hapmap.txt.gz -P Adiponectin_Wu_2014
+
+# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6451732/
+# Genetic Architectures of Childhood- and Adult-Onset Asthma Are Partly Distinct
+# PMID: 30929738 PMCID: PMC6451732 DOI: 10.1016/j.ajhg.2019.02.022 
+mkdir Asthma_Ferreira_2019
+wget https://genepi.qimr.edu.au/staff/manuelF/gwas_results/CHILD_ONSET_ASTHMA.20180501.allchr.assoc.GC.gz -P Asthma_Ferreira_2019
+wget https://genepi.qimr.edu.au/staff/manuelF/gwas_results/ADULT1_ADULT2_ONSET_ASTHMA.20180716.allchr.assoc.GC.gz -P Asthma_Ferreira_2019
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29483656
+# Common schizophrenia alleles are enriched in mutation-intolerant genes and in regions under strong background selection.
+# PMID: 29483656 PMCID: PMC5918692 DOI: 10.1038/s41588-018-0059-2 
+mkdir Schizophrenia_Pardinas_2018
+wget https://walters.psycm.cf.ac.uk/clozuk_pgc2.meta.sumstats.txt.gz -P Schizophrenia_Pardinas_2018
+wget https://walters.psycm.cf.ac.uk/clozuk_pgc2.meta.sumstats.info9.snplist.txt.gz -P Schizophrenia_Pardinas_2018
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30647433
+# A genome-wide association study in individuals of African ancestry reveals the importance of the Duffy-null genotype in the assessment of clozapine-related neutropenia.
+# PMID: 30647433 DOI: 10.1038/s41380-018-0335-7 
+mkdir Clozapine-Related-Neutropenia_Legge_2019
+wget https://walters.psycm.cf.ac.uk/clozuk2-afr_lowest_anc.sumstats.mlma.txt.gz -P Clozapine-Related-Neutropenia_Legge_2019
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30922102
+# Pharmacogenomic Variants and Drug Interactions Identified Through the Genetic Analysis of Clozapine Metabolism.
+# PMID: 30922102 DOI: 10.1176/appi.ajp.2019.18050589 
+mkdir Clozapine-Metabolism_Pardinas_2019 
+wget https://walters.psycm.cf.ac.uk/clozuk2-eur_clozapine_levels.sumstats.mlma.txt.gz -P Clozapine-Metabolism_Pardinas_2019
+wget https://walters.psycm.cf.ac.uk/clozuk2-eur_norclozapine_levels.sumstats.mlma.txt.gz -P Clozapine-Metabolism_Pardinas_2019
+wget https://walters.psycm.cf.ac.uk/clozuk2-eur_cloz_norcloz_ratio.sumstats.mlma.txt.gz -P Clozapine-Metabolism_Pardinas_2019
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31553412
+# Association of Genetic Liability to Psychotic Experiences With Neuropsychotic Disorders and Traits.
+# PMID: 31553412 PMCID: PMC6764002 DOI: 10.1001/jamapsychiatry.2019.2508 
+mkdir Psychotic-Experiences_Legge_2019
+wget https://walters.psycm.cf.ac.uk/ukbiobank-any_psychotic_experience.sumstats.txt.gz -P Psychotic-Experiences_Legge_2019
+wget https://walters.psycm.cf.ac.uk/ukbiobank-multiple_psychotic_experience.sumstats.txt.gz -P Psychotic-Experiences_Legge_2019
+wget https://walters.psycm.cf.ac.uk/ukbiobank-distressing_psychotic_experience.sumstats.txt.gz -P Psychotic-Experiences_Legge_2019
+
+# Shared Genetics of Asthma and Mental Health Disorders: A Large-Scale Genome-Wide Cross-Trait Analysis.
+mkdir Asthma_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_31619474_GCST008918/ukb.adultasthma.upload.final.assoc.gz -P Asthma_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_31619474_GCST008917/ukb.childasthma.upload.final.assoc.gz -P Asthma_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_31619474_GCST008916/ukb.allasthma.upload.final.assoc.gz -P Asthma_Zhu_2019
+
+# Genetic overlap of chronic obstructive pulmonary disease and cardiovascular disease-related traits: a large-scale genome-wide cross-trait analysis.
+mkdir Hypertension_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_30940143_GCST007610/ZhuZ_30940143_ukbb.bolt_460K_selfRepWhite.doctor_highbloodpressure.assoc.gz -P Hypertension_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_30940143_GCST007609/ZhuZ_30940143_ukbb.bolt_460K_selfRepWhite.rhrmean.assoc.gz -P 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_30940143_GCST007609/readme.txt -P Hypertension_Zhu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhuZ_30940143_GCST007610/readme.txt -P Hypertension_Zhu_2019
+
+# Efficiently controlling for case-control imbalance and sample relatedness in large-scale genetic association studies.
+mkdir Cross-Trait_Zhou_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhouW_30104761_GCST008372/PheCode_153_SAIGE_MACge20.txt.vcf.gz -P Cross-Trait_Zhou_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhouW_30104761_GCST008371/PheCode_193_SAIGE_MACge20.txt.vcf.gz -P Cross-Trait_Zhou_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhouW_30104761_GCST008373/PheCode_365_SAIGE_MACge20.txt.vcf.gz -P Cross-Trait_Zhou_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhouW_30104761_GCST008370 -P Cross-Trait_Zhou_2018
+
+# Identification of 22 novel loci associated with urinary biomarkers of albumin, sodium, and potassium excretion.
+mkdir Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007778/README_ZanettiEtAl.txt -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007778/UNaUCr_UKB.txt.zip -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007721/README_ZanettiEtAl.txt -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007721/UKUCr_UKB.txt.zip -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007718/README_ZanettiEtAl.txt -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007718/UACR_UKB.txt.zip -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007717/README_ZanettiEtAl.txt -P Urinary-Metabolites_Zanetti_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZanettiD_30910378_GCST007717/UNaUK_UKB.txt.zip -P Urinary-Metabolites_Zanetti_2019
+
+# Genome-wide Analysis of Disease Progression in Age-related Macular Degeneration.
+mkdir Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST009144/README -P Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST009144/YanQ_29346644_allele_freq.txt.gz -P Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST009144/YanQ_29346644_anyAMDprogression_w_base_severity.txt.gz -P Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST005360/YanQ_29346644_GAprogression_wo_base_severity.txt.gz -P Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST005359/YanQ_29346644_anyAMDprogression_wo_base_severity.txt.gz -P Age-Related-Macular-Degeneration_Yan_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/YanQ_29346644_GCST005358/YanQ_29346644_CNVprogression_wo_base_severity.txt.zip -P Age-Related-Macular-Degeneration_Yan_2018
+
+# Novel genetic loci affecting facial shape variation in humans.
+mkdir Facial-Shape_Xiong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/XiongZ_31763980_GCST009464/XiongZ_31763980.txt.gz -P Facial-Shape_Xiong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/XiongZ_31763980_GCST009464/XiongZ_31763980_readme.txt -P Facial-Shape_Xiong_2019
+
+# Genome-wide association analyses identify 44 risk variants and refine the genetic architecture of major depression.
+mkdir Depression_Wray_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WrayNR_29700475_GCST005839/MDD2018_ex23andMe.gz -P Depression_Wray_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WrayNR_29700475_GCST005839/PGC_MDD2018_10kSNPs_2  -P Depression_Wray_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WrayNR_29700475_GCST005839/PGC_MDD_2018_README_third_180316.pdf -P Depression_Wray_2018
+
+# Imputation of variants from the 1000 Genomes Project modestly improves known associations and can identify low-frequency variant-phenotype associations undetected by HapMap based imputation.
+mkdir Metabolite-Levels_Wood_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WoodAR_23696881_GCST009171/Wood_et_al_2013_PMID_23696881_1000G_circulating_molecules.README.txt -P Metabolite-Levels_Wood_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WoodAR_23696881_GCST009171/Wood_et_al_2013_PMID_23696881_1000G_circulating_molecules.txt.gz -P Metabolite-Levels_Wood_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WoodAR_23696881_GCST009171/Wood_et_al_2013_PMID_23696881_HapMap_circulating_molecules.README.txt -P Metabolite-Levels_Wood_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WoodAR_23696881_GCST009171/Wood_et_al_2013_PMID_23696881_HapMap_circulating_molecules.txt.gz -P Metabolite-Levels_Wood_2013
+
+# Genotype-by-environment interactions inferred from genetic effects on phenotypic variability in the UK Biobank.
+mkdir Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009127/WHR.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009115/BMD.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009114/FFR.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009113/FEV1.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009112/FVC.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009111/HT.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009110/WHRadjBMI.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009109/HC.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009108/WC.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009107/BMI.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009106/BMR.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009105/BFP.ma -P Anthropomorphic-Traits_Wang_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WangH_31453325_GCST009116/BW.ma -P Anthropomorphic-Traits_Wang_2019
+
+# Genetic influence on scar height and pliability after burn injury in individuals of European ancestry: A prospective cohort study.
+mkdir Burn-Scarring_Wallace_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WallaceHJ_30595539_GCST007251/1-s2.0-S0305417918305291-mmc2.xlsx -P Burn-Scarring_Wallace_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WallaceHJ_30595539_GCST007252/1-s2.0-S0305417918305291-mmc3.xlsx -P Burn-Scarring_Wallace_2018
+
+# Brain scans from 21,297 individuals reveal the genetic architecture of hippocampal subfield volumes.
+mkdir Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006895/vanderMeerD_30279459_GCST006895 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006894/vanderMeerD_30279459_GCST006894 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006888/vanderMeerD_30279459_GCST006888 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006889/vanderMeerD_30279459_GCST006889 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006890/vanderMeerD_30279459_GCST006890 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006891/vanderMeerD_30279459_GCST006891 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006892/vanderMeerD_30279459_GCST006892 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006893/vanderMeerD_30279459_GCST006893 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006870/Meta_Hippocampal_tail_IncWhole.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006871/Meta_Whole_hippocampus.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006872/Meta_presubiculumFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006873/Meta_subiculumFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006874/Meta_CA1Formatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006875/Meta_CA3Formatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006876/Meta_CA4Formatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006877/Meta_GC.ML.DGFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006878/Meta_molecular_layer_HPFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006880/Meta_hippocampal.fissureFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006882/Meta_fimbriaFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006883/Meta_HATAFormatted.zip -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006884/vanderMeerD_30279459_GCST006884 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006885/vanderMeerD_30279459_GCST006885 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006886/vanderMeerD_30279459_GCST006886 -P Hippocampal-Volumes_van-der-Meer_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderMeerD_30279459_GCST006887/vanderMeerD_30279459_GCST006887 -P Hippocampal-Volumes_van-der-Meer_2018
+
+# A genome-wide association study identifies genetic loci associated with specific lobar brain volumes.
+mkdir Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008703/vanderLeeSJ_prePMID_OLV_EAonly.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008704/vanderLeeSJ_prePMID_PLV_EAonly.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008705/vanderLeeSJ_prePMID_TLV_EAonly.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008707/vanderLeeSJ_prePMID_OLV.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008710/vanderLeeSJ_prePMID_PLV.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008711/vanderLeeSJ_prePMID_TLV.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008715/vanderLeeSJ_prePMID_FLV_EAonly.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/vanderLeeSJ_31396565_GCST008717/vanderLeeSJ_prePMID_FLV.txt.gz -P Lobar-Brain-Volumes_van-der-Lee_2019
+
+# Multivariate genome-wide association study of rapid automatised naming and rapid alternating stimulus in Hispanic American and African-American youth.
+mkdir Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007859/TruongDT_prePMID_RANRASMultivariateGWAS_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007861/TruongDT_prePMID_GRaDHA_LatentNamingSpeedGWAS_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007861/TruongDT_prePMID_GRaDHA_LatentNamingSpeedGWAS_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007862/TruongDT_prePMID_GRaDAA_LatentNamingSpeedGWAS_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007863/TruongDT_prePMID_RanLettNum_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007864/TruongDT_prePMID_RanLetters_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TruongDT_30995994_GCST007865/TruongDT_prePMID_RanObj_SummaryStats.txt -P Reading-And-Spelling-Ability_Truong_2019
+
+# Genetic associations with radiological damage in rheumatoid arthritis: Meta-analysis of seven genome-wide association studies of 2,775 cases.
+mkdir Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_31596875_GCST008993/RA_XRayDamage_European.txt -P Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_31596875_GCST008992/RA_XRayDamage_Transethnic.txt -P Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
+
+# Genetic variation in PLEKHG1 is associated with white matter hyperintensities (n = 11,226).
+mkdir ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_30659137_GCST007305/README_Traylor_2019.pdf -P White-Matter-Hyperintensity_Traylor_2019
+mkdir ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_30659137_GCST007305/Traylor.et.al.2018.WMH.txt.zip -P White-Matter-Hyperintensity_Traylor_2019
+
+# Cross-genetic determination of maternal and neonatal immune mediators during pregnancy.
+mkdir Maternal-And-Neonatal-Immunity_Traglia_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TragliaM_30134952_GCST006621/Table1.csv.gz -P Maternal-And-Neonatal-Immunity_Traglia_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TragliaM_30134952_GCST006621/Traglia_readme.txt -P Maternal-And-Neonatal-Immunity_Traglia_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TragliaM_30134952_GCST006622/Table2.csv.gz -P Maternal-And-Neonatal-Immunity_Traglia_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TragliaM_30134952_GCST006623/Table4.csv.gz -P Maternal-And-Neonatal-Immunity_Traglia_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TragliaM_30134952_GCST006625/Table3.csv.gz -P Maternal-And-Neonatal-Immunity_Traglia_2018
+
+# Genome-Wide Association Scan of Serum Urea in European Populations Identifies Two Novel Loci.
+mkdir Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m1.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m2.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m3.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m4.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m5.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m6.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m7.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m8.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/readme.txt -P Serum-Urea_Thio_2019
+
+# GWAS Identifies Two Novel Colorectal Cancer Loci at 16q24.1 and 20q13.12.
+mkdir Colorectal-Cancer_Tanikawa_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TanikawaC_29471430_GCST005591/Colorectal_Cancer_All_by_1000genomes_Imputation.tar.gz -P Colorectal-Cancer_Tanikawa_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TanikawaC_29471430_GCST005591/Tanikawa_Colo_README.txt -P Colorectal-Cancer_Tanikawa_2018
+
+# Identification of new therapeutic targets for osteoarthritis through genome-wide analyses of UK Biobank data.
+mkdir Osteoarthritis_Tachmazidou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TachmazidouI_30664745_GCST007090/Tachmazidou_30664745_KNEEOA.txt.gz -P Osteoarthritis_Tachmazidou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TachmazidouI_30664745_GCST007090/Tachmazidou_30664745_readme.txt -P Osteoarthritis_Tachmazidou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TachmazidouI_30664745_GCST007091/Tachmazidou_30664745_HIPOA.txt.gz -P Osteoarthritis_Tachmazidou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TachmazidouI_30664745_GCST007092/Tachmazidou_30664745_HIPKNEEOA.txt.gz -P Osteoarthritis_Tachmazidou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TachmazidouI_30664745_GCST007093/Tachmazidou_30664745_ALLOA.txt.gz -P Osteoarthritis_Tachmazidou_2019
+
+# Identification of 28 new susceptibility loci for type 2 diabetes in the Japanese population.
+mkdir Type-2-Diabetes_Suzuki_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SuzukiK_30718926_GCST007847/BBJ_BetaBased1.MAF_001.AtLeast2studies.AllChr.txt.gz -P Type-2-Diabetes_Suzuki_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SuzukiK_30718926_GCST007847/Suzuki_T2D_README.txt -P Type-2-Diabetes_Suzuki_2019
+
+# Multiple apical plasma membrane constituents are associated with susceptibility to meconium ileus in individuals with cystic fibrosis.
+mkdir Cystic-Fibrosis-Associated-Meconium-Ileum_Sun_2012
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SunL_22466613_GCST001468/SunL_22466613.README.txt -P Cystic-Fibrosis-Associated-Meconium-Ileum_Sun_2012
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SunL_22466613_GCST001468/SunL_22466613.txt.gz -P Cystic-Fibrosis-Associated-Meconium-Ileum_Sun_2012
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SunL_22466613_GCST001468/SunL_22466613.txt.gz.tbi -P Cystic-Fibrosis-Associated-Meconium-Ileum_Sun_2012
+
+# Genomic atlas of the human plasma proteome.
+mkdir Blood-Protein-Levels_Sun_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SunBB_29875488_GCST005806/meta_filtered_final.tar.gz -P Blood-Protein-Levels_Sun_2018
+
+# Connecting genetic risk to disease end points through the human blood plasma proteome.
+mkdir Blood-Protein-Levels_Suhre_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SuhreK_28240269_GCST004365/suhre_28240269_full.tgz -P Blood-Protein-Levels_Suhre_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SuhreK_28240269_GCST004365/Readme_SuhreK_28240269_19269178.txt -P Blood-Protein-Levels_Suhre_2017
+
+# Association analyses of East Asian individuals and trans-ancestry analyses with European individuals reveal new loci associated with cholesterol and triglyceride levels.
+mkdir Lipid-Levels_Spracklen_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SpracklenCN_28334899_GCST004232/AGEN_lipids_hapmap_hdl_m2.txt.gz -P Lipid-Levels_Spracklen_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SpracklenCN_28334899_GCST004232/readme_spracklen28334899.txt -P Lipid-Levels_Spracklen_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SpracklenCN_28334899_GCST004233/AGEN_lipids_hapmap_ldl_m2.txt.gz -P Lipid-Levels_Spracklen_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SpracklenCN_28334899_GCST004235/AGEN_lipids_hapmap_tc_m2.txt.gz -P Lipid-Levels_Spracklen_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SpracklenCN_28334899_GCST004237/AGEN_lipids_hapmap_tg_m2.txt.gz -P Lipid-Levels_Spracklen_2017
+
+# Whole genome sequencing and imputation in isolated populations identify genetic associations with medically-relevant complex traits.
+mkdir C-Reactive-Protein-Levels_Southam_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SouthamL_28548082_GCST004530/Southam_28548082_HELICMANOLIS.gz -P C-Reactive-Protein-Levels_Southam_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SouthamL_28548082_GCST004530/Southam_28548082_HELICPomak.gz -P C-Reactive-Protein-Levels_Southam_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SouthamL_28548082_GCST004530/Southam_28548082_README.txt.gz -P C-Reactive-Protein-Levels_Southam_2017
+
+# Moderate-to-severe asthma in individuals of European ancestry: a genome-wide association study.
+mkdir Asthma_Shrine_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShrineN_30552067_GCST006911/README.txt -P Asthma_Shrine_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShrineN_30552067_GCST006911/Shrine_30552067_moderate-severe_asthma.txt.gz -P Asthma_Shrine_2018
+
+# Genome-wide association study identifies seven novel susceptibility loci for primary open-angle glaucoma. 
+mkdir Glaucoma_Shiga_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShigaY_29452408_GCST005388/2018_POAG_BBJ_autosome.txt.gz -P Glaucoma_Shiga_2018
+
+
+# Varicose veins of lower extremities: Insights from the first large-scale genetic study.
+mkdir Varicose-Veins_Shadrina_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShadrinaAS_30998689_GCST008057/README_Shadrina_30998689.rtf -P Varicose-Veins_Shadrina_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShadrinaAS_30998689_GCST008057/disocvery_varicose_adj_bmi_dvt.zip -P Varicose-Veins_Shadrina_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShadrinaAS_30998689_GCST008057/replication_varicose.zip -P Varicose-Veins_Shadrina_2019
+
+# Genetic risk factors for the posterior cortical atrophy variant of Alzheimer's disease.
+mkdir Alzheimers-Posterior-Cortical-Atrophy_Schott_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchottJM_26993346_GCST003452/Autsms_PCA_MEGA_Solid_PCA_freq1_scr_Summary_Stats.txt -P Alzheimers-Posterior-Cortical-Atrophy_Schott_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchottJM_26993346_GCST003452/Autsms_PCA_MEGA_Solid_PCA_freq1_scr_Summary_Stats.zip -P Alzheimers-Posterior-Cortical-Atrophy_Schott_2016
+
+# Genetic studies of urinary metabolites illuminate mechanisms of detoxification and excretion in humans.
+mkdir Chronic-Kidney-Disease-Urinary-Metabolite-Levels_Schlosser_2020
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchlosserP_31959995_GCST009733 -P Chronic-Kidney-Disease-Urinary-Metabolite-Levels_Schlosser_2020
+
+# Genome-wide association analysis of diverticular disease points towards neuromuscular, connective tissue and epithelial pathomechanisms.
+mkdir Diverticular-Disease_Schafmeyer_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchafmayerC_30661054_GCST008105/GWAS_summary_1-23.dosages.maf_0.01.info_0.4.txt.gz -P Diverticular-Disease_Schafmeyer_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/SchafmayerC_30661054_GCST008105/README -P Diverticular-Disease_Schafmeyer_2019
+
+# Genetic study of multimodal imaging Alzheimer's disease progression score implicates novel loci.
+mkdir Alzheimers-Disease-Biomarkers_Scelsi_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006136/ADNI_DPS_GWAS_AmyHippoEduCovar_NewUnrelated.assoc.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006136/ADNI_FullSample_chrX_newPC.DPSupdate.amyhippoEDUcovar.xstrat.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006136/readme.txt -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006135/ADNI_FullSample_chrX_newPC.amyloid.EDUcovar.xstrat.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006135/ADNI_amyloid_GWAS_EduCovar_NewUnrelated.assoc.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006134/ADNI_FullSample_chrX_newPC.hippo.EDUcovar.xstrat.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006134/ADNI_hippo_GWAS_EduCovar_NewUnrelated.assoc.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
+
+# Genome-wide association studies of impulsive personality traits (BIS-11 and UPPSP) and drug experimentation in up to 22,861 adult research participants identify loci in the CACNA1I and CADM2 genes.
+mkdir Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/F1.43.UPPSP_SS.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/README -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007622/F1.47.BIS_Total.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007623/F1.44.UPPSP_Prem.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007624/F1.45.UPPSP_PU.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007625/F2.5.UPPSP_NU.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007626/F1.46.UPPSP_Persv.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007627/F1.48.BIS_Att.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007628/F1.49.BIS_Mot.xlsx -P Impulsivity_Sanchez-Roige_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007629/F1.50.BIS_NonP.xlsx -P Impulsivity_Sanchez-Roige_2019
+
+# Genome-wide association study of anti-Müllerian hormone levels in pre-menopausal women of late reproductive age and relationship with genetic determinants of reproductive lifespan.
+mkdir Anti-Mullerian-Hormone_Ruth_2019 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/RuthKS_30649302_GCST007363/Ruth_30649302_AMH.txt.gz -P  Anti-Mullerian-Hormone_Ruth_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/RuthKS_30649302_GCST007363/Ruth_30649302_AMH_readme.txt -P  Anti-Mullerian-Hormone_Ruth_2019
+
+# Genetic architecture of human thinness compared to severe obesity.
+mkdir BMI_Riveros-McKay_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007242/README -P BMI_Riveros-McKay_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007242/STILTS_UKHLS_ldcorrected -P BMI_Riveros-McKay_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007241/SCOOP_UKHLS_ldcorrected.gz -P BMI_Riveros-McKay_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007240/SCOOP_STILTS_ldcorrected.gz -P BMI_Riveros-McKay_2019
+
+# GWAS and PheWAS of red blood cell components in a Northern Nevadan cohort.
+mkdir Platelet-Traits_Read_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008166/RR_MCV_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008166/ReadRW_31194788_readme.txt -P Platelet-Traits_Read_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008167/RR_MPV_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008168/RR_PC_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
+
+# Genome-Wide Association Study with Targeted and Non-targeted NMR Metabolomics Identifies 15 Novel Loci of Urinary Human Metabolic Individuality. 
+mkdir Urinary-Metabolites_Raffler_2015
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/RafflerJ_26352407_GCST003119/mGWAS_urine_SHIP-0_associations.zip -P Urinary-Metabolites_Raffler_2015
+
+# Meta-analysis of genome-wide association studies for body fat distribution in 694,649 individuals of European ancestry.
+mkdir BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008994/fat-distn.giant.ukbb.meta-analysis.whradjbmi.females.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008994/readme.txt -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008995/fat-distn.giant.ukbb.meta-analysis.whradjbmi.males.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008996/fat-distn.giant.ukbb.meta-analysis.whr.combined.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008997/fat-distn.giant.ukbb.meta-analysis.whr.females.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008998/fat-distn.giant.ukbb.meta-analysis.whr.males.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST008999/fat-distn.giant.ukbb.meta-analysis.whradjbmi.combined.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST009001/fat-distn.giant.ukbb.meta-analysis.bmi.males.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST009003/fat-distn.giant.ukbb.meta-analysis.bmi.females.tbl.gz -P BMI_Pulit_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PulitSL_30239722_GCST009004/fat-distn.giant.ukbb.meta-analysis.bmi.combined.tbl.gz -P BMI_Pulit_2018
+
+# Genome-wide analysis of health-related biomarkers in the UK Household Longitudinal Study reveals novel associations. 
+mkdir Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST004939/Prins_28887542_hba1c.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST004939/Prins_28887542_readme.rtf -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST004940/Prins_28887542_alt.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST004941/Prins_28887542_dheas.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005058/Prins_28887542_hdl.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005059/Prins_28887542_alb.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005060/Prins_28887542_hgb.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005061/Prins_28887542_alkp.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005062/Prins_28887542_cfib.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005063/Prins_28887542_egfr.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005064/Prins_28887542_ast.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005065/Prins_28887542_chol.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005066/Prins_28887542_ecre.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005067/Prins_28887542_hscrp.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005068/Prins_28887542_ldl.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005069/Prins_28887542_ggt.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005070/Prins_28887542_ure.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005071/Prins_28887542_igfi.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005072/Prins_28887542_rtin.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005073/Prins_28887542_trig.gz -P Biomarker-Levels_Prins_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PrinsBP_28887542_GCST005074/Prins_28887542_testo_m.gz -P Biomarker-Levels_Prins_2017
+
+# GWAS for urinary sodium and potassium excretion highlights pathways shared with cardiovascular traits.
+mkdir Urinary-Metabolites_Pazoki_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PazokiR_31409800_GCST008647/PazokiR_prePMID_Sodium.GWAS.csv -P Urinary-Metabolites_Pazoki_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PazokiR_31409800_GCST008647/README.txt -P Urinary-Metabolites_Pazoki_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PazokiR_31409800_GCST008648/PazokiR_prePMID_Potassium.GWAS.csv -P Urinary-Metabolites_Pazoki_2019
+
+# Multi-ancestry genome-wide association study of 21,000 cases and 95,000 controls identifies new risk loci for atopic dermatitis.
+mkdir Atopic-Dermatitis_Paternoster_2015
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PaternosterL_26482879_GCST003184/AD_GWAS_README.txt -P Atopic-Dermatitis_Paternoster_2015
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/PaternosterL_26482879_GCST003184/EAGLE_AD_no23andme_results_29072015.txt -P Atopic-Dermatitis_Paternoster_2015
+
+# Genome-wide association study of metabolic syndrome in Korean populations.
+mkdir Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009654/REPORT_high_BP_replication.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009655/REPORT_high_FBG_replication.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009656/REPORT_low_HDL_replication.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009657/REPORT_high_TG_replication.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009658/REPORT_MetS_replication.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009659/REPORT_high_BP_discovery.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009660/REPORT_high_FBG_discovery.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009661/REPORT_low_HDL_discovery.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009662/REPORT_high_TG_discovery.xlsx -P Metabolic-Syndrome_Oh_2020
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/OhSW_31910446_GCST009663/REPORT_MetS_discovery.xlsx -P Metabolic-Syndrome_Oh_2020
+
+# Multivariate Genome-Wide Association Analysis of a Cytokine Network Reveals Variants with Widespread Immune, Haematological, and Cardiometabolic Pleiotropy.
+mkdir Cytokine-Network-Levels_Nath_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NathAP_31679650_GCST009244/GWAS_Catalog_Submission.zip -P Cytokine-Network-Levels_Nath_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NathAP_31679650_GCST009244/MultivariateGWAS_CytokineNetwork_SummaryStatistics_GWASCatalogReadMe.rtf -P Cytokine-Network-Levels_Nath_2019
+
+# GWAS and enrichment analyses of non-alcoholic fatty liver disease identify new trait-associated genes and pathways across eMERGE Network.
+mkdir Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NamjouB_31311600_GCST008468/NamjouB_31311600_NAFLD.txt -P Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NamjouB_31311600_GCST008468/readme.txt -P Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NamjouB_31311600_GCST008469/NamjouB_31311600_fibrosis_score.txt -P Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/NamjouB_31311600_GCST008471/NamjouB_31311600_NAS_score.txt -P Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019
+
+# Genome-wide association analysis of dementia and its clinical endophenotypes reveal novel loci associated with Alzheimer's disease and three causality networks: The GR@ACE project.
+mkdir Alzheimers-Dementia_Moreno-Grau_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Moreno-GrauS_31473137_GCST009020/GRACE_StageI.txt -P Alzheimers-Dementia_Moreno-Grau_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Moreno-GrauS_31473137_GCST009019/GRACEStageI_dbGAP.txt -P Alzheimers-Dementia_Moreno-Grau_2019
+
+# Genome-wide association study of knee pain identifies associations with GDF5 and COL27A1 in UK Biobank.
+mkdir Knee-Pain_Meng_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MengW_31482140_GCST008672/kneepain2_f6159_v3_1812.bgenie.txt.gz -P Knee-Pain_Meng_2019
+
+# GWAS of smoking behaviour in 165,436 Japanese people reveals seven new loci and shared genetic architecture.
+mkdir Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009398/Female_2018_FORMER_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009398/Female_2018_FORMER_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009399/Male_2018_EVERSMK_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009399/Male_2018_EVERSMK_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009400/All_2018_FORMER_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009401/Male_2018_FORMER_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009401/Male_2018_FORMER_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009402/Female_2018_EVERSMK_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009402/Female_2018_EVERSMK_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009403/All_2018_EVERSMK_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009405/All_2018_CPD_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009406/Female_2018_CPD_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009406/Female_2018_CPD_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009407/Male_2018_CPD_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009407/Male_2018_CPD_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009408/All_2018_AI_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009409/Female_2018_AI_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009409/Female_2018_AI_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009410/Male_2018_AI_BBJ_Xchromosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MatobaN_31089300_GCST009410/Male_2018_AI_BBJ_autosome_Pcorrected.txt.gz -P Smoking_Matoba_2019
+
+# Integrated genetic and methylomic analyses identify shared biology between autism and autistic traits.
+mkdir Autism_Massrali_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MassraliA_31346403_GCST008484/scdclogGWAS.RData -P Autism_Massrali_2019
+
+# Variants in Immune-related Genes and Genital HPV 16 Persistence in Men.
+mkdir Chronic-HPV-Infection_Mainali_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MainaliB_30092369_GCST008308/mmc1.txt -P Chronic-HPV-Infection_Mainali_2018
+
+# Genome-wide association analyses identify 39 new susceptibility loci for diverticular disease.
+mkdir Diverticular-Disease_Maguire_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MaguireLH_30177863_GCST006479/clinical_c_K57.zip -P Diverticular-Disease_Maguire_2018
+
+# Genome-wide association study of eosinophilic granulomatosis with polyangiitis reveals genomic loci stratified by ANCA status.
+mkdir Churg-Strauss-Syndrome_Lyons_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LyonsPA_31719529_GCST009248/mpo.anca.positive.egpa.vs.controls.txt -P Churg-Strauss-Syndrome_Lyons_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LyonsPA_31719529_GCST009249/anca.negative.egpa.vs.controls.txt -P Churg-Strauss-Syndrome_Lyons_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LyonsPA_31719529_GCST009250/all.egpa.vs.controls.txt -P Churg-Strauss-Syndrome_Lyons_2019
+
+# Early progression to active tuberculosis is a highly heritable trait driven by 3q23 in Peruvians.
+mkdir Tuberculosis-Early-Progression_Luo_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LuoY_31434886_GCST008488/Luo_TBprogression.txt.gz -P Tuberculosis-Early-Progression_Luo_2019
+
+# GWAS for systemic sclerosis identifies multiple risk loci and highlights fibrotic and vasculopathy pathways.
+mkdir Systemic-Sclerosis_Lopez-Isac_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Lopez-IsacE_31672989_GCST009131/Lopez-Isac_Readme.txt -P Systemic-Sclerosis_Lopez-Isac_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Lopez-IsacE_31672989_GCST009131/Lopez-Isac_prePMID_META_GWAS_SSc.meta.txt -P Systemic-Sclerosis_Lopez-Isac_2019
+
+# Whole-genome sequencing identifies common-to-rare variants associated with human blood metabolites.
+mkdir Blood-Metabolites_Long_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LongT_28263315_GCST009610/41588_2017_BFng3809_MOESM85_ESM.xlsx -P Blood-Metabolites_Long_2017
+
+# Exome sequencing of Finnish isolates enhances rare-variant association power.
+mkdir Exome-Cardiometabolic-Traits_Locke_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LockeAE_31367044_GCST008673 -P Exome-Cardiometabolic-Traits_Locke_2019
+
+# Genome-wide association study in Turkish and Iranian populations identify rare familial Mediterranean fever gene (MEFV) polymorphisms associated with ankylosing spondylitis.
+mkdir Ankylosing-Spondylitis_Li_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiZ_30946743_GCST007844/Iranian_cohort.txt -P Ankylosing-Spondylitis_Li_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiZ_30946743_GCST007844/Turkish_cohort.txt -P Ankylosing-Spondylitis_Li_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiZ_30946743_GCST007844/meta.txt -P Ankylosing-Spondylitis_Li_2019
+
+# Association studies of up to 1.2 million individuals yield new insights into the genetic etiology of tobacco and alcohol use.
+mkdir Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007474/README -P Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007474/SmokingInitiation.txt.gz -P Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007458/AgeOfInitiation.txt.gz -P Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007459/CigarettesPerDay.txt.gz -P Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007460/SmokingCessation.txt.gz -P Smoking_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuM_30643251_GCST007461/DrinksPerWeek.txt.gz -P Smoking_Liu_2019
+
+# Genome-Wide Association Studies for Cerebrospinal Fluid Soluble TREM2 in Alzheimer's Disease.
+mkdir Alzheimers-Cerebrospinal-Fluid-sTREM2_Liu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LiuC_31708768_GCST009246/Table_2.xlsx -P Alzheimers-Cerebrospinal-Fluid-sTREM2_Liu_2019
+
+# Genome-Wide Association Study of the Metabolic Syndrome in UK Biobank.
+mkdir Metabolic-Syndrome_Lind_2019 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LindL_31589552_GCST009602/UKBB_MetS_alla_Stefan.txt -P Metabolic-Syndrome_Lind_2019
+
+# Genome-Wide Meta-Analysis of Sciatica in Finnish Population.
+mkdir Sciatica_Lemmela_2016 -P Sciatica_Lemmela_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LemmelaS_27764105_GCST003869/Meta_GWAS_sciatica_results -P Sciatica_Lemmela_2016
+
+# BRCA1/2-negative, high-risk breast cancers (BRCAX) for Asian women: genetic susceptibility loci and their potential impacts
+mkdir Breast-Cancer-BRACX_Lee_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LeeJY_30323354_GCST006719/download.txt -P Breast-Cancer-BRACX_Lee_2018
+
+# Genome-wide association studies identify susceptibility loci for epithelial ovarian cancer in east Asian women.
+mkdir Ovarian-Cancer_Lawrenson_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LawrensonK_30898391_GCST007728/AsianResultsChr1_8.zip -P Ovarian-Cancer_Lawrenson_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LawrensonK_30898391_GCST007728/AsianResultsChr9_X.zip -P Ovarian-Cancer_Lawrenson_2019
+
+# Sex specific associations in genome wide association analysis of renal cell carcinoma.
+mkdir Renal-Cell-Carcinoma_Laskar_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LaskarRS_31231134_GCST008225/Laskar_31231134_Females.gz -P Renal-Cell-Carcinoma_Laskar_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LaskarRS_31231134_GCST008225/read-me_Laskar_31231134.txt -P Renal-Cell-Carcinoma_Laskar_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LaskarRS_31231134_GCST008226/Laskar_31231134_Males.gz -P Renal-Cell-Carcinoma_Laskar_2019
+
+# Transancestral mapping and genetic load in systemic lupus erythematosus.
+mkdir Lupus_Langefeld_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LangefeldCD_28714469_GCST007400/Biallelic_info.zip -P Lupus_Langefeld_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LangefeldCD_28714469_GCST007400/IMPUTE_info_files.zip -P Lupus_Langefeld_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LangefeldCD_28714469_GCST007400/Notes_for_data_shared_on_immunobase_updated.docx -P Lupus_Langefeld_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LangefeldCD_28714469_GCST007400/sle_immunochip1-8.zip -P Lupus_Langefeld_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LangefeldCD_28714469_GCST007400/sle_immunochip9-22.zip -P Lupus_Langefeld_2017
+
+# Large scale meta-analysis highlights the hypothalamic-pituitary-gonadal (HPG) axis in the genetic regulation of menstrual cycle length.
+mkdir Menstrual-Cycle-Length_Laisk_2018
+wget -P ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LaiskT_30202859_GCST006958/Cycle_length_Laisk_et_al_2018.gz Menstrual-Cycle-Length_Laisk_2018
+
+# Genome-wide association study identifies 14 previously unreported susceptibility loci for adolescent idiopathic scoliosis in Japanese.
+mkdir Scoliosis-Adolescent-Idiopathic_Kou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KouI_31417091_GCST008788/AIS_ImputationMETA.Female.RSQR03_MAF005.txt.gz -P Scoliosis-Adolescent-Idiopathic_Kou_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KouI_31417091_GCST008789/AIS_ImputationMETA.RSQR03_MAF005.txt.gz -P Scoliosis-Adolescent-Idiopathic_Kou_2019
+
+# Genome-wide association study of habitual physical activity in over 377,000 UK Biobank participants identifies multiple variants including CADM2 and APOE.
+mkdir Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006079/Klimentidis_29899525_README.txt -P Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006079/Klimentidis_29899525_Acc425_Model1_BOLTLMM_500K.txt.gz -P Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006097/Klimentidis_29899525_MVPA_Model1_BOLTLMM_500K.txt.gz -P Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006098/Klimentidis_29899525_VPA_Model1_BOLTLMM_500K.txt.gz -P Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006099/Klimentidis_29899525_AccAve_Model1_BOLTLMM_500K.txt.gz -P Physical-Activity-Habits_Klimentidis_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_29899525_GCST006100/Klimentidis_29899525_SSOE_Model1_BOLTLMM_500K.txt.gz -P Physical-Activity-Habits_Klimentidis_2018
+
+# Identification of 613 new loci associated with heel bone mineral density and a polygenic risk score for bone mineral density, osteoporosis and fracture.
+mkdir Heel-Bone-Mineral-Density_Kim_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KimSK_30048462_GCST006433/KimSK_summary_stats_README.txt -P Heel-Bone-Mineral-Density_Kim_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KimSK_30048462_GCST006433/BMD_v3_SumStats.txt%20(1).zip -P Heel-Bone-Mineral-Density_Kim_2018
+
+# Contribution of genetics to visceral adiposity and its relation to cardiovascular and metabolic disease.
+mkdir Visceral-Adipose-Tissue_Karlsson_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonT_31501611_GCST008742/VAT_females_UKB.txt.gz -P Visceral-Adipose-Tissue_Karlsson_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonT_31501611_GCST008743/VAT_MALES_UKB.txt.gz -P Visceral-Adipose-Tissue_Karlsson_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonT_31501611_GCST008744/VAT_SEX-COMBINED_UKB.txt.gz -P Visceral-Adipose-Tissue_Karlsson_2019
+
+# Genome-wide association analyses of risk tolerance and risky behaviors in over 1 million individuals identify hundreds of loci and shared genetic influences.
+mkdir Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007322/README_KarlssonLinne%CC%81rR.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007322/RISK_GWAS_MA_UKB+replication.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007323/RISK_PC1_GWAS.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007326/NUMBER_SEXUAL_PARTNERS_GWAS.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007327/EVER_SMOKER_GWAS_MA_UKB+TAG.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007328/DRINKS_PER_WEEK_GWAS.txt -P Risky-Behavior_Karlsson-Linner_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KarlssonLinnerR_30643258_GCST007329/AUTOMOBILE_SPEEDING_PROPENSITY_GWAS.txt -P Risky-Behavior_Karlsson-Linner_2019
+
+# Protein-coding variants implicate novel genes related to lipid homeostasis contributing to body-fat distribution.
+mkdir Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007483/PublicRelease.WHRadjBMI.C.All.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007484/PublicRelease.WHRadjBMI.C.All.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007487/PublicRelease.WHRadjBMI.C.Eur.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007491/PublicRelease.WHRadjBMI.C.Eur.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007492/PublicRelease.WHRadjBMI.M.All.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007493/PublicRelease.WHRadjBMI.M.All.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007494/PublicRelease.WHRadjBMI.M.Eur.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007496/PublicRelease.WHRadjBMI.M.Eur.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007500/PublicRelease.WHRadjBMI.W.All.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007501/PublicRelease.WHRadjBMI.W.All.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007502/PublicRelease.WHRadjBMI.W.Eur.Add.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JusticeAE_30778226_GCST007503/PublicRelease.WHRadjBMI.W.Eur.Rec.txt.gz -P Waist-Hip-Ratio-BMI-Adjusted_Justice_2019
+
+# Genome-wide association study of multisite chronic pain in UK Biobank.
+mkdir Chronic-Pain_Johnston_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JohnstonKJA_31194737_GCST008512/README -P Chronic-Pain_Johnston_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JohnstonKJA_31194737_GCST008512/chronic_pain-bgen.stats.gz -P Chronic-Pain_Johnston_2019
+
+# Genome-wide association studies of autoimmune vitiligo identify 23 new risk loci and highlight key pathways and regulatory variants.
+mkdir Vitilogo_Jin_2016
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_27723757_GCST004785 -P Vitilogo_Jin_2016
+
+# Early-onset autoimmune vitiligo associated with an enhancer variant haplotype that upregulates class II HLA expression.
+mkdir Vitilogo_Jin_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_30674883_GCST007112 -P  Vitilogo_Jin_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JinY_30674883_GCST007111 -P Vitilogo_Jin_2019
+
+# Genetic Determinants of Circulating Glycine Levels and Risk of Coronary Artery Disease.
+mkdir Glycine-Levels_Jia_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JiaQ_31070104_GCST007838/README.txt -P Glycine-Levels_Jia_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JiaQ_31070104_GCST007838/JiaQ_31070104_glycine_MALE.txt -P Glycine-Levels_Jia_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JiaQ_31070104_GCST007837/JiaQ_31070104_glycine_FEMALE.txt -P Glycine-Levels_Jia_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JiaQ_31070104_GCST007836/JiaQ_31070104_glycine_ALL.txt -P Glycine-Levels_Jia_2019
+
+# Detecting past and ongoing natural selection among ethnically Tibetan women at high altitude in Nepal.
+mkdir Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006720/README -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006720/TIBETN_Hb_all_noSat_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006721/TIBETN_ICD_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006722/TIBETN_ICD_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006723/TIBETN_ICDprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006724/TIBETN_ICDprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006725/TIBETN_ICJD_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006726/TIBETN_ICJD_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006727/TIBETN_ICJDprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006728/TIBETN_ID_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006729/TIBETN_ID_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006730/TIBETN_ICJDprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006731/TIBETN_IDprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006733/TIBETN_IS_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006734/TIBETN_IS_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006735/TIBETN_ISprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006736/TIBETN_ISprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006737/TIBETN_MC_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006738/TIBETN_MC_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006739/TIBETN_MCprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006740/TIBETN_MCprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006741/TIBETN_SB_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006742/TIBETN_SB_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006743/TIBETN_SBprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006744/TIBETN_SBprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006745/TIBETN_Sat_all_noHb_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006746/TIBETN_Pulse_all_noHb_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006747/TIBETN_OxHb_all_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006748/TIBETN_dHb_all_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006749/TIBETN_CD_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006750/TIBETN_CD_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006751/TIBETN_CS_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006752/TIBETN_CS_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006753/TIBETN_CDprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006754/TIBETN_CDprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006755/TIBETN_CSprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006756/TIBETN_CSprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006757/TIBETN_JD_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006758/TIBETN_JD_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006759/TIBETN_JDprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006760/TIBETN_JDprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006761/TIBETN_JS_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006762/TIBETN_JS_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006763/TIBETN_JSprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006764/TIBETN_JSprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006765/TIBETN_LB_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006766/TIBETN_LB_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006767/TIBETN_LBprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006768/TIBETN_LBprop_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006769/TIBETN_b1age_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006770/TIBETN_b1age_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006771/TIBETN_npreg_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006772/TIBETN_npreg_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006773/TIBETN_twins_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006774/TIBETN_twins_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006775/TIBETN_lastpreg_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006776/TIBETN_lastpreg_FM_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/JeongC_30188897_GCST006859/TIBETN_IDprop_160509.assoc.txt.gz -P Multiple-Traits_Jeong_2019
+
+# Genomics of body fat percentage may contribute to sex bias in anorexia nervosa.
+mkdir Body-Mass_Hubel_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HubelC_30593698_GCST007063/FFM_c_maf0.01_meta_pos.txt -P Body-Mass_Hubel_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HubelC_30593698_GCST007064/BFPC_h_maf0.01_meta_pos.txt -P Body-Mass_Hubel_2018
+
+# Genome-wide association study reveals sex-specific genetic architecture of facial attractiveness.
+mkdir Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007818/README -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007818/Attractiveness_FC_AS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007817/Attractiveness_MC_AS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007820/Attractiveness_FC_FS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007821/Attractiveness_FC_MS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007822/Attractiveness_MC_FS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HuB_30946739_GCST007823/Attractiveness_MC_MS_2018Dec.txt.gz -P Facial-Attractiveness_Hu_2019
+
+# Genome-wide association analyses identify two susceptibility loci for pachychoroid disease central serous chorioretinopathy.
+mkdir Central-Serous-Retinopathy_Hosoda_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HosodaY_31872073_GCST009653/CSC_control_PC3.assoc.logistic -P Central-Serous-Retinopathy_Hosoda_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HosodaY_31872073_GCST009653/Readme.txt -P Central-Serous-Retinopathy_Hosoda_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HosodaY_31872073_GCST009653/Readme.txt.save -P Central-Serous-Retinopathy_Hosoda_2019
+
+# Improved power and precision with whole genome sequencing data in genome-wide association studies of inflammatory biomarkers.
+mkdir Inflammatory-Biomarkers_Hoglund_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoglundJ_31727947_GCST009522/ -P Inflammatory-Biomarkers_Hoglund_2019
+
+# A Large Multi-ethnic Genome-Wide Association Study of Adult Body Mass Index Identifies Novel Loci.
+mkdir BMI_Hoffmann_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_30108127_GCST006368/BMI-GERA+GIANT-2018.tsv.gz -P BMI_Hoffmann_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_29507422_GCST007143/GERA-TC.tsv.gz -P BMI_Hoffmann_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_29507422_GCST007142/GERA-logTG.tsv.gz -P BMI_Hoffmann_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_29507422_GCST007141/GERA-LDL.tsv.gz -P BMI_Hoffmann_2018 
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_29507422_GCST007140/GERA-sqrtHDL.tsv.gz -P BMI_Hoffmann_2018 
+
+# Genome-wide association analyses using electronic health records identify new loci influencing blood pressure variation.
+mkdir Blood-Pressure_Hoffmann_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007098/gera-dbp.tsv.gz -P Blood-Pressure_Hoffmann_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007097/gera-pp.tsv.gz -P Blood-Pressure_Hoffmann_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007095/gera-sbp.tsv.gz -P Blood-Pressure_Hoffmann_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27764096_GCST003763/GERA-EUR-ARHI.csv.gz -P Blood-Pressure_Hoffmann_2016
+
+# Genome-wide analysis identifies molecular systems and 149 genetic loci associated with income.
+mkdir Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_31844048_GCST009524/HillWD_31844048_MTAG_household_Income.txt.gz -P Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_31844048_GCST009524/Read_Me.txt -P Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_31844048_GCST009523/HillWD_31844048_household_Income.txt.gz -P Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_30867560_GCST007710/HillWD_30867560_Anxiety_Tension_Special_Factor.txt.gz -P Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_30867560_GCST007709/HillWD_30867560_General_factor_of_Neuroticism.txt.gz -P Socioeconomic-Stats_Hill_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillWD_30867560_GCST007708/HillWD_30867560_Worry_Vulnerability_Special_Factor.txt.gz -P Socioeconomic-Stats_Hill_2019
+
+# Genome and epigenome wide studies of neurological protein biomarkers in the Lothian Birth Cohort 1936.
+mkdir Blood-Protein-Biomarkers_Hillary_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HillaryRF_31320639_GCST008478/DS_10283_3408.zip -P Blood-Protein-Biomarkers_Hillary_2019
+
+# Genome-wide association study reveals dynamic role of genetic variation in infant and early childhood growth. 
+mkdir BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009300/childhood_bmi_nat_comm_2019_8years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009300/readme.txt -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009299/childhood_bmi_nat_comm_2019_7years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009298/childhood_bmi_nat_comm_2019_5years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009297/childhood_bmi_nat_comm_2019_3years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009296/childhood_bmi_nat_comm_2019_2years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009295/childhood_bmi_nat_comm_2019_1.5years.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009294/childhood_bmi_nat_comm_2019_1year.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009293/childhood_bmi_nat_comm_2019_8months.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009291/childhood_bmi_nat_comm_2019_6months.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009290/childhood_bmi_nat_comm_2019_3months.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009288/childhood_bmi_nat_comm_2019_6weeks.gz -P BMI-Childhood_Helgeland_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HelgelandO_31575865_GCST009282/childhood_bmi_nat_comm_2019_birth.gz -P BMI-Childhood_Helgeland_2019
+
+# An amino acid motif in HLA-DRβ1 distinguishes patients with uveitis in juvenile idiopathic arthritis.
+mkdir Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uveitis.hg18.merged.QC.mhc.IMPUTED.phase_indicator.AA_DRB1_11_32660115_D.assoc.dosage.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uveitis.hg18.merged.QC.mhc.IMPUTED.phase_indicator.AA_DRB1_11_32660115_S.assoc.dosage.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uveitis.hg18.merged.QC.mhc.IMPUTED.phase_indicator.assoc.dosage.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uveitis.hg18.merged.QC.mhc.IMPUTED.phase_indicator.females.assoc.dosage.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uveitis.hg18.merged.QC.mhc.IMPUTED.phase_indicator.males.assoc.dosage.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uviitis.hg19.phase1.QC.gwas.results.imputed.jia.uviitis.filtered.v2.txt.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/jia.uviitis.hg19.phase2.QC.gwas.results.imputed.jia.uviitis.filtered.v2.txt.gz -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HaasnootAJW_29513936_GCST006126/readme.docx -P Juvenile-Idiopathic-Arthritis_Haasnoot_2018
+
+# Uganda Genome Resource Enables Insights into Population History and Genomic Discovery in Africa.
+mkdir Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009041/eos_countannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009042/cholesterolannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009043/lowdlipoannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009044/highdlipoannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009045/triglyceridesannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009046/aspartateannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009047/alanineannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009048/albuminannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009049/alkalineannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009050/gammaannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009051/bilirubinannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009052/DBPannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009053/SBPannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009054/hba1c2annotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009055/heightannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009056/weightannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009057/bmiannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009058/waist_circumannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009059/hip_circumannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009060/waist_hip_ratioannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009061/wbcannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009062/rbcannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009065/mcvannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009063/mchannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009064/mchcannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009032/rbc_dstr_widthannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009033/hctannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009034/hgbannotated.txt -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009036/pltannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009037/lymp_countannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009038/mono_countannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009040/neut_countannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GurdasaniD_31675503_GCST009039/baso_countannotated.txt.gz -P Multiple-Traits_Gurdasani_2019
+
+# Sex-specific and pleiotropic effects underlying kidney function identified from GWAS meta-analysis.
+mkdir Glomerular-Filtration-Rate_Graham_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GrahamSE_31015462_GCST007876/2018_Graham_et_al_eGFR_meta.tbl -P Glomerular-Filtration-Rate_Graham_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GrahamSE_31015462_GCST007876/README -P Glomerular-Filtration-Rate_Graham_2019
+
+# Genetic association and transcriptome integration identify contributing genes and tissues at cystic fibrosis modifier loci.
+mkdir Cystic-Fibrosis-Associated-Meconium-Ileum_Gong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GongJ_30807572_GCST007367/GongJ_prePMID_Meconium_Ileus.tsv.gz -P Cystic-Fibrosis-Associated-Meconium-Ileum_Gong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GongJ_30807572_GCST007367/GongJ_prePMID_Meconium_Ileus.tsv.gz.tbi -P Cystic-Fibrosis-Associated-Meconium-Ileum_Gong_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GongJ_30807572_GCST007367/README.txt -P Cystic-Fibrosis-Associated-Meconium-Ileum_Gong_2019
+
+# Genome-wide Association Study of Susceptibility to Particulate Matter-Associated QT Prolongation.
+mkdir QT-Interval-By-Particulate-Matter_Gondalia_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GondaliaR_28749367_GCST004642/Fixed_Effects_METAL_Results_Part1.zip -P QT-Interval-By-Particulate-Matter_Gondalia_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GondaliaR_28749367_GCST004642/Fixed_Effects_METAL_Results_Part2.zip -P QT-Interval-By-Particulate-Matter_Gondalia_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GondaliaR_28749367_GCST004642/Fixed_Effects_METAL_Results_Part3.zip -P QT-Interval-By-Particulate-Matter_Gondalia_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GondaliaR_28749367_GCST004642/Fixed_Effects_METAL_Results_Part4.zip -P QT-Interval-By-Particulate-Matter_Gondalia_2017
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GondaliaR_28749367_GCST004642/Fixed_Effects_METAL_Results_Part5.zip -P QT-Interval-By-Particulate-Matter_Gondalia_2017
+
+# Association Between Polygenic Risk Score and Risk of Myopia.
+mkdir Refractive-Error_Ghorbani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GhorbaniMojarradN_31670792_GCST009521/GhorbaniMojarradN_31670792_AutorefractionMeasuredRefractiveError.txt.gz -P Refractive-Error_Ghorbani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GhorbaniMojarradN_31670792_GCST009521/GhorbaniMojarradN_31670792_AutorefractionMeasuredRefractiveError_readme.txt -P Refractive-Error_Ghorbani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GhorbaniMojarradN_31670792_GCST009520/GhorbaniMojarradN_31670792_AOSWInferredRefractiveError.txt.gz -P Refractive-Error_Ghorbani_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GhorbaniMojarradN_31670792_GCST009520/GhorbaniMojarradN_31670792_AOSWInferredRefractiveError_readme.txt -P Refractive-Error_Ghorbani_2019
+
+# Association of Genetic Variants With Primary Open-Angle Glaucoma Among Individuals With African Ancestry.
+mkdir Glaucoma_GGLAD_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GeneticsofGlaucomainPeopleofAfricanDescent(GGLAD)Consortium_31688885_GCST009245/poag_africa_4_collection_logistic.meta.sorted_N4.tsv.zip -P Glaucoma_GGLAD_2019
+
+# Common genetic variation and antidepressant efficacy in major depressive disorder: a meta-analysis of three genome-wide pharmacogenetic studies.
+mkdir Depression-Unipolar-Drug-Efficacy_GENDEP_2013
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GENDEPInvestigators_23377640_GCST001850/PhaCoGe_2013.zip -P Depression-Unipolar-Drug-Efficacy_GENDEP_2013
+
+# The Genetic Architecture of Chronic Mountain Sickness in Peru.
+mkdir Chronic-Mountain-Sickness_Gazal_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GazalS_31417607_GCST008708/README.txt -P Chronic-Mountain-Sickness_Gazal_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GazalS_31417607_GCST008708/TableS1.txt.zip -P Chronic-Mountain-Sickness_Gazal_2019
+
+# A comprehensive study of metabolite genetics reveals strong pleiotropy and heterogeneity across time and context.
+mkdir Serum-Metabolites_Gallois_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GalloisA_31636271_GCST009242/readme.txt -P Serum-Metabolites_Gallois_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GalloisA_31636271_GCST009242/results_STD.txt.gz -P Serum-Metabolites_Gallois_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GalloisA_31636271_GCST009240/results_CMS.txt -P Serum-Metabolites_Gallois_2019
+
+# Genome-wide association and epidemiological analyses reveal common genetic origins between uterine leiomyomata and endometriosis.
+mkdir Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009158/GallagherCS_31649266_UterineFibroids.stats.gz -P Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009158/README_GallagherCS_31649266_UterineFibroids -P Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009157/GallagherCS_31649266_HeavyBleeding.stats.gz -P Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009157/README_GallagherCS_31649266_HeavyBleeding -P Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009156/GallagherCS_31649266_UterineFibroidsLimitedByHeavyBleeding.stats.gz -P Uterine-Fibroids_Gallagher_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GallagherCS_31649266_GCST009156/README_GallagherCS_31649266_UterineFibroidsLimitedByHeavyBleeding -P Uterine-Fibroids_Gallagher_2019
+
+# Mapping of 79 loci for 83 plasma protein biomarkers in cardiovascular disease
+mkdir Blood-Protein-Levels_Folkersen_2017
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/FolkersenL_28369058_GCST009731 -P Blood-Protein-Levels_Folkersen_2017
+
+# Genome-wide association study of coronary artery disease among individuals with diabetes: the UK Biobank.
+mkdir Coronary-Artery-Disease-With-Diabetes_Fall_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/FallT_30003307_GCST006405/ -P Coronary-Artery-Disease-With-Diabetes_Fall_2018
+
+# Genome-wide meta-analysis identifies BARX1 and EML4-MTA3 as new loci associated with infantile hypertrophic pyloric stenosis.
+mkdir Infantile-Hypertrophic-Pyloric-Stenosis_Fadista_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/FadistaJ_30281099_GCST006705 -P Infantile-Hypertrophic-Pyloric-Stenosis_Fadista_2018
+
+# Genome-wide association study of Hirschsprung disease detects a novel low-frequency variant at the RET locus.
+mkdir Hirschsprung-Disease_Fadista_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/FadistaJ_29379196_GCST005289 -P Hirschsprung-Disease_Fadista_2018
+
+# New alcohol-related genes suggest shared genetic mechanisms with neuropsychiatric disorders.
+mkdir Alcohol-Use_Evangelou_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EvangelouE_31358974_GCST008757 -P Alcohol-Use_Evangelou_2019
+
+# Genetic analysis of over 1 million people identifies 535 new loci associated with blood pressure traits.
+mkdir Blood-Pressure_Evangelou_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EvangelouE_30224653_GCST006624 -P Blood-Pressure_Evangelou_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EvangelouE_30224653_GCST006630 -P Blood-Pressure_Evangelou_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EvangelouE_30224653_GCST006629 -P Blood-Pressure_Evangelou_2018
+
+# Strong effects of genetic and lifestyle factors on biomarker variation and use of personalized cutoffs.
+mkdir Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009561 -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009562 -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009563 -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009564/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009565/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009566/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009567/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009568/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009569/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009570/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009571/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009572/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009573/ -P Biomarker-Levels_Enroth_2014
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/EnrothS_25147954_GCST009558/ -P Biomarker-Levels_Enroth_2014
+
+# Genome-wide association studies of brain imaging phenotypes in UK Biobank.
+mkdir Neuroimaging-Measurements_Elliott_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ElliottLT_30305740_GCST006777/ -P Neuroimaging-Measurements_Elliott_2018
+
+# Genome-wide association study identifies novel genetic variants contributing to variation in blood metabolite levels.
+mkdir Blood-Metabolites_Draisma_2015
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DraismaHHM_26068415_GCST002961 -P Blood-Metabolites_Draisma_2015
+
+# GWAS identifies 14 loci for device-measured physical activity and sleep duration.
+mkdir Device-Measured-Activity_Doherty_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DohertyA_30531941_GCST006914 -P Device-Measured-Activity_Doherty_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DohertyA_30531941_GCST006913 -P Device-Measured-Activity_Doherty_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DohertyA_30531941_GCST007110 -P Device-Measured-Activity_Doherty_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DohertyA_30531941_GCST006915 -P Device-Measured-Activity_Doherty_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DohertyA_30531941_GCST006912 -P Device-Measured-Activity_Doherty_2018
+
+# The molecular genetics of hand preference revisited.
+mkdir Handedness_de-Kovel_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/deKovelCGF_30980028_GCST007592 -P Handedness_de-Kovel_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/deKovelCGF_30980028_GCST007594 -P Handedness_de-Kovel_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/deKovelCGF_30980028_GCST007593 -P Handedness_de-Kovel_2019
+
+# Exome array analysis of rare and low frequency variants in amyotrophic lateral sclerosis.
+mkdir Amyotrophic-Lateral-Sclerosis-Exome_Dekker_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DekkerAM_30976013_GCST008978 -P Amyotrophic-Lateral-Sclerosis-Exome_Dekker_2019
+
+# Elucidating the genetic basis of social interaction and isolation.
+mkdir Loneliness_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006923 -P Loneliness_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006920 -P Loneliness_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006921 -P Loneliness_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006922 -P Loneliness_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006924 -P Loneliness_Day_2018
+
+# Large-scale genome-wide meta-analysis of polycystic ovary syndrome suggests shared genetic architecture for different diagnosis criteria.
+mkdir Polycystic-Ovary-Syndrome_Day_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayF_30566500_GCST007089 -P Polycystic-Ovary-Syndrome_Day_2018
+
+# Association study in African-admixed populations across the Americas recapitulates asthma risk loci in non-African populations
+mkdir Asthma_Daya_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayaM_30787307_GCST007266 -P Asthma_Daya_2019
+
+# Multitrait analysis of glaucoma identifies new risk loci and enables polygenic prediction of disease susceptibility and progression.
+mkdir Glaucoma_Craig_2020
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/CraigJE_31959993_GCST009722 -P Glaucoma_Craig_2020
+
+# Biological annotation of genetic loci associated with intelligence in a meta-analysis of 87,740 individuals.
+mkdir Intelligence_Coleman_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ColemanJRI_29520040_GCST007044 -P Intelligence_Coleman_2018
+
+# Genome-wide association study of type 2 diabetes in Africa.
+mkdir Type-2-Diabetes_Chen_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ChenJ_31049640_GCST008114 -P Type-2-Diabetes_Chen_2019
+
+# Novel risk genes identified in a genome-wide association study for coronary artery disease in patients with type 1 diabetes.
+mkdir Coronary-Artery-Disease-In-Type-1-Diabetes_Charmet_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/CharmetR_29695241_GCST006281 -P Coronary-Artery-Disease-In-Type-1-Diabetes_Charmet_2018
+
+# Associations with metabolites in Chinese suggest new metabolic roles in Alzheimer's and Parkinson's diseases.
+mkdir Metabolite-Levels_Chai_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ChaiJF_31628463_GCST009698 -P Metabolite-Levels_Chai_2019
+
+# A genome-wide association study implicates multiple mechanisms influencing raised urinary albumin-creatinine ratio.
+mkdir Urinary-Albumin-To-Creatinine-Ratio_Casanova_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/CasanovaF_31630189_GCST009640/ -P Urinary-Albumin-To-Creatinine-Ratio_Casanova_2019
+
+# Genetic effects on planum temporale asymmetry and their limited relevance to neurodevelopmental disorders, intelligence or educational attainment.
+mkdir Superior-Temporal-Gyrus-Volume_Carrion-Castillo_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Carrion-CastilloA_31887566_GCST009460 -P Superior-Temporal-Gyrus-Volume_Carrion-Castillo_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Carrion-CastilloA_31887566_GCST009458 -P Superior-Temporal-Gyrus-Volume_Carrion-Castillo_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Carrion-CastilloA_31887566_GCST009459 -P Superior-Temporal-Gyrus-Volume_Carrion-Castillo_2019
+
+# Multi-trait genome-wide association study identifies new loci associated with optic disc parameters.
+mkdir Optic-Disc-Measurements_Bonnemaijer_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonnemaijerPWM_31798171_GCST009404 -P Optic-Disc-Measurements_Bonnemaijer_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonnemaijerPWM_31798171_GCST009411 -P Optic-Disc-Measurements_Bonnemaijer_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonnemaijerPWM_31798171_GCST009412 -P Optic-Disc-Measurements_Bonnemaijer_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonnemaijerPWM_31798171_GCST009413 -P Optic-Disc-Measurements_Bonnemaijer_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonnemaijerPWM_31798171_GCST009414 -P Optic-Disc-Measurements_Bonnemaijer_2019
+
+# Female-specific Association Between Variants on Chromosome 9 and Self-reported Diagnosis of Irritable Bowel Syndrome.
+mkdir Irritable-Bowel-Syndrome_Bonfiglio_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BonfiglioF_29626450_GCST006304 -P Irritable-Bowel-Syndrome_Bonfiglio_2018
+
+# Genetic modifiers of risk and age at onset in GBA associated Parkinson's disease and Lewy body dementia.
+mkdir Parkinsons-GBA-Associated_Blauwendraat_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BlauwendraatC_31755958_GCST009373 -P Parkinsons-GBA-Associated_Blauwendraat_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BlauwendraatC_31755958_GCST009374 -P Parkinsons-GBA-Associated_Blauwendraat_2019
+
+# Parkinson's disease age at onset genome-wide association study: Defining heritability, genetic loci, and alpha-synuclein mechanisms.
+mkdir Parkinsons-Age-At-Onset_Blauwendraat_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BlauwendraatC_30957308_GCST007780 -P Parkinsons-Age-At-Onset_Blauwendraat_2019
+
+# Multivariate genome-wide analyses of the well-being spectrum
+mkdir Wellbeing_Baselmans_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BaselmansBML_30643256_GCST007337 -P Wellbeing_Baselmans_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BaselmansBML_30643256_GCST007338 -P Wellbeing_Baselmans_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BaselmansBML_30643256_GCST007339 -P Wellbeing_Baselmans_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BaselmansBML_30643256_GCST007340 -P Wellbeing_Baselmans_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/BaselmansBML_30643256_GCST007341 -P Wellbeing_Baselmans_2019
+
+# Genome-Wide Analysis of Left Ventricular Image-Derived Phenotypes Identifies Fourteen Loci Associated with Cardiac Morphogenesis and Heart Failure Development.
+mkdir Left-Ventricular-Image-Phenotypes_Aung_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AungN_31554410_GCST009397/ -P Left-Ventricular-Image-Phenotypes_Aung_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AungN_31554410_GCST009396/ -P Left-Ventricular-Image-Phenotypes_Aung_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AungN_31554410_GCST009395/ -P Left-Ventricular-Image-Phenotypes_Aung_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AungN_31554410_GCST009394 -P Left-Ventricular-Image-Phenotypes_Aung_2019
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AungN_31554410_GCST009393 -P Left-Ventricular-Image-Phenotypes_Aung_2019
+
+# Genetic variation at the glycosaminoglycan metabolism pathway contributes to the risk of psoriatic arthritis but not psoriasis.
+mkdir Psoriatic-Arthritis_Aterido_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/AteridoA_30552173_GCST007043 -P Psoriatic-Arthritis_Aterido_2018
+
+# Genome-wide interaction study of a proxy for stress-sensitivity and its prediction of major depressive disorder.
+mkdir Stress-Sensitivity_Arnau-Soler_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Arnau-SolerA_30571770_GCST008506 -P Stress-Sensitivity_Arnau-Soler_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Arnau-SolerA_30571770_GCST008507 -P Stress-Sensitivity_Arnau-Soler_2018
+wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Arnau-SolerA_30571770_GCST008508 -P Stress-Sensitivity_Arnau-Soler_2018
+
+
+
+
+
+
 
 #############################################
 # Requiring manual download
@@ -2480,11 +3465,6 @@ wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5033492/bin/pone.0163048.s006.
 
 # Parkinsons disease and other cognitive phenotypes 
 # https://pdgenetics.shinyapps.io/pdprogmetagwasbrowser/
-
-# Well-being
-# https://www.nature.com/articles/s41588-018-0320-8
-# https://surfdrive.surf.nl/files/index.php/s/Ow1qCDpFT421ZOO
-# mkdir -p Well-Being_Baselmans_2019
 
 # The Genetic Architecture of Gene Expression in Peripheral Blood
 # http://cnsgenomics.com/data.html
@@ -2765,16 +3745,3 @@ mkdir Lymphocyte-Subsets_Ferreira_2010
 ######################################################
 python utils/unzip.py
 
-
-# TODO:
-# Other stuff that needs to be added
-
-wget https://zenodo.org/record/1251813/files/bmi.giant-ukbb.meta-analysis.combined.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/bmi.giant-ukbb.meta-analysis.females.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/bmi.giant-ukbb.meta-analysis.males.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whr.giant-ukbb.meta-analysis.combined.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whr.giant-ukbb.meta-analysis.females.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whr.giant-ukbb.meta-analysis.males.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whradjbmi.giant-ukbb.meta-analysis.combined.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whradjbmi.giant-ukbb.meta-analysis.females.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
-wget https://zenodo.org/record/1251813/files/whradjbmi.giant-ukbb.meta-analysis.males.23May2018.txt.gz -P /users/mgloud/projects/insulin_resistance/eriks_bonus/data/Pulit-et-al-2018
