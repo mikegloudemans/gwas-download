@@ -623,9 +623,9 @@ wget https://grasp.nhlbi.nih.gov/downloads/FullResults/2016/2016_Bustamante/READ
 # Meta-analysis of genome-wide association studies for height and body mass index in ~700,000 individuals of European ancestry
 # Yengo et al. 2018
 # PMID: 30124842 PMCID: PMC6488973 DOI: 10.1093/hmg/ddy271
-mkdir Yengo_BMI+Height_2018
-wget https://portals.broadinstitute.org/collaboration/giant/images/0/0f/Meta-analysis_Locke_et_al%2BUKBiobank_2018.txt.gz --directory Yengo_BMI+Height_2018
-wget https://portals.broadinstitute.org/collaboration/giant/images/6/63/Meta-analysis_Wood_et_al%2BUKBiobank_2018.txt.gz --directory Yengo_BMI+Height_2018
+mkdir BMI-and-Height_Yengo_2018
+wget https://portals.broadinstitute.org/collaboration/giant/images/0/0f/Meta-analysis_Locke_et_al%2BUKBiobank_2018.txt.gz --directory BMI-and-Height_Yengo_2018
+wget https://portals.broadinstitute.org/collaboration/giant/images/6/63/Meta-analysis_Wood_et_al%2BUKBiobank_2018.txt.gz --directory BMI-and-Height_Yengo_2018
 
 # Unclear whether these ones have been published.
 # Downloaded from GIANT at https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files
@@ -1879,21 +1879,21 @@ wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.allergy.a
 # https://www.ncbi.nlm.nih.gov/pubmed/24183453
 # Inference of the genetic architecture underlying BMI and height with the use of 20,240 sibling pairs.
 # http://cnsgenomics.com/data.html
-mkdir BMI+Height_Hemani_2013
-wget http://cnsgenomics.com/data/hemani_et_al_2013_ajhg/hemani_pihat.txt --directory BMI+Height_Hemani_2013
+mkdir BMI-and-Height_Hemani_2013
+wget http://cnsgenomics.com/data/hemani_et_al_2013_ajhg/hemani_pihat.txt --directory BMI-and-Height_Hemani_2013
 
 # Estimation of genetic variance from imputed sequence variants reveals negligible missing heritability for human height and body mass index
 # https://www.ncbi.nlm.nih.gov/pubmed/26323059
-mkdir Yang_BMI+Height_2015
-wget http://cnsgenomics.com/data/yang_et_al_2015_ng/LDSCORE_release_July2015.tar.gz --directory Yang_BMI+Height_2015
-wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July2015.tar.gz  --directory Yang_BMI+Height_2015
+mkdir BMI-and-Height_Yang_2015
+wget http://cnsgenomics.com/data/yang_et_al_2015_ng/LDSCORE_release_July2015.tar.gz --directory BMI-and-Height_Yang_2015
+wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July2015.tar.gz  --directory BMI-and-Height_Yang_2015
 
 # Population genetic differentiation of height and body mass index across Europe
 # https://www.nature.com/articles/ng.3401
 # PMID: 26366552 PMCID: PMC4984852 DOI: 10.1038/ng.3401
-mkdir BMI+Height_Robinson_2015
-wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_height_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
-wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_bmi_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI+Height_Robinson_2015
+mkdir BMI-and-Height_Robinson_2015
+wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_height_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI-and-Height_Robinson_2015
+wget http://cnsgenomics.com/data/robinson_et_al_2015_ng/Within-family_GWAS_of_bmi_based_on_sib_regression_using_data_from_Robinson_et_al_2015_LYMRR.txt.gz --directory BMI-and-Height_Robinson_2015
 
 # Causal associations between risk factors and common diseases inferred from GWAS summary data
 # https://www.nature.com/articles/s41467-017-02317-2
