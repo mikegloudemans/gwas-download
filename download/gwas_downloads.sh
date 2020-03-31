@@ -465,6 +465,7 @@ wget http://broadabc.ctglab.nl/documents/p12/readme_tielbeek_jamapsychiatry2017_
 # https://www.ncbi.nlm.nih.gov/pubmed/24390342
 # Genetics of rheumatoid arthritis contributes to biology and drug discovery.
 # Okada et al. 2014
+# NOTE: Additional sumstats files can be obtained manually from http://jenger.riken.jp/result, which is what I did
 mkdir Rheumatoid-Arthritis_Okada_2014
 wget http://plaza.umin.ac.jp/~yokada/datasource/files/GWASMetaResults/RA_GWASmeta_Asian_v2.txt.gz --directory Rheumatoid-Arthritis_Okada_2014
 wget http://plaza.umin.ac.jp/~yokada/datasource/files/GWASMetaResults/RA_GWASmeta_European_v2.txt.gz --directory Rheumatoid-Arthritis_Okada_2014
@@ -500,7 +501,7 @@ wget https://s3.amazonaws.com/broad-portal-resources/stroke/README_SiGN_2015.pdf
 # Genome-wide meta-analysis of cerebral white matter hyperintensities in patients with stroke.
 # Traylor et al. 2016
 mkdir Cerebral-White-Matter-Hyperintensity_Traylor_2016
-wget https://personal.broadinstitute.org/mvon/26674333.Traylor.2016.txt.gz --directory Cerebral-White-Matter-Hyperintensity_Traylor_2016 --directory Cerebral-White-Matter-Hyperintensity_Traylor_2016
+wget https://personal.broadinstitute.org/mvon/26674333.Traylor.2016.txt.gz --directory Cerebral-White-Matter-Hyperintensity_Traylor_2016
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27997041 
 # Genetic variation at 16q24.2 is associated with small vessel stroke.
@@ -2658,12 +2659,6 @@ mkdir Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_31596875_GCST008993/RA_XRayDamage_European.txt -P Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_31596875_GCST008992/RA_XRayDamage_Transethnic.txt -P Rheumatoid-Arthritis-Joint-Damage_Traylor_2019
 
-# https://www.ncbi.nlm.nih.gov/pubmed/30659137
-# Genetic variation in PLEKHG1 is associated with white matter hyperintensities (n = 11,226).
-# PMID: 30659137 PMCID: PMC6396967 DOI: 10.1212/WNL.0000000000006952 
-mkdir ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_30659137_GCST007305/README_Traylor_2019.pdf -P White-Matter-Hyperintensity_Traylor_2019
-mkdir ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/TraylorM_30659137_GCST007305/Traylor.et.al.2018.WMH.txt.zip -P White-Matter-Hyperintensity_Traylor_2019
-
 # https://www.ncbi.nlm.nih.gov/pubmed/30134952
 # Cross-genetic determination of maternal and neonatal immune mediators during pregnancy.
 # PMID: 30134952 PMCID: PMC6106874 DOI: 10.1186/s13073-018-0576-8 
@@ -2760,7 +2755,8 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShrineN_30552067_
 
 # https://www.ncbi.nlm.nih.gov/pubmed/29452408
 # Genome-wide association study identifies seven novel susceptibility loci for primary open-angle glaucoma. 
-# PMID: 29452408 PMCID: PMC6251544 DOI: 10.1093/hmg/ddy053 
+# PMID: 29452408 PMCID: PMC6251544 DOI: 10.1093/hmg/ddy053
+# NOTE: X-chromosome data available too at http://jenger.riken.jp/result
 mkdir Glaucoma_Shiga_2018
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ShigaY_29452408_GCST005388/2018_POAG_BBJ_autosome.txt.gz -P Glaucoma_Shiga_2018
 
@@ -3060,7 +3056,7 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LindL_31589552_GC
 # https://www.ncbi.nlm.nih.gov/pubmed/27764105
 # Genome-Wide Meta-Analysis of Sciatica in Finnish Population.
 # PMID: 27764105 PMCID: PMC5072673 DOI: 10.1371/journal.pone.0163877 
-mkdir Sciatica_Lemmela_2016 -P Sciatica_Lemmela_2016
+mkdir Sciatica_Lemmela_2016
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LemmelaS_27764105_GCST003869/Meta_GWAS_sciatica_results -P Sciatica_Lemmela_2016
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30323354
@@ -4258,11 +4254,40 @@ wget --max-depth 1 ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Zhe
 
 # GWAS requiring manual download
 
+############## Japanese Biobank Traits ##########################
+
 # https://www.ncbi.nlm.nih.gov/pubmed/29403010
 # Genetic analysis of quantitative traits in the Japanese population links cell types to complex human diseases
 # Kanai et al. 2018
 mkdir QTLs-Japanese_Kanai_2018
 # http://jenger.riken.jp/result
+
+# https://www.biorxiv.org/content/10.1101/795948v1?rss=1
+# Large scale genome-wide association study in a Japanese population identified 45 novel susceptibility loci for 22 diseases
+# Ishigaki et al. 2019
+mkdir Multi-Trait_Ishigaki_2019
+# http://jenger.riken.jp/result
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29773799
+# Elucidating the genetic architecture of reproductive ageing in the Japanese population.
+# PMID: 29773799 PMCID: PMC5958096	DOI:	    10.1038/s41467-018-04398-z 
+mkdir Womens-Reproductive-Aging_Horikoshi_2018
+# http://jenger.riken.jp/result
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31562340
+# Characterizing rare and low-frequency height-associated variants in the Japanese population.
+# PMID:    31562340    PMCID:        PMC6764965	DOI:	    10.1038/s41467-019-12276-5 
+# NOTE: The PMID on the Japan Biobank website is incorrect; that one points to the Uk10k paper
+mkdir Height_Akiyama_2019
+# http://jenger.riken.jp/result
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31624269
+# GWAS of mosaic loss of chromosome Y highlights genetic effects on blood cell differentiation.
+# PMID:    31624269    PMCID:        PMC6797717	DOI:	    10.1038/s41467-019-12705-5 
+mkdir Mosaic-Loss-Of-Y_Terao_2019
+# http://jenger.riken.jp/result
+
+#################################################################
 
 # https://www.nature.com/articles/ng.3874
 # Fifteen new risk loci for coronary artery disease highlight arterial-wall-specific mechanisms
@@ -4270,6 +4295,8 @@ mkdir QTLs-Japanese_Kanai_2018
 # PMID: 28530674 PMCID: PMC5555387 DOI: 10.1038/ng.3874
 mkdir Coronary-Artery-Disease_Howson_2017
 # http://www.phenoscanner.medschl.cam.ac.uk/docs/Howson-JMM_CHD_Mixed_2017.txt
+
+########################################## PGC Brain Phenotypes ######################################
 
 # https://www.biorxiv.org/content/early/2017/06/03/145581
 # Discovery Of The First Genome-Wide Significant Risk Loci For ADHD
@@ -4367,6 +4394,51 @@ wget http://www.med.unc.edu/pgc/files/resultfiles/pgc-mdd-2018-readme-v.3 --dire
 mkdir Anorexia-Nervosa_Duncan_2017
 # Must be downloaded from PGC website
 
+# https://www.ncbi.nlm.nih.gov/pubmed/30150663
+# GWAS of lifetime cannabis use reveals new risk loci, genetic overlap with psychiatric traits, and a causal influence of schizophrenia.
+# Pasman et al. 2018
+mkdir Cannabis-Use_Pasman_2018
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31740837
+# Comparative genetic architectures of schizophrenia in East Asian and European populations.
+# Lam et al. 2019
+mkdir Schizophrenia_Lam_2019
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/25056061
+# Biological insights from 108 schizophrenia-associated genetic loci.
+mkdir Schizophrenia_Ripke_2014
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/23974872
+# Genome-wide association analysis identifies 13 new risk loci for schizophrenia.
+mkdir Schizophrenia_Ripke_2013
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30482948 
+# Trans-ancestral GWAS of alcohol dependence reveals common genetic underpinnings with psychiatric disorders
+mkdir Alcohol-Dependence_Walters_2018
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30336701
+# Genome-Wide Association Study Meta-Analysis of the Alcohol Use Disorders Identification Test (AUDIT) in Two Population-Based Cohorts.
+mkdir Alcohol-Dependence_Sanchez-Roige_2018
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/31043756
+# Genome-wide association study identifies 30 loci associated with bipolar disorder.
+mkdir Bipolar-Disorder_Stahl_2019
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/30818990
+# Interrogating the Genetic Determinants of Tourette's Syndrome and Other Tic Disorders Through Genome-Wide Association Studies.
+mkdir Tourettes-Syndrome_Yu_2018
+# Must be downloaded from PGC website
+
+
+######################### DIAGRAM Diabetes Consortium ######################################
+
 # http://diabetes.diabetesjournals.org/content/early/2017/05/25/db16-1253 
 # An Expanded Genome-Wide Association Study of Type 2 Diabetes in Europeans
 # Scott et al. 2017
@@ -4395,11 +4467,18 @@ mkdir Type-2-Diabetes_Gaulton_2015
 mkdir Type-2-Diabetes_Mahajan_2014
 # Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
 
+# https://www.ncbi.nlm.nih.gov/pubmed/30297969
+# Fine-mapping type 2 diabetes loci to single-variant resolution using high-density imputation and islet-specific epigenome maps.
+mkdir Type-2-Diabetes_Mahajan_2018
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
 # https://www.ncbi.nlm.nih.gov/pubmed/22885922
 # Large-scale association analysis provides insights into the genetic architecture and pathophysiology of type 2 diabetes.
 # Morris et al. 2012
 mkdir Type-2-Diabetes_Morris_2012
 # Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+##############################################################################
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27005778
 # Genome-wide study for circulating metabolites identifies 62 loci and reveals novel systemic effects of LPA
@@ -4426,14 +4505,14 @@ mkdir Allergies_Ferreira_2017
 # https://www.ncbi.nlm.nih.gov/pubmed/29058716
 # Identification of ten variants associated with risk of estrogen-receptor-negative breast cancer.
 # Milne et al. 2017
-mkdir BreastCancer_Milne_2017
+mkdir Breast-Cancer_Milne_2017
 # NOTE: Required a manual download and transfer
 
 # https://www.nature.com/articles/ng.3875
 # Genetic association study of exfoliation syndrome identifies a protective rare variant at LOXL1 and five new susceptibility loci
 # Aung et al. 2017
 # PMID: 28553957 PMCID: PMC6685441 DOI: 10.1038/ng.3875
-mkdir ExfoliationSyndrome_Aung_2017
+mkdir Exfoliation-Syndrome_Aung_2017
 # https://media.nature.com/original/nature-assets/ng/journal/v49/n7/extref/ng.3875-S6.zip
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27663945
@@ -4445,7 +4524,7 @@ mkdir Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016
 # https://www.ncbi.nlm.nih.gov/pubmed/19853236
 # Sequence variants in three loci influence monocyte counts and erythrocyte volume.
 # Ferreira et al. 2009
-#mkdir Blood-Cells_Ferreira_2009
+mkdir Blood-Cells_Ferreira_2009
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/RBC.assoc.gz --directory Blood-Cells_Ferreira_2009
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HB.assoc.gz --directory Blood-Cells_Ferreira_2009
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/HT.assoc.gz --directory Blood-Cells_Ferreira_2009
