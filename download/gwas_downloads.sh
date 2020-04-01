@@ -45,7 +45,7 @@ wget http://www.reprogen.org/Menopause_HapMap2_DayNG2015_18112015.txt.gz --direc
 # Pappa et al. 2015
 mkdir Aggression_Pappa_2015
 wget http://www.tweelingenregister.org/fileadmin/user_upload/EAGLE/aggression_METAL_RESULTS.zip -P Aggression_Pappa_2015
-unzip Aggression_Pappa_2015/aggression_METAL_RESULTS.zip -d Aggression_Pappa_2015
+unzip Aggression_Pappa_2015/aggression_METAL_RESULTS.zip --directory Aggression_Pappa_2015
 unrar x Aggression_Pappa_2015/aggression_METAL\ RESULTS.rar Aggression_Pappa_2015
 rm Aggression_Pappa_2015/aggression_METAL\ RESULTS.rar
 rm Aggression_Pappa_2015/aggression_METAL_RESULTS.zip
@@ -108,7 +108,7 @@ wget http://www.gefos.org/sites/default/files/wholebodyleanmass.results.metal_.t
 # Kemp et al. 2017
 mkdir Bone-Mineral-Density-Estimated_Kemp_2017
 wget http://www.gefos.org/sites/default/files/BEurope-Bmd-As-C-Gwas-SumStats.txt_0.gz --directory Bone-Mineral-Density-Estimated_Kemp_2017
-wget http://www.gefos.org/sites/default/files/NG-A45024R-Suppl-Figure6_0.pdf Bone-Mineral-Density-Estimated_Kemp_2017
+wget http://www.gefos.org/sites/default/files/NG-A45024R-Suppl-Figure6_0.pdf --directory Bone-Mineral-Density-Estimated_Kemp_2017
 
 # http://www.cell.com/ajhg/fulltext/S0002-9297(17)30494-9
 # Life-Course Genome-wide Association Study Meta-analysis of Total Body BMD and Assessment of Age-Specific Effects
@@ -1599,14 +1599,14 @@ unzip Albuminuria_Haas_2018
 mkdir -p Heart-Failure_Aragam_2018
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/Heart_failure_GWAS_README.txt -P Heart-Failure_Aragam_2018
 wget https://personal.broadinstitute.org/mvon/2018.HRC.GWAS.UKBB.zip -P Heart-Failure_Aragam_2018
-unzip Heart-Failure_Aragam_2018/2018.HRC.GWAS.UKBB.zip -d Heart-Failure_Aragam_2018
+unzip Heart-Failure_Aragam_2018/2018.HRC.GWAS.UKBB.zip --directory Heart-Failure_Aragam_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30535219
 # Association between titin loss-of-function variants and early-onset atrial fibrillation.
 mkdir -p Atrial-Fibrillation-Early-Onset_Choi_2018
 wget https://personal.broadinstitute.org/mvon/2018.AF.WGS.TOPMed.zip -P Atrial-Fibrillation-Early-Onset_Choi_2018 
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/AF_WGS_TOPMed_Freeze4_GWAS.README.txt -P Atrial-Fibrillation-Early-Onset_Choi_2018
-unzip Atrial-Fibrillation-Early-Onset_Choi_2018/2018.AF.WGS.TOPMed.zip -d Atrial-Fibrillation-Early-Onset_Choi_2018
+unzip Atrial-Fibrillation-Early-Onset_Choi_2018/2018.AF.WGS.TOPMed.zip --directory Atrial-Fibrillation-Early-Onset_Choi_2018
 
 # Multi-ethnic genome-wide association study for atrial fibrillation.
 # Roselli C, et al.
@@ -1615,7 +1615,7 @@ unzip Atrial-Fibrillation-Early-Onset_Choi_2018/2018.AF.WGS.TOPMed.zip -d Atrial
 mkdir -p Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
 wget https://personal.broadinstitute.org/mvon/AF_HRC_GWAS_ALLv11.zip -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018 
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/AF_HRC_GWAS_ALLv11_README.txt -P Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
-unzip Atrial-Fibrillation-Multi-Ethnic_Roselli_2018/AF_HRC_GWAS_ALLv11.zip -d Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
+unzip Atrial-Fibrillation-Multi-Ethnic_Roselli_2018/AF_HRC_GWAS_ALLv11.zip --directory Atrial-Fibrillation-Multi-Ethnic_Roselli_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/29748316
 # Common and Rare Coding Genetic Variation Underlying the Electrocardiographic PR Interval.
@@ -1625,14 +1625,14 @@ unzip Atrial-Fibrillation-Multi-Ethnic_Roselli_2018/AF_HRC_GWAS_ALLv11.zip -d At
 mkdir -p Electrocardiograph-PR-Interval_Lin_2018
 wget https://personal.broadinstitute.org/mvon/29748316.PR.interval.ExomeChip.zip -P Electrocardiograph-PR-Interval_Lin_2018
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/PR_interval.exome_chip.CVDKP_Readme.txt -P Electrocardiograph-PR-Interval_Lin_2018
-unzip Electrocardiograph-PR-Interval_Lin_2018/29748316.PR.interval.ExomeChip.zip -d Electrocardiograph-PR-Interval_Lin_2018
+unzip Electrocardiograph-PR-Interval_Lin_2018/29748316.PR.interval.ExomeChip.zip --directory Electrocardiograph-PR-Interval_Lin_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/28794112
 # Fifteen Genetic Loci Associated With the Electrocardiographic P Wave.
 mkdir -p Electrocardiograph-P-Wave_Christophersen_2017
 wget https://personal.broadinstitute.org/mvon/28794112.PWI.GWAS.zip -P Electrocardiograph-P-Wave_Christophersen_2017
 wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/Pwave_duration_Ptforce_GWAS.README.txt -P Electrocardiograph-P-Wave_Christophersen_2017
-unzip Electrocardiograph-P-Wave_Christophersen_2017/28794112.PWI.GWAS.zip -d Electrocardiograph-P-Wave_Christophersen_2017
+unzip Electrocardiograph-P-Wave_Christophersen_2017/28794112.PWI.GWAS.zip --directory Electrocardiograph-P-Wave_Christophersen_2017
 
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30012220
@@ -1764,11 +1764,11 @@ wget http://coruscant.itmat.upenn.edu/data/SiewertEA_bivarStats.tar.gz --directo
 # Genome-wide meta-analysis of depression identifies 102 independent variants and highlights
 # PMID: 30718901 PMCID: PMC6522363 DOI: 10.1038/s41593-018-0326-7
 mkdir -p Depression_Howard_2019
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/PGC_UKB_depression_genome-wide.txt?sequence=3&isAllowed=y --directory Depression_Howard_2019
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/ReadMe.txt?sequence=4&isAllowed=y --directory Depression_Howard_2019
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_broad_12Jan18.txt?sequence=1&isAllowed=y --directory Depression_Howard_2019
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_icdMDD_12Jan18.txt?sequence=3&isAllowed=y --directory Depression_Howard_2019
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/readme.txt?sequence=4&isAllowed=y --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/PGC_UKB_depression_genome-wide.txt --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3203/ReadMe.txt --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_broad_12Jan18.txt --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/UKBiobank_icdMDD_12Jan18.txt --directory Depression_Howard_2019
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/readme.txt --directory Depression_Howard_2019
 
 # wget https://myfiles.uu.se/ssf/s/readFile/share/3993/1270878243748486898/publicLink/GWAS_summary_stats_ratios.zip
 # https://www.ncbi.nlm.nih.gov/pubmed/30664634
@@ -1780,44 +1780,28 @@ wget https://myfiles.uu.se/ssf/s/readFile/share/3993/1270878243748486898/publicL
 # https://bmcpulmmed.biomedcentral.com/articles/10.1186/s12890-019-0811-0#MOESM2
 # Limited overlap in significant hits between genome-wide association studies on two airflow obstruction definitions in the same population
 mkdir Airflow-Obstruction_van-der-Plaat_2019
-wget https://static-content.springer.com/esm/art%3A10.1186%2Fs12890-019-0811-0/MediaObjects/12890_2019_811_MOESM2_ESM.xlsx -d Airflow-Obstruction_van-der-Plaat_2019
+wget https://static-content.springer.com/esm/art%3A10.1186%2Fs12890-019-0811-0/MediaObjects/12890_2019_811_MOESM2_ESM.xlsx --directory Airflow-Obstruction_van-der-Plaat_2019
 
 # http://www.mrc-epid.cam.ac.uk/research/resources/gwas-summary-statistics-dataset/
 # Genome–wide association study for risk taking propensity indicates shared pathways with body mass index
 # https://www.nature.com/articles/s42003-018-0042-6
 # PMID: 30271922 PMCID: PMC6123697 DOI: 10.1038/s42003-018-0042-6
 mkdir Risk-Taking_Clifton_2018
-wget https://epiweb.mrc-epid.cam.ac.uk/files/Risk_SumStats_Clifton_2018.csv.gz -d  Risk-Taking_Clifton_2018
-
-# http://www.epigad.org/gwas_ilae2018_16loci.html
-# Genome-wide mega-analysis identifies 16 loci and highlights diverse biological mechanisms in the common epilepsies
-# https://www.ncbi.nlm.nih.gov/pubmed/30531953
-mkdir Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/all_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/CAE_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/focal_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/focal_HS_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/focal_lesion_negative_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/focal_other_lesion_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/generalised_epilepsy_METAL.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/GTCS_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/JAE_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/JME_BOLT-LMM_final.gz -d Epilepsy_ILAE-Consortium_2018
-wget http://www.epigad.org/gwas_ilae2018_16loci/README.txt -d Epilepsy_ILAE-Consortium_2018
+wget https://epiweb.mrc-epid.cam.ac.uk/files/Risk_SumStats_Clifton_2018.csv.gz --directory  Risk-Taking_Clifton_2018
 
 # Genome-wide association study in Japanese females identifies fifteen novel skin-related trait associations
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/
 # Summary stats available for download as Supp Data 1-7
 # PMID: 29895819 PMCID: PMC5997657 DOI: 10.1038/s41598-018-27145-2
 mkdir Skin-Traits_Endo_2018
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM1_ESM.pdf -d Skin-Traits_Endo_2018
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM4_ESM.txt -d Skin-Traits_Endo_2018 # Age-spots
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM5_ESM.txt -d Skin-Traits_Endo_2018 # Freckles
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM6_ESM.txt -d Skin-Traits_Endo_2018 # Double eyelid
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM7_ESM.txt -d Skin-Traits_Endo_2018 # Eyebrows
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM8_ESM.txt -d Skin-Traits_Endo_2018 # Hair type
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM9_ESM.txt -d Skin-Traits_Endo_2018 # Excessive hairiness
-wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM10_ESM.txt -d Skin-Traits_Endo_2018 # Excessive sweatiness
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM1_ESM.pdf --directory Skin-Traits_Endo_2018
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM4_ESM.txt --directory Skin-Traits_Endo_2018 # Age-spots
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM5_ESM.txt --directory Skin-Traits_Endo_2018 # Freckles
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM6_ESM.txt --directory Skin-Traits_Endo_2018 # Double eyelid
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM7_ESM.txt --directory Skin-Traits_Endo_2018 # Eyebrows
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM8_ESM.txt --directory Skin-Traits_Endo_2018 # Hair type
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM9_ESM.txt --directory Skin-Traits_Endo_2018 # Excessive hairiness
+wget https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/bin/41598_2018_27145_MOESM10_ESM.txt --directory Skin-Traits_Endo_2018 # Excessive sweatiness
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30842574
 # The influence of X chromosome variants on trait neuroticism.
@@ -1830,12 +1814,12 @@ wget http://www.psy.ed.ac.uk/ccace/downloads/Luciano2019_MolPsych_Neuroticism_RE
 # https://datashare.is.ed.ac.uk/handle/10283/3364 
 # https://www.ncbi.nlm.nih.gov/pubmed/29777097
 mkdir Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/license_text?sequence=6&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/1_UKB_AD_maternal_summary_output_June2019.txt?sequence=1&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/2_UKB_AD_paternal_summary_output_June2019.txt?sequence=2&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/3_UKB_AD_parental_meta_summary_output_June2019.txt?sequence=3&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/README?sequence=4&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
-wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/4_UKB_IGAP_AD_meta_summary_output_June2019.txt?sequence=5&isAllowed=y --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/license_text --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/1_UKB_AD_maternal_summary_output_June2019.txt --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/2_UKB_AD_paternal_summary_output_June2019.txt --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/3_UKB_AD_parental_meta_summary_output_June2019.txt --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/README --directory Alzheimers-Family-History_Marioni_2018
+wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3364/4_UKB_IGAP_AD_meta_summary_output_June2019.txt --directory Alzheimers-Family-History_Marioni_2018
 
 # Study of 300,486 individuals identifies 148 independent genetic loci influencing general cognitive function.
 # https://www.nature.com/articles/s41467-018-04362-x
@@ -1917,12 +1901,12 @@ wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08993-6/
 # Data Related to Association studies of up to 1.2 million individuals yield new insights into the genetic etiology of tobacco and alcohol use
 # https://conservancy.umn.edu/handle/11299/201564
 mkdir Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/README.txt?sequence=29&isAllowed=y --directory Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/AgeofInitiation.txt.gz?sequence=30&isAllowed=y --directory Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/CigarettesPerDay.txt.gz?sequence=31&isAllowed=y --directory Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/DrinksPerWeek.txt.gz?sequence=32&isAllowed=y --directory Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingCessation.txt.gz?sequence=33&isAllowed=y --directory Smoking_Mengzhen_2019
-wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingInitiation.txt.gz?sequence=34&isAllowed=y --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/README.txt --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/AgeofInitiation.txt.gz --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/CigarettesPerDay.txt.gz --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/DrinksPerWeek.txt.gz --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingCessation.txt.gz --directory Smoking_Mengzhen_2019
+wget https://conservancy.umn.edu/bitstream/handle/11299/201564/SmokingInitiation.txt.gz --directory Smoking_Mengzhen_2019
 
 # https://www.ncbi.nlm.nih.gov/pubmed/29348432
 # Genome-wide association study of self-reported food reactions in Japanese identifies shrimp and peach specific loci in the HLA-DR/DQ gene region.
