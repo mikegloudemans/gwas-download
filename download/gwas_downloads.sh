@@ -61,13 +61,6 @@ mkdir Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results.zip -P Asthma_Moffatt_2010
 wget https://beaune.cng.fr/gabriel/gabriel_results_description.xls -P Asthma_Moffatt_2010
 
-# https://www.ncbi.nlm.nih.gov/pubmed/26833246
-# New loci for body fat percentage reveal link between adiposity and cardiometabolic disease risk.
-# Lu et al. 2016
-mkdir Body-Fat-Percentage_Lu_2016
-wget http://walker05.u.hpc.mssm.edu/body_fat_percentage_GWAS_PLUS_MC_ALL_ancestry_se_Sex_combined_for_locus_zoom_plot.TBL.txt -P Body-Fat-Percentage_Lu_2016
-wget http://walker05.u.hpc.mssm.edu/Read_me_GWAS_BFpercent.txt -P Body-Fat-Percentage_Lu_2016
-
 # https://www.nature.com/articles/s41467-017-00108-3
 # Bivariate genome-wide association meta-analysis of pediatric musculoskeletal traits reveals pleiotropic effects at the SREBF1/TOM1L2 locus
 # Medina-Gomez et al. 2017
@@ -452,15 +445,6 @@ wget http://www.t2diabetesgenes.org/datasets/t2d_dom_dev.txt.gz --directory Type
 # Pilling et al. 2016
 mkdir Age-At-Death_Pilling_2016
 wget http://www.t2diabetesgenes.org/datasets/results.UKBiobank_9millionSNPs.parents_lifespan.Pilling_et_al_2016_Aging.txt.gz --directory Age-At-Death_Pilling_2016
-
-# https://www.ncbi.nlm.nih.gov/pubmed/28979981
-# Genome-Wide Association Studies of a Broad Spectrum of Antisocial Behavior.
-# Tielbeek et al. 2017
-mkdir Antisocial-Behavior_Tielbeek_2017
-wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Combined.tbl --directory Antisocial-Behavior_Tielbeek_2017
-wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput_Females.tbl --directory Antisocial-Behavior_Tielbeek_2017
-wget http://broadabc.ctglab.nl/documents/p12/BroadABC_METALoutput__Males.tbl --directory Antisocial-Behavior_Tielbeek_2017
-wget http://broadabc.ctglab.nl/documents/p12/readme_tielbeek_jamapsychiatry2017_antisocial_behavior_sumstats.txt --directory Antisocial-Behavior_Tielbeek_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/24390342
 # Genetics of rheumatoid arthritis contributes to biology and drug discovery.
@@ -1343,13 +1327,6 @@ wget https://grasp.nhlbi.nih.gov/downloads/ResultsOctober2016/Zhan/Zhan_serum_TS
 mkdir Anorexia-Nervosa_Boraska_2014
 wget https://grasp.nhlbi.nih.gov/downloads/ResultsOctober2016/Boraska/gcan_meta.out.gz --directory Anorexia-Nervosa_Boraska_2014
 
-# https://www.ncbi.nlm.nih.gov/pubmed/25282103
-# Defining the role of common variation in the genomic and biological architecture of adult human height.
-# Wood et al. 2014
-mkdir Height_Wood_2014
-wget https://grasp.nhlbi.nih.gov/downloads/ResultsOctober2016/Wood/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz --directory Height_Wood_2014
-wget https://grasp.nhlbi.nih.gov/downloads/ResultsOctober2016/Wood/GIANT_2012-15_Data_File_ReadMe_Height.txt --directory Height_Wood_2014
-
 # https://www.ncbi.nlm.nih.gov/pubmed/25087078
 # Genetic determinants of common epilepsies: a meta-analysis of genome-wide association studies.
 # Anney et al. 2014
@@ -1686,10 +1663,10 @@ wget http://faculty.washington.edu/rozenl/files/230.txt --directory Odd-Chain-Sa
 # https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/23362303/
 # PMID: 23362303 PMCID: PMC3891054 DOI: 10.1161/CIRCGENETICS.112.964619
 mkdir -p Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
-wget http://faculty.washington.edu/rozenl/files/CHARGE_160.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
-wget http://faculty.washington.edu/rozenl/files/CHARGE_180.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
-wget http://faculty.washington.edu/rozenl/files/CHARGE_161n7.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
-wget http://faculty.washington.edu/rozenl/files/CHARGE_181n9.txt --directory Fatty-Acids-De-Novo-Lipogenesis_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_160.txt --directory Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_180.txt --directory Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_161n7.txt --directory Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
+wget http://faculty.washington.edu/rozenl/files/CHARGE_181n9.txt --directory Fatty-Acids-De-Novo-Lipogenesis_Wu_2013
 
 # https://www.ncbi.nlm.nih.gov/pubmed/24823311
 # Genome-wide association study of plasma N6 polyunsaturated fatty acids within the cohorts for heart and aging research in genomic epidemiology consortium.
@@ -2058,21 +2035,6 @@ mkdir Educational-Attainment_Lee_2018
 wget https://www.dropbox.com/s/ho58e9jmytmpaf8/GWAS_EA_excl23andMe.txt?dl=0 -P Educational-Attainment_Lee_2018
 wget https://www.dropbox.com/s/ibjoh0g5e3sdd8t/GWAS_CP_all.txt?dl=0 -P Educational-Attainment_Lee_2018
 wget http://ssgac.org/documents/README_EA3.txt -P Educational-Attainment_Lee_2018
-
-# Genome-wide association analyses of risk tolerance and risky behaviors in over one million individuals identify hundreds of loci and shared genetic influences.
-# https://www.ncbi.nlm.nih.gov/pubmed/30643258
-mkdir Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/il1d7vabk5283dm/RISK_GWAS_MA_UKB%2Breplication.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/dxfr1uq20wbdj1d/AUTOMOBILE_SPEEDING_PROPENSITY_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/7hjxdhlxlwa482n/DRINKS_PER_WEEK_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/o7wgwhnhjgt3eyn/EVER_SMOKER_GWAS_MA_UKB%2BTAG.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/erl8tn4sy81kseu/NUMBER_SEXUAL_PARTNERS_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget https://www.dropbox.com/s/9qw6vlt2l2hmewe/RISK_PC1_GWAS.txt?dl=0 -P Risky-Behavior_Karlson-Linner_2019
-wget http://ssgac.org/documents/RISK_GWAS_MA_UKB+23andMe.txt -P Risky-Behavior_Karlson-Linner_2019
-wget http://ssgac.org/documents/RISK_GWAS_MA_UKB+23andMe+replication.txt -P Risky-Behavior_Karlson-Linner_2019
-wget http://ssgac.org/documents/ADVENTUROUSNESS_GWAS.txt -P Risky-Behavior_Karlson-Linner_2019
-wget http://ssgac.org/documents/RISK_MTAG.txt -P Risky-Behavior_Karlson-Linner_2019
-wget http://ssgac.org/documents/README_RISK.txt -P Risky-Behavior_Karlson-Linner_2019
 
 # http://sleepdisordergenetics.org/informational/data
 # Genetic studies of accelerometer-based sleep measures yield new insights into human sleep behaviour.
@@ -4414,6 +4376,11 @@ mkdir Schizophrenia_Ripke_2014
 # https://www.ncbi.nlm.nih.gov/pubmed/23974872
 # Genome-wide association analysis identifies 13 new risk loci for schizophrenia.
 mkdir Schizophrenia_Ripke_2013
+# Must be downloaded from PGC website
+
+# https://www.ncbi.nlm.nih.gov/pubmed/21926974
+# Genome-wide association study identifies five new schizophrenia loci.
+mkdir Schizophrenia_Ripke_2011
 # Must be downloaded from PGC website
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30482948 
