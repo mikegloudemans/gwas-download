@@ -362,15 +362,14 @@ wget https://www.dropbox.com/s/bk2jn41vrfl3zna/GPC-2.EXTRAVERSION.zip --director
 # Identification of heart rate-associated loci and their effects on cardiac conduction and rhythm disorders.
 # den Hoed et al. 2013
 mkdir Heart-Rate_den-Hoed_2013
-wget http://walker05.u.hpc.mssm.edu/META_STAGE1_GWASHR_SUMSTATS.txt --directory Heart-Rate_den-Hoed_2013
-wget http://walker05.u.hpc.mssm.edu/Read_me_GWAS_HR.txt --directory Heart-Rate_den-Hoed_2013
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/denHoedM_23583979_GCST001969 --directory Heart-Rate_den-Hoed_2013
 
 # https://www.ncbi.nlm.nih.gov/pubmed/26833098
 # Genome-wide meta-analysis uncovers novel loci influencing circulating leptin levels.
 # Kilpelainen et al. 2016
 mkdir Leptin_Kilpelainen_2016
-wget http://walker05.u.hpc.mssm.edu/Leptin_Adjusted_for_BMI.txt --directory Leptin_Kilpelainen_2016
-wget http://walker05.u.hpc.mssm.edu/Leptin_Not_Adjusted_for_BMI.txt --directory Leptin_Kilpelainen_2016
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KilpelainenTO_26833098_GCST003368 --directory Leptin_Kilpelainen_2016
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KilpelainenTO_26833098_GCST003367 --directory Leptin_Kilpelainen_2016
 
 # https://www.ncbi.nlm.nih.gov/pubmed/23128233
 # Host-microbe interactions have shaped the genetic architecture of inflammatory bowel disease.
@@ -1781,7 +1780,7 @@ wget https://static-content.springer.com/esm/art%3A10.1186%2Fs12890-019-0811-0/M
 # https://www.nature.com/articles/s42003-018-0042-6
 # PMID: 30271922 PMCID: PMC6123697 DOI: 10.1038/s42003-018-0042-6
 mkdir Risk-Taking_Clifton_2018
-wget https://epiweb.mrc-epid.cam.ac.uk/files/Risk_SumStats_Clifton_2018.csv.gz --directory  Risk-Taking_Clifton_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/CliftonEAD_30271922_GCST006810/Risk_SumStats_Clifton_2018.csv.gz --directory  Risk-Taking_Clifton_2018
 
 # Genome-wide association study in Japanese females identifies fifteen novel skin-related trait associations
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997657/
@@ -3799,8 +3798,8 @@ wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoweLJ_3006774
 # Cross-ancestry genome-wide association analysis of corneal thickness strengthens link between complex and Mendelian eye diseases.
 # PMID:    29760442    PMCID:        PMC5951816	DOI:	    10.1038/s41467-018-03646-6 
 mkdir Central-Corneal-Thickness_Iglesias_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/IglesiasAI_29760442_GCST006366 Central-Corneal-Thickness_Iglesias_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/IglesiasAI_29760442_GCST006367 Central-Corneal-Thickness_Iglesias_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/IglesiasAI_29760442_GCST006366 -P Central-Corneal-Thickness_Iglesias_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/IglesiasAI_29760442_GCST006367 -P Central-Corneal-Thickness_Iglesias_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30012571
 # Strong Association of the HLA-DR/DQ Locus with Childhood Steroid-Sensitive Nephrotic Syndrome in the Japanese Population
@@ -3879,7 +3878,7 @@ wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MichailidouK_2
 # Genome-wide association analysis of more than 120,000 individuals identifies 15 new susceptibility loci for breast cancer
 # PMID:    25751625    PMCID:        PMC4549775	DOI:	    10.1038/ng.3242 
 mkdir Breast-Cancer_Michailidou_2015
-wget -r  -P ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MichailidouK_25751625_GCST007236 Breast-Cancer_Michailidou_2015
+wget -r  ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/MichailidouK_25751625_GCST007236 -P Breast-Cancer_Michailidou_2015
 
 # https://www.ncbi.nlm.nih.gov/pubmed/23000144
 # Genome-wide association study identifies TNFSF15 and POU2AF1 as susceptibility loci for primary biliary cirrhosis in the Japanese population.
@@ -4097,17 +4096,17 @@ wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/WojcikGL_31217
 # is probably an error.
 # PMID:    22763110    PMCID:        PMC3443899	DOI:	    10.1016/S0140-6736(12)60681-3 
 mkdir Osteoarthritis_Zeggini_2012
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZegginiE_22763110_GCST001592 -P Zeggini_Osteoarthritis_2012
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZegginiE_22763110_GCST001592 -P Osteoarthritis_Zeggini_2012
 
 # https://www.ncbi.nlm.nih.gov/pubmed/29559693
 # Genome-wide analyses using UK Biobank data provide insights into the genetic architecture of osteoarthritis.
 # PMID:    29559693    PMCID:        PMC5896734	DOI:	    10.1038/s41588-018-0079-y 
 mkdir Osteoarthritis_Zengini_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005811 -P Zengini_Osteoarthritis_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005810 -P Zengini_Osteoarthritis_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005814 -P Zengini_Osteoarthritis_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005813 -P Zengini_Osteoarthritis_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005812 -P Zengini_Osteoarthritis_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005811 -P Osteoarthritis_Zengini_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005810 -P Osteoarthritis_Zengini_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005814 -P Osteoarthritis_Zengini_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005813 -P Osteoarthritis_Zengini_2018
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZenginiE_29559693_GCST005812 -P Osteoarthritis_Zengini_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/28459102
 # The Novel ASIC2 Locus is Associated with Severe Gingival Inflammation.
@@ -4415,6 +4414,11 @@ mkdir Type-2-Diabetes_Mahajan_2014
 # https://www.ncbi.nlm.nih.gov/pubmed/30297969
 # Fine-mapping type 2 diabetes loci to single-variant resolution using high-density imputation and islet-specific epigenome maps.
 mkdir Type-2-Diabetes_Mahajan_2018
+# Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
+
+# https://www.ncbi.nlm.nih.gov/pubmed/29632382
+# Refining the accuracy of validated target identification through coding variant fine-mapping in type 2 diabetes.
+mkdir Type-2-Diabetes-Exome-Only_Mahajan_2018
 # Must be downloaded manually from the DIAGRAM consortium website: http://www.diagram-consortium.org/downloads.html
 
 # https://www.ncbi.nlm.nih.gov/pubmed/22885922
