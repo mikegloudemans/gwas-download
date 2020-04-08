@@ -26,6 +26,9 @@ import xlsx_to_csv
 # always be processed in the same alphabetical order.
 #
 
+# Names of known files that should not be parsed
+blacklist = ["._Table-S3.xlsx", "._sarcoidosis_Lofgren_syndrome_summary_hg18.xlsx"]
+
 def main():
 	# Iterate through all bottom-level files
 	last = ""
@@ -39,18 +42,18 @@ def main():
 		for f in files:
 			all_files.append((root,f))
 
-        active = False
+        #active = False
 	all_files = sorted(all_files)
 	for af in all_files:
 		root = af[0]
 		f = af[1]
 		p = os.path.join(root, f)
 
-                if "Sarcoidosis_Rivera_2016" in p:
-                    active = True
-                    continue
-                if not active:
-                    continue
+                #if "Sarcoidosis_Rivera_2016" in p:
+                #    active = True
+                #    continue
+                #if not active:
+                #    continue
 
 		# Fix files with bad names
 		p = fix_file(p)
@@ -78,10 +81,15 @@ def main():
 		# Take care of rar files
 		if ".rar" in p:
 			subprocess.call("unrar -y e {0}".format(p), shell=True)
-                if ".xlsx" in p:
+                if ".xlsx" in p and not f in blacklist:
                         print p
                         xlsx_to_csv.csv_from_excel(p)
                 '''
+                
+                # If bzip2'ed
+                if ".bz2" in p:
+                        print p
+                        subprocess.call("bzcat {0} > {1}".format(p, p.replace("bz2", "txt")), shell=True)
 
         # Unzip nested zips
         #unzip_nested_zips()
@@ -126,8 +134,10 @@ def unzip_nested_zips():
     # I don't know a clean way to handle this programmatically, so I'm just manually
     # handling these exceptions for now.
     
-    subprocess.call("unrar -y x Aggression_Pappa_2015/aggression_METAL_RESULTS.rar Aggression_Pappa_2015".format(p), shell=True)
-    subprocess.call("unrar -y x Longevity_Fortney_2015/FortneyiGWAS_P.rar Longevity_Fortney_2015".format(p), shell=True)
+    subprocess.call("unrar -y x Aggression_Pappa_2015/aggression_METAL_RESULTS.rar Aggression_Pappa_2015", shell=True)
+    subprocess.call("unrar -y x Longevity_Fortney_2015/FortneyiGWAS_P.rar Longevity_Fortney_2015", shell=True)
+    subprocess.call("tar -xvf Central-Corneal-Thickness_Gao_2016/GWAS_results.tar.gz", shell=True)
+    subprocess.call("unzip -u Cytokine-Network-Levels_Nath_2019/MultivariateGWAS_CytokineNetwork_SummaryStatistics_GWASCatalog.zip Cytokine-Network-Levels_Nath_2019", shell=True)
 
 # Fix files that are named badly
 def fix_file(name):

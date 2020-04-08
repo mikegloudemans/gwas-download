@@ -18,6 +18,8 @@ def csv_from_excel(excel_file, encoding_override=False):
 
         # Eliminate undesirable filename characters from sheet names
         new_sheet_name = sheet_name.replace(" ", "_")
+        new_sheet_name = sheet_name.replace(">", "-gt-")
+        new_sheet_name = sheet_name.replace("<", "-lt-")
 
         # Write sheet to a new file in same directory
         with open(base_dir + new_sheet_name + ".txt", 'w') as w:

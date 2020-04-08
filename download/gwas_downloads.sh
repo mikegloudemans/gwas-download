@@ -1767,8 +1767,9 @@ wget https://datashare.is.ed.ac.uk/bitstream/handle/10283/3036/readme.txt --dire
 # https://www.ncbi.nlm.nih.gov/pubmed/30664634
 # Genome-wide association study of body fat distribution identifies adiposity loci and sex-specific genetic effects
 mkdir -p BMI_Rask-Andersen_2019
-wget https://myfiles.uu.se/ssf/s/readFile/share/3993/1270878243748486898/publicLink/GWAS_summary_stats_ratios.zip --directory BMI_Rask-Andersen_2019
-
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Rask-AndersenM_30664634_GCST007293  --directory BMI_Rask-Andersen_2019
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Rask-AndersenM_30664634_GCST007295  --directory BMI_Rask-Andersen_2019
+wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Rask-AndersenM_30664634_GCST007294  --directory BMI_Rask-Andersen_2019
 
 # https://bmcpulmmed.biomedcentral.com/articles/10.1186/s12890-019-0811-0#MOESM2
 # Limited overlap in significant hits between genome-wide association studies on two airflow obstruction definitions in the same population
@@ -3058,7 +3059,7 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KlimentidisYC_298
 # PMID: 30048462 PMCID: PMC6062019 DOI: 10.1371/journal.pone.0200785 
 mkdir Heel-Bone-Mineral-Density_Kim_2018
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KimSK_30048462_GCST006433/KimSK_summary_stats_README.txt -P Heel-Bone-Mineral-Density_Kim_2018
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KimSK_30048462_GCST006433/BMD_v3_SumStats.txt%20(1).zip -P Heel-Bone-Mineral-Density_Kim_2018
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/KimSK_30048462_GCST006433/BMD_v3_SumStats.txt%20\(1\).zip -P Heel-Bone-Mineral-Density_Kim_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/31501611
 # Contribution of genetics to visceral adiposity and its relation to cardiovascular and metabolic disease.
