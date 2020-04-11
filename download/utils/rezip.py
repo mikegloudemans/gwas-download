@@ -68,7 +68,7 @@ def main():
 			subprocess.call("unzip -u {0} -d {1} | tee -a log.txt".format(p, root), shell=True)	
 
 		# Handle the ones with .tar format or .tar.gz format
-		if ".tar" in p:	
+		if ".tar" in p or ".tgz" in p:	
 			subprocess.call("tar -xvf {0} -C {1} | tee -a log.txt".format(p, root), shell=True)	
 
 		# For the ones with gz format, make sure they're actually gz format
