@@ -1698,15 +1698,15 @@ wget http://faculty.washington.edu/rozenl/files/CHARGE_N3_DHA.txt --directory N3
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5280020/
 # The Genetic Landscape of Renal Complications in Type 1 Diabetes
 # PMID: 27647854 PMCID: PMC5280020 DOI: 10.1681/ASN.2016020231
-mkdir -p Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Combined_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_no_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_non_ESRD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Late_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Early_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
-wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D_eGFR.euro.txt --directory Diabetic-Kidney-Disease-Type-2_Sandholm_2016
+mkdir -p Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Combined_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_CKD_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_no_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_ESRD_vs_non_ESRD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Late_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/SUMMIT_T1D_Early_DKD_2016.txt.gz --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
+wget http://mccarthy.well.ox.ac.uk/publications/2018/SUMMIT_DKD/T1D_eGFR.euro.txt --directory Diabetic-Kidney-Disease-Type-1_Sandholm_2016
 
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6014557/
 # A Genome-Wide Association Study of Diabetic Kidney Disease in Subjects With Type 2 Diabetes.
@@ -2067,8 +2067,8 @@ wget https://broad-portal-resources.s3.amazonaws.com/CVDKP/HERMES_Jan2019_HeartF
 # Genome-Wide Association Study of Diabetic Kidney Disease Highlights Biology Involved in Glomerular Basement Membrane Collagen.
 # https://www.ncbi.nlm.nih.gov/pubmed/31537649
 mkdir Diabetic-Kidney-Disease_Salem_2019 
-wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_micro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://s3.amazonaws.com/broad-portal-resources/README_JDRF_DNCRI_June2019_rsID.txt -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_micro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_micro_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_macro_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_macro_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
@@ -2081,6 +2081,8 @@ wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_esrdvmacro_max_meta_Jun
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckd_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckd_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckdextreme_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckdextreme_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
+wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckddn_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_ckddn_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_DN_min_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
 wget https://personal.broadinstitute.org/mvon/JDRF_DNCRI_DN_max_meta_June2019_rsID.txt.zip -P Diabetic-Kidney-Disease_Salem_2019
