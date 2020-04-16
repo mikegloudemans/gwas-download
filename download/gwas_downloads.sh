@@ -2623,6 +2623,7 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m6.txt.gz -P Serum-Urea_Thio_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m7.txt.gz -P Serum-Urea_Thio_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m8.txt.gz -P Serum-Urea_Thio_2019
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/GWAS_serumurea_m9.txt.gz -P Serum-Urea_Thio_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ThioCHL_30808845_GCST007536/readme.txt -P Serum-Urea_Thio_2019
 
 # https://www.ncbi.nlm.nih.gov/pubmed/29471430
