@@ -16,8 +16,8 @@ import numpy
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
-debug = None
-#debug = 3000000
+#debug = None
+debug = 3000000
 
 # TODO: Integrate this more cleanly
 
@@ -62,11 +62,12 @@ def main():
         config["output_base_dir"] = cwd + "/" + config["output_base_dir"]
 
     genome_build = config["genome_build"]
+    rsid_to_pos = {}
 
-    if genome_build == "hg38":
-        rsid_to_pos, pos_to_rsid = load_hg38_rsid_keys()
-    elif genome_build == "hg19":
-        rsid_to_pos, pos_to_rsid = load_hg19_rsid_keys()
+    if "hg38" in genome_build:
+        rsid_to_pos["hg38"], pos_to_rsid["hg38"] = load_hg38_rsid_keys()
+    if "hg19" in genome_build:
+        rsid_to_pos["hg19"], pos_to_rsid["hg19"] = load_hg19_rsid_keys()
     else:
         raise Exception("Invalid genome build: %s" % genome_build)
 
@@ -233,30 +234,33 @@ def main():
                     if "chr" in data.columns.values:
                         data = data.rename(columns = {"chr": "chr_old"})
 
-                    # Apply  function that gets chr and snp_pos for all rsids, from the dict
-                    def get_chr(x):
+                    # Apply function that gets chr and snp_pos for all rsids, from the dict
+                    def get_chr(x, build):
                         try:
                             rs_no = int(x.replace("rs", ""))
                         except:
                             return -1
-                        if rs_no in rsid_to_pos:
-                            return rsid_to_pos[rs_no][0]
+                        if rs_no in rsid_to_pos[build]:
+                            return rsid_to_pos[build][rs_no][0]
                         return -1
-                    def get_pos(x):
+                    def get_pos(x, build):
                         try:
                             rs_no = int(x.replace("rs", ""))
                         except:
                             return -1
-                        if rs_no in rsid_to_pos:
-                            return rsid_to_pos[rs_no][1]
+                        if rs_no in rsid_to_pos[build]:
+                            return rsid_to_pos[build][rs_no][1]
                         return -1
-                    data["chr"] = data["rsid"].apply(get_chr)
-                    data["snp_pos"] = data["rsid"].apply(get_pos)
-                
-                    # Throw away the ones with rsids not found
-                    data = data[~(data['chr'] == -1)]
-                    data = data[~(data['snp_pos'] == -1)]
+                    for b in rsid_to_pos:
+                        data["chr_{0}".format(b)] = data["rsid"].apply(get_chr, build = b)
+                        data["snp_pos_{0}".format(b)] = data["rsid"].apply(get_pos, build = b)
                     
+                        # Throw away the ones with rsids not found
+                        # Note: This technically isn't optimal because it might appear in one
+                        # build but not in another. Probably rare though
+                        data = data[~(data['chr_{0}'] == -1)]
+                        data = data[~(data['snp_pos_{0}'] == -1)]
+                        
                     print "after merge"
                     print time.time() - lasttime
                     lasttime = time.time()
@@ -266,16 +270,22 @@ def main():
                 elif "chr_index" in study and study["chr_index"] != "-1" \
                         and "snp_pos_index" in study and study["snp_pos_index"] != "-1":
 
+                    # TODO: This isn't really a good assumption; determine this 
+                    # programmatically
+                    start_build = "hg19"
+                    start_chrom = "chr_{0}".format(start_build)
+                    start_pos = "snp_pos_{0}".format(start_build)
+
+
                     if study["chr_index"] == study["snp_pos_index"]:
                         chrom = lambda x: x.split(study["snp_split_char"])[0]
                         snp_pos = lambda x: x.split(study["snp_split_char"])[1]
-                        data["chr"] = data.iloc[:, int(study["chr_index"]) - 1].apply(chrom)
-                        data["snp_pos"] = data.iloc[:, int(study["chr_index"]) - 1].apply(snp_pos)
+                        data[start_chrom] = data.iloc[:, int(study["chr_index"]) - 1].apply(chrom)
+                        data[start_pos] = data.iloc[:, int(study["chr_index"]) - 1].apply(snp_pos)
                     else:
-                        # Join with rsid table on chromosome and position
-                        data.rename(columns={data.keys()[int(study["chr_index"]) - 1]:'chr'}, inplace = True)
-                        data.rename(columns={data.keys()[int(study["snp_pos_index"]) - 1]:'snp_pos'}, inplace = True)
-                    
+                        data[start_chrom] = data.iloc[:, int(study["chr_index"]) - 1].apply(chrom)
+                        data[start_pos] = data.iloc[:, int(study["snp_pos_index"]) - 1].apply(chrom)
+                
                     data.rename(columns={data.keys()[int(study["pvalue_index"]) - 1]:'pvalue'}, inplace = True)
 
                     # If there are multiple p-value columns, remove all of them except the one we're
@@ -288,10 +298,10 @@ def main():
                                 del cols[index]
                         data = data[cols]
 
-                    data = data[~(pd.isnull(data['chr']))]
-                    data = data[~(pd.isnull(data['snp_pos']))]
-                    data['chr'] = data['chr'].str.replace('chr', '')
-                    data['snp_pos'] = data['snp_pos'].astype(float).astype(int)
+                    data = data[~(pd.isnull(data[start_chrom]))]
+                    data = data[~(pd.isnull(data[start_pos]))]
+                    data[start_chrom] = data[start_chrom].str.replace('chr', '')
+                    data[start_pos] = data[start_pos].astype(float).astype(int)
     
                     # Throw away the ones with rsids not found
                     if "rsid" in data.columns.values:
@@ -300,12 +310,14 @@ def main():
                     # First, map chr and pos (hg19) to their rsids
                     rsid_column = []
                     for i in range(data.shape[0]):
-                        if (int(data['chr'][i]), int(data['snp_pos'][i])) in pos_to_rsid:
-                            rsid_column.append("rs" + str(pos_to_rsid[(int(data['chr'][i]), int(data['snp_pos'][i]))]))
+                        if (int(data[start_chrom][i]), int(data[start_pos][i])) in pos_to_rsid[start_build]:
+                            rsid_column.append("rs" + str([pos_to_rsid[start_build][(int(data[start_chrom][i]), int(data[start_pos][i]))]))
                         else:
                             rsid_column.append("NA")
                     data['rsid'] = rsid_column
 
+                    # TODO: Do we even need this? I don't know how it would actually be useful
+                    '''
                     # Rename columns with "snp_pos" or "chr" names with "old" suffix
                     if "snp_pos" in data.columns.values:
                         data = data.rename(columns = {"snp_pos": "snp_pos_old"})
@@ -336,7 +348,8 @@ def main():
                     # Throw away the ones with rsids not found
                     data = data[~(data['chr'] == -1)]
                     data = data[~(data['snp_pos'] == -1)]
-                
+                    '''
+
                     new_data = data
                 
                 else:
@@ -365,6 +378,18 @@ def main():
                 cols.remove("chr")
                 cols.remove("snp_pos")
                 cols.remove("pvalue")
+                if "chr_hg38" in cols:
+                    cols.remove("chr_hg38")
+                if "chr_hg19" in cols:
+                    cols.remove("chr_hg19")
+                if "chr_hg18" in cols:
+                    cols.remove("chr_hg18")
+                if "snp_pos_hg38" in cols:
+                    cols.remove("snp_pos_hg38")
+                if "snp_pos_hg19" in cols:
+                    cols.remove("snp_pos_hg19")
+                if "snp_pos_hg18" in cols:
+                    cols.remove("snp_pos_hg18")
                 if "rsid_old" in cols:
                     cols.remove("rsid_old")
                 if "effect_allele" in cols:
@@ -409,8 +434,12 @@ def main():
                     prefix.append("n_total")
                 if "effect_allele_freq_index" in study:
                     prefix.append("effect_allele_freq")
-
-                cols = ["rsid", "chr", "snp_pos", "pvalue"] + prefix + cols
+                
+                chrom_cols = []
+                for b in rsid_to_pos:
+                    chrom_cols.append("chr_{0}".format(b))
+                    chrom_cols.append("snp_pos_{0}".format(b))
+                cols = ["rsid"] + chrom_cols + ["pvalue"] + prefix + cols
                 
                 new_data = new_data[cols]
 
@@ -452,8 +481,6 @@ def main():
                 a.write(study["study_info"] + "\n")
 
             traceback.print_exc(file=sys.stdout)
-            #error = str(e)
-            #error = error + "\t" + traceback.format_exc().replace("\n", "NEWLINE").replace("\t", "TAB")
 
 
 def load_hg19_rsid_keys():
