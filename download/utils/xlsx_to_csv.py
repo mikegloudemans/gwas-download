@@ -7,8 +7,6 @@ import sys
 
 def csv_from_excel(excel_file, encoding_override=False):
 
-    base_dir = "/".join(excel_file.split("/")[:-1] + [""])
-
     wb = xlrd.open_workbook(excel_file)
     # Turn each sheet into its own file, even if we don't need all of them
     for sheet in wb.sheets():
@@ -22,7 +20,7 @@ def csv_from_excel(excel_file, encoding_override=False):
         new_sheet_name = sheet_name.replace("<", "-lt-")
 
         # Write sheet to a new file in same directory
-        with open(base_dir + new_sheet_name + ".txt", 'w') as w:
+        with open(excel_file + "_" + new_sheet_name + ".txt", 'w') as w:
             wr = csv.writer(w, delimiter='\t')
 
             def fix(x):

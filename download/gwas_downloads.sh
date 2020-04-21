@@ -1631,8 +1631,9 @@ unzip Electrocardiograph-P-Wave_Christophersen_2017/28794112.PWI.GWAS.zip --dire
 # https://www.ncbi.nlm.nih.gov/pubmed/30012220
 # Exome-chip meta-analysis identifies novel loci associated with cardiac conduction, including ADAMTS6.
 mkdir -p Cardiac-Conduction_Prins_2018
-wget https://s3.amazonaws.com/broad-portal-resources/CVDKP/CHARGE_QRS.Exome_Chip_Study.20180416+.README.txt -P Cardiac-Conduction_Prins_2018
-wget https://data.mendeley.com/datasets/7jgbckpdr4/1 -P Cardiac-Conduction_Prins_2018
+wget https://data.mendeley.com/datasets/7jgbckpdr4/1/files/8940b684-7e7a-482e-b251-af619cf9d32f/CHARGE_QRS.Exome_Chip_Study.20180416.README -P Cardiac-Conduction_Prins_2018
+wget https://data.mendeley.com/datasets/7jgbckpdr4/1/files/d8f96dbd-2b3c-4fa1-860b-61fcc0f21a1b/CHARGE_QRS.Exome_Chip_Study.AA.20180416.tsv -P Cardiac-Conduction_Prins_2018
+wget https://data.mendeley.com/datasets/7jgbckpdr4/1/files/af6c3323-18ba-4af0-886c-7c62590599cf/CHARGE_QRS.Exome_Chip_Study.EA.20180416.tsv -P Cardiac-Conduction_Prins_2018
 
 # A Fib
 # Nielsen
@@ -1831,12 +1832,6 @@ mkdir Allergic-Diseases_Zhu_2018
 wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.asthma.assoc.gz --directory Allergic-Diseases_Zhu_2018
 wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.allergy.assoc.gz --directory Allergic-Diseases_Zhu_2018
 
-# https://www.ncbi.nlm.nih.gov/pubmed/24183453
-# Inference of the genetic architecture underlying BMI and height with the use of 20,240 sibling pairs.
-# http://cnsgenomics.com/data.html
-mkdir BMI-and-Height_Hemani_2013
-wget http://cnsgenomics.com/data/hemani_et_al_2013_ajhg/hemani_pihat.txt --directory BMI-and-Height_Hemani_2013
-
 # Estimation of genetic variance from imputed sequence variants reveals negligible missing heritability for human height and body mass index
 # https://www.ncbi.nlm.nih.gov/pubmed/26323059
 mkdir BMI-and-Height_Yang_2015
@@ -1878,13 +1873,6 @@ mkdir Medication-Use_Wu_2019
 wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics.tar.gz --directory Medication-Use_Wu_2019
 wget http://cnsgenomics.com/data/wu_et_al_2019_nc/23_medication-taking_GWAS_summary_statistics_README.pdf  --directory Medication-Use_Wu_2019
 
-# The effect of X-linked dosage compensation on complex trait variation
-# https://www.nature.com/articles/s41467-019-10598-y
-# PMID: 31285442 PMCID: PMC6614401 DOI: 10.1038/s41467-019-10598-y
-mkdir X-Linked-Dosage-Compensation_Sidorenko_2019
-wget http://cnsgenomics.com/data/XWAS/UKBv3_Xchr_20traits.tar.gz --directory X-Linked-Dosage-Compensation_Sidorenko_2019
-wget http://cnsgenomics.com/data/XWAS/chrX_eqtl_besd.tar.gz  --directory X-Linked-Dosage-Compensation_Sidorenko_2019
-
 # A genome-wide association analysis identifies 16 novel susceptibility loci for carpal tunnel syndrome
 # https://www.nature.com/articles/s41467-019-08993-6#MOESM6 
 # PMID: 30833571 PMCID: PMC6399342 DOI: 10.1038/s41467-019-08993-6
@@ -1914,20 +1902,6 @@ wget https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-017-18241-w/
 # PMID: 29769526 PMCID: PMC5955905 DOI: 10.1038/s41467-018-04332-3
 mkdir Neuromyelitis-Optica_Estrada_2018
 wget https://github.com/Biogen-Inc/statgen/archive/master.zip --directory Neuromyelitis-Optica_Estrada_2018
-
-# https://www.ncbi.nlm.nih.gov/pubmed/29309628
-# Genome-wide association study of offspring birth weight in 86 577 women identifies five novel loci and highlights maternal genetic effects that are independent of fetal genetics.
-# http://egg-consortium.org/offspring-birth-weight.html
-# PMID: 29309628 PMCID: PMC5886200 DOI: 10.1093/hmg/ddx429
-mkdir Birth-Weight_Beaumont_2018
-wget http://mccarthy.well.ox.ac.uk/publications/2018/EggOffspringBirthWeight_HumMolGen/MBW_Summary_Stats.txt.gz --directory Birth-Weight_Beaumont_2018
-
-# http://www.lolipopstudy.org/data-download
-# wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing
-# Chambers JC, Zhang W, Sehmi J, Li X, Wass MN, Van der Harst P, et al. Genome-wide association study identifies loci influencing concentrations of liver enzymes in plasma. Nature genetics. 2011;43(11):1131-8.
-# PMID: 22001757 PMCID: PMC3482372 DOI: 10.1038/ng.970
-mkdir -p Liver-Enzymes_Chambers_2011
-wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing -P Liver-Enzymes_Chambers_2011
 
 # Next block of downloads are from https://ctg.cncr.nl/software/summary_statistics
 
@@ -2743,21 +2717,6 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006134/ADNI_FullSample_chrX_newPC.hippo.EDUcovar.xstrat.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ScelsiMA_29860282_GCST006134/ADNI_hippo_GWAS_EduCovar_NewUnrelated.assoc.linear -P Alzheimers-Disease-Biomarkers_Scelsi_2018
 
-# https://www.ncbi.nlm.nih.gov/pubmed/30718321
-# Genome-wide association studies of impulsive personality traits (BIS-11 and UPPSP) and drug experimentation in up to 22,861 adult research participants identify loci in the CACNA1I and CADM2 genes.
-# PMID: 30718321 PMCID: PMC6435820 DOI: 10.1523/JNEUROSCI.2662-18.2019 
-mkdir Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/F1.43.UPPSP_SS.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/README -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007622/F1.47.BIS_Total.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007623/F1.44.UPPSP_Prem.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007624/F1.45.UPPSP_PU.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007625/F2.5.UPPSP_NU.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007626/F1.46.UPPSP_Persv.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007627/F1.48.BIS_Att.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007628/F1.49.BIS_Mot.xlsx -P Impulsivity_Sanchez-Roige_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007629/F1.50.BIS_NonP.xlsx -P Impulsivity_Sanchez-Roige_2019
-
 # https://www.ncbi.nlm.nih.gov/pubmed/30649302
 # Genome-wide association study of anti-Müllerian hormone levels in pre-menopausal women of late reproductive age and relationship with genetic determinants of reproductive lifespan.
 # PMID: 30649302 PMCID: PMC6452199 [Available on 2020-04-15] DOI: 10.1093/hmg/ddz015 
@@ -2952,12 +2911,6 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LuoY_31434886_GCS
 mkdir Systemic-Sclerosis_Lopez-Isac_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Lopez-IsacE_31672989_GCST009131/Lopez-Isac_Readme.txt -P Systemic-Sclerosis_Lopez-Isac_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Lopez-IsacE_31672989_GCST009131/Lopez-Isac_prePMID_META_GWAS_SSc.meta.txt -P Systemic-Sclerosis_Lopez-Isac_2019
-
-# https://www.ncbi.nlm.nih.gov/pubmed/28263315
-# Whole-genome sequencing identifies common-to-rare variants associated with human blood metabolites.
-# PMID: 28263315 DOI: 10.1038/ng.3809 
-mkdir Blood-Metabolites_Long_2017
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/LongT_28263315_GCST009610/41588_2017_BFng3809_MOESM85_ESM.xlsx -P Blood-Metabolites_Long_2017
 
 # https://www.ncbi.nlm.nih.gov/pubmed/31367044
 # Exome sequencing of Finnish isolates enhances rare-variant association power.
@@ -3505,12 +3458,6 @@ wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889
 wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006921 -P Loneliness_Day_2018
 wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006922 -P Loneliness_Day_2018
 wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayFR_29970889_GCST006924 -P Loneliness_Day_2018
-
-# https://www.ncbi.nlm.nih.gov/pubmed/30566500
-# Large-scale genome-wide meta-analysis of polycystic ovary syndrome suggests shared genetic architecture for different diagnosis criteria.
-# PMID:    30566500    PMCID:        PMC6300389	DOI:	    10.1371/journal.pgen.1007813 
-mkdir Polycystic-Ovary-Syndrome_Day_2018
-wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/DayF_30566500_GCST007089 -P Polycystic-Ovary-Syndrome_Day_2018
 
 # https://www.ncbi.nlm.nih.gov/pubmed/30787307
 # Association study in African-admixed populations across the Americas recapitulates asthma risk loci in non-African populations
@@ -4504,6 +4451,48 @@ mkdir Lymphocyte-Subsets_Ferreira_2010
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD4_8.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD19.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
 #wget https://genepi.qimr.edu.au/staff/manuelf/gwas_results/CD56.assoc.gz --directory Lymphocyte-Subsets_Ferreira_2010
+
+# wget https://drive.google.com/drive/folders/1oue99uE080sSoyFF84efVTLR5GK4WZ3s?usp=sharing
+# Chambers JC, Zhang W, Sehmi J, Li X, Wass MN, Van der Harst P, et al. Genome-wide association study identifies loci influencing concentrations of liver enzymes in plasma. Nature genetics. 2011;43(11):1131-8.
+# PMID: 22001757 PMCID: PMC3482372 DOI: 10.1038/ng.970
+mkdir -p Liver-Enzymes_Chambers_2011
+# Requires manual download from the links below
+# http://www.lolipopstudy.org/data-download
+
+# The following GWAS were ultimately omitted because they either 
+# have strange formats or don't include full summary statistics
+#
+# Blood-Metabolites_Long_2017 (not actually full sumstats)
+
+# BMI-and-Height_Hemani (expressed in pihat?)
+# https://www.ncbi.nlm.nih.gov/pubmed/24183453
+# Inference of the genetic architecture underlying BMI and height with the use of 20,240 sibling pairs.
+
+# Impulsivity_Sanchez-Roige_2019 (only top 10000)
+# https://www.ncbi.nlm.nih.gov/pubmed/30718321
+# Genome-wide association studies of impulsive personality traits (BIS-11 and UPPSP) and drug experimentation in up to 22,861 adult research participants identify loci in the CACNA1I and CADM2 genes.
+# PMID: 30718321 PMCID: PMC6435820 DOI: 10.1523/JNEUROSCI.2662-18.2019 
+# mkdir Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/F1.43.UPPSP_SS.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007621/README -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007622/F1.47.BIS_Total.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007623/F1.44.UPPSP_Prem.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007624/F1.45.UPPSP_PU.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007625/F2.5.UPPSP_NU.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007626/F1.46.UPPSP_Persv.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007627/F1.48.BIS_Att.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007628/F1.49.BIS_Mot.xlsx -P Impulsivity_Sanchez-Roige_2019
+# wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Sanchez-RoigeS_30718321_GCST007629/F1.50.BIS_NonP.xlsx -P Impulsivity_Sanchez-Roige_2019
+
+# Polycystic-Ovary-Syndrome_Day_2018 (only top 10000)
+# X-Linked-Dosage-Compensation_Sidorenko_2019 (files in unusual format)
+# The effect of X-linked dosage compensation on complex trait variation
+# https://www.nature.com/articles/s41467-019-10598-y
+# PMID: 31285442 PMCID: PMC6614401 DOI: 10.1038/s41467-019-10598-y
+# mkdir X-Linked-Dosage-Compensation_Sidorenko_2019
+# wget http://cnsgenomics.com/data/XWAS/UKBv3_Xchr_20traits.tar.gz --directory X-Linked-Dosage-Compensation_Sidorenko_2019
+# wget http://cnsgenomics.com/data/XWAS/chrX_eqtl_besd.tar.gz  --directory X-Linked-Dosage-Compensation_Sidorenko_2019
+
 
 ######################################################
 # Unzip all zipped GWAS files

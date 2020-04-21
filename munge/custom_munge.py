@@ -22,7 +22,7 @@ debug = 3000000
 # TODO: Integrate this more cleanly
 
 # Where to store tmp files
-tmp_file = "/users/mgloud/projects/gwas/scripts/tmp/unsorted_GWAS.tmp"
+tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp"
 
 
 def is_int(s):
@@ -68,9 +68,9 @@ def main():
     # for all genome builds in the same file, but then this fails when it's
     # time to sort and tabix.
     for genome in genome_build:
-        if genome_build == "hg38":
+        if genome == "hg38":
             rsid_to_pos, pos_to_rsid = load_hg38_rsid_keys()
-        elif genome_build == "hg19":
+        elif genome == "hg19":
             rsid_to_pos, pos_to_rsid = load_hg19_rsid_keys()
         else:
             raise Exception("Invalid genome build: %s" % genome_build)
@@ -433,11 +433,11 @@ def main():
                         # This is only used in cases where we want to output multiple files under a single
                         # study's directory. This would usually happen if the study contains
                         # input files with different formats.
-                        subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], genome_build, study["output_file"]), shell=True)
-                        out_file = "{0}/{1}/{2}.txt".format(config["output_base_dir"], study["output_file"], trait)
+                        subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], genome, study["output_file"]), shell=True)
+                        out_file = "{0}/{1}/{2}/{3}.txt".format(config["output_base_dir"], genome, study["output_file"], trait)
                     else:
-                        subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], genome_build, study["study_info"]), shell=True)
-                        out_file = "{0}/{1}/{2}.txt".format(config["output_base_dir"], study["study_info"], trait)
+                        subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], genome, study["study_info"]), shell=True)
+                        out_file = "{0}/{1}/{2}/{3}.txt".format(config["output_base_dir"], genome, study["study_info"], trait)
                     # TODO: This is unsafe. Fix it using Popen
                     # TODO: This also probably isn't very efficient right now, so fix that if possible
                     subprocess.check_call("head -n 1 {1} > {0}".format(out_file, tmp_file), shell=True)

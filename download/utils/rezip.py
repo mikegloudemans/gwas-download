@@ -139,6 +139,10 @@ def unzip_nested_zips():
     subprocess.call("tar -xvf Central-Corneal-Thickness_Gao_2016/GWAS_results.tar.gz", shell=True)
     subprocess.call("unzip -u Cytokine-Network-Levels_Nath_2019/MultivariateGWAS_CytokineNetwork_SummaryStatistics_GWASCatalog.zip Cytokine-Network-Levels_Nath_2019", shell=True)
 
+    # Other things fixed here: remove the dreaded  carriage return
+    subprocess.call("cat Cluster-Headache_Bacchelli_2016/Table_e3.txt | sed s/^M/\\\\n/g > Cluster-Headache_Bacchelli_2016/sumstats.txt", shell=True)
+    | sed s/^M/\\n/g
+
 # Fix files that are named badly
 def fix_file(name):
 	p = name
