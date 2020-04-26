@@ -23,7 +23,7 @@ debug = 1000000
 
 # Where to store tmp files
 # tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp"
-tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp.debug"
+tmp_file = "tmp/unsorted_GWAS.tmp.debug"
 
 
 def is_int(s):
@@ -43,47 +43,10 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 # Files for which to debug munging process
 shortlist = \
 [ 
-            "Central-Corneal-Thickness_Iglesias_2018",
-            "Gingival-Bleeding_Zhang_2016",
-            "Glaucoma_Choquet_2018",
-            "Glaucoma_GGLAD_2019",
-            "Glaucoma-Measurements_Springelkamp_2017",
-            "Glaucoma-Primary-Angle-Closure_Khor_2016",
-            "GLP1-Stimulated-Insulin-Response_Gudmundsdottir_2018",
-            "Glycine-Levels_Jia_2019",
-            "Handedness_de-Kovel_2019",
-            "Healthspan_Zenin_2018",
-            "Heel-Bone-Mineral-Density_Kim_2018",
-            "Height_Akiyama_2019",
-            "Infantile-Hypertrophic-Pyloric-Stenosis_Fadista_2018",
-            "Intelligence_Savage_2018",
-            "Lung-Disease-In-Cystic-Fibrosis_Corvol_2015",
-            "Narcolepsy_Faraco_2013",
-            "Neuroticism_Turley_2018",
-            "Prostate-Cancer_Schumacher_2018",
-            "Psoriatic-Arthritis_Aterido_2018",
-            "Reading-And-Spelling-Ability_Truong_2019",
-            "Renal-Cell-Carcinoma_Laskar_2019",
-            "Schizophrenia_Ripke_2011",
-            "Scoliosis-Adolescent-Idiopathic_Kou_2019",
-            "Self-Employment_van-der-Loos_2013",
-            "Smoking_Matoba_2019",
-            "Socioeconomic-Stats_Hill_2019",
-            "Stress-Sensitivity_Arnau-Soler_2018",
-            "Systemic-Sclerosis_Lopez-Isac_2019",
-            "Transmission-Distortion_Meyer_2012",
-            "Type-2-Diabetes-Exome-Only_Mahajan_2018",
-            "Urinary-Metabolites_Pazoki_2019",
-            "Vitilogo_Jin_2016",
-            "Vitilogo_Jin_2019"
 
                 ]
-            # Save for tomorrow:
-            #"New-Onset-Diabetes_Chang_2018",
-
-#
-#
 #                ["Age-At-Death_Pilling_2016", # multi-trait
+            	#"New-Onset-Diabetes_Chang_2018",
                 #"Asthma_Demenais_2017", # multi-trait
                 # "Prostate-Cancer_Yeager_2007", # missing trait, among other things
                 # "Musculoskeletal-Traits_Medina-Gomez_2017", # multiple traits it seems, among other things
@@ -96,12 +59,20 @@ shortlist = \
                 # "Age-Related-Macular-Degeneration_Yan_2018", needs quotes deleted
                 # "Blood-Protein-Levels_Sun_2018", pvalue is log p
                 # "Breast-Cancer-BRACX_Lee_2018", no p-value listed
-                # And then there are a few more others that haven't yet been reported during the current run
                 # "Colorectal-Cancer_Tanikawa_2018", some have too many columns, not sure how to deal with them
                 # "C-Reactive-Protein-Levels_Southam_2017", 
                 # "Depression_Howard_2019", multiple formats
                 # "Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018", multiple formats
                 # "Estimated-Glomerular-Filtration-Rate_Wuttke_2019", extra columns in some rows?
+            	# "Glycine-Levels_Jia_2019", Multiple file types
+            	# "Healthspan_Zenin_2018", pvalue in log mode
+            	# "Psoriatic-Arthritis_Aterido_2018", weird format
+            	# "Reading-And-Spelling-Ability_Truong_2019", multiple formats
+            	# "Socioeconomic-Stats_Hill_2019", multiple formats
+            	# "Stress-Sensitivity_Arnau-Soler_2018", multiple formats
+            	# "Transmission-Distortion_Meyer_2012", weird column numbers
+            	# "Vitilogo_Jin_2016", something weird about this one...
+            	# "Vitilogo_Jin_2019", something weird about this one too...
 def main():
 
     subprocess.check_call("rm -f output/error-log.txt", shell=True)
@@ -392,7 +363,11 @@ def main():
                         # Throw away the ones with rsids not found
                         if "rsid" in data.columns.values:
                             data = data.rename(columns = {"rsid": "rsid_old"})
-                        
+                      
+			# Automatically detect the build of the source genome 
+			# TODO
+			# source_build = get_source_build(data[['chr', 'snp_pos']])
+ 
                         # First, map chr and pos (hg19) to their rsids
                         rsid_column = []
                         for i in range(data.shape[0]):
@@ -404,7 +379,7 @@ def main():
                         new_data = data
                     
                     else:
-                        print study["path_glob"], "not properly specified in JSON config file."
+                        print study["study_info"], "not properly specified in JSON config file."
                         # TODO: print to a log file that the JSON was not properly
                         # specified for this file.
                         continue
@@ -530,12 +505,12 @@ def main():
 
 
 def load_hg19_rsid_keys():
-    return load_rsid_keys(rsid_to_pos_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz", \
-            pos_to_rsid_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz")
+    return load_rsid_keys(rsid_to_pos_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz", \
+            pos_to_rsid_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz")
 
 def load_hg38_rsid_keys():
-    return load_rsid_keys(rsid_to_pos_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg38_snp150.txt.gz", \
-            pos_to_rsid_file="/users/mgloud/projects/gwas/data/sorted_1kg_matched_hg19_snp150.txt.gz")
+    return load_rsid_keys(rsid_to_pos_file="dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz", \
+            pos_to_rsid_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz")
 
 def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
 
