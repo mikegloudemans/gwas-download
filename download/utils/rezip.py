@@ -78,6 +78,8 @@ def main():
 			if not "gzip" in subprocess.check_output("file {0}".format(p), shell=True):
 				print p, "was not actually gzipped."
 
+                    
+
 		# Take care of rar files
 		if ".rar" in p:
 			subprocess.call("unrar -y e {0}".format(p), shell=True)
@@ -185,6 +187,12 @@ def fix_file(name):
 	if "AllCohorts_associationanalysis_summaryStatistics/GRAADII_chr1.txt.gz" in p:
 		shutil.move(p, p.replace(".gz", ".empty"))
 		p = p.replace(".gz", ".empty")
+
+        # Not only does this file end in ".gzip" instead of ".gz", but it's not even
+        # gzipped at all
+        if ".gzip" in p and "BMI-Exome_Turcot_2017" in p:
+                shutil.move(p, p.replace(".gzip", ".txt"))
+
 
 	return(p)
 

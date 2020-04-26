@@ -17,12 +17,13 @@ import numpy
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
 #debug = None
-debug = 3000000
+debug = 1000000
 
 # TODO: Integrate this more cleanly
 
 # Where to store tmp files
-tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp"
+# tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp"
+tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp.debug"
 
 
 def is_int(s):
@@ -39,6 +40,68 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 # Custom script for munging all GWAS files, according to specifications
 # given in a separate JSON file.
 
+# Files for which to debug munging process
+shortlist = \
+[ 
+            "Central-Corneal-Thickness_Iglesias_2018",
+            "Gingival-Bleeding_Zhang_2016",
+            "Glaucoma_Choquet_2018",
+            "Glaucoma_GGLAD_2019",
+            "Glaucoma-Measurements_Springelkamp_2017",
+            "Glaucoma-Primary-Angle-Closure_Khor_2016",
+            "GLP1-Stimulated-Insulin-Response_Gudmundsdottir_2018",
+            "Glycine-Levels_Jia_2019",
+            "Handedness_de-Kovel_2019",
+            "Healthspan_Zenin_2018",
+            "Heel-Bone-Mineral-Density_Kim_2018",
+            "Height_Akiyama_2019",
+            "Infantile-Hypertrophic-Pyloric-Stenosis_Fadista_2018",
+            "Intelligence_Savage_2018",
+            "Lung-Disease-In-Cystic-Fibrosis_Corvol_2015",
+            "Narcolepsy_Faraco_2013",
+            "Neuroticism_Turley_2018",
+            "Prostate-Cancer_Schumacher_2018",
+            "Psoriatic-Arthritis_Aterido_2018",
+            "Reading-And-Spelling-Ability_Truong_2019",
+            "Renal-Cell-Carcinoma_Laskar_2019",
+            "Schizophrenia_Ripke_2011",
+            "Scoliosis-Adolescent-Idiopathic_Kou_2019",
+            "Self-Employment_van-der-Loos_2013",
+            "Smoking_Matoba_2019",
+            "Socioeconomic-Stats_Hill_2019",
+            "Stress-Sensitivity_Arnau-Soler_2018",
+            "Systemic-Sclerosis_Lopez-Isac_2019",
+            "Transmission-Distortion_Meyer_2012",
+            "Type-2-Diabetes-Exome-Only_Mahajan_2018",
+            "Urinary-Metabolites_Pazoki_2019",
+            "Vitilogo_Jin_2016",
+            "Vitilogo_Jin_2019"
+
+                ]
+            # Save for tomorrow:
+            #"New-Onset-Diabetes_Chang_2018",
+
+#
+#
+#                ["Age-At-Death_Pilling_2016", # multi-trait
+                #"Asthma_Demenais_2017", # multi-trait
+                # "Prostate-Cancer_Yeager_2007", # missing trait, among other things
+                # "Musculoskeletal-Traits_Medina-Gomez_2017", # multiple traits it seems, among other things
+                # "Myocardial-Infarction_Hirokawa_2015", needs transformation from Excel format
+                # "Birth-Weight_Warrington_2019", multiple formats
+                # "Loneliness_Day_2018", one of the GWAS has a weird format
+                # "Epilepsy_Anney_2014",
+                # "Hepatitis-B-Vaccine-Response_Pan_2014", tabix issue and unconventional format for OR
+                # "Reproductive-Behavior_2016_Barban", not yet download for some reason
+                # "Age-Related-Macular-Degeneration_Yan_2018", needs quotes deleted
+                # "Blood-Protein-Levels_Sun_2018", pvalue is log p
+                # "Breast-Cancer-BRACX_Lee_2018", no p-value listed
+                # And then there are a few more others that haven't yet been reported during the current run
+                # "Colorectal-Cancer_Tanikawa_2018", some have too many columns, not sure how to deal with them
+                # "C-Reactive-Protein-Levels_Southam_2017", 
+                # "Depression_Howard_2019", multiple formats
+                # "Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018", multiple formats
+                # "Estimated-Glomerular-Filtration-Rate_Wuttke_2019", extra columns in some rows?
 def main():
 
     subprocess.check_call("rm -f output/error-log.txt", shell=True)
@@ -79,6 +142,10 @@ def main():
 
         # Munge every study from the config list, one at a time
         for study in config["studies"]:
+
+            if study["study_info"] not in shortlist:
+                continue
+
             # Yes, the clean way to do this would be to make it a separate function, which is what I should do eventually.
             # For now I just want to track the problems
             # TODO: Make it print the whole exception like the coloc dispatcher script does
@@ -103,7 +170,8 @@ def main():
 
                 # Parse each input trait separately, and
                 # keep them in separate files for convenience.
-                for trait in study["traits"]:
+                #for trait in study["traits"]:
+                for trait in study["traits"].keys()[:1]:
                     print "Current trait:", trait
 
                     # Some studies have several p-values for different traits, listed
@@ -113,37 +181,39 @@ def main():
                         study["pvalue_index"] = study["traits"][trait][0]
                     else:
                         file_chunks = study["traits"][trait]
-
+                    
                     # Some files come in multiple chunks; if not, we can still handle them this way
                     all_data = []
                     for file_chunk in file_chunks:
-                        filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
+                        unglobbed_filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
 
-                        # Determine format and load the file
-                        if "format" in study:
-                            format = study["format"]
-                        else:
-                            if filename.endswith(".gz"):
-                                format = "gzip"
+                        # Glob out traits with wildcards in filename
+                        glob_files = glob.glob(unglobbed_filename)
+
+                        for filename in glob_files:
+                            # Determine format and load the file
+                            if "format" in study:
+                                format = study["format"]
                             else:
-                                format = "txt"
-
-                        if format == "gzip":
-                            with gzip.open(filename) as f:
-                                if "no_header" in study and study["no_header"] == "True":
-                                    data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
+                                if filename.endswith(".gz"):
+                                    format = "gzip"
                                 else:
-                                    data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
-                        else:
-                            if "no_header" in study and study["no_header"] == "True":
-                                data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
+                                    format = "txt"
+
+                            if format == "gzip":
+                                with gzip.open(filename) as f:
+                                    if "no_header" in study and study["no_header"] == "True":
+                                        data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
+                                    else:
+                                        data = pd.read_csv(f, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
                             else:
-                                data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
+                                if "no_header" in study and study["no_header"] == "True":
+                                    data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, header=None, dtype=str)
+                                else:
+                                    data = pd.read_csv(filename, delimiter=delimiter, nrows=debug, skiprows = skip_rows, dtype=str)
 
-                        print data.head(5)
-
-                        all_data.append(data)
-                   
+                            all_data.append(data)
+                       
                     # Concatenate all the separate files for this trait
                     # into a single data frame.
                     data = pd.concat(all_data)
@@ -153,6 +223,10 @@ def main():
                     # Note key SNP attributes
                     if "effect_index" in study:
                         data.rename(columns={data.keys()[int(study["effect_index"]) - 1]:'beta'}, inplace = True)
+                    if "zscore_index" in study:
+                        data.rename(columns={data.keys()[int(study["zscore_index"]) - 1]:'zscore'}, inplace = True)
+                    if "tstat_index" in study:
+                        data.rename(columns={data.keys()[int(study["tstat_index"]) - 1]:'tstat'}, inplace = True)
                     if "or_index" in study:
                         data.rename(columns={data.keys()[int(study["or_index"]) - 1]:'or'}, inplace = True)
                     if "se_index" in study:
@@ -204,6 +278,21 @@ def main():
                                 else:
                                     return("-")
                             data['effect_direction'] = data['effect_direction'].apply(sign)
+
+                        # Is the direction encoded within an effect size?
+                        elif ("zscore_index" in study and study["direction_index"] == study["zscore_index"]) or \
+                                ("tstat_index" in study and study["direction_index"] == study["tstat_index"]):
+                            def sign(x):
+                                try:
+                                    f = float(x)
+                                except:
+                                    return numpy.nan
+                                if f >= 0:
+                                    return("+")
+                                else:
+                                    return("-")
+                            data['effect_direction'] = data['effect_direction'].apply(sign)
+
 
                     if "rsid_index" in study and study["rsid_index"] != "-1":
                         # Join with rsid table to get indices for each column
@@ -295,8 +384,10 @@ def main():
 
                         data = data[~(pd.isnull(data['chr']))]
                         data = data[~(pd.isnull(data['snp_pos']))]
+                        valid_chroms = [str(i+1) for i in range(22)]
                         data['chr'] = data['chr'].str.replace('chr', '')
                         data['snp_pos'] = data['snp_pos'].astype(float).astype(int)
+                        data = data[(data['chr'].astype(str).isin(valid_chroms))]
         
                         # Throw away the ones with rsids not found
                         if "rsid" in data.columns.values:
@@ -305,45 +396,11 @@ def main():
                         # First, map chr and pos (hg19) to their rsids
                         rsid_column = []
                         for i in range(data.shape[0]):
-                            if (int(data['chr'][i]), int(data['snp_pos'][i])) in pos_to_rsid:
-                                rsid_column.append("rs" + str(pos_to_rsid[(int(data['chr'][i]), int(data['snp_pos'][i]))]))
+                            if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid:
+                                rsid_column.append("rs" + str(pos_to_rsid[(int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i]))]))
                             else:
                                 rsid_column.append("NA")
                         data['rsid'] = rsid_column
-
-                        # TODO: Delete this? It just doesn't seem like it's necessary in this case...
-                        '''
-                        # Rename columns with "snp_pos" or "chr" names with "old" suffix
-                        if "snp_pos" in data.columns.values:
-                            data = data.rename(columns = {"snp_pos": "snp_pos_old"})
-                        if "chr" in data.columns.values:
-                            data = data.rename(columns = {"chr": "chr_old"})
-
-                        # Then apply function that gets chr and snp_pos for all rsids, from the dict
-                        def get_chr(x):
-                            try:
-                                rs_no = int(x.replace("rs", ""))
-                            except:
-                                return -1
-                            if rs_no in rsid_to_pos:
-                                return rsid_to_pos[rs_no][0]
-                            return -1
-                        def get_pos(x):
-                            try:
-                                rs_no = int(x.replace("rs", ""))
-                            except:
-                                return -1
-                            if rs_no in rsid_to_pos:
-                                return rsid_to_pos[rs_no][1]
-                            return -1
-
-                        data["chr"] = data["rsid"].apply(get_chr)
-                        data["snp_pos"] = data["rsid"].apply(get_pos)
-                    
-                        # Throw away the ones with rsids not found
-                        data = data[~(data['chr'] == -1)]
-                        data = data[~(data['snp_pos'] == -1)]
-                        '''
                         new_data = data
                     
                     else:
@@ -384,6 +441,10 @@ def main():
                         cols.remove("or")
                     if "beta" in cols:
                         cols.remove("beta")
+                    if "zscore" in cols:
+                        cols.remove("zscore")
+                    if "tstat" in cols:
+                        cols.remove("tstat")
                     if "se" in cols:
                         cols.remove("se")
                     if "n_cases" in cols:
@@ -408,6 +469,10 @@ def main():
                         prefix.append("beta")
                     if "se_index" in study:
                         prefix.append("se")
+                    if "zscore_index" in study:
+                        prefix.append("zscore")
+                    if "tstat_index" in study:
+                        prefix.append("tstat")
                     if "n_cases_index" in study:
                         prefix.append("n_cases")
                     if "n_controls_index" in study:
@@ -459,6 +524,7 @@ def main():
                     a.write(study["study_info"] + "\n")
 
                 traceback.print_exc(file=sys.stdout)
+                sys.exit() # temporary
                 #error = str(e)
                 #error = error + "\t" + traceback.format_exc().replace("\n", "NEWLINE").replace("\t", "TAB")
 
