@@ -200,15 +200,15 @@ wget http://ssgac.org/documents/MTAG_README.txt --directory Multi-Trait-Brain_Tu
 # Genome-wide analysis identifies 12 loci influencing human reproductive behavior
 # Barban et al. 2016
 # NOTE: These used to be available from the linked sites, but the link is now broken
-#mkdir Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Pooled.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Female.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Male.txt.gz --directory Reproductive-Behavior_2016_Barban
-#wget http://ssgac.org/documents/readme_reproductivebehavior.txt --directory Reproductive-Behavior_2016_Barban
-#wget http://ssgac.org/documents/Barban_et_al_NG2016_SupplementaryNote.pdf --directory Reproductive-Behavior_2016_Barban
+#mkdir Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Pooled.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Pooled.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Female.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Female.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/AgeFirstBirth_Male.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://sociogenome.com/material/GWASresults/NumberChildrenEverBorn_Male.txt.gz --directory Reproductive-Behavior_Barban_2016
+#wget http://ssgac.org/documents/readme_reproductivebehavior.txt --directory Reproductive-Behavior_Barban_2016
+#wget http://ssgac.org/documents/Barban_et_al_NG2016_SupplementaryNote.pdf --directory Reproductive-Behavior_Barban_2016
 
 # https://www.ncbi.nlm.nih.gov/pubmed/27225129
 # Genome-wide association study identifies 74 loci associated with educational attainment

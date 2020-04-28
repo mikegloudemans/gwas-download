@@ -48,24 +48,6 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 shortlist = \
 [
 ]
-		# all the other ones with "multi-column" designation
-
-		# Banished to "later" list:
-
-            	# "Stress-Sensitivity_Arnau-Soler_2018", multiple formats AND multi-trait
-		# "Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018" tried to fix it but there are still formatting issues
-                # "Myocardial-Infarction_Hirokawa_2015", needs transformation from Excel format
-                # "Hepatitis-B-Vaccine-Response_Pan_2014", tabix issue and unconventional format for OR
-                # "Age-Related-Macular-Degeneration_Yan_2018", needs quotes deleted
-                # "Colorectal-Cancer_Tanikawa_2018", some have too many columns, not sure how to deal with them
-                # "Estimated-Glomerular-Filtration-Rate_Wuttke_2019", extra columns in some rows?
-            	# "Psoriatic-Arthritis_Aterido_2018", weird format
-            	# "Transmission-Distortion_Meyer_2012", weird column numbers
-            	# "Vitilogo_Jin_2016", something weird about this one...
-            	# "Vitilogo_Jin_2019", something weird about this one too...
-                # "C-Reactive-Protein-Levels_Southam_2017"
-
-                # "Breast-Cancer-BRACX_Lee_2018", no p-value listed
 
 def main():
 
@@ -336,14 +318,21 @@ def main():
                         if "rsid" in data.columns.values:
                             data = data.rename(columns = {"rsid": "rsid_old"})
                       
-			# Automatically detect the build of the source genome 
-			source_build = get_source_build(data[['chr', 'snp_pos']], pos_to_rsid)
+			# Automatically detect the build of the source genome
+			#
+			# Since the original study object is being modified, this change will persist across other
+			# traits in the same study. This is good in the sense that it avoids having to re-check the
+			# source build many times, but it might have undesirable side effects; consider making this safer.
+			# It also assumes same source build for all files in a study, which is probably a reasonable
+			# default assumption.
+			if "source_build" not in study:
+				study["source_build"] = get_source_build(data[['chr', 'snp_pos']], pos_to_rsid)
  
                         # First, map chr and pos (hg19) to their rsids
                         rsid_column = []
                         for i in range(data.shape[0]):
-                            if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid[source_build]:
-                                rsid_column.append("rs" + str(pos_to_rsid[source_build][(int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i]))]))
+                            if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid[study["source_build"]]:
+                                rsid_column.append("rs" + str(pos_to_rsid[study["source_build"]][(int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i]))]))
                             else:
                                 rsid_column.append("NA")
                         data['rsid'] = rsid_column
