@@ -192,7 +192,17 @@ def fix_file(name):
         # gzipped at all
         if ".gzip" in p and "BMI-Exome_Turcot_2017" in p:
                 shutil.move(p, p.replace(".gzip", ".txt"))
+		p = p.replace(".gzip", ".txt")
 
+	# These files are DOUBLY gzipped
+	if "_interdrug_all_chr.txt" in p and "New-Onset-Diabetes_Chang_2018" in p:
+    		subprocess.call("unzip {0}".format(p), shell=True)
+	
+	# These files are also double gzipped
+	if "Epilepsy_Anney_2014" in p and "8.14.txt.gz" in p:
+		shutil.move(p, p.replace(".txt.gz", ".txt"))
+		p = p.replace(".txt.gz", ".txt")
+		
 
 	return(p)
 

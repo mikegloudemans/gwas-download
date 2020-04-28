@@ -9,10 +9,14 @@ import gzip
 import sys
 import subprocess
 import os
-import time
 import traceback
 import numpy
+import random
+import operator
 
+hg18_dbsnp = "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz"
+hg19_dbsnp = "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz"
+hg38_dbsnp = "dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz"
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
@@ -42,42 +46,30 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
 # Files for which to debug munging process
 shortlist = \
-[ 
+[
+]
+		# all the other ones with "multi-column" designation
 
-                ]
-#                ["Age-At-Death_Pilling_2016", # multi-trait
-            	#"New-Onset-Diabetes_Chang_2018",
-                #"Asthma_Demenais_2017", # multi-trait
-                # "Prostate-Cancer_Yeager_2007", # missing trait, among other things
-                # "Musculoskeletal-Traits_Medina-Gomez_2017", # multiple traits it seems, among other things
+		# Banished to "later" list:
+
+            	# "Stress-Sensitivity_Arnau-Soler_2018", multiple formats AND multi-trait
+		# "Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018" tried to fix it but there are still formatting issues
                 # "Myocardial-Infarction_Hirokawa_2015", needs transformation from Excel format
-                # "Birth-Weight_Warrington_2019", multiple formats
-                # "Loneliness_Day_2018", one of the GWAS has a weird format
-                # "Epilepsy_Anney_2014",
                 # "Hepatitis-B-Vaccine-Response_Pan_2014", tabix issue and unconventional format for OR
-                # "Reproductive-Behavior_2016_Barban", not yet download for some reason
                 # "Age-Related-Macular-Degeneration_Yan_2018", needs quotes deleted
-                # "Blood-Protein-Levels_Sun_2018", pvalue is log p
-                # "Breast-Cancer-BRACX_Lee_2018", no p-value listed
                 # "Colorectal-Cancer_Tanikawa_2018", some have too many columns, not sure how to deal with them
-                # "C-Reactive-Protein-Levels_Southam_2017", 
-                # "Depression_Howard_2019", multiple formats
-                # "Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018", multiple formats
                 # "Estimated-Glomerular-Filtration-Rate_Wuttke_2019", extra columns in some rows?
-            	# "Glycine-Levels_Jia_2019", Multiple file types
-            	# "Healthspan_Zenin_2018", pvalue in log mode
             	# "Psoriatic-Arthritis_Aterido_2018", weird format
-            	# "Reading-And-Spelling-Ability_Truong_2019", multiple formats
-            	# "Socioeconomic-Stats_Hill_2019", multiple formats
-            	# "Stress-Sensitivity_Arnau-Soler_2018", multiple formats
             	# "Transmission-Distortion_Meyer_2012", weird column numbers
             	# "Vitilogo_Jin_2016", something weird about this one...
             	# "Vitilogo_Jin_2019", something weird about this one too...
+                # "C-Reactive-Protein-Levels_Southam_2017"
+
+                # "Breast-Cancer-BRACX_Lee_2018", no p-value listed
+
 def main():
 
     subprocess.check_call("rm -f output/error-log.txt", shell=True)
-
-    lasttime = 0
 
     # Find location of config file and open it
     if len(sys.argv) > 1:
@@ -97,15 +89,18 @@ def main():
 
     genome_build = config["genome_build"]
 
-    # Just handle genome builds separately, since they have to produce 
+    # Load all mappings of position to rsid
+    pos_to_rsid = load_pos_to_rsid_all()
+
+    # Just output genome builds separately, since they have to produce 
     # separate files. It's tempting to think we'd just put chrom and pos
     # for all genome builds in the same file, but then this fails when it's
     # time to sort and tabix.
     for genome in genome_build:
         if genome == "hg38":
-            rsid_to_pos, pos_to_rsid = load_hg38_rsid_keys()
+            rsid_to_pos = load_rsid_to_pos_hg38()
         elif genome == "hg19":
-            rsid_to_pos, pos_to_rsid = load_hg19_rsid_keys()
+            rsid_to_pos = load_rsid_to_pos_hg19()
         else:
             raise Exception("Invalid genome build: %s" % genome_build)
 
@@ -141,18 +136,24 @@ def main():
 
                 # Parse each input trait separately, and
                 # keep them in separate files for convenience.
-                #for trait in study["traits"]:
-                for trait in study["traits"].keys()[:1]:
+                for trait in study["traits"]:
+                #for trait in study["traits"].keys()[:1]:
                     print "Current trait:", trait
 
                     # Some studies have several p-values for different traits, listed
                     # in the same file. For these ones, we need to do something slightly different
                     if "multi_column" in study:
+			# TODO: Not great to be modifying the original study object here. The
+			# current fix is to delete all these attributes before moving on to the
+			# next trait. But it would be good to come up with something better.
+			# TODO: fix the whole "multi-column" specification; there's too much
+			# overloading of field names here
                         file_chunks = study["multi_column"]
-                        study["pvalue_index"] = study["traits"][trait][0]
+			for attribute in study["traits"][trait]:
+				study[attribute] = study["traits"][trait][attribute] 
                     else:
                         file_chunks = study["traits"][trait]
-                    
+
                     # Some files come in multiple chunks; if not, we can still handle them this way
                     all_data = []
                     for file_chunk in file_chunks:
@@ -189,6 +190,7 @@ def main():
                     # into a single data frame.
                     data = pd.concat(all_data)
 
+		    print "Before:"
                     print data.head(5)
 
                     # Note key SNP attributes
@@ -264,6 +266,28 @@ def main():
                                     return("-")
                             data['effect_direction'] = data['effect_direction'].apply(sign)
 
+		    # Transform log p-value to p-value if needed
+		    if "log_pvalue_index" in study:
+                        data.rename(columns={data.keys()[int(study["log_pvalue_index"]) - 1]:'pvalue'}, inplace = True)
+		        study["pvalue_index"] = study["log_pvalue_index"]
+			def log_to_p(x):
+				try:
+					return(10**(float(x)))
+				except:
+					return None
+                        data['pvalue'] = data['pvalue'].apply(log_to_p)
+
+		    # Transform log p-value to p-value if needed
+		    if "neg_log_pvalue_index" in study:
+                        data.rename(columns={data.keys()[int(study["neg_log_pvalue_index"]) - 1]:'pvalue'}, inplace = True)
+		        study["pvalue_index"] = study["neg_log_pvalue_index"]
+			def log_to_p(x):
+				try:
+					return(10**(-1*float(x)))
+				except:
+					return None
+                        data['pvalue'] = data['pvalue'].apply(log_to_p)
+
 
                     if "rsid_index" in study and study["rsid_index"] != "-1":
                         # Join with rsid table to get indices for each column
@@ -278,53 +302,11 @@ def main():
 
                             data['rsid'] = data['rsid'].apply(rsid_split)
                         
-                        # If there are multiple p-value columns, remove all of them except the one we're
-                        # interested in
-                        if "multi_column" in study:
-                            cols = data.columns.tolist()
-
-                            indices = [int(study["traits"][t][0])-1 for t in study["traits"] if t != trait]
-                            for index in sorted(indices, reverse=True):    
-                                del cols[index]
-                            data = data[cols]
-
-                        print "before merge"
-                        print time.time() - lasttime
-                        lasttime = time.time()
-
                         # Rename columns with "snp_pos" or "chr" names with "old" suffix
                         if "snp_pos" in data.columns.values:
                             data = data.rename(columns = {"snp_pos": "snp_pos_old"})
                         if "chr" in data.columns.values:
                             data = data.rename(columns = {"chr": "chr_old"})
-
-                        # Apply  function that gets chr and snp_pos for all rsids, from the dict
-                        def get_chr(x):
-                            try:
-                                rs_no = int(x.replace("rs", ""))
-                            except:
-                                return -1
-                            if rs_no in rsid_to_pos:
-                                return rsid_to_pos[rs_no][0]
-                            return -1
-                        def get_pos(x):
-                            try:
-                                rs_no = int(x.replace("rs", ""))
-                            except:
-                                return -1
-                            if rs_no in rsid_to_pos:
-                                return rsid_to_pos[rs_no][1]
-                            return -1
-                        data["chr"] = data["rsid"].apply(get_chr)
-                        data["snp_pos"] = data["rsid"].apply(get_pos)
-                    
-                        # Throw away the ones with rsids not found
-                        data = data[~(data['chr'] == -1)]
-                        data = data[~(data['snp_pos'] == -1)]
-                        
-                        print "after merge"
-                        print time.time() - lasttime
-                        lasttime = time.time()
 
                         new_data = data
 
@@ -343,16 +325,6 @@ def main():
                         
                         data.rename(columns={data.keys()[int(study["pvalue_index"]) - 1]:'pvalue'}, inplace = True)
 
-                        # If there are multiple p-value columns, remove all of them except the one we're
-                        # interested in for this trait
-                        if "multi_column" in study:
-                            cols = data.columns.tolist()
-
-                            indices = [int(study["traits"][t][0])+1 for t in study["traits"] if t != trait]
-                            for index in sorted(indices, reverse=True):
-                                    del cols[index]
-                            data = data[cols]
-
                         data = data[~(pd.isnull(data['chr']))]
                         data = data[~(pd.isnull(data['snp_pos']))]
                         valid_chroms = [str(i+1) for i in range(22)]
@@ -365,14 +337,13 @@ def main():
                             data = data.rename(columns = {"rsid": "rsid_old"})
                       
 			# Automatically detect the build of the source genome 
-			# TODO
-			# source_build = get_source_build(data[['chr', 'snp_pos']])
+			source_build = get_source_build(data[['chr', 'snp_pos']], pos_to_rsid)
  
                         # First, map chr and pos (hg19) to their rsids
                         rsid_column = []
                         for i in range(data.shape[0]):
-                            if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid:
-                                rsid_column.append("rs" + str(pos_to_rsid[(int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i]))]))
+                            if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid[source_build]:
+                                rsid_column.append("rs" + str(pos_to_rsid[source_build][(int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i]))]))
                             else:
                                 rsid_column.append("NA")
                         data['rsid'] = rsid_column
@@ -383,7 +354,34 @@ def main():
                         # TODO: print to a log file that the JSON was not properly
                         # specified for this file.
                         continue
-                    
+                   
+                    # Once we've gotten an rsid, now get the chrom and position
+		    # for this version of the genome
+
+		    # Apply function that gets chr and snp_pos for all rsids, from the dict
+		    def get_chr(x):
+		        try:
+			    rs_no = int(x.replace("rs", ""))
+		        except:
+			    return -1
+		        if rs_no in rsid_to_pos:
+			    return rsid_to_pos[rs_no][0]
+		        return -1
+		    def get_pos(x):
+		        try:
+			    rs_no = int(x.replace("rs", ""))
+		        except:
+			    return -1
+		        if rs_no in rsid_to_pos:
+			    return rsid_to_pos[rs_no][1]
+		        return -1
+		    new_data["chr"] = data["rsid"].apply(get_chr)
+		    new_data["snp_pos"] = data["rsid"].apply(get_pos)
+	    
+		    # Throw away the ones with rsids not found
+		    new_data = new_data[~(new_data['chr'] == -1)]
+		    new_data = new_data[~(new_data['snp_pos'] == -1)]
+
                     # Filter out rows that don't have valid pvals
                     def valid_pval(x):
                         try:
@@ -461,6 +459,8 @@ def main():
                     
                     new_data = new_data[cols]
 
+		    # 
+		    print "After:"
                     print new_data.head(3)
 
                     # Write header
@@ -492,6 +492,15 @@ def main():
 
                     del new_data
 
+		    # If it's a multi-trait file, 
+                    # remove attributes from study that were added only for this particular trait
+		    # This avoids potential bugs that might arise from attributes being carried
+		    # over to the next trait.
+                    if "multi_column" in study:
+			for attribute in study["traits"][trait]:
+				del study[attribute]
+
+
             except Exception as e:
                 # Log problems to an error file, then move on
                 subprocess.check_call("mkdir -p output", shell=True)
@@ -499,24 +508,35 @@ def main():
                     a.write(study["study_info"] + "\n")
 
                 traceback.print_exc(file=sys.stdout)
-                sys.exit() # temporary
+                #sys.exit() # temporary
                 #error = str(e)
                 #error = error + "\t" + traceback.format_exc().replace("\n", "NEWLINE").replace("\t", "TAB")
 
+# Auto-determine the genome build of a GWAS by coordinates
+def get_source_build(data, pos_to_rsid, iters = 100000):
+	scores = {}
+	random.seed(0)
+	for build in pos_to_rsid:
+		scores[build] = 0
+		for i in xrange(iters): 
+			r = random.randrange(data.shape[0])
+			snp = data.iloc[r,:]
+			chrom = int(snp['chr'])
+			snp_pos = int(snp['snp_pos'])
+			if (chrom, snp_pos) in pos_to_rsid[build]:
+				scores[build] += 1
+	print scores
+	return sorted(scores.items(), reverse=True, key=operator.itemgetter(1))[0][0]
+			
+		
+def load_rsid_to_pos_hg19():
+	return load_rsid_to_pos("dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz")
 
-def load_hg19_rsid_keys():
-    return load_rsid_keys(rsid_to_pos_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz", \
-            pos_to_rsid_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz")
+def load_rsid_to_pos_hg38():
+	return load_rsid_to_pos("dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz")
 
-def load_hg38_rsid_keys():
-    return load_rsid_keys(rsid_to_pos_file="dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz", \
-            pos_to_rsid_file="dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz")
-
-def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
-
+def load_rsid_to_pos(rsid_to_pos_file):
     rsid_to_pos = {}
-    pos_to_rsid = {}
-
     with gzip.open(rsid_to_pos_file) as f:
         line_no = 0
         for line in f:
@@ -538,6 +558,17 @@ def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
             if (not debug is None) and line_no > debug:
                 break
 
+        return rsid_to_pos
+
+def load_pos_to_rsid_all():
+	pos_to_rsid = {}
+	pos_to_rsid["hg18"] = load_pos_to_rsid(hg18_dbsnp)
+	pos_to_rsid["hg19"] = load_pos_to_rsid(hg19_dbsnp)
+	pos_to_rsid["hg38"] = load_pos_to_rsid(hg38_dbsnp)
+	return pos_to_rsid
+
+def load_pos_to_rsid(pos_to_rsid_file):
+    pos_to_rsid = {}
     with gzip.open(pos_to_rsid_file) as f:
         # NOTE: If a given position has more than one legal rsID,
         # then we'll arbitrarily choose whichever one appears last in
@@ -564,7 +595,7 @@ def load_rsid_keys(rsid_to_pos_file, pos_to_rsid_file):
             if (not debug is None) and line_no > debug:
                 break
 
-    return (rsid_to_pos, pos_to_rsid)
+    return pos_to_rsid
 
 if __name__ == "__main__":
     main()
