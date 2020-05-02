@@ -47,6 +47,15 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 # Files for which to debug munging process
 shortlist = \
 [
+	"Schizophrenia_Pardinas_2018"
+
+	# "Multiple-Traits_Wojcik_2019",
+	#"Ovarian-Cancer_Lawrenson_2019",
+	#"Ovarian-Cancer_Phelan_2017",
+	#"Lupus_Langefeld_2017",
+	# "Facial-Shape_Xiong_2019"; multi-trait; add this soon
+	#"Breast-Cancer_Michailidou_2015", some problem still
+	#"Alcohol-Dependence_Walters_2018"
 ]
 
 def main():
@@ -120,6 +129,7 @@ def main():
                 # keep them in separate files for convenience.
                 for trait in study["traits"]:
                 #for trait in study["traits"].keys()[:1]:
+
                     print "Current trait:", trait
 
                     # Some studies have several p-values for different traits, listed
@@ -143,7 +153,6 @@ def main():
 
                         # Glob out traits with wildcards in filename
                         glob_files = glob.glob(unglobbed_filename)
-
                         for filename in glob_files:
                             # Determine format and load the file
                             if "format" in study:

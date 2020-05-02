@@ -233,7 +233,9 @@ wget http://ssgac.org/documents/Rietveld_et_al_2013_Science_SOM.pdf --directory 
 # https://www.ncbi.nlm.nih.gov/pubmed/25201988
 # Common genetic variants associated with cognitive performance identified using the proxy-phenotype method
 # Rietveld et al. 2014
-mkdir Cognitive-Performance_Rietveld_2014
+# mkdir Cognitive-Performance_Rietveld_2014
+# NOTE: Not all of these files even seem to be accessible anymore...
+# For the munging script we look only at the CHIC meta-analysis
 wget http://ssgac.org/documents/MA_EA_1st_stage.txt.gz --directory Cognitive-Performance_Rietveld_2014
 wget http://ssgac.org/documents/MA_CF_2nd_stage.txt.gz --directory Cognitive-Performance_Rietveld_2014
 wget http://ssgac.org/documents/CHIC_Summary_Benyamin2014.txt.gz --directory Cognitive-Performance_Rietveld_2014
@@ -1834,9 +1836,11 @@ wget http://lianglab.rc.fas.harvard.edu/AsthmaAllergyHeritability/UKBB.allergy.a
 
 # Estimation of genetic variance from imputed sequence variants reveals negligible missing heritability for human height and body mass index
 # https://www.ncbi.nlm.nih.gov/pubmed/26323059
-mkdir BMI-and-Height_Yang_2015
-wget http://cnsgenomics.com/data/yang_et_al_2015_ng/LDSCORE_release_July2015.tar.gz --directory BMI-and-Height_Yang_2015
-wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July2015.tar.gz  --directory BMI-and-Height_Yang_2015
+# mkdir BMI-and-Height_Yang_2015
+# NOTE: This was previously downloaded, but actually isn't a GWAS proper, more of 
+# an LD score regression. Thus, no SNP-specific p-values
+# wget http://cnsgenomics.com/data/yang_et_al_2015_ng/LDSCORE_release_July2015.tar.gz --directory BMI-and-Height_Yang_2015
+# wget http://cnsgenomics.com/data/yang_et_al_2015_ng/GWAS_summary_release_July2015.tar.gz  --directory BMI-and-Height_Yang_2015
 
 # Population genetic differentiation of height and body mass index across Europe
 # https://www.nature.com/articles/ng.3401
@@ -3196,7 +3200,12 @@ mkdir Blood-Pressure_Hoffmann_2016
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007098/gera-dbp.tsv.gz -P Blood-Pressure_Hoffmann_2016
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007097/gera-pp.tsv.gz -P Blood-Pressure_Hoffmann_2016
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27841878_GCST007095/gera-sbp.tsv.gz -P Blood-Pressure_Hoffmann_2016
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27764096_GCST003763/GERA-EUR-ARHI.csv.gz -P Blood-Pressure_Hoffmann_2016
+
+# https://www.ncbi.nlm.nih.gov/pubmed/27764096 
+# A Large Genome-Wide Association Study of Age-Related Hearing Impairment Using Electronic Health Records.
+# PMID:    27764096 PMCID:    PMC5072625 DOI:    10.1371/journal.pgen.1006371 
+mkdir Hearing-Impairment-Age-Related_Hoffmann_2016
+wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/HoffmannTJ_27764096_GCST003763/GERA-EUR-ARHI.csv.gz -P Hearing-Impairment-Age-Related_Hoffmann_2016
 
 # https://www.ncbi.nlm.nih.gov/pubmed/31844048
 # Genome-wide analysis identifies molecular systems and 149 genetic loci associated with income.
