@@ -45,83 +45,85 @@ def main():
     config = load_config(config_file)
  
     # Write headers
-    for gwas_group in config["gwas_groups"]:
-        for gwas_cutoff_pval in config["gwas_groups"][gwas_group]["gwas_cutoff_pvals"]:
-            for gwas_window in config["gwas_groups"][gwas_group]["gwas_windows"]:
-                with open("{0}/{1}_{4}_gwas-pval{2}_gwas-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, gwas_window, gwas_group), "w") as w:
+    for source_group in config["source_groups"]:
+        for source_cutoff_pval in config["source_groups"][source_group]["source_cutoff_pvals"]:
+            for source_window in config["source_groups"][source_group]["source_windows"]:
+                with open("{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, source_window, source_group), "w") as w:
                     w.write("chr\tsnp_pos\tpvalue\ttrait\n")
-                for eqtl_group in config["gwas_groups"][gwas_group]["eqtl_targets"]:
-                    for eqtl_cutoff_pval in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["cutoff_pvals"]:
-                        for eqtl_window in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["windows"]:
-                            with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
-                                w.write("chr\tsnp_pos\tgwas_file\teqtl_file\ttrait\tgwas_pvalue\teqtl_pvalue\tfeature\n")
+                for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
+                    for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
+                        for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
+                            with open("{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group), "w") as w:
+                                w.write("chr\tsnp_pos\tsource_file\tlookup_file\tsource_trait\tsource_pvalue\tlookup_pvalue\tlookup_trait\n")
                                 w.flush()
-                            with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "w") as w:
-                                w.write("chr\tsnp_pos\tgwas_pvalue\teqtl_pvalue\tgene\ttrait\n")
+                            with open("{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group), "w") as w:
+                                w.write("chr\tsnp_pos\tsource_pvalue\tlookup_pvalue\tlookup_trait\tlookup_file\n")
 
     # Now start searching for colocalization candidates
-    for gwas_group in config["gwas_groups"]:
-        gwas_files = []
-        for gwas_file in config["gwas_groups"][gwas_group]["files"]:
-            gwas_files.extend(glob.glob(gwas_file))
+    for source_group in config["source_groups"]:
+        source_files = []
+        for source_file in config["source_groups"][source_group]["files"]:
+            source_files.extend(glob.glob(source_file))
 
-        for gwas_cutoff_pval in config["gwas_groups"][gwas_group]["gwas_cutoff_pvals"]:
-            for gwas_window in config["gwas_groups"][gwas_group]["gwas_windows"]:
+        for source_cutoff_pval in config["source_groups"][source_group]["source_cutoff_pvals"]:
+            for source_window in config["source_groups"][source_group]["source_windows"]:
 
-                # Get the GWAS SNPs to test for this parameter specification
-                for gwas_file in gwas_files:
+                # Get the source GWAS SNPs to test for this parameter specification
+                for source_file in source_files:
 
-                    print gwas_file 
+                    print source_file 
 
-                    info = snps_by_threshold(gwas_file, gwas_cutoff_pval, gwas_file, config, window=gwas_window)
+                    info = snps_by_threshold(source_file, source_cutoff_pval, source_file, config, window=source_window)
 
                     # Run SNPs in parallel across multiple threads
                     for snp in info:
-                        with open("{0}/{1}_{4}_gwas-pval{2}_gwas-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, gwas_window, gwas_group), "a") as a:
-                            a.write("\t".join([str(s) for s in snp]) + "\t" + gwas_file + "\n")
-                    for eqtl_group in config["gwas_groups"][gwas_group]["eqtl_targets"]:
-                        eqtl_files = []
-                        for eqtl_file in config["eqtl_groups"][eqtl_group]["files"]:
-                            eqtl_files.extend(glob.glob(eqtl_file))
+                        with open("{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, source_window, source_group), "a") as a:
+                            a.write("\t".join([str(s) for s in snp]) + "\t" + source_file + "\n")
+                    for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
+                        lookup_files = []
+                        for lookup_file in config["lookup_groups"][lookup_group]["files"]:
+                            lookup_files.extend(glob.glob(lookup_file))
                         
-                        for eqtl_cutoff_pval in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["cutoff_pvals"]:
-                            for eqtl_window in config["gwas_groups"][gwas_group]["eqtl_targets"][eqtl_group]["windows"]:
-                                add_snps_to_test(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files)
+                        for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
+                            for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
+                                add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
 
-def add_snps_to_test(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files):
+def add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
 
         pool = Pool()
         for snp in info:
-            for pheno in eqtl_files:
-                pool.apply_async(test_wrapper, args=(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files, snp, pheno))
+            for pheno in lookup_files:
+                pool.apply_async(test_wrapper, args=(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno))
         pool.close()
         pool.join()
 
-def test_wrapper(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files, snp, pheno):
+def test_wrapper(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
     try:
-        test_snp(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files, snp, pheno)
+        test_snp(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno)
     except Exception:
         traceback.print_exc(file=sys.stdout)
 
 
-def test_snp(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file, eqtl_group, eqtl_cutoff_pval, eqtl_window, eqtl_files, snp, pheno):
+def test_snp(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
     # Get header to locate columns of interest
     header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
     header = [h.lower() for h in header]
     pval_index = header.index("pvalue")
-    if "swap" in config and config["swap"] == "True":
-        if "trait" in header:
-            gene_index = header.index("trait")
-        else:
-            gene_index = -1
+
+    # Is there a column specifying the trait / gene / feature in the lookup target file?
+    # If so, get the index of it
+    if "trait" in header:
+        lookup_trait_index = header.index("trait")
     elif "gene" in header:
-        gene_index = header.index("gene")
+        lookup_trait_index = header.index("gene")
+    elif "feature" in header:
+        lookup_trait_index = header.index("feature")
     else:
-        gene_index = header.index("feature")
+        lookup_trait_index = -1
   
-    wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, str(snp[0]).replace("chr", ""), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
+    wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, str(snp[0]).replace("chr", ""), snp[1]-lookup_window, snp[1]+lookup_window), shell=True)
     if wide_matches == "":
-        wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]).replace("chr", ""), snp[1]-eqtl_window, snp[1]+eqtl_window), shell=True)
+        wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]).replace("chr", ""), snp[1]-lookup_window, snp[1]+lookup_window), shell=True)
         if wide_matches == "":
             return
     
@@ -141,52 +143,56 @@ def test_snp(config, info, gwas_group, gwas_cutoff_pval, gwas_window, gwas_file,
         return
     wide_matches = sorted(wide_matches, key=operator.itemgetter(pval_index))
 
-    genes_considered = set([])
+    # Destination files where snp lists will be written
+    pairs_considered_outfile = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+    overlap_test_outfile = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+
+    lookup_traits_considered = set([])
 
     matched = set([])     # Don't print repeats if there are multiple matches                
     for data in wide_matches:
 
-        if gene_index != -1:
-            # Keep track of all SNP-gene pairs considered, for the manuscript
-            if data[gene_index] not in genes_considered:
-                with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "a") as a:
-                    a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) + "\t" + gwas_file + "\t" + data[gene_index] + "\t" + pheno + "\n")
-                    genes_considered.add(data[gene_index])
+	    # If there's more than one trait in the lookup file,
+	    # figure out which trait this row is measuring
+	    if lookup_trait_index != -1:
+		lookup_trait = data[lookup_trait_index]
+	    else:
+		lookup_trait = pheno            
 
-            if float(data[pval_index]) <= eqtl_cutoff_pval and data[gene_index] not in matched:
-                with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "a") as a:
-                    a.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n".format(snp[0], snp[1], gwas_file, pheno, snp[3], snp[2], data[pval_index], data[gene_index]))
-                    matched.add(data[gene_index])
-        else:
-            # Keep track of all SNP-gene pairs considered, for the manuscript
-            if pheno not in genes_considered:
-                with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_snp-gene-pairs-considered.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "a") as a:
-                    a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) + "\t" + gwas_file + "\t" + pheno + "\t" + pheno + "\n")
-                    genes_considered.add(pheno)
+	    # Keep track of all [source-SNP]-[target-trait] pairs considered,
+	    # even if they don't pass the lookup cutoff threshold
+            # TODO: This should be made optional, it's a big file and we aren't always going to actually want this
+	    #if lookup_trait not in lookup_traits_considered:
+		#with open(pairs_considered_outfile, "a") as a:
+		 #   a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) + "\t" + source_file + "\t" + lookup_trait + "\t" + pheno + "\n")
+		  #  lookup_traits_considered.add(lookup_trait)
 
-            if float(data[pval_index]) <= eqtl_cutoff_pval and pheno not in matched:
-                with open("{0}/{1}_{6}_{7}_gwas-pval{2}_eqtl-pval{3}_gwas-window{4}_eqtl-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], gwas_cutoff_pval, eqtl_cutoff_pval, gwas_window, eqtl_window, gwas_group, eqtl_group), "a") as a:
-                    a.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n".format(snp[0], snp[1], gwas_file, pheno, snp[3], snp[2], data[pval_index], pheno))
-                    matched.add(pheno)
+            # Keep track of SNP passing out overlap cutoff in the lookup set
+	    if float(data[pval_index]) <= lookup_cutoff_pval and data[lookup_trait_index] not in matched:
+		with open(overlap_test_outfile, "a") as a:
+		    a.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n".format(snp[0], snp[1], source_file, pheno, snp[3], snp[2], data[pval_index], lookup_trait))
+		    matched.add(lookup_trait)
 
-def snps_by_threshold(gwas_file, gwas_threshold, default_trait, config, window=1000000):
+
+def snps_by_threshold(source_file, source_threshold, default_trait, config, window):
 
     trait = default_trait
 
     snp_counts = {}
     hit_counts = {}
 
-    with gzip.open(gwas_file) as f:
+    with gzip.open(source_file) as f:
         header = f.readline().strip().split()
 
-        trait_index = -1
-        if "swap" in config and config["swap"] == "True":
-            if "gene" in header:
-                trait_index = header.index("gene")
-            else:
-                trait_index = header.index("feature") 
-        elif "trait" in header:
-            trait_index = header.index("trait")
+        if "trait" in header:
+            source_trait_index = header.index("trait")
+        elif "gene" in header:
+	    source_trait_index = header.index("gene")
+        elif "feature" in header:
+	    source_trait_index = header.index("feature")
+        else:
+	    source_trait_index = -1
+
         pval_index = header.index("pvalue")
         chr_index = header.index("chr")
         snp_pos_index = header.index("snp_pos")
@@ -199,8 +205,8 @@ def snps_by_threshold(gwas_file, gwas_threshold, default_trait, config, window=1
             #if i > 1000000:
             #    break
             data = line.strip().split("\t")
-            if trait_index != -1:
-                trait = data[trait_index]
+            if source_trait_index != -1:
+                trait = data[source_trait_index]
             try:
                 pvalue = float(data[pval_index])
             except:
@@ -208,7 +214,7 @@ def snps_by_threshold(gwas_file, gwas_threshold, default_trait, config, window=1
             chr = data[chr_index]
             pos = int(data[snp_pos_index])
             snp_counts[trait] = snp_counts.get(trait, 0) + 1
-            if pvalue > gwas_threshold:
+            if pvalue > source_threshold:
                 continue
 
             all_snps.append((chr, pos, pvalue, trait))
