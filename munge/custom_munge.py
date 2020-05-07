@@ -20,14 +20,14 @@ hg38_dbsnp = "dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz"
 
 # Set debug to an integer if you only want to load a limited number of
 # rows from the input file, for debugging purposes.
-#debug = None
-debug = 1000000
+debug = None
+#debug = 500000
 
 # TODO: Integrate this more cleanly
 
 # Where to store tmp files
 # tmp_file = "/users/mgloud/projects/gwas-download/munge/tmp/unsorted_GWAS.tmp"
-tmp_file = "tmp/unsorted_GWAS.tmp.debug"
+tmp_file = "tmp/unsorted_GWAS.tmp.debug2"
 
 
 def is_int(s):
@@ -47,8 +47,7 @@ os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 # Files for which to debug munging process
 shortlist = \
 [
-	"Schizophrenia_Pardinas_2018"
-
+	"Uterine-Fibroids_Gallagher_2019"
 	# "Multiple-Traits_Wojcik_2019",
 	#"Ovarian-Cancer_Lawrenson_2019",
 	#"Ovarian-Cancer_Phelan_2017",
@@ -56,11 +55,12 @@ shortlist = \
 	# "Facial-Shape_Xiong_2019"; multi-trait; add this soon
 	#"Breast-Cancer_Michailidou_2015", some problem still
 	#"Alcohol-Dependence_Walters_2018"
+	#"Ishigaki"
 ]
 
 def main():
 
-    subprocess.check_call("rm -f output/error-log.txt", shell=True)
+    #subprocess.check_call("rm -f output/error-log.txt", shell=True)
 
     # Find location of config file and open it
     if len(sys.argv) > 1:
@@ -100,8 +100,8 @@ def main():
         # Munge every study from the config list, one at a time
         for study in config["studies"]:
 
-            if study["study_info"] not in shortlist:
-                continue
+            #if study["study_info"] not in shortlist:
+            #    continue
 
             # Yes, the clean way to do this would be to make it a separate function, which is what I should do eventually.
             # For now I just want to track the problems
@@ -154,14 +154,12 @@ def main():
                         # Glob out traits with wildcards in filename
                         glob_files = glob.glob(unglobbed_filename)
                         for filename in glob_files:
-                            # Determine format and load the file
-                            if "format" in study:
-                                format = study["format"]
-                            else:
-                                if filename.endswith(".gz"):
-                                    format = "gzip"
-                                else:
-                                    format = "txt"
+                            
+			    # Determine if gzip format
+			    if filename.endswith(".gz"):
+				    format = "gzip"
+			    else:
+				    format = "txt"
 
                             if format == "gzip":
                                 with gzip.open(filename) as f:
@@ -337,7 +335,7 @@ def main():
 			if "source_build" not in study:
 				study["source_build"] = get_source_build(data[['chr', 'snp_pos']], pos_to_rsid)
  
-                        # First, map chr and pos (hg19) to their rsids
+                        # First, map chr and pos to their rsids
                         rsid_column = []
                         for i in range(data.shape[0]):
                             if (int(data['chr'].iloc[i]), int(data['snp_pos'].iloc[i])) in pos_to_rsid[study["source_build"]]:
@@ -502,7 +500,7 @@ def main():
             except Exception as e:
                 # Log problems to an error file, then move on
                 subprocess.check_call("mkdir -p output", shell=True)
-                with open("output/error-log.txt", "a") as a:
+                with open("output/error-log2.txt", "a") as a:
                     a.write(study["study_info"] + "\n")
 
                 traceback.print_exc(file=sys.stdout)
