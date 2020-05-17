@@ -14,7 +14,6 @@ import sys
 import operator
 import pandas as pd
 sys.path.insert(0, '/users/mgloud/projects/brain_gwas/scripts')
-import SNP 
 import json
 from multiprocessing import Pool
 import traceback

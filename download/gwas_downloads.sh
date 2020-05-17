@@ -4080,6 +4080,12 @@ wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhangS_2845910
 mkdir Tuberculosis_Zheng_2018
 wget -r ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ZhengR_30287856_GCST006619 -P Tuberculosis_Zheng_2018
 
+# https://www.nature.com/articles/s41586-020-2263-3
+# Identification of type 2 diabetes loci in 433,540 East Asian individuals
+mkdir Type-2-Diabetes_Spracklen_2020
+wget -r https://personal.broadinstitute.org/mvon/T2D_ALL_Primary.zip -P Type-2-Diabetes_Spracklen_2020
+wget -r http://3.208.176.209/sites/default/files/READMEs/AGEN-DIAMANTE_GWAS_README.txt -P Type-2-Diabetes_Spracklen_2020
+
 
 #############################################
 # Requiring manual download
