@@ -83,12 +83,14 @@ def main():
                         for lookup_file in config["lookup_groups"][lookup_group]["files"]:
                             lookup_files.extend(glob.glob(lookup_file))
                         
+                        if len(lookup_files) == 0:
+                                print "Warning: No lookup target files found for group", lookup_group
+
                         for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
                             for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
                                 add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
 
 def add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
-
         pool = Pool()
         for snp in info:
             for pheno in lookup_files:
@@ -108,7 +110,6 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
     header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
     header = [h.lower() for h in header]
     pval_index = header.index("pvalue")
-
     # Is there a column specifying the trait / gene / feature in the lookup target file?
     # If so, get the index of it
     if "trait" in header:
@@ -167,7 +168,7 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
 		  #  lookup_traits_considered.add(lookup_trait)
 
             # Keep track of SNP passing out overlap cutoff in the lookup set
-	    if float(data[pval_index]) <= lookup_cutoff_pval and data[lookup_trait_index] not in matched:
+	    if float(data[pval_index]) <= lookup_cutoff_pval and lookup_trait not in matched:
 		with open(overlap_test_outfile, "a") as a:
 		    a.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n".format(snp[0], snp[1], source_file, pheno, snp[3], snp[2], data[pval_index], lookup_trait))
 		    matched.add(lookup_trait)

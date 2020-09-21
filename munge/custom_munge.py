@@ -127,8 +127,7 @@ def main():
 
                 # Parse each input trait separately, and
                 # keep them in separate files for convenience.
-                for trait in study["traits"]:
-                #for trait in study["traits"].keys()[:1]:
+                for trait in sorted(study["traits"].keys()):
 
                     print "Current trait:", trait
 
