@@ -47,16 +47,35 @@ def main():
     for source_group in config["source_groups"]:
         for source_cutoff_pval in config["source_groups"][source_group]["source_cutoff_pvals"]:
             for source_window in config["source_groups"][source_group]["source_windows"]:
-                with open("{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, source_window, source_group), "w") as w:
-                    w.write("chr\tsnp_pos\tpvalue\ttrait\n")
+
+                gwas_snps_file = "{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(
+                        config["output_directory"], config["output_base"], source_cutoff_pval, 
+                        source_window, source_group)
+
+                with open(gwas_snps_file, "w") as w:
+                    w.write("chr\tsnp_pos\tpvalue\ttrait\tsource_file\n")
+
                 for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
+
                     for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
+
                         for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
-                            with open("{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group), "w") as w:
+
+                            overlap_tests_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(
+                                    config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, 
+                                    source_window, lookup_window, source_group, lookup_group)
+                            all_pairs_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(
+                                    config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, 
+                                    source_window, lookup_window, source_group, lookup_group)
+                            
+                            with open(overlap_tests_file, "w") as w:
                                 w.write("chr\tsnp_pos\tsource_file\tlookup_file\tsource_trait\tsource_pvalue\tlookup_pvalue\tlookup_trait\n")
                                 w.flush()
-                            with open("{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group), "w") as w:
-                                w.write("chr\tsnp_pos\tsource_pvalue\tlookup_pvalue\tlookup_trait\tlookup_file\n")
+
+                            if "output_nonpassing_pairs" in config and str(config["output_nonpassing_pairs"]) == "True":
+
+                                with open(all_pairs_file, "w") as w:
+                                    w.write("chr\tsnp_pos\tsource_pvalue\tlookup_pvalue\tlookup_trait\tlookup_file\n")
 
     # Now start searching for colocalization candidates
     for source_group in config["source_groups"]:
@@ -74,9 +93,13 @@ def main():
 
                     info = snps_by_threshold(source_file, source_cutoff_pval, source_file, config, window=source_window)
 
+                    gwas_snps_file = "{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(
+                            config["output_directory"], config["output_base"], source_cutoff_pval, 
+                            source_window, source_group)
+
                     # Run SNPs in parallel across multiple threads
                     for snp in info:
-                        with open("{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, source_window, source_group), "a") as a:
+                        with open(gwas_snps_file, "a") as a:
                             a.write("\t".join([str(s) for s in snp]) + "\t" + source_file + "\n")
                     for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
                         lookup_files = []
@@ -144,8 +167,8 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
     wide_matches = sorted(wide_matches, key=operator.itemgetter(pval_index))
 
     # Destination files where snp lists will be written
-    pairs_considered_outfile = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
-    overlap_test_outfile = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+    all_pairs_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+    overlap_test_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
 
     lookup_traits_considered = set([])
 
@@ -161,15 +184,17 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
 
 	    # Keep track of all [source-SNP]-[target-trait] pairs considered,
 	    # even if they don't pass the lookup cutoff threshold
-            # TODO: This should be made optional, it's a big file and we aren't always going to actually want this
-	    #if lookup_trait not in lookup_traits_considered:
-		#with open(pairs_considered_outfile, "a") as a:
-		 #   a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) + "\t" + source_file + "\t" + lookup_trait + "\t" + pheno + "\n")
-		  #  lookup_traits_considered.add(lookup_trait)
+            # This is optional and not done by default; it's a big file and 
+            # we aren't always going to actually want this
+            if "output_nonpassing_pairs" in config and str(config["output_nonpassing_pairs"]) == "True":
+	        if lookup_trait not in lookup_traits_considered:
+                    with open(all_pairs_file, "a") as a:
+                        a.write("\t".join([str(s) for s in snp]) + "\t" + str(data[pval_index]) + "\t" + source_file + "\t" + lookup_trait + "\t" + pheno + "\n")
+                        lookup_traits_considered.add(lookup_trait)
 
             # Keep track of SNP passing out overlap cutoff in the lookup set
-	    if float(data[pval_index]) <= lookup_cutoff_pval and lookup_trait not in matched:
-		with open(overlap_test_outfile, "a") as a:
+	    if float(data[pval_index]) <= lookup_cutoff_pval and data[lookup_trait_index] not in matched:
+		with open(overlap_test_file, "a") as a:
 		    a.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\n".format(snp[0], snp[1], source_file, pheno, snp[3], snp[2], data[pval_index], lookup_trait))
 		    matched.add(lookup_trait)
 

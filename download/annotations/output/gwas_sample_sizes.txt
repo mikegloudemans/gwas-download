@@ -1,0 +1,438 @@
+directory	pmid	n_total	n_cases	n_controls
+2-Hour-Glucose_Saxena_2010	20081857	15234		
+ACL-Injury_Kim_2017	28358823	102979	5148	97831
+Adiponectin_Dastani_2012	22479202	29347		
+Adiponectin_Wu_2014	24105470	7825		
+Age-At-Death_Pilling_2016	27015805	75244		
+Age-At-Menarche_Day_2017	28436984	252514		
+Age-At-Menarche_Perry_2014	25231870	132989		
+Age-At-Menopause_Day_2015	26414677	69360		
+Age-Related-Macular-Degeneration_Yan_2018	29346644			
+Aggression_Pappa_2015	26087016	18988		
+Albuminuria_Boger_2011	21355061	31580		
+Albuminuria_Haas_2018	30220432	382500		
+Albuminuria_Teumer_2016	26631737	54450		
+Albuminuria_Teumer_2019	31511532			
+Alcohol-Dependence_Sanchez-Roige_2018	30336701			
+Alcohol-Dependence_Walters_2018	30482948	52848	14904	37944
+Alcohol-Use_Evangelou_2019	31358974			
+Allergic-Diseases_Zhu_2018	29785011			
+Allergies_Ferreira_2017	29083406	242569	96794	145775
+Allopurinol-Response_Wen_2015	25676789			
+Alzheimers-Cerebrospinal-Fluid-sTREM2_Liu_2019	31708768			
+Alzheimers-Dementia_Moreno-Grau_2019	31473137			
+Alzheimers-Disease-Biomarkers_Scelsi_2018	29860282			
+Alzheimers-Family-History_Marioni_2018	29777097	269279	14338	254941
+Alzheimers-Posterior-Cortical-Atrophy_Schott_2016	26993346	10840	293	10547
+Alzheimers-Protein-Levels_Ramirez_2014	25027320	363		
+Alzheimers_Jansen_2018	30617256	455258	71880	383378
+Alzheimers_Lambert_2013	24162737	54162	17008	37154
+Amyotrophic-Lateral-Sclerosis-Exome_Dekker_2019	30976013			
+Amyotrophic-Lateral-Sclerosis-Sporadic_Benyamin_2017	28931804	4084	1234	2850
+Amyotrophic-Lateral-Sclerosis_Nicolas_2018	29566793	80610	20806	59804
+Amyotrophic-Lateral-Sclerosis_van-Rheenen_2016	27455348	36052	12577	23475
+Ankle-Injury_Kim_2017	28957384	99340	1694	97646
+Ankylosing-Spondylitis_Cortes_2013	23749187			
+Ankylosing-Spondylitis_Li_2019	30946743	3321	1480	1841
+Anorexia-Nervosa_Duncan_2017	28494655	14477	3495	10982
+Anthropometric-Extremes_Berndt_2013	23563607	16068	7962	8106
+Anthropometrics-Sex-Stratified_Randall_2013	23754948	60036		
+Anthropomorphic-Traits_Wang_2019	31453325			
+Anti-Mullerian-Hormone_Ruth_2019	30649302	3344		
+Antisocial-Behavior_Tielbeek_2017	28979981	16400		
+Anxiety_Otowa_2016	26754954	17310	7016	14745
+Aortic-Problems-In-Marfan-Syndrome_Aubart_2018	30087447			
+Asthma_Daya_2019	30787307	14654	7009	7645
+Asthma_Demenais_2017	29273806	142486	23948	118538
+Asthma_Ferreira_2019	30929738	314633	13962	300671
+Asthma_Moffatt_2010	20860503	26475	10365	16110
+Asthma_Myers_2014	24824216	6483	2653	3830
+Asthma_Shrine_2018	30552067	30810	5135	25675
+Asthma_Zhu_2019	31619474			
+Atopic-Dermatitis_EAGLE_2015	26482879	40835	10788	30047
+Atopic-Dermatitis_Hirota_2012	23042114			
+Atopic-Dermatitis_Paternoster_2015	26482879	40835	10788	30047
+Atrial-Fibrillation-Early-Onset_Choi_2018	30535219			
+Atrial-Fibrillation-Multi-Ethnic_Roselli_2018	29892015	588190	65446	522744
+Atrial-Fibrillation_Low_2017	28416822	36792	8180	28612
+Atrial-Fibrillation_Nielsen_2018	30061737	1030836	60620	970216
+Attention-Deficit-Hyperactivity-Disorder_Middeldorp_2016	27663945	17666		
+Attention-Function_Alemany_2016	27656889	1655		
+Autism_Massrali_2019	31346403			
+Autism_Psychiatric-Genomics-Consortium_2017	28540026	15954	7387	8567
+Autoimmune-Thyroid-Disease_Cooper_2012	22922229			
+BMI-Childhood_Felix_2015	26604143	35668		
+BMI-Childhood_Helgeland_2019	31575865			
+BMI-Exome_Turcot_2017	29273807			
+BMI-and-Height_Robinson_2015	26366552			
+BMI-and-Height_Yang_2015	26323059			
+BMI-and-Height_Yengo_2018	30124842	693529		
+BMI_Akiyama_2017	28892062	158284		
+BMI_Hoffmann_2018	30108127	334487		
+BMI_Locke_2015	25673413	234069		
+BMI_Pulit_2018	30239722	806834		
+BMI_Rask-Andersen_2019	30664634	167431		
+BMI_Riveros-McKay_2019	30677029	7931	1471	6460
+BMI_Speliotes_2010	20935630	123865		
+BMI_Yang_2012	22982992	133154		
+Biliary-Atresia_Chen_2018	30102696	2059	343	1716
+Biliary-Liver-Cirrhosis_Nakamura_2012	23000144	963	487	476
+Biomarker-Levels_Enroth_2014	25147954			
+Biomarker-Levels_Prins_2017	28887542			
+Bipolar-Disorder_Hou_2016	27329760	34950	7647	27303
+Bipolar-Disorder_Psychiatric-Genomics-Consortium_2012	21926972	16731	7481	9250
+Bipolar-Disorder_Stahl_2019	31043756			
+Birth-Length_van-der-Valk_2014	25281659	28459		
+Birth-Weight_Horikoshi_2013	23202124	26836		
+Birth-Weight_Horikoshi_2016	27680694	143677		
+Birth-Weight_Warrington_2019	31043758			
+Blood-Cell-Traits_Astle_2016	27863252	131860		
+Blood-Cells_Ferreira_2009	19853236	4250		
+Blood-Lipids_Andaleon_2018	29404214			
+Blood-Lipids_Willer_2013	24097068	188577		
+Blood-Metabolites_Draisma_2015	26068415			
+Blood-Metabolites_Shin_2014	24816252	7788		
+Blood-Pressure_Evangelou_2018	30224653			
+Blood-Pressure_Hoffmann_2016	27841878			
+Blood-Pressure_Liu_2016	27618448			
+Blood-Protein-Biomarkers_Hillary_2019	31320639			
+Blood-Protein-Levels_Folkersen_2017	28369058			
+Blood-Protein-Levels_Suhre_2017	28240269	1000		
+Blood-Protein-Levels_Sun_2018	29875488			
+Body-Fat-Percentage_Lu_2016	26833246	100716		
+Body-Mass_Hubel_2018	30593698			
+Bone-Fracture_Trajanoska_2018	30158200			
+Bone-Mineral-Density-Estimated_Kemp_2017	28869591	142487		
+Bone-Mineral-Density-Total-Body-Lifecourse_Medina-Gomez_2018	29304378	66628		
+Bone-Mineral-Density_Estrada_2012	22504420	32961		
+Bone-Mineral-Density_Zheng_2015	26367794	32965		
+Breast-Cancer-BRACX_Lee_2018	30323354	7448	1469	5979
+Breast-Cancer_Michailidou_2015	25751625			
+Breast-Cancer_Michailidou_2017	29059683			
+Breast-Cancer_Milne_2017	29058716			
+Burn-Scarring_Wallace_2018	30595539	665		
+C-Reactive-Protein-Levels_Southam_2017	28548082			
+Cannabis-Use_Pasman_2018	30150663	162082	43380	118702
+Cardiac-Conduction_Prins_2018	30012220			
+Carpal-Tunnel-Syndrome_Wiberg_2019	30833571	401656	12312	389344
+Celiac-Disease_Dubois_2010	20190752	15283	4533	10750
+Celiac-Disease_Trynka_2011	22057235	24269	12041	12228
+Central-Corneal-Thickness_Gao_2016	28171582	3584		
+Central-Corneal-Thickness_Iglesias_2018	29760442	17803		
+Central-Serous-Retinopathy_Hosoda_2019	31872073			
+Cerebral-White-Matter-Hyperintensity_Traylor_2016	26674333			
+Cervical-Cancer_Leo_2017	28806749			
+Childhood-Obesity_Bradfield_2019	31504550			
+Chronic-HPV-Infection_Mainali_2018	30092369			
+Chronic-Kidney-Disease-Urinary-Metabolite-Levels_Schlosser_2020	31959995			
+Chronic-Kidney-Disease_Morris_2019	30604766			
+Chronic-Mountain-Sickness_Gazal_2019	31417607			
+Chronic-Obstructive-Pulmonary-Disease_Shrine_2019	30804560	400102		
+Chronic-Pain_Johnston_2019	31194737			
+Churg-Strauss-Syndrome_Lyons_2019	31719529			
+Circulating-Metabolites_Kettunen_2016	27005778	19262		
+Cisplatin-Associated-Ototoxicity_Wheeler_2016	28039263	511		
+Cisplatin-Associated-Ototoxicity_Wheeler_2017	28039263	511		
+Cleft-Palate_Howe_2018	30067744	6136		
+Clostridium-Difficile-Infection-In-Myeloma_Apewokin_2018	29594489			
+Clozapine-Induced-Agranulocytosis_Goldstein_2014	25187353	1359	163	1196
+Clozapine-Metabolism_Pardinas_2019	30922102			
+Clozapine-Related-Neutropenia_Legge_2019	30647433			
+Cluster-Headache_Bacchelli_2016	27957625	459	99	360
+Cognitive-Functions_Davies_2016	27046643	36035		
+Cognitive-Performance_Rietveld_2014	25201988	106736		
+Colorectal-Adenoma_Wang_2013	24084763	1406	139	1267
+Colorectal-Cancer_Tanikawa_2018	29471430	33870	6692	27178
+Coronary-Artery-Disease-In-Type-1-Diabetes_Charmet_2018	29695241			
+Coronary-Artery-Disease-With-Diabetes_Fall_2018	30003307	15666	3968	11698
+Coronary-Artery-Disease-and-Lipid-Levels_Siewert_2018	30525989	735838		
+Coronary-Artery-Disease_C4D_2011	21378988	30482	15420	15062
+Coronary-Artery-Disease_CARDIoGRAMplusC4D_2013	23202125	194427	63746	130681
+Coronary-Artery-Disease_Howson_2017	28530674			
+Coronary-Artery-Disease_Loley_2016	27731410			
+Coronary-Artery-Disease_Nelson_2017	28714975	148815	10901	137914
+Coronary-Artery-Disease_Nikpay_2015	26343387	184305	60801	123504
+Coronary-Artery-Disease_Schunkert_2011	21378990	86995	22233	64762
+Coronary-Artery-Disease_Webb_2017	28209224			
+Coronary-Artery-Disease_van-der-Harst_2017	29212778			
+Crohns-Disease_Franke_2010	21102463	21447	6299	15148
+Crohns_Lee_2017	28067912	2734	1762	972
+Cross-Disorder-Brain_PGC_2013	23453885	61220	33332	27888
+Cross-Trait_Zhou_2018	30104761			
+Cystic-Fibrosis-Associated-Meconium-Ileum_Gong_2019	30807572	6770	1115	5655
+Cystic-Fibrosis-Associated-Meconium-Ileum_Sun_2012	22466613			
+Cytokine-Network-Levels_Nath_2019	31679650			
+Cytokines-And-Growth-Factors_Ahola-Olli_2017	27989323	3531		
+Depression-Unipolar-Drug-Efficacy_GENDEP_2013	23377640	2256		
+Depression_Howard_2019	30718901	500199	170756	329443
+Depression_Wray_2018	29700475	173005	59851	113154
+Device-Measured-Activity_Doherty_2018	30531941	91105		
+Diabetic-Kidney-Disease-Type-1_Sandholm_2016	27647854			
+Diabetic-Kidney-Disease-Type-2_van-Zuydam_2018	29703844			
+Diabetic-Kidney-Disease_Salem_2019	31537649			
+Diarrhoeal-Disease_Bustamante_2016	27559109			
+Diverticular-Disease_Maguire_2018	30177863	409728	27444	382284
+Diverticular-Disease_Schafmeyer_2019	30661054	451099	31964	419135
+Ectopic-Fat-Traits_Chu_2017	27918534	18247		
+Educational-Attainment-Plus-Schizophrenia_Bansal_2018	30082721			
+Educational-Attainment_Lee_2018	30038396	766345		
+Educational-Attainment_Okbay_2016	27225129	328917		
+Educational-Attainment_Rietveld_2013	23722424	101069		
+Electrocardiograph-P-Wave_Christophersen_2017	28794112			
+Electrocardiograph-PR-Interval_Lin_2018	29748316			
+Epilepsy_Anney_2014	25087078	34853	8696	26157
+Epilepsy_ILAE_2018	30531953	44889	15212	29677
+Erectile-Dysfunction_Bovijn_2018	30583798	223805	6175	217630
+Estimated-Glomerular-Filtration-Rate_Pattaro_2016	26831199	113814		
+Estimated-Glomerular-Filtration-Rate_Wuttke_2019	31152163	765348		
+Exfoliation-Syndrome_Aung_2017	28553957			
+Exome-Cardiometabolic-Traits_Locke_2019	31367044			
+Extraversion_De-Moor_2012	25993607	63661		
+Extraversion_van-den-Berg_2016	26362575	63661		
+Facial-Attractiveness_Hu_2019	30946739	3928		
+Facial-Shape_Claes_2018	29459680			
+Facial-Shape_Xiong_2019	31763980			
+Fasting-Proinsulin_Strawbridge_2011	21873549	10701		
+Fatty-Acids-De-Novo-Lipogenesis_Wu_2013	23362303			
+Fatty-Liver-Disease-Non-Alcoholic_Namjou_2019	31311600			
+Food-Allergies_Khor_2018	29348432			
+GLP1-Stimulated-Insulin-Response_Gudmundsdottir_2018	29293525	126		
+Gait-Speed_Ben-Avraham_2017	28077804	31487		
+Gestational-Duration_Liu_2019	31477735			
+Gestational-Weight-Gain_Warrington_2017	28990592	10555		
+Gingival-Bleeding_Zhang_2016	28459102	4077		
+Glaucoma-Measurements_Springelkamp_2017	28073927	37930		
+Glaucoma-Primary-Angle-Closure_Khor_2016	27064256	26454	6525	19929
+Glaucoma_Choquet_2018	29891935	176890	7329	169561
+Glaucoma_Craig_2020	31959993			
+Glaucoma_GGLAD_2019	31688885			
+Glaucoma_Shiga_2018	29452408	22795	3980	18815
+Glomerular-Filtration-Rate_Graham_2019	31015462	350504		
+Glucose-Stimulated-Insulin-Secretion_Prokopenko_2014	24699409	4213		
+Glycemic-Traits-BMI-Corrected_Manning_2012	22581228	58074		
+Glycemic-Traits_Dupuis_2010	20081858	46186		
+Glycemic-Traits_Scott_2013	22885924			
+Glycine-Levels_Jia_2019	31070104	30118		
+Glycine-Levels_Wittemans_2019	30837465	80003		
+Gout_Kottgen_2013	23263486	110347		
+Handedness_de-Kovel_2019	30980028	331037	31856	299181
+Head-Circumference_Taal_2012	22504419	10678		
+Hearing-Impairment-Age-Related_Hoffmann_2016	27764096			
+Heart-Failure_Aragam_2018	30586722	394156	6504	387652
+Heart-Rate-Variability_Noite_2017	28613276	28122		
+Heart-Rate_den-Hoed_2013	23583979	85787		
+Heel-Bone-Mineral-Density_Kim_2018	30048462	394929		
+Height_Akiyama_2019	31562340			
+Height_Lango-Allen_2010	20881960	133653		
+Height_Wood_2014	25282103	253288		
+Hemoglobin-A1c_Soranzo_2010	20858683	46368		
+Hemoglobin-A1c_Wheeler_2017	28898252	159940		
+Hippocampal-Volumes_van-der-Meer_2018	30279459			
+Hirschsprung-Disease_Fadista_2018	29379196			
+Humoral-Immune-Response_Scepanovic_2018	30053915	1000		
+Hypertension_Zhu_2019	30940143	458969		
+Idiopathic-Arthritis-Juvenile_Hinks_2013	23603761			
+IgG-Glycosylation_Shen_2017	28878392	2078		
+Impulsivity_Sanchez-Roige_2019	30718321			
+Infantile-Hypertrophic-Pyloric-Stenosis_Fadista_2018	30281099	5833	1395	4438
+Inflammatory-Biomarkers_Hoglund_2019	31727947			
+Inflammatory-Bowel-Disease_Jostins_2012	23128233			
+Inflammatory-Bowel-Disease_Liu_2015	26192919	34652	12882	21770
+Inflammatory-Bowel-Disease_de-Lange_2017	28067908	40266	12194	28072
+Insomnia_Hammerschlag_2017	28604731	113006	32384	80622
+Insomnia_Jansen_2019	30804565	386533	109402	277131
+Insomnia_Lane_2019	30804566	237627	129270	108357
+Insulin-Secretion_Wood_2017	28490609	5567		
+Insulin-Sensitivity-Index_Walford_2016	27416945	16753		
+Intelligence-Childhood_Benyamin_2013	23358156	12441		
+Intelligence_Coleman_2018	29520040			
+Intelligence_Savage_2018	29942086	269867		
+Intelligence_Sniekers_2017	28530673	78308		
+Interleukin-1-Beta_Offenbacher_2018	30206230	4910		
+Internalizing-Problems_Benke_2014	24839885	4596		
+Intracerebral-Hemorrhage_Woo_2014	24656865			
+Irritable-Bowel-Syndrome_Bonfiglio_2018	29626450			
+Ischaemic-Stroke_Pulit_2016	26708676			
+Ischaemic-Stroke_Traylor_2012	23041239			
+Juvenile-Idiopathic-Arthritis_Haasnoot_2018	29513936	384	137	247
+Kidney-Function_Gorski_2015	25493955			
+Kidney-Function_Gorski_2017	28452372	110527		
+Kidney-Function_Kottgen_2010	20383146	67093		
+Kidney-Function_Li_2017	27920155	14308		
+Knee-Pain_Meng_2019	31482140			
+Lean-Body-Mass_Zillikens_2017	28724990	38292		
+Left-Ventricular-Image-Phenotypes_Aung_2019	31554410			
+Leptin_Kilpelainen_2016	26833098	32161		
+Lipid-Levels_Spracklen_2017	28334899	34374		
+Liver-Enzymes_Chambers_2011	22001757			
+Lobar-Brain-Volumes_van-der-Lee_2019	31396565			
+Loneliness_Day_2018	29970889	487647		
+Longevity_Broer_2015	25199915			
+Longevity_Deelen_2014	24688116	23850	7729	16121
+Longevity_Fortney_2015	26677855			
+Lung-Disease-In-Cystic-Fibrosis_Corvol_2015	26417704			
+Lupus_Bentham_2015	26502338	14267	5201	9066
+Lupus_Julia_2018	29848360	2431	907	1524
+Lupus_Langefeld_2017	28714469			
+Lymphocyte-Subsets_Ferreira_2010	20045101	2538		
+Maculopapular-Exanthema_McCormack_2018	29288229			
+Major-Depressive-Disorder_Cai_2015	26176920	10640	5303	5337
+Major-Depressive-Disorder_PGC_2013	22472876	18759	9240	9519
+Male-Pattern-Baldness_Hagenaars_2017	28196072	52874		
+Male-Pattern-Baldness_Yap_2018	30573740	205327		
+Maternal-And-Neonatal-Immunity_Traglia_2018	30134952			
+Medial-Collateral-Ligament-Injury_Roos_2017	28482362	102503	1572	100931
+Medication-Use_Wu_2019	31015401	132367	53137	79230
+Menstrual-Cycle-Length_Laisk_2018	30202859	44871		
+Metabolic-Syndrome_Lind_2019	31589552			
+Metabolic-Syndrome_Oh_2020	31910446			
+Metabolic-Traits-Exome_Liu_2016	27618448			
+Metabolite-Levels_Chai_2019	31628463			
+Metabolite-Levels_Wood_2013	23696881			
+Mosaic-Loss-Of-Y_Terao_2019	31624269			
+Multi-Trait-Brain_Turley_2018	29292387			
+Multi-Trait_Zhu_2018	29335400			
+Multiple-Sclerosis_Beechman_2013	24076602			
+Multiple-Sclerosis_Sawcer_2011	21833088	27148	9772	17376
+Multiple-Traits_Gurdasani_2019	31675503			
+Multiple-Traits_Jeong_2019	30188897			
+Musculoskeletal-Traits_Medina-Gomez_2017	28743860	10414		
+Myocardial-Infarction_Hirokawa_2015	24916648			
+N3-Fatty-Acids_Lemaitre_2011	21829377			
+N6-Fatty-Acids_Guan_2014	24823311			
+Narcolepsy_Faraco_2013	23459209			
+Nephrotic-Syndrome_Jia_2018	30012571	643	224	419
+Neuroblastoma_Chang_2017	28924153	5222	113	5109
+Neuroimaging-Measurements_Elliott_2018	30305740			
+Neuromyelitis-Optica_Estrada_2018	29769526			
+Neuroticism-Items_Nagel_2018	29500382	380506		
+Neuroticism-Subclusters_Nagel_2018	29942085	390278		
+Neuroticism-Symptoms_Okbay_2016	27898078			
+Neuroticism_Luciano_2017	29255261	329821		
+Neuroticism_Luciano_2019	30842574			
+Neuroticism_Turley_2018	29292387			
+New-Onset-Diabetes_Chang_2018	27670767			
+Obesity-Childhood_Bradfield_2012	22484627	13848	5530	8318
+Obsessive-Compulsive-Disorder_Arnold_2017	28761083	9725	2688	7037
+Odd-Chain-Saturated-Fatty-Acids_de-Oliveira_2018	29738550			
+Offspring-Birth-Weight_Beaumont_2018	29309628	86577		
+Optic-Disc-Measurements_Bonnemaijer_2019	31798171			
+Osteoarthritis_Tachmazidou_2019	30664745	455221	77052	378169
+Osteoarthritis_Zeggini_2012	22763110	14275	3266	11009
+Osteoarthritis_Zengini_2018	29559693	63556	12658	50898
+Osteoporosis_Morris_2018	30598549	426824		
+Ovarian-Cancer_Lawrenson_2019	30898391	7064	2981	4083
+Ovarian-Cancer_Phelan_2017	28346442			
+Parkinsons-Age-At-Onset_Blauwendraat_2019	30957308	34498	17996	16502
+Parkinsons-GBA-Associated_Blauwendraat_2019	31755958			
+Periodontal-Disease_Offenbacher_2016	26962152	975		
+Personality-Big5_De-Moor_2012	21173776	17375		
+Physical-Activity-Habits_Klimentidis_2018	29899525	91084		
+Plantar-Fasciitis_Kim_2018	29534260	102503	21624	80879
+Plasma-Lipids_Liu_2017	29083408			
+Plasma-Lipids_Lu_2017	29083407			
+Platelet-Traits_Read_2019	31194788			
+Post-Traumatic-Stress-Disorder_Duncan_2017	28439101	9537	2424	7113
+Primary-Biliary-Cirrhosis_Cordell_2015	26394269	13239	2764	10475
+Primary-Biliary-Cirrhosis_Liu_2012	22961000			
+Primary-Sclerosing-Cholangitis_Ji_2017	27992413	14890	2871	12019
+Prostate-Cancer_Schumacher_2018	29892016			
+Psoriasis_Tsoi_2012	23143594			
+Psoriatic-Arthritis_Aterido_2018	30552173			
+Psychotic-Experiences_Legge_2019	31553412			
+Pubertal-Growth_Cousminer_2013	23449627	6974		
+QT-Interval-By-Particulate-Matter_Gondalia_2017	28749367	22158		
+QTLs-Japanese_Kanai_2018	29403010	128305		
+Reading-And-Spelling-Ability_Truong_2019	30995994	441		
+Red-Blood-Cell-Distribution-Width_Pilling_2017	28957414			
+Red-Blood-Cell-Traits_Chami_2016	27346685			
+Refractive-Error_Ghorbani_2019	31670792			
+Renal-Cell-Carcinoma_Laskar_2019	31231134			
+Reproductive-Behavior_Barban_2016	27798627	251151		
+Rheumatoid-Arthritis-Joint-Damage_Traylor_2019	31596875			
+Rheumatoid-Arthritis_Eyre_2012	23143596			
+Rheumatoid-Arthritis_Okada_2014	24390342	22515	4873	17642
+Risk-Taking_Clifton_2018	30271922			
+Risky-Behavior_Karlsson-Linner_2019	30643258			
+Rotator-Cuff-Injury_Roos_2017	29228018	102980	8358	94622
+Sarcoidosis_Rivera_2016	26651848			
+Schizophrenia_Lam_2019	31740837			
+Schizophrenia_Li_2017	28991256			
+Schizophrenia_Pardinas_2018	29483656	105318	40675	64643
+Schizophrenia_Ripke_2011	21926974	21856	9394	12462
+Schizophrenia_Ripke_2013	23974872	32143	13833	18310
+Schizophrenia_Ripke_2014	25056061	82315	35476	46839
+Sciatica_Lemmela_2016	27764105			
+Scoliosis-Adolescent-Idiopathic_Kou_2019	31417091			
+Selective-IgA-Deficiency_Bronson_2016	27723758	6487	1635	4852
+Self-Rated-Health_Harris_2016	27864402	111749		
+Serum-Metabolites_Gallois_2019	31636271			
+Serum-Urate_Tin_2019	31578528			
+Serum-Urea_Thio_2019	30808845			
+Shoulder-Dislocation_Kim_2017	28521375			
+Skin-Traits_Endo_2018	29895819	11253	7438	3815
+Sleep-Chronotype_Jones_2019	30696823	449732		
+Sleep-Duration_Dashti_2019	30846698	446118		
+Sleep-Duration_Marinelli_2016	27568811			
+Sleep-Oxyhemoglobin-Saturation_Cade_2019	30990817			
+Sleep-Timing_Jones_2016	27494321	128266		
+Small-Vessel-Stroke_Traylor_2017	27997041			
+Smoking_Furberg_2010	20418890	41278		
+Smoking_Liu_2019	30643251	632802		
+Smoking_Matoba_2019	31089300			
+Social-Deprivation_Hill_2016	27818178	112151		
+Socioeconomic-Stats_Hill_2019	31844048			
+Stress-Sensitivity_Arnau-Soler_2018	30571770			
+Stroke_Malik_2018	29531354			
+Superior-Temporal-Gyrus-Volume_Carrion-Castillo_2019	31887566			
+Systemic-Sclerosis_Lopez-Isac_2019	31672989			
+Tanner-Stage_Cousminer_2014	24770850	6147		
+Thyroid-Stimulating-Hormone_Zhan_2014	24852370	1346		
+Tiredness_Deary_2018	28194004	108976		
+Tourettes-Syndrome_Yu_2018	30818990			
+Trans-Fatty-Acids_Mozaffarian_2015	25646338			
+Tuberculosis-Early-Progression_Luo_2019	31434886			
+Tuberculosis_Zheng_2018	30287856	2053	833	1220
+Type-1-Diabetes_Barrett_2009	19430480	7982	3983	3999
+Type-1-Diabetes_Bradfield_2011	21980299	26890	9934	16956
+Type-1-Diabetes_Onengut-Gumuscu_2015	25751624			
+Type-2-Diabetes-Exome-Only_Mahajan_2018	29632382			
+Type-2-Diabetes_Bonas-Guarch_2018	29358691	70127	12931	57196
+Type-2-Diabetes_Chen_2019	31049640	4347	2633	1714
+Type-2-Diabetes_Fuchsberger_2016	27398621	44414	11645	32769
+Type-2-Diabetes_Gaulton_2015	26551672			
+Type-2-Diabetes_Imamura_2015	26818947			
+Type-2-Diabetes_Mahajan_2014	24509480	110452	26488	83964
+Type-2-Diabetes_Mahajan_2018	30297969	898130	74124	824006
+Type-2-Diabetes_Morris_2012	22885922	69033	12171	56862
+Type-2-Diabetes_Rusu_2018	28666119			
+Type-2-Diabetes_Saxena_2007	17463246	2931	1464	1467
+Type-2-Diabetes_Scott_2017	28566273	159208	26676	132532
+Type-2-Diabetes_Suzuki_2019	30718926	191764	36614	155150
+Type-2-Diabetes_Wood_2016	26961502	119688		
+Type-2-Diabetes_Xue_2018	30054458	659256	62832	596424
+Type-2-Diabetes_Zhao_2017	28869590			
+Ulcerative-Colitis_Anderson_2011	21297633	27994	7211	20783
+Ulcerative-Colitis_Julia_2014	25082827	2289	796	1493
+Urinary-Albumin-To-Creatinine-Ratio_Casanova_2019	31630189			
+Urinary-Metabolites_Pazoki_2019	31409800			
+Urinary-Metabolites_Raffler_2015	26352407			
+Urinary-Metabolites_Zanetti_2019	30910378			
+Uterine-Fibroids_Gallagher_2019	31649266			
+Varicose-Veins_Shadrina_2019	30998689			
+Very-Long-Chain-Fatty-Acids_Lemaitre_2015	25378659			
+Visceral-Adipose-Tissue_Karlsson_2019	31501611			
+Vitamin-D_Jiang_2018	29343764	79366		
+Vitamin-D_Manousaki_2017	28757204	42274		
+Vitilogo_Jin_2012	22561518			
+Vitilogo_Jin_2016	27723757	44266	4680	39586
+Vitilogo_Jin_2019	30674883	20623	1467	19156
+Waist-Hip-Ratio-Adjusted-For-BMI_Heid_2010	20935629	77167		
+Waist-Hip-Ratio-BMI-Adjusted_Justice_2019	30778226			
+Waist_Shungin_2015	25673412	213038		
+Wellbeing_Baselmans_2019	30643256	80852		
+White-Blood-Cell-Traits_Tajuddin_2016	27346689			
+White-Matter-Hyperintensity_Traylor_2018	30659137	11226		
+Womens-Health-Traits_Hirata_2018	29855537	5609		
+Womens-Reproductive-Aging_Horikoshi_2018	29773799			
+X-Linked-Dosage-Compensation_Sidorenko_2019	31285442			
