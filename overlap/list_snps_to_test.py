@@ -14,7 +14,6 @@ import sys
 import operator
 import pandas as pd
 sys.path.insert(0, '/users/mgloud/projects/brain_gwas/scripts')
-import SNP 
 import json
 from multiprocessing import Pool
 import traceback
@@ -117,8 +116,7 @@ def main():
                                     config["source_groups"][source_group]["source_cutoff_pval_max"],
                                     source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
 
-def add_snps_to_test(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
-
+def add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
         pool = Pool()
         for snp in info:
             for pheno in lookup_files:
@@ -138,7 +136,6 @@ def test_snp(config, info, source_group, source_cutoff_pval_min, source_cutoff_p
     header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
     header = [h.lower() for h in header]
     pval_index = header.index("pvalue")
-
     # Is there a column specifying the trait / gene / feature in the lookup target file?
     # If so, get the index of it
     if "trait" in header:
