@@ -46,37 +46,41 @@ def main():
  
     # Write headers
     for source_group in config["source_groups"]:
-        for source_cutoff_pval in config["source_groups"][source_group]["source_cutoff_pvals"]:
-            for source_window in config["source_groups"][source_group]["source_windows"]:
+        for source_window in config["source_groups"][source_group]["source_windows"]:
 
-                gwas_snps_file = "{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(
-                        config["output_directory"], config["output_base"], source_cutoff_pval, 
-                        source_window, source_group)
+            gwas_snps_file = "{0}/{1}_{5}_source-pval-min-{2}_source-pval-max-{3}_source-window{4}_snps-considered.txt".format(
+                    config["output_directory"], config["output_base"], config["source_groups"][source_group]["source_cutoff_pval_min"], 
+                    config["source_groups"][source_group]["source_cutoff_pval_max"], source_window, source_group)
 
-                with open(gwas_snps_file, "w") as w:
-                    w.write("chr\tsnp_pos\tpvalue\ttrait\tsource_file\n")
+            with open(gwas_snps_file, "w") as w:
+                w.write("chr\tsnp_pos\tpvalue\ttrait\tsource_file\n")
 
-                for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
+            for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
 
-                    for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
+                for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
 
-                        for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
+                    for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
 
-                            overlap_tests_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(
-                                    config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, 
-                                    source_window, lookup_window, source_group, lookup_group)
-                            all_pairs_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(
-                                    config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, 
-                                    source_window, lookup_window, source_group, lookup_group)
-                            
-                            with open(overlap_tests_file, "w") as w:
-                                w.write("chr\tsnp_pos\tsource_file\tlookup_file\tsource_trait\tsource_pvalue\tlookup_pvalue\tlookup_trait\n")
-                                w.flush()
+                        overlap_tests_file = "{0}/{1}_{7}_{8}_source-pval-min-{2}_source-pval-max-{3}_lookup-pval{4}_source-window{5}_lookup-window{6}_coloc-tests.txt".format(
+                                config["output_directory"], config["output_base"], 
+                                config["source_groups"][source_group]["source_cutoff_pval_min"],
+                                config["source_groups"][source_group]["source_cutoff_pval_max"], lookup_cutoff_pval, 
+                                source_window, lookup_window, source_group, lookup_group)
+                        all_pairs_file = "{0}/{1}_{7}_{8}_source-pval-min-{2}_source-pval-max-{3}_lookup-pval{4}_source-window{5}_lookup-window{6}_snp-trait-pairs-considered.txt".format(
+                                config["output_directory"], config["output_base"], 
+                                config["source_groups"][source_group]["source_cutoff_pval_min"], 
+                                config["source_groups"][source_group]["source_cutoff_pval_max"],
+                                lookup_cutoff_pval, 
+                                source_window, lookup_window, source_group, lookup_group)
+                        
+                        with open(overlap_tests_file, "w") as w:
+                            w.write("chr\tsnp_pos\tsource_file\tlookup_file\tsource_trait\tsource_pvalue\tlookup_pvalue\tlookup_trait\n")
+                            w.flush()
 
-                            if "output_nonpassing_pairs" in config and str(config["output_nonpassing_pairs"]) == "True":
+                        if "output_nonpassing_pairs" in config and str(config["output_nonpassing_pairs"]) == "True":
 
-                                with open(all_pairs_file, "w") as w:
-                                    w.write("chr\tsnp_pos\tsource_pvalue\tlookup_pvalue\tlookup_trait\tlookup_file\n")
+                            with open(all_pairs_file, "w") as w:
+                                w.write("chr\tsnp_pos\tsource_pvalue\tlookup_pvalue\tlookup_trait\tlookup_file\n")
 
     # Now start searching for colocalization candidates
     for source_group in config["source_groups"]:
@@ -84,50 +88,52 @@ def main():
         for source_file in config["source_groups"][source_group]["files"]:
             source_files.extend(glob.glob(source_file))
 
-        for source_cutoff_pval in config["source_groups"][source_group]["source_cutoff_pvals"]:
-            for source_window in config["source_groups"][source_group]["source_windows"]:
+        for source_window in config["source_groups"][source_group]["source_windows"]:
 
-                # Get the source GWAS SNPs to test for this parameter specification
-                for source_file in source_files:
+            # Get the source GWAS SNPs to test for this parameter specification
+            for source_file in source_files:
 
-                    print source_file 
+                print source_file 
 
-                    info = snps_by_threshold(source_file, source_cutoff_pval, source_file, config, window=source_window)
+                info = snps_by_threshold(source_file, config["source_groups"][source_group]["source_cutoff_pval_min"], 
+                        config["source_groups"][source_group]["source_cutoff_pval_max"], source_file, config, window=source_window)
 
-                    gwas_snps_file = "{0}/{1}_{4}_source-pval{2}_source-window{3}_snps-considered.txt".format(
-                            config["output_directory"], config["output_base"], source_cutoff_pval, 
-                            source_window, source_group)
+                gwas_snps_file = "{0}/{1}_{5}_source-pval-min-{2}_source-pval-max-{3}_source-window{4}_snps-considered.txt".format(
+                        config["output_directory"], config["output_base"], config["source_groups"][source_group]["source_cutoff_pval_min"],
+                        config["source_groups"][source_group]["source_cutoff_pval_max"], source_window, source_group)
 
-                    # Run SNPs in parallel across multiple threads
-                    for snp in info:
-                        with open(gwas_snps_file, "a") as a:
-                            a.write("\t".join([str(s) for s in snp]) + "\t" + source_file + "\n")
-                    for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
-                        lookup_files = []
-                        for lookup_file in config["lookup_groups"][lookup_group]["files"]:
-                            lookup_files.extend(glob.glob(lookup_file))
-                        
-                        for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
-                            for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
-                                add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
+                # Run SNPs in parallel across multiple threads
+                for snp in info:
+                    with open(gwas_snps_file, "a") as a:
+                        a.write("\t".join([str(s) for s in snp]) + "\t" + source_file + "\n")
+                for lookup_group in config["source_groups"][source_group]["lookup_targets"]:
+                    lookup_files = []
+                    for lookup_file in config["lookup_groups"][lookup_group]["files"]:
+                        lookup_files.extend(glob.glob(lookup_file))
+                    
+                    for lookup_cutoff_pval in config["source_groups"][source_group]["lookup_targets"][lookup_group]["cutoff_pvals"]:
+                        for lookup_window in config["source_groups"][source_group]["lookup_targets"][lookup_group]["windows"]:
+                            add_snps_to_test(config, info, source_group, config["source_groups"][source_group]["source_cutoff_pval_min"], 
+                                    config["source_groups"][source_group]["source_cutoff_pval_max"],
+                                    source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
 
-def add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
+def add_snps_to_test(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
 
         pool = Pool()
         for snp in info:
             for pheno in lookup_files:
-                pool.apply_async(test_wrapper, args=(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno))
+                pool.apply_async(test_wrapper, args=(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno))
         pool.close()
         pool.join()
 
-def test_wrapper(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
+def test_wrapper(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
     try:
-        test_snp(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno)
+        test_snp(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno)
     except Exception:
         traceback.print_exc(file=sys.stdout)
 
 
-def test_snp(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
+def test_snp(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files, snp, pheno):
     # Get header to locate columns of interest
     header = subprocess.check_output("zcat {0} 2> /dev/null | head -n 1".format(pheno), shell=True).strip().split("\t")
     header = [h.lower() for h in header]
@@ -167,8 +173,8 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
     wide_matches = sorted(wide_matches, key=operator.itemgetter(pval_index))
 
     # Destination files where snp lists will be written
-    all_pairs_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
-    overlap_test_file = "{0}/{1}_{6}_{7}_source-pval{2}_lookup-pval{3}_source-window{4}_lookup-window{5}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+    all_pairs_file = "{0}/{1}_{7}_{8}_source-pval-min-{2}_source-pval-max-{3}_lookup-pval{4}_source-window{5}_lookup-window{6}_snp-trait-pairs-considered.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval_min, source_cutoff_pval_max, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
+    overlap_test_file = "{0}/{1}_{7}_{8}_source-pval-min-{2}_source-pval-max-{3}_lookup-pval{4}_source-window{5}_lookup-window{6}_coloc-tests.txt".format(config["output_directory"], config["output_base"], source_cutoff_pval_min, source_cutoff_pval_max, lookup_cutoff_pval, source_window, lookup_window, source_group, lookup_group)
 
     lookup_traits_considered = set([])
 
@@ -199,7 +205,7 @@ def test_snp(config, info, source_group, source_cutoff_pval, source_window, sour
 		    matched.add(lookup_trait)
 
 
-def snps_by_threshold(source_file, source_threshold, default_trait, config, window):
+def snps_by_threshold(source_file, source_min_threshold, source_max_threshold, default_trait, config, window):
 
     trait = default_trait
 
@@ -208,6 +214,7 @@ def snps_by_threshold(source_file, source_threshold, default_trait, config, wind
 
     with gzip.open(source_file) as f:
         header = f.readline().strip().split()
+        header = [h.lower() for h in header]
 
         if "trait" in header:
             source_trait_index = header.index("trait")
@@ -239,7 +246,8 @@ def snps_by_threshold(source_file, source_threshold, default_trait, config, wind
             chr = data[chr_index]
             pos = int(data[snp_pos_index])
             snp_counts[trait] = snp_counts.get(trait, 0) + 1
-            if pvalue > source_threshold:
+            if pvalue < source_min_threshold or \
+                    pvalue > source_max_threshold:
                 continue
 
             all_snps.append((chr, pos, pvalue, trait))

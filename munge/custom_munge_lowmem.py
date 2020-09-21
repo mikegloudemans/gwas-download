@@ -190,7 +190,7 @@ def sort_and_index_file(study, trait, in_file, config):
 def write_header(study, out_file):
     # Assemble the header based on what attributes are included in the file
 
-    header = ["rsid", "chrom", "pos"]
+    header = ["rsid", "chr", "snp_pos"]
 
     if "pvalue_index" in study:
         header.append("pvalue")
@@ -424,7 +424,7 @@ def write_tmp_file(study, trait, in_file, config):
                 elif "or_index" in study and int(study["direction_index"]) == int(study["or_index"]):
                     try:
                         odds_r = float(odds_r)
-                        direction = "+" if zscore > 1 else "-"
+                        direction = "+" if odds_r > 1 else "-"
                     except:
                         direction = ""
 
@@ -473,6 +473,11 @@ def get_source_build(study, config, iters = 100000):
         open_fct = open
 
     with open_fct(in_file) as f:
+        
+        # Skip a line if there's a header; we don't need it
+        if "no_header" not in study or study["no_header"] == "False":
+            f.readline()
+
         for build in config["pos_to_rsid"]:
             scores[build] = 0
         for i in xrange(iters): 
