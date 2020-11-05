@@ -115,7 +115,7 @@ def main():
                                     config["source_groups"][source_group]["source_cutoff_pval_max"],
                                     source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files)
 
-def add_snps_to_test(config, info, source_group, source_cutoff_pval, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
+def add_snps_to_test(config, info, source_group, source_cutoff_pval_min, source_cutoff_pval_max, source_window, source_file, lookup_group, lookup_cutoff_pval, lookup_window, lookup_files):
         pool = Pool()
         for snp in info:
             for pheno in lookup_files:
