@@ -12,7 +12,6 @@ import gzip
 import subprocess
 import sys
 import operator
-import pandas as pd
 sys.path.insert(0, '/users/mgloud/projects/brain_gwas/scripts')
 import json
 from multiprocessing import Pool
