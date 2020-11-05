@@ -23,8 +23,8 @@ import copy
 # (to be made part of config eventually)
 #####################################################
 
-hg18_dbsnp = "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz"
-hg19_dbsnp = "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz"
+#hg18_dbsnp = "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz"
+#hg19_dbsnp = "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz"
 hg38_dbsnp = "dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz"
 
 valid_chroms = [str(i+1) for i in range(22)]
@@ -256,8 +256,12 @@ def write_tmp_file(study, trait, in_file, config):
             if (not config["debug"] is None) and rows_read > config["debug"]:
                 break
 
-            data = line.strip().split(study["delimiter"]) + [""]*10 # hack to create default values when none exists
+            # Split on whitespace
+            if study["delimiter"] == "":
+                study["delimiter"] = None
 
+            data = line.strip().split(study["delimiter"]) + [""]*10 # hack to create default values when none exists
+            
             # Data to be written to the line in the output file
             # We will build up this line
             out_data = []
@@ -280,8 +284,6 @@ def write_tmp_file(study, trait, in_file, config):
                     chrom, pos = config["rsid_to_pos"][raw_rs]
                 else:
                     continue
-
-
             else:
                 assert "chr_index" in study and "snp_pos_index" in study
             
@@ -543,8 +545,8 @@ def load_rsid_to_pos(rsid_to_pos_file, config):
 
 def load_pos_to_rsid_all(config):
     pos_to_rsid = {}
-    pos_to_rsid["hg18"] = load_pos_to_rsid(hg18_dbsnp, config)
-    pos_to_rsid["hg19"] = load_pos_to_rsid(hg19_dbsnp, config)
+    #pos_to_rsid["hg18"] = load_pos_to_rsid(hg18_dbsnp, config)
+    #pos_to_rsid["hg19"] = load_pos_to_rsid(hg19_dbsnp, config)
     pos_to_rsid["hg38"] = load_pos_to_rsid(hg38_dbsnp, config)
     return pos_to_rsid
 
