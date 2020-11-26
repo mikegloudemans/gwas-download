@@ -15,6 +15,9 @@ import random
 import operator
 import copy
 
+from datetime import datetime
+
+
 # Custom script for munging all GWAS files, according to specifications
 # given in a separate JSON file.
 
@@ -118,6 +121,8 @@ def munge_trait(study, trait, config):
 
     print "Current trait:", trait
 
+    print_now()
+
     # Some studies have several p-values for different traits, listed
     # in the same file. For these ones, we need to do something slightly different
     if "multi_column" in study:
@@ -178,7 +183,8 @@ def sort_and_index_file(study, trait, in_file, config):
 
     # TODO: This is unsafe. Fix it using Popen
     write_header(study, out_file)
-    
+   
+    print_now() 
     subprocess.check_call("tail -n +2 {1} | sort -k2,2 -k3,3n >> {0}".format(out_file, config["tmp_file"]), shell=True) 
 
     # Bgzip the output file
@@ -186,6 +192,7 @@ def sort_and_index_file(study, trait, in_file, config):
 
     # Tabix the output file
     subprocess.check_call(["tabix", "-f", "-s", "2", "-b", "3", "-e", "3", "-S", "1", out_file+".gz"])
+    print_now() 
     
 def write_header(study, out_file):
     # Assemble the header based on what attributes are included in the file
@@ -640,6 +647,10 @@ def set_default_dbsnp(settings):
     }
     return settings
 
+def print_now():
+	now = datetime.now()
+	current_time = now.strftime("%H:%M:%S")
+	print("Current Time =", current_time)
 
 
 if __name__ == "__main__":
