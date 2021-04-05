@@ -58,8 +58,12 @@ def main():
 
 def apply_study_filters(config):
 	study_list = []
+	
+	# Config option may let us skip files that have
+	# already been processed
+	done_skipping_studies = not "skip_to_study" in config
+	done_skipping_traits = not "skip_to_trait" in config
 
-	active = not "skip_ahead_to" in config
 	for study in config["studies"]:
 
 		# If we're confining the ones we run to only a shortlist,
@@ -74,11 +78,21 @@ def apply_study_filters(config):
 
 		# If we're skipping over some subset of the GWAS files
 		# this will be specified in the config file
-		if "skip_ahead_to" in config and config["skip_ahead_to"] in study["study_info"]:
-			active = True
-		if not active:
+		if not done_skipping_studies and "skip_to_study" in config and config["skip_to_study"] in study["study_info"]:
+			done_skipping_studies = True
+		if not done_skipping_studies:
 			continue
-	
+
+		if not done_skipping_traits and "skip_to_trait" in config:
+			for trait in sorted(study["traits"].keys()):
+				if trait == config["skip_to_trait"]:
+					done_skipping_traits = True
+					break
+				else:
+					del study["traits"][trait]
+		if not done_skipping_traits:
+			continue
+
 		study_list.append(study)
 
 	return(study_list)
@@ -242,7 +256,7 @@ def munge_study(study, config, block):
 
 	# Parse each input trait separately, and
 	# keep them in separate files for convenience.
-	for trait in study["traits"]:
+	for trait in sorted(study["traits"].keys()):
 		munge_trait(study, trait, config, block)
 
 def munge_trait(study, trait, config, block):
@@ -268,27 +282,15 @@ def munge_trait(study, trait, config, block):
 	#   originals because it's really not necessary)
 	# - write a file header
 
+	glob_files = []
 	for file_chunk in file_chunks:
 		
 		# Glob out traits with wildcards in filename
 		unglobbed_filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
-		glob_files = glob.glob(unglobbed_filename)
+		glob_files.extend(glob.glob(unglobbed_filename))
 
-		for filename in glob_files:
-			
-			# Determine if gzip format
-			if filename.endswith(".gz"):
-				format = "gzip"
-			else:
-				format = "txt"
-
-			if format == "gzip":
-				with gzip.open(filename) as in_file:
-					write_tmp_file(study, trait, in_file, config, block)
-			else:
-				with open(filename) as in_file:
-					write_tmp_file(study, trait, in_file, config, block)
-	
+	write_tmp_file(study, trait, glob_files, config, block)
+		
 	print "Finished trait:", trait, "block", block
 
 def sort_and_index_file(study, trait, config):
@@ -363,22 +365,39 @@ def write_header(study, out_file):
 	with open(out_file, "w") as w:
 		w.write(header_line)
 
-def write_tmp_file(study, trait, in_file, config, block):
+def write_tmp_file(study, trait, glob_files, config, block):
 
 	if "output_file" in study:
 		# This is only used in cases where we want to output multiple files under a single
 		# study's directory. This would usually happen if the study contains
 		# input files with different formats.
 		subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], config["genome_build"], study["output_file"]), shell=True)
-		out_file = "{0}/{1}/{2}/{3}.txt".format(config["output_base_dir"], config["genome_build"], study["output_file"], trait)
 		tmp_file = "{0}/{1}/{2}/{3}.tmp".format(config["output_base_dir"], config["genome_build"], study["output_file"], trait)
 	else:
 		subprocess.call("mkdir -p {0}/{1}/{2}".format(config["output_base_dir"], config["genome_build"], study["study_info"]), shell=True)
-		out_file = "{0}/{1}/{2}/{3}.txt".format(config["output_base_dir"], config["genome_build"], study["study_info"], trait)
 		tmp_file = "{0}/{1}/{2}/{3}.tmp".format(config["output_base_dir"], config["genome_build"], study["study_info"], trait)
 
+	for filename in glob_files:
+		
+		# Determine if gzip format
+		if filename.endswith(".gz"):
+			format = "gzip"
+		else:
+			format = "txt"
 
+		if format == "gzip":
+			with gzip.open(filename) as in_file:
+				write_tmp_file_helper(study, trait, in_file, config, block, tmp_file)
+		else:
+			with open(filename) as in_file:
+				write_tmp_file_helper(study, trait, in_file, config, block, tmp_file)
 
+	# Indicate we're finished with this chunk of the file, so sort jobs know
+	with open(tmp_file + "completion", "a") as a:
+		a.write("{0}\n".format(block))
+
+def write_tmp_file_helper(study, trait, in_file, config, block, tmp_file):
+	
 	with open("{0}_block{1}".format(tmp_file, block), "a") as a:
 
 		# Write a temporary output file with all the key info
@@ -393,6 +412,10 @@ def write_tmp_file(study, trait, in_file, config, block):
 		for i in range(study["skip_rows"]):
 			in_file.readline()
 
+		# Split on whitespace
+		if study["delimiter"] == "":
+			study["delimiter"] = None
+
 		# Then get started with processing the file
 		rows_read = 0
 		for line in in_file:
@@ -401,10 +424,6 @@ def write_tmp_file(study, trait, in_file, config, block):
 			rows_read += 1
 			if (not config["debug"] is None) and rows_read > config["debug"]:
 				break
-
-			# Split on whitespace
-			if study["delimiter"] == "":
-				study["delimiter"] = None
 
 			data = line.strip().split(study["delimiter"]) + [""]*10 # hack to create default values when none exists
 			
@@ -599,10 +618,6 @@ def write_tmp_file(study, trait, in_file, config, block):
 			out_line = "\t".join([str(s) for s in out_data]) + "\n"
 
 			a.write(out_line)
-
-	# Indicate we're finished with this chunk of the file, so sort jobs know
-	with open(tmp_file + "completion", "a") as a:
-		a.write("{0}\n".format(block))
 
 # Auto-determine the genome build of a GWAS by coordinates
 def get_source_build(study, config, iters = 100000):
