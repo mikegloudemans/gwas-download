@@ -2737,15 +2737,6 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007241/SCOOP_UKHLS_ldcorrected.gz -P BMI_Riveros-McKay_2019
 wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/Riveros-McKayF_30677029_GCST007240/SCOOP_STILTS_ldcorrected.gz -P BMI_Riveros-McKay_2019
 
-# https://www.ncbi.nlm.nih.gov/pubmed/31194788
-# GWAS and PheWAS of red blood cell components in a Northern Nevadan cohort.
-# PMID: 31194788 PMCID: PMC6564422 DOI: 10.1371/journal.pone.0218078 
-mkdir Platelet-Traits_Read_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008166/RR_MCV_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008166/ReadRW_31194788_readme.txt -P Platelet-Traits_Read_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008167/RR_MPV_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
-wget ftp://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ReadRW_31194788_GCST008168/RR_PC_Top10000_Oct12018.txt -P Platelet-Traits_Read_2019
-
 # https://www.ncbi.nlm.nih.gov/pubmed/26352407
 # Genome-Wide Association Study with Targeted and Non-targeted NMR Metabolomics Identifies 15 Novel Loci of Urinary Human Metabolic Individuality. 
 # PMID: 26352407 PMCID: PMC4564198 DOI: 10.1371/journal.pgen.1005487 

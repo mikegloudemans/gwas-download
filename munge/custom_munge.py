@@ -26,8 +26,8 @@ from datetime import datetime
 # (to be made part of config eventually)
 #####################################################
 
-#hg18_dbsnp = "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz"
-#hg19_dbsnp = "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz"
+hg18_dbsnp = "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz"
+hg19_dbsnp = "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz"
 hg38_dbsnp = "dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz"
 
 valid_chroms = [str(i+1) for i in range(22)]
@@ -47,59 +47,58 @@ def main():
 	# separate files. It's tempting to think we'd just put chrom and pos
 	# for all genome builds in the same file, but then this fails when it's
 	# time to sort and tabix.
-	for genome in config["genome_build"]:
-		if genome == "hg38":
-			config["rsid_to_pos"] = load_rsid_to_pos_hg38(config)
-		elif genome == "hg19":
-			config["rsid_to_pos"] = load_rsid_to_pos_hg19(config)
-		else:
-			raise Exception("Invalid genome build: %s" % genome_build)
+	if config["genome_build"] == "hg38":
+		config["rsid_to_pos"] = load_rsid_to_pos(hg38_dbsnp, config)
+	elif config["genome_build"] == "hg19":
+		config["rsid_to_pos"] = load_rsid_to_pos(hg19_dbsnp, config)
+	else:
+		raise Exception("Invalid genome build: %s" % config["genome_build"])
 
-		# Config option may let us skip files that have
-		# already been processed
-		done_skipping_studies = not "skip_to_study" in config
-		done_skipping_traits = not "skip_to_trait" in config
+	# Config option may let us skip files that have
+	# already been processed
+	done_skipping_studies = not "skip_to_study" in config
+	done_skipping_traits = not "skip_to_trait" in config
 
-		# Munge every study from the config list, one at a time
-		for study in config["studies"]:
+	# Munge every study from the config list, one at a time
+	for study in config["studies"]:
 
-			# If we're confining the ones we run to only a shortlist,
-			# then we'll skip over this file if it's not in that list
-			if "shortlist" in config and study["study_info"] not in config["shortlist"]:
-				continue
-			
-			# Skip over any files that have been blacklisted
-			# in the config file
-			if "blacklist" in config and study["study_info"] in config["blacklist"]:
-				continue
+		# If we're confining the ones we run to only a shortlist,
+		# then we'll skip over this file if it's not in that list
+		if "shortlist" in config and study["study_info"] not in config["shortlist"]:
+			continue
+		
+		# Skip over any files that have been blacklisted
+		# in the config file
+		if "blacklist" in config and study["study_info"] in config["blacklist"]:
+			continue
 
-			# If we're skipping over some subset of the GWAS files
-			# this will be specified in the config file
-			if not done_skipping_studies and "skip_to_study" in config and config["skip_to_study"] in study["study_info"]:
-				done_skipping_studies = True
-			if not done_skipping_studies:
-				continue
+		# If we're skipping over some subset of the GWAS files
+		# this will be specified in the config file
+		if not done_skipping_studies and "skip_to_study" in config and config["skip_to_study"] in study["study_info"]:
+			done_skipping_studies = True
+		if not done_skipping_studies:
+			continue
 
-			if not done_skipping_traits and "skip_to_trait" in config:
-				for trait in sorted(study["traits"].keys()):
-					if trait == config["skip_to_trait"]:
-						done_skipping_traits = True
-						break
-					else:
-						del study["traits"][trait]
-			if not done_skipping_traits:
-				continue
+		if not done_skipping_traits and "skip_to_trait" in config:
+			for trait in sorted(study["traits"].keys()):
+				if trait == config["skip_to_trait"]:
+					done_skipping_traits = True
+					break
+				else:
+					del study["traits"][trait]
+		if not done_skipping_traits:
+			continue
 
-			study_specs = copy.deepcopy(study)
-			study_specs["genome"] = genome
+		study_specs = copy.deepcopy(study)
+		study_specs["genome"] = config["genome_build"]
 
-			try:
-				munge_study(study_specs, config)
-			except Exception as e:
-				# Log problems to an error file, then move on
-				with open(config["error_log"], "a") as a:
-					a.write(study["study_info"] + "\n")
-				traceback.print_exc(file=sys.stdout)
+		try:
+			munge_study(study_specs, config)
+		except Exception as e:
+			# Log problems to an error file, then move on
+			with open(config["error_log"], "a") as a:
+				a.write(study["study_info"] + "\n")
+			traceback.print_exc(file=sys.stdout)
 
 
 def munge_study(study, config):
@@ -116,6 +115,11 @@ def munge_study(study, config):
 	else:
 		study["skip_rows"] = int(study["skip_rows"])
 
+
+	# Split on whitespace
+	if study["delimiter"] == "" or study["delimiter"] == "\\s+":
+		study["delimiter"] = None
+
 	# Get the source build: this only needs to be done once per study
 	# even if there are multiple traits in the study.
 	# (If files for individual traits are not consistently formatted, then they
@@ -125,7 +129,7 @@ def munge_study(study, config):
 
 	# Parse each input trait separately, and
 	# keep them in separate files for convenience.
-	for trait in study["traits"]:
+	for trait in sorted(study["traits"].keys()):
 		munge_trait(study, trait, config)
 
 def munge_trait(study, trait, config):
@@ -153,14 +157,15 @@ def munge_trait(study, trait, config):
 	#   originals because it's really not necessary)
 	# - write a file header
 
+	if os.path.exists(config["tmp_file"]):
+		os.remove(config["tmp_file"])
+
 	for file_chunk in file_chunks:
-		
 		# Glob out traits with wildcards in filename
 		unglobbed_filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
 		glob_files = glob.glob(unglobbed_filename)
-
 		for filename in glob_files:
-			
+
 			# Determine if gzip format
 			if filename.endswith(".gz"):
 				format = "gzip"
@@ -169,16 +174,14 @@ def munge_trait(study, trait, config):
 
 			if format == "gzip":
 				with gzip.open(filename) as in_file:
-					process_file(study, trait, in_file, config)
+					write_tmp_file(study, trait, in_file, config)
 			else:
 				with open(filename) as in_file:
-					process_file(study, trait, in_file, config)
+					write_tmp_file(study, trait, in_file, config)
 
-def process_file(study, trait, in_file, config):
-	write_tmp_file(study, trait, in_file, config)
-	sort_and_index_file(study, trait, in_file, config)
+	sort_and_index_file(study, trait, config)
 
-def sort_and_index_file(study, trait, in_file, config):
+def sort_and_index_file(study, trait, config):
 
 	# Sort the new table and write it to its final destination file
 	if "output_file" in study:
@@ -195,15 +198,13 @@ def sort_and_index_file(study, trait, in_file, config):
 	# TODO: This is unsafe. Fix it using Popen
 	write_header(study, out_file)
    
-	print_now() 
-	subprocess.check_call("tail -n +2 {1} | sort -k2,2 -k3,3n >> {0}".format(out_file, config["tmp_file"]), shell=True) 
+	subprocess.check_call("sort -k2,2 -k3,3n {1} >> {0}".format(out_file, config["tmp_file"]), shell=True) 
 
 	# Bgzip the output file
 	subprocess.check_call(["bgzip", "-f", out_file])
 
 	# Tabix the output file
 	subprocess.check_call(["tabix", "-f", "-s", "2", "-b", "3", "-e", "3", "-S", "1", out_file+".gz"])
-	print_now() 
 	
 def write_header(study, out_file):
 	# Assemble the header based on what attributes are included in the file
@@ -255,7 +256,7 @@ def write_tmp_file(study, trait, in_file, config):
 	# Write a temporary output file with all the key info
 	# We don't need to write the header yet, since it's all
 	# going to get re-sorted soon anyway
-	with open(config["tmp_file"], "w") as w:
+	with open(config["tmp_file"], "a") as w:
 
 		# Skip a line if there's a header; we don't need it
 		if "no_header" not in study or study["no_header"] == "False":
@@ -274,12 +275,11 @@ def write_tmp_file(study, trait, in_file, config):
 			if (not config["debug"] is None) and rows_read > config["debug"]:
 				break
 
-			# Split on whitespace
-			if study["delimiter"] == "":
-				study["delimiter"] = None
-
 			data = line.strip().split(study["delimiter"]) + [""]*10 # hack to create default values when none exists
 			
+			#if rows_read < 50:
+			#	print data
+
 			# Data to be written to the line in the output file
 			# We will build up this line
 			out_data = []
@@ -316,10 +316,11 @@ def write_tmp_file(study, trait, in_file, config):
 				if chrom.strip() == "" or snp_pos.strip() == "":
 					continue
 
+				chrom = chrom.replace('chr', '')
+
 				# Get rid of the line if chromosome isn't valid
 				if chrom not in valid_chroms:
 					continue
-				chrom = chrom.replace('chr', '')
 				try:
 					chrom = int(chrom)
 				except:
@@ -369,7 +370,6 @@ def write_tmp_file(study, trait, in_file, config):
 					continue
 
 				out_data.append(pvalue)
-
 			elif "log_pvalue_index" in study:
 				pvalue = data[int(study["log_pvalue_index"])-1]
 
@@ -397,7 +397,6 @@ def write_tmp_file(study, trait, in_file, config):
 			if "tstat_index" in study:
 				tstat = data[int(study["tstat_index"])-1]
 				out_data.append(tstat)
-
 			if "or_index" in study:
 				odds_r = data[int(study["or_index"])-1]
 				out_data.append(odds_r)
@@ -454,7 +453,6 @@ def write_tmp_file(study, trait, in_file, config):
 				out_data.append(direction)
 
 			out_line = "\t".join([str(s) for s in out_data]) + "\n"
-
 			w.write(out_line)
 
 # Auto-determine the genome build of a GWAS by coordinates
@@ -480,7 +478,6 @@ def get_source_build(study, config, iters = 100000):
 
 	# Glob out traits with wildcards in filename
 	unglobbed_filename = "/".join([config["input_base_dir"], study["study_info"], file_chunk])
-	print unglobbed_filename
 	glob_files = glob.glob(unglobbed_filename)
 
 	# Just take the first file for getting the genome build
@@ -501,9 +498,10 @@ def get_source_build(study, config, iters = 100000):
 		for build in config["pos_to_rsid"]:
 			scores[build] = 0
 		for i in xrange(iters): 
-			line = f.readline()
- 
-			data = line.strip().split(study["delimiter"])
+			line = f.readline().strip()
+			if line == "":
+				continue
+			data = line.split(study["delimiter"])
 
 			chrom = data[int(study["chr_index"]) - 1]
 			snp_pos = data[int(study["snp_pos_index"]) - 1]
@@ -530,12 +528,6 @@ def get_source_build(study, config, iters = 100000):
 	return sorted(scores.items(), reverse=True, key=operator.itemgetter(1))[0][0]
 					
 			
-def load_rsid_to_pos_hg19(config):
-	return load_rsid_to_pos("dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz", config)
-
-def load_rsid_to_pos_hg38(config):
-	return load_rsid_to_pos("dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz", config)
-
 def load_rsid_to_pos(rsid_to_pos_file, config):
 	rsid_to_pos = {}
 	with gzip.open(rsid_to_pos_file) as f:
@@ -563,8 +555,8 @@ def load_rsid_to_pos(rsid_to_pos_file, config):
 
 def load_pos_to_rsid_all(config):
 	pos_to_rsid = {}
-	#pos_to_rsid["hg18"] = load_pos_to_rsid(hg18_dbsnp, config)
-	#pos_to_rsid["hg19"] = load_pos_to_rsid(hg19_dbsnp, config)
+	pos_to_rsid["hg18"] = load_pos_to_rsid(hg18_dbsnp, config)
+	pos_to_rsid["hg19"] = load_pos_to_rsid(hg19_dbsnp, config)
 	pos_to_rsid["hg38"] = load_pos_to_rsid(hg38_dbsnp, config)
 	return pos_to_rsid
 
@@ -597,13 +589,6 @@ def load_pos_to_rsid(pos_to_rsid_file, config):
 				break
 
 	return pos_to_rsid
-
-def is_int(s):
-	try:
-		int(float(s))
-		return True
-	except:
-		return False
 
 def load_config(cwd):
 	# Find location of config file and open it
@@ -638,25 +623,6 @@ def load_config(cwd):
 		pass
 
 	return config
-
-# Specify the location of indexed dbsnp files
-def set_default_dbsnp(settings):
-	settings = copy.deepcopy(settings)
-	settings["dbsnp_files"] = \
-	{
-			"pos_to_rsid":
-			{
-				"hg18": "dbsnp/sorted_1kg_matched_hg18_snp150.txt.gz",
-				"hg19": "dbsnp/sorted_1kg_matched_hg19_snp150.txt.gz",
-				"hg38": "dbsnp/sorted_1kg_matched_hg38_snp150.txt.gz"
-			},
-			"rsid_to_pos":
-			{
-				"hg19": "",
-				"hg38": ""
-			}
-	}
-	return settings
 
 def print_now():
 	now = datetime.now()
