@@ -335,7 +335,10 @@ def write_tmp_file(study, trait, in_file, config):
 				else:
 					continue
 
-				chrom, pos = config["rsid_to_pos"][raw_rs]
+				if raw_rs in config["rsid_to_pos"]:
+					chrom, pos = config["rsid_to_pos"][raw_rs]
+				else:
+					continue
 
 			out_data.extend([rsid, chrom, pos])
  
@@ -497,32 +500,32 @@ def get_source_build(study, config, iters = 100000):
 
 		for build in config["pos_to_rsid"]:
 			scores[build] = 0
-		for i in xrange(iters): 
-			line = f.readline().strip()
-			if line == "":
-				continue
-			data = line.split(study["delimiter"])
+			for i in xrange(iters): 
+				line = f.readline().strip()
+				if line == "":
+					continue
+				data = line.split(study["delimiter"])
 
-			chrom = data[int(study["chr_index"]) - 1]
-			snp_pos = data[int(study["snp_pos_index"]) - 1]
+				chrom = data[int(study["chr_index"]) - 1]
+				snp_pos = data[int(study["snp_pos_index"]) - 1]
 
-			if study["chr_index"] == study["snp_pos_index"]:
-				chrom = chrom.split(study["snp_split_char"])[0]
-				snp_pos = snp_pos.split(study["snp_split_char"])[1]
+				if study["chr_index"] == study["snp_pos_index"]:
+					chrom = chrom.split(study["snp_split_char"])[0]
+					snp_pos = snp_pos.split(study["snp_split_char"])[1]
 
-			# Get rid of the line if there's no chrom or pos
-			if chrom.strip() == "" or snp_pos.strip() == "":
-				continue
+				# Get rid of the line if there's no chrom or pos
+				if chrom.strip() == "" or snp_pos.strip() == "":
+					continue
 
-			chrom = chrom.replace('chr', '')
-			try:
-				chrom = int(chrom)
-			except:
-				continue
-			snp_pos = int(float(snp_pos)) 
- 
-			if (chrom, snp_pos) in config["pos_to_rsid"][build]:
-				scores[build] += 1
+				chrom = chrom.replace('chr', '')
+				try:
+					chrom = int(chrom)
+				except:
+					continue
+				snp_pos = int(float(snp_pos)) 
+	 
+				if (chrom, snp_pos) in config["pos_to_rsid"][build]:
+					scores[build] += 1
 
 	print scores
 	return sorted(scores.items(), reverse=True, key=operator.itemgetter(1))[0][0]
