@@ -145,13 +145,13 @@ def test_snp(config, info, source_group, source_cutoff_pval_min, source_cutoff_p
         lookup_trait_index = header.index("feature")
     else:
         lookup_trait_index = -1
-  
+ 
     wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, str(snp[0]).replace("chr", ""), snp[1]-lookup_window, snp[1]+lookup_window), shell=True)
     if wide_matches == "":
         wide_matches = subprocess.check_output("tabix {0} {1}:{2}-{3}".format(pheno, "chr"+str(snp[0]).replace("chr", ""), snp[1]-lookup_window, snp[1]+lookup_window), shell=True)
         if wide_matches == "":
             return
-    
+   
     # Sort by pval so we can be sure we get the most significant SNP at the locus first
     wide_matches = wide_matches.strip().split("\n")
     wide_matches = [wm.split("\t") for wm in wide_matches]
