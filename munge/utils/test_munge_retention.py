@@ -29,7 +29,7 @@ for study in config["studies"]:
 			else:
 				start = config["input_base_dir"] + study["study_info"] + "/" + study["traits"][trait][i]
 			#finish = "/oak/stanford/groups/smontgom/mgloud/projects/gwas-download/gwas-download/munge/munged/2021-complete-compendium/hg38/{0}/{1}.txt.gz".format(study["study_info"], trait)
-			finish = "/oak/stanford/groups/smontgom/mgloud/projects/gwas-download/gwas-download/munge/munged/data-munged/2021-complete-compendium/hg38/{0}/{1}.txt.gz".format(study["study_info"], trait)
+			finish = "/oak/stanford/groups/smontgom/mgloud/projects/gwas-download/gwas-download/munge/munged/2021-troubleshooting/hg38/{0}/{1}.txt.gz".format(study["study_info"], trait)
 
 			if start.endswith(".gz"):
 				start_count += int(subprocess.run(f"zcat {start} 2> /dev/null | wc -l", capture_output=True, shell=True).stdout.decode("utf-8").strip().split()[0])

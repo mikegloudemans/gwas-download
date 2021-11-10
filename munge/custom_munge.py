@@ -74,7 +74,7 @@ def main():
 
 		# If we're skipping over some subset of the GWAS files
 		# this will be specified in the config file
-		if not done_skipping_studies and "skip_to_study" in config and config["skip_to_study"] in study["study_info"]:
+		if not done_skipping_studies and "skip_to_study" in config and ((config["skip_to_study"] in study["study_info"]) or ("output_file" in study and config["skip_to_study"] in study["output_file"])):
 			done_skipping_studies = True
 		if not done_skipping_studies:
 			continue
