@@ -1,6 +1,6 @@
 # gwas-download
 
-## One-click download of formatted GWAS summary stats from 400+ publications (newly updated as of 11/27/2021)
+## Download and consistently format GWAS summary stats from 400+ publications (updated 11/27/2021)
 
 ### A note on security and privacy
 
@@ -17,17 +17,14 @@ For a more detailed assessment of the risks of sharing GWAS summary statistics, 
 
 ### Download with Globus
 
-Every sorted, zipped, and indexed GWAS generated using the code in this repository is available 
-for public download from a Globus endpoint. To access this collection, you will need to use [Globus](https://www.globus.org/), 
-either with the command line tool installed on your compute server or with the free Globus Connect Personal desktop app.
-For information on how to do this, please consult the Globus documentation until you are ready to download the data as follows:
+Previously I was using a free Stanford resource to host processed versions of all the GWAS files. Unfortunately, this resource
+is no longer available to me and I have graduated and moved on to a different job so I am no longer able to host these files.
 
-The endpoint is called *gloudemans-gwas-sumstats* and is on the collection *SRCC-Oak*. 
-Please let me know if you find that this collection is not publicly viewable.
-
-The files included here have been sorted, bgzipped, and tabixed, and converted to a standardized format,
-as described in the `munge` module of this repository for compatibility with downstream analyses. You can
-perform these preprocessing steps yourself by following the directions below, but this will be much, much more time-consuming.
+However, although it's sadly no longer viable for me to host the already-processed versions, 
+you can still download any of the GWAS from over 400+ publications using the scripts described below.
+Additionally, by setting up the `munge` module on your own system, you can process and format the summary statistics
+not only for these publications, but also for the most recent GWAS publications (my download script only is up-to-date
+through sometime in 2021).
 
 ## Fast GWAS download script 
 
